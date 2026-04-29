@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/refs/heads/master/setting/schema-ja-jp.json",
+  "workspace": { "library": ["./external/lua_aviutl_definitions/aviutl2.lua"] },
+  "runtime.version": "Lua 5.1"
+}

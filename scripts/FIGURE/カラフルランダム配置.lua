@@ -1,0 +1,22 @@
+--track0:個数,0,1000,5,1
+--track1:X幅[%],0,5000,100
+--track2:Y幅[%],0,5000,100
+--track3:Z幅[%],0,5000,0
+--dialog:種類/fig,name="円";サイズ,f_size=100;ライン幅,f_line=4000;ランダムZ回転,rzv_ran=0;ランダム拡大[-%],s_ran=0;
+n = obj.track0
+for i = 0, n do
+	c = (obj.rand(0, 100, i, 100) - 50) / 100
+	if c < 0 then
+		c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * -c) * 255)
+	else
+		c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * c) * 255) * 65536
+	end
+	obj.load("figure", name, c, f_size, f_line)
+	obj.effect()
+	x = obj.rand(-obj.screen_w, obj.screen_w, i, 0) / 2 * obj.track1 / 100
+	y = obj.rand(-obj.screen_h, obj.screen_h, i, 1) / 2 * obj.track2 / 100
+	z = obj.rand(-1000, 1000, i, 2) / 2 * obj.track3 / 100
+	rz = rand(-100, 100, i, 3) / 100 * obj.time * rzv_ran
+	zoom = 1 - obj.rand(0, s_ran, i, 4) / 100
+	obj.draw(x, y, z, zoom, 1, 0, 0, rz)
+end

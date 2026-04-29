@@ -1,0 +1,27 @@
+#:schema ./.aviutl2-cli/aviutl2.schema.json
+# 設定ファイルについては https://github.com/sevenc-nanashi/aviutl2-cli を参照してください。
+[project]
+id = "sevenc-nanashi.ported_satsuki"
+name = "ported_satsuki"
+version = "0.1.0"
+
+[build_group]
+aulua = "aulua build"
+
+[artifacts.satsuki_anm2]
+source = "./build/satsuki.anm2"
+destination = "Script/satsuki.anm2"
+build.group = "aulua"
+
+[artifacts.satsuki_obj2]
+source = "./build/satsuki.obj2"
+destination = "Script/satsuki.obj2"
+build.group = "aulua"
+
+[artifacts.satsuki_tra2]
+source = "./build/satsuki.tra2"
+destination = "Script/satsuki.tra2"
+build.group = "aulua"
+
+[development]
+aviutl2_version = "latest"

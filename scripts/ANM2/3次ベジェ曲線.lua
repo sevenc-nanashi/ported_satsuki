@@ -1,0 +1,57 @@
+--track0:始制X,-500,500,0
+--track1:始制Y,-500,500,-100
+--track2:終制X,-500,500,0
+--track3:終制Y,-500,500,-100
+--dialog:始制Z,sza=0;終制Z,szb=0;補助線表示/chk,se=1;制御点色/col,color=0xff0000;
+obj.effect()
+--始点
+x0 = obj.getvalue("x", 0)
+y0 = obj.getvalue("y", 0)
+z0 = obj.getvalue("z", 0)
+xa = x0 - obj.getvalue("x", obj.time)
+ya = y0 - obj.getvalue("y", obj.time)
+za = z0 - obj.getvalue("z", obj.time)
+
+--終点
+x1 = obj.getvalue("x", obj.totaltime)
+y1 = obj.getvalue("y", obj.totaltime)
+z1 = obj.getvalue("z", obj.totaltime)
+xb = x1 - obj.getvalue("x", obj.time)
+yb = y1 - obj.getvalue("y", obj.time)
+zb = z1 - obj.getvalue("z", obj.time)
+
+--制御点
+sxa = obj.track0
+sya = obj.track1
+sxb = obj.track2
+syb = obj.track3
+
+--座標の計算
+t = obj.time / obj.totaltime
+obj.ox = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
+obj.oy = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
+obj.oz = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
+obj.draw()
+
+--補助線
+if se == 1 then
+	a = 1 / 2
+	obj.setoption("billboard", 3)
+	obj.load("figure", "円", color, 50)
+	obj.draw(xa, ya, za, 1, a)
+	obj.draw(xb, yb, zb, 1, a)
+	obj.setoption("billboard", 3)
+	obj.load("figure", "四角形", color, 50)
+	obj.draw(xa + sxa, ya + sya, za + sza, 1, a)
+	obj.draw(xb + sxb, yb + syb, zb + szb, 1, a)
+	obj.setoption("billboard", 3)
+	obj.load("figure", "円", color, 10)
+	n = 20
+	for i = 0, n - 1 do
+		t = i / n
+		x = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
+		y = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
+		z = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
+		obj.draw(x, y, z, 1, a)
+	end
+end

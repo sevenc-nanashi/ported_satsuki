@@ -1,0 +1,3 @@
+[submodule "external/lua_aviutl_definitions"]
+	path = external/lua_aviutl_definitions
+	url = https://github.com/karoterra/lua_aviutl_definitions.git

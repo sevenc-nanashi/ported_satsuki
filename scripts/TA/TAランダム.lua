@@ -1,0 +1,30 @@
+--track0:散逸度,0,100,50
+--track1:X速度,0,200,50
+--track2:Y速度,0,200,50
+--check0:拡大/透明も変化,0
+xscale = 0.5
+yscale = 0.5
+
+x = obj.ox
+y = obj.oy
+xsign = obj.rand(0, 1, obj.index, 1) == 1 and 1 or -1
+ysign = obj.rand(0, 1, obj.index, 2) == 1 and 1 or -1
+obj.ox = obj.rand(-obj.screen_w, obj.screen_w, obj.index, obj.track1) * xscale
+	+ obj.rand(1, obj.track1, obj.index, obj.track1) * xsign * obj.time
+obj.oy = obj.rand(-obj.screen_h, obj.screen_h, obj.index, obj.track2) * yscale
+	+ obj.rand(1, obj.track2, obj.index, obj.track2) * ysign * obj.time
+obj.rz = obj.rand(0, 359, obj.index, obj.track1) + obj.rand(8, 64, obj.index, obj.track1) * xsign * obj.time
+
+a = (100 - obj.track0) / 100
+b = obj.track0 / 100
+obj.ox = x * a + obj.ox * b
+obj.oy = y * a + obj.oy * b
+obj.rz = 0 + obj.rz * b
+
+if obj.check0 then
+	obj.zoom = obj.rand(1, 150, obj.index, obj.track1) / 100
+	obj.alpha = obj.rand(1, 100, obj.index, obj.track1) / 100
+
+	obj.zoom = 1 * a + obj.zoom * b
+	obj.alpha = 1 * a + obj.alpha * b
+end

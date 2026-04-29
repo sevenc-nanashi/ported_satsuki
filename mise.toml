@@ -1,0 +1,4 @@
+[tools]
+"cargo:aviutl2-cli" = "latest"
+"github:karoterra/aviutl2-aulua" = "latest"
+stylua = "latest"
