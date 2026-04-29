@@ -1,5 +1,13 @@
---track0:サイズ,1,256,34,1
---track1:タイプ,0,4,3,1
+---$track:サイズ
+---min=1
+---max=256
+---step=1
+local track0 = 34
+---$track:タイプ
+---min=0
+---max=4
+---step=1
+local track1 = 3
 --color:0xffffff
 r = math.floor(color / 16 ^ 4)
 g = math.floor((color - r * 16 ^ 4) / 256)
@@ -27,6 +35,6 @@ end
 rr = ST(math.floor(r / 16)) .. ST(r - math.floor(r / 16) * 16)
 gg = ST(math.floor(g / 16)) .. ST(g - math.floor(g / 16) * 16)
 bb = ST(math.floor(b / 16)) .. ST(b - math.floor(b / 16) * 16)
-obj.setfont("MS UI Cothic", obj.track0, obj.track1, 0xffffff, 0x000000)
+obj.setfont("MS UI Cothic", track0, track1, 0xffffff, 0x000000)
 col = "0x" .. rr .. gg .. bb
 obj.load("text", col)

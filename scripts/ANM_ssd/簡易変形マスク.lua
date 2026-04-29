@@ -1,16 +1,23 @@
---track0:時間経過,0,100,0
---track1:サイズ,0,2000,100
---track2:ライン幅,0,4000,4000,1
+---$track:時間経過
+---min=0
+---max=100
+local track0 = 0
+---$track:サイズ
+---min=0
+---max=2000
+local fsize = 100
+---$track:ライン幅
+---min=0
+---max=4000
+---step=1
+local line = 4000
 --dialog:図形/fig,name="四角形";反転/chk,han=0;座標,pos={-100,-100,100,-100,100,100,-100,100};分割数,div=8;描画方法(0〜4),mode=1;
-
-fsize = obj.track1
-line = obj.track2
 
 if obj.getoption("track_mode", 0) == 0 then
 	obj.setanchor("pos", 4, "loop")
 else
 	obj.setanchor("pos", 8, "loop", "inout")
-	s = obj.track0 / 100
+	s = track0 / 100
 	for i = 1, 8 do
 		pos[i] = pos[i] + (pos[i + 8] - pos[i]) * s
 	end

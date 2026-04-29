@@ -1,5 +1,9 @@
---track0:間隔[s],0,5,0.5,0.01
-t = math.floor(obj.time / obj.track0) * obj.track0
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local track0 = 0.5
+t = math.floor(obj.time / track0) * track0
 obj.ox = obj.getvalue("x", t) - obj.getvalue("x", obj.time)
 obj.oy = obj.getvalue("y", t) - obj.getvalue("y", obj.time)
 obj.oz = obj.getvalue("z", t) - obj.getvalue("z", obj.time)

@@ -1,13 +1,23 @@
---track0:個数,2,200,100,1
---track1:サイズ,0,100,4
---track2:高さ,0,500,100
---track3:幅,0,500,50
+---$track:個数
+---min=2
+---max=200
+---step=1
+local track0 = 100
+---$track:サイズ
+---min=0
+---max=100
+local size = 4
+---$track:高さ
+---min=0
+---max=500
+local lmax = 100
+---$track:幅
+---min=0
+---max=500
+local wmax = 50
 --dialog:種類/fig,fig="円";色/col,col=0xffffff;ライン幅,line=4000;変化速度[ms],fs=100;増加率,pl=0;
 
-n = math.floor(obj.track0 / 2)
-size = obj.track1
-lmax = obj.track2
-wmax = obj.track3
+n = math.floor(track0 / 2)
 obj.setoption("dst", "tmp", n * 5 * 2, lmax * 2 * 1.5)
 obj.load("figure", fig, col, size, line)
 obj.effect()

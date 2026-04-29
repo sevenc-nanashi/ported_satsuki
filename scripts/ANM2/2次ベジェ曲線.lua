@@ -1,6 +1,15 @@
---track0:制御X,-1000,1000,0
---track1:制御Y,-1000,1000,-100
---track2:制御Z,-1000,1000,0
+---$track:制御X
+---min=-1000
+---max=1000
+local track0 = 0
+---$track:制御Y
+---min=-1000
+---max=1000
+local track1 = -100
+---$track:制御Z
+---min=-1000
+---max=1000
+local track2 = 0
 --dialog:補助線表示/chk,hojo=1;補助線色/col,color=0xff0000;
 obj.effect()
 --始点
@@ -20,9 +29,9 @@ yb = y1 - obj.getvalue("y", obj.time)
 zb = z1 - obj.getvalue("z", obj.time)
 
 --制御点
-sx = obj.track0 + (xa + xb) / 2
-sy = obj.track1 + (ya + yb) / 2
-sz = obj.track2 + (za + zb) / 2
+sx = track0 + (xa + xb) / 2
+sy = track1 + (ya + yb) / 2
+sz = track2 + (za + zb) / 2
 
 --座標の計算
 t = obj.time / obj.totaltime

@@ -1,13 +1,24 @@
---track0:分割数,4,50,10,1
---track1:割合,0,100,50
---track2:回転,-720,720,0
---track3:サイズ,0,2000,200,1
+---$track:分割数
+---min=4
+---max=50
+---step=1
+local div = 10
+---$track:割合
+---min=0
+---max=100
+local track1 = 50
+---$track:回転
+---min=-720
+---max=720
+local r = 0
+---$track:サイズ
+---min=0
+---max=2000
+---step=1
+local s = 200
 --dialog:色1/col,col=0xff0000;色2(負値で透明)/col,col2=0xffff00;図形/fig,fig="円";横サイズ,w=800;縦サイズ,h=450;図形角度,figr=0;中心座標,pos={0,0};
 
-local div = obj.track0
-local val = obj.track1 / 100
-local r = obj.track2
-local s = obj.track3
+local val = track1 / 100
 
 obj.setanchor("pos", 1)
 local cx = pos[1]

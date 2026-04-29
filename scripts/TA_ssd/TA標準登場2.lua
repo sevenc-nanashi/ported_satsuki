@@ -1,12 +1,26 @@
---track0:時間[s],0,5,0.3,0.01
---track1:イン[s],-1,5,1,0.01
---track2:アウト[s],-1,5,1,0.01
---track3:登場順,0,5,2,1
+---$track:時間[s]
+---min=0
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:イン[s]
+---min=-1
+---max=5
+---step=0.01
+local in_time = 1
+---$track:アウト[s]
+---min=-1
+---max=5
+---step=0.01
+local out_time = 1
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 2
 --dialog:フェード/chk,fade=1;X距離,x=0;Y距離,y=0;Z距離,z=0;拡大,s=100;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;加減速[1-5],beki=2;アウトは逆方向/chk,gyaku=1;
 
 --インアウトがマイナスの時は最初or最後の中間点でフェードインアウト。数値の時は指定した秒数でフェードインアウト。ゼロのときはフェードインアウトなし。
-
-local jun = obj.track3
 
 if jun < 1 then
 	mode = obj.index --順番に登場
@@ -33,14 +47,11 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-local ta = obj.track0
-
 --シーンイン
-if obj.track1 ~= 0 then
-	if obj.track1 < 0 then
+if in_time ~= 0 then
+	if in_time < 0 then
 		in_time = obj.getvalue("time", 0, 1)
 	else
-		in_time = obj.track1
 	end
 
 	local i = (ta - obj.time + mode * in_time / obj.num) / ta
@@ -65,11 +76,10 @@ if obj.track1 ~= 0 then
 end
 
 --シーンアウト
-if obj.track2 ~= 0 then
-	if obj.track2 < 0 then
+if out_time ~= 0 then
+	if out_time < 0 then
 		out_time = obj.totaltime - obj.getvalue("time", 0, obj.getoption("section_num") - 1)
 	else
-		out_time = obj.track2
 	end
 
 	local r = -(-ta - obj.num * out_time / obj.num - obj.time + obj.totaltime + mode * out_time / obj.num) / ta

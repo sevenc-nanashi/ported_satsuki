@@ -1,13 +1,24 @@
---track0:個数,0,100,10,1
---track1:距離,0,2000,200
---track2:時間[s],-5,5,0.3,0.01
---track3:間隔[s],0,5,0.3,0.01
+---$track:個数
+---min=0
+---max=100
+---step=1
+local n = 10
+---$track:距離
+---min=0
+---max=2000
+local l = 200
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local a = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local b = 0.3
 --check0:外向き,0
 obj.effect()
-n = obj.track0
-l = obj.track1
-a = obj.track2
-b = obj.track3
 for i = 0, n - 1 do
 	if a == 0 then
 		return

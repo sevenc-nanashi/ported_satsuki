@@ -1,11 +1,23 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:角度,-360,360,0
---track3:登場順,0,5,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:角度
+---min=-360
+---max=360
+local track2 = 0
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:拡大率,s=100;
-ta = obj.track0
-tb = obj.track1
-jun = obj.track3
 
 if jun < 1 then
 	mode = obj.index --順番に登場
@@ -32,13 +44,13 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if obj.track0 < 0 then
+if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
 else
 	i = (ta - obj.time + mode * tb) / ta
 end
 if i > 0 then
-	r = math.pi * obj.track2 / 180
+	r = math.pi * track2 / 180
 	l = math.sqrt(obj.screen_w * obj.screen_w + obj.screen_h * obj.screen_h)
 	i = i * l
 	obj.ox = obj.ox + math.sin(r) * i
@@ -50,5 +62,5 @@ if i > 0 then
 	elseif l > 100 then
 		l = 100
 	end
-	obj.effect("方向ブラー", "角度", obj.track2, "範囲", l)
+	obj.effect("方向ブラー", "角度", track2, "範囲", l)
 end

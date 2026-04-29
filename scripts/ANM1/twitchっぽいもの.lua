@@ -1,12 +1,20 @@
---track0:閾値,0,100,50
---track1:強さ,0,100,25
---track2:発光閾値,0,100,50
---track3:振動周期,0,100,10
+---$track:閾値
+---min=0
+---max=100
+local siki = 50
+---$track:強さ
+---min=0
+---max=100
+local t = 25
+---$track:発光閾値
+---min=0
+---max=100
+local h = 50
+---$track:振動周期
+---min=0
+---max=100
+local syu = 10
 --dialog:X振動,x=50;Y振動,y=50;Z振動,z=50;揺れ幅倍率,haba=3;色ずれ幅,irozure=100;色ずれ種類[0〜2],ty=0;
-siki = obj.track0
-t = obj.track1
-h = obj.track2
-syu = obj.track3
 obj.effect(
 	"振動",
 	"X",

@@ -1,11 +1,24 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:範囲,0,300,10,1
---track3:登場順,0,5,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:範囲
+---min=0
+---max=300
+---step=1
+local track2 = 10
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:フェード/chk,fade=0;縦横比(-100〜100),as=0;拡大率,s=150;
-ta = obj.track0
-tb = obj.track1
-jun = obj.track3
 
 if jun < 1 then
 	mode = obj.index --順番に登場
@@ -32,7 +45,7 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if obj.track0 < 0 then
+if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
 else
 	i = (ta - obj.time + mode * tb) / ta
@@ -47,5 +60,5 @@ if i > 0 then
 	if fade == 1 then
 		obj.alpha = obj.alpha * (1 - i)
 	end
-	obj.effect("ぼかし", "範囲", obj.track2 * i, "縦横比", as)
+	obj.effect("ぼかし", "範囲", track2 * i, "縦横比", as)
 end

@@ -1,12 +1,23 @@
---track0:幅,0,1000,100,1
---track1:角度,1,180,120
---track2:長さ,0,2000,50
---track3:移動,-10000,10000,0
+---$track:幅
+---min=0
+---max=1000
+---step=1
+local w = 100
+---$track:角度
+---min=1
+---max=180
+local track1 = 120
+---$track:長さ
+---min=0
+---max=2000
+local l = 50
+---$track:移動
+---min=-10000
+---max=10000
+local track3 = 0
 --color:0xffffff
 
-local w = obj.track0
-local r = math.rad(obj.track1 / 2)
-local l = obj.track2
+local r = math.rad(track1 / 2)
 local tl = l + w / 2 / math.tan(r)
 
 obj.setoption("blend", "alpha_add")
@@ -19,8 +30,8 @@ obj.drawpoly(tl / 2 - l, 0, 0, tl / 2, 0, 0, tl / 2 - w / 2 / math.tan(r), w / 2
 obj.load("tempbuffer")
 
 --移動
-if obj.track3 ~= 0 then
+if track3 ~= 0 then
 	local rz = math.rad(obj.getvalue("rz"))
-	obj.ox = obj.ox + obj.track3 * math.cos(rz)
-	obj.oy = obj.oy + obj.track3 * math.sin(rz)
+	obj.ox = obj.ox + track3 * math.cos(rz)
+	obj.oy = obj.oy + track3 * math.sin(rz)
 end

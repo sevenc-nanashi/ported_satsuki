@@ -1,11 +1,24 @@
---track0:X,-5000,5000,0
---track1:Y,-5000,5000,0
---track2:Z,-5000,5000,0
---track3:頂点数,1,16,1,1
+---$track:X
+---min=-5000
+---max=5000
+local track0 = 0
+---$track:Y
+---min=-5000
+---max=5000
+local track1 = 0
+---$track:Z
+---min=-5000
+---max=5000
+local track2 = 0
+---$track:頂点数
+---min=1
+---max=16
+---step=1
+local track3 = 1
 --dialog:Xあり/chk,xx=1;Yあり/chk,yy=1;Zあり/chk,zz=1;グラフ内[0-1],gn=1;座標,pos={};仮想bufサイズ[%],bufsize=100;グラフ表示/chk,hojo=1;G横サイズ,gwsize=400;G縦サイズ,ghsize=300;G色/col,col=0xffff00;Gライン幅,line=5;G分割数,BN=20;
 
 l = math.floor(line) / 2
-NN = obj.track3 + 1
+NN = track3 + 1
 
 --アンカーポイントの設置
 obj.setanchor("pos", NN - 1, "line")

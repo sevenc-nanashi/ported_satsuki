@@ -1,7 +1,20 @@
---track0:Xサイズ,1,5000,800
---track1:Yサイズ,1,5000,450
---track2:リサイズ,10,800,100
---track3:ぼかし,0,300,1,1
+---$track:Xサイズ
+---min=1
+---max=5000
+local w = 800
+---$track:Yサイズ
+---min=1
+---max=5000
+local h = 450
+---$track:リサイズ
+---min=10
+---max=800
+local s = 100
+---$track:ぼかし
+---min=0
+---max=300
+---step=1
+local track3 = 1
 --dialog:背色/col,col1=0x143e10;太1/col,col3=0xa81616;太2/col,col4=0xc9c526;細/col,col2=0x000000;
 
 obj.setoption("drawtarget", "tempbuffer", 130, 130)
@@ -74,9 +87,6 @@ obj.load("tempbuffer")
 
 --画像ループ
 
-local s = obj.track2
-local w = obj.track0
-local h = obj.track1
 local nw = math.floor(w / 130 / s * 100) + 1
 local nh = math.floor(h / 130 / s * 100) + 1
 
@@ -92,4 +102,4 @@ for j = 0, nh do
 end
 
 obj.load("tempbuffer")
-obj.effect("ぼかし", "範囲", obj.track3, "サイズ固定", 1)
+obj.effect("ぼかし", "範囲", track3, "サイズ固定", 1)

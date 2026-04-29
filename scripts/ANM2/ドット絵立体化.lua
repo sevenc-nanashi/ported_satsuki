@@ -1,7 +1,13 @@
---track0:拡大率,0,8000,100
---track1:Z幅,0,1000,100
+---$track:拡大率
+---min=0
+---max=8000
+local track0 = 100
+---$track:Z幅
+---min=0
+---max=1000
+local track1 = 100
 obj.effect()
-s = obj.track0 / 100
+s = track0 / 100
 w, h = obj.getpixel()
 for y = 0, h - 1 do
 	for x = 0, w - 1 do
@@ -16,7 +22,7 @@ for y = 0, h - 1 do
 			Y = (y - h / 2 + 0.5) * s
 			Z = 0 * s
 			l = s / 2
-			lz = s / 2 * obj.track1 / 100
+			lz = s / 2 * track1 / 100
 			ux = x + 0.5
 			uy = y + 0.5
 

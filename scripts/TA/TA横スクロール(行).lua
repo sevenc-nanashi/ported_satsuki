@@ -1,17 +1,29 @@
---track0:行数,1,256,5,1
---track1:移動速度,-1000,1000,100
---track2:X軸範囲,0,1000,100
---track3:Y軸範囲,0,1000,100
+---$track:行数
+---min=1
+---max=256
+---step=1
+local n = 5
+---$track:移動速度
+---min=-1000
+---max=1000
+local track1 = 100
+---$track:X軸範囲
+---min=0
+---max=1000
+local track2 = 100
+---$track:Y軸範囲
+---min=0
+---max=1000
+local track3 = 100
 --dialog:Z軸範囲[%],wz=0;拡大最小[-%],s_min=0;速度最小[-%],vx_min=0;
 obj.effect()
-n = obj.track0
 w = obj.w / 2
 h = obj.h / 2 / n
 W = obj.screen_w / 2
 H = obj.screen_h / 2
-wx = obj.track2 / 100 --X軸範囲
-wy = obj.track3 / 100 --Y軸範囲
-v = -obj.track1 / 100 --移動速度
+wx = track2 / 100 --X軸範囲
+wy = track3 / 100 --Y軸範囲
+v = -track1 / 100 --移動速度
 
 for i = 0, n - 1 do
 	cx = obj.rand(-W - w, W + w, i, 0) * wx + obj.rand(100 - vx_min, 100, i, 4) * obj.time * v

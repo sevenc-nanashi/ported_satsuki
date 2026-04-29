@@ -1,13 +1,26 @@
---track0:半径,1,2000,200,1
---track1:角幅,0,2000,5,1
---track2:円幅,0,2000,5,1
---track3:種類,1,7,2,1
+---$track:半径
+---min=1
+---max=2000
+---step=1
+local l = 200
+---$track:角幅
+---min=0
+---max=2000
+---step=1
+local track1 = 5
+---$track:円幅
+---min=0
+---max=2000
+---step=1
+local cw = 5
+---$track:種類
+---min=1
+---max=7
+---step=1
+local j = 2
 --dialog:色/col,col=0xffffff;回転速度,v=1;図形2つ/chk,fig_num=1;外円調整(%),soto=100;text(英数字のみ),text="ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";textサイズ,tsize=34;textフォント,font="MS UI Gothic";text半径調整(%),tll=100;textサイズ調整(%),ttsize=100;
 
-l = obj.track0
-w = math.min(obj.track1, l)
-cw = obj.track2
-j = obj.track3
+w = math.min(track1, l)
 rv = obj.time * 36 * v
 
 --多角形ラインの描画

@@ -1,12 +1,24 @@
---track0:開始,0,600,0,0.01
---track1:速度[%],-2000,2000,100
---track2:加速度,-100,100,0
---track3:コマ落,0.01,5,0.01,0.01
+---$track:開始
+---min=0
+---max=600
+---step=0.01
+local f = 0
+---$track:速度[%]
+---min=-2000
+---max=2000
+local track1 = 100
+---$track:加速度
+---min=-100
+---max=100
+local track2 = 0
+---$track:コマ落
+---min=0.01
+---max=5
+---step=0.01
+local n = 0.01
 --file:
-f = obj.track0
-v = obj.track1 / 100
-a = obj.track2 / 100
-n = obj.track3
+v = track1 / 100
+a = track2 / 100
 c = 0
 if a < 0 and 2 * a * obj.time <= -v then
 	c = -v / 2 / a * (v - a * v / 2 / a)

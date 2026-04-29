@@ -1,13 +1,25 @@
---track0:個数,1,500,20,1
---track1:距離,0,10000,300,1
---track2:速度,1,2000,100,1
---track3:出現範囲,0,2000,0
+---$track:個数
+---min=1
+---max=500
+---step=1
+local n = 20
+---$track:距離
+---min=0
+---max=10000
+---step=1
+local l = 300
+---$track:速度
+---min=1
+---max=2000
+---step=1
+local track2 = 100
+---$track:出現範囲
+---min=0
+---max=2000
+local sl = 0
 --dialog:ランダム速度[-%],v_ran=90;透過速度[%],av=100;拡大速度[%],sv=0;ランダム回転/chk,rz_ran=0;回転速度[度],rzv_ran=0;ランダム拡大[-%],s_ran=0;減速度[1-5],beki=3;終点で消える/chk,zero=1;乱数,ran=0;
 obj.effect()
-n = obj.track0
-l = obj.track1
-v = l / obj.track2 --距離を進むのにかかる時間
-sl = obj.track3
+v = l / track2 --距離を進むのにかかる時間
 for i = 0, n - 1 do
 	t = math.max((v - obj.time) / v, 0)
 	t = t ^ beki

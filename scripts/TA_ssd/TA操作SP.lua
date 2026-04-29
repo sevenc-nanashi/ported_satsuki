@@ -1,11 +1,17 @@
---track0:最大値,100,800,200
---track1:拡大率,0,800,100
+---$track:最大値
+---min=100
+---max=800
+local track0 = 200
+---$track:拡大率
+---min=0
+---max=800
+local track1 = 100
 --dialog:一体化/chk,itk=0;座標,pos={};
 
 n = obj.num
 W = obj.screen_w / 2
 H = obj.screen_h / 2 * 2 / 3
-ss = obj.track1 / 100
+ss = track1 / 100
 
 obj.setanchor("pos", n * 2, "line", "inout")
 
@@ -39,7 +45,7 @@ for i = 0, (n - 1) * 2 do
 		if math.abs(zzx) > W or math.abs(zzy) > H then
 			zoom = 1 * ss
 		else
-			zoom = (zzx + W) / W / 2 * obj.track0 / 100 * ss
+			zoom = (zzx + W) / W / 2 * track0 / 100 * ss
 		end
 		if itk == 1 then
 			obj.draw(x, y, 0, zoom)

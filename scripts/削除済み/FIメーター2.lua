@@ -1,10 +1,16 @@
---track0:高さ,0,900,10
---track1:長さ,0,1600,400
---track2:縁,0,20,5
+---$track:高さ
+---min=0
+---max=900
+local h = 10
+---$track:長さ
+---min=0
+---max=1600
+local w = 400
+---$track:縁
+---min=0
+---max=20
+local f = 5
 --dialog:縁色/col,wcolor=0x555555;
-h = obj.track0
-w = obj.track1
-f = obj.track2
 
 for i = 0, 2 do
 	if i == 0 then

@@ -1,10 +1,24 @@
---track0:時間[s],-5,5,1,0.01
---track1:範囲1,0,300,0,1
---track2:範囲2,-300,300,0,1
---track3:縦横比,-100,100,0
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:範囲1
+---min=0
+---max=300
+---step=1
+local track1 = 0
+---$track:範囲2
+---min=-300
+---max=300
+---step=1
+local track2 = 0
+---$track:縦横比
+---min=-100
+---max=100
+local track3 = 0
 --dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;光の強さ,br=2;サイズ固定/chk,fix=0;
 
-ta = obj.track0
 --共通部分
 if ta == 0 then
 	return
@@ -28,5 +42,5 @@ else
 end
 
 --フィルタ効果
-h = obj.track1 + obj.track2 * t
-obj.effect("ぼかし", "範囲", h, "縦横比", obj.track3, "光の強さ", br, "サイズ固定", fix)
+h = track1 + track2 * t
+obj.effect("ぼかし", "範囲", h, "縦横比", track3, "光の強さ", br, "サイズ固定", fix)

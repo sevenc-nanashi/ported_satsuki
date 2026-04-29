@@ -1,7 +1,13 @@
---track0:登場[f],0,150,4,1
---track1:退場[f],0,150,4,1
-t0 = obj.track0
-t1 = obj.track1
+---$track:登場[f]
+---min=0
+---max=150
+---step=1
+local t0 = 4
+---$track:退場[f]
+---min=0
+---max=150
+---step=1
+local t1 = 4
 if t0 > 0 then
 	if obj.frame <= t0 and obj.frame % 2 == 1 then
 		obj.alpha = 0

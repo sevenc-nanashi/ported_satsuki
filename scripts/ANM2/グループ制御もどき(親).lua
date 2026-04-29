@@ -1,7 +1,16 @@
---track0:透明度2,0,100,0
---track1:角度,-720,720,0
---track2:回転軸,0,2,0,1
-jiku = obj.track2
+---$track:透明度2
+---min=0
+---max=100
+local track0 = 0
+---$track:角度
+---min=-720
+---max=720
+local track1 = 0
+---$track:回転軸
+---min=0
+---max=2
+---step=1
+local jiku = 0
 obj.load("figure", "四角形", 0xffffff, 1)
 obj.drawpoly(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 x = obj.getvalue("x")

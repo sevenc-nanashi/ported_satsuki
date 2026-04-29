@@ -1,10 +1,19 @@
---track0:サイズ,5,500,50,1
---track1:閾値,0,100,50,1
---track2:乱数,0,100,0,1
+---$track:サイズ
+---min=5
+---max=500
+---step=1
+local s = 50
+---$track:閾値
+---min=0
+---max=100
+---step=1
+local siki = 50
+---$track:乱数
+---min=0
+---max=100
+---step=1
+local ransu = 0
 obj.copybuffer("tmp", "obj")
-s = obj.track0
-siki = obj.track1
-ransu = obj.track2
 w = obj.w / obj.getvalue("zoom") * 100
 h = obj.h / obj.getvalue("zoom") * 100
 nx = math.ceil(w / s / 2)

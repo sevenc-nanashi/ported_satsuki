@@ -1,12 +1,22 @@
---track0:文字数,1,100,15,1
---track1:行数,1,100,5,1
---track2:文字間隔,0,256,34
---track3:行間隔,0,256,34
+---$track:文字数
+---min=1
+---max=100
+---step=1
+local col = 15
+---$track:行数
+---min=1
+---max=100
+---step=1
+local row = 5
+---$track:文字間隔
+---min=0
+---max=256
+local s_col = 34
+---$track:行間隔
+---min=0
+---max=256
+local s_row = 34
 --dialog:横位置[0〜2],col_mode=0;縦位置[0〜2],row_mode=0;
-col = obj.track0
-row = obj.track1
-s_col = obj.track2
-s_row = obj.track3
 for i = 0, row do
 	if obj.index >= i * col then
 		if obj.index < (i + 1) * col then

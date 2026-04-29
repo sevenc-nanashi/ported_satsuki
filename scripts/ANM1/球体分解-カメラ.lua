@@ -1,6 +1,15 @@
---track0:屈曲率,10,500,10
---track1:中心X,-100,100,0
---track2:中心Y,-100,100,0
+---$track:屈曲率
+---min=10
+---max=500
+local k = 10
+---$track:中心X
+---min=-100
+---max=100
+local track1 = 0
+---$track:中心Y
+---min=-100
+---max=100
+local track2 = 0
 --check0:反転,0
 --obj.setoption('antialias',0)
 obj.effect("反転", "上下反転", "1")
@@ -11,11 +20,10 @@ if obj.check0 then
 end
 w = 28
 h = 28
-k = obj.track0
 wd = w * k / 10
 hd = h * k / 10
-cx = math.floor(w / 2 * obj.track1 / 100)
-cy = math.floor(h / 2 * obj.track2 / 100)
+cx = math.floor(w / 2 * track1 / 100)
+cy = math.floor(h / 2 * track2 / 100)
 r = obj.w / w / math.sin(math.pi * 2 / wd)
 for y = -h / 2 + cy, h / 2 + cy - 1 do
 	y0 = -r * math.sin(math.pi * y / hd)

@@ -1,11 +1,21 @@
---track0:ライン幅,1,1000,20
---track1:先端size,0,1000,50,1
---track2:頂点数,2,16,2,1
+---$track:ライン幅
+---min=1
+---max=1000
+local track0 = 20
+---$track:先端size
+---min=0
+---max=1000
+---step=1
+local track1 = 50
+---$track:頂点数
+---min=2
+---max=16
+---step=1
+local n = 2
 --dialog:色/col,col=0xffff00;先端図形/fig,fig="三角形";両端を丸める/chk,maru=0;座標,pos={-100,0,100,0};
 
-l = math.floor(obj.track0) / 2
-s = obj.track1 / math.sqrt(2)
-n = obj.track2
+l = math.floor(track0) / 2
+s = track1 / math.sqrt(2)
 obj.setanchor("pos", n, "line")
 
 -- 仮想バッファサイズ計算

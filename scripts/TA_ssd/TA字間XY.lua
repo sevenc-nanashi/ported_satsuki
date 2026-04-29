@@ -1,14 +1,26 @@
---track0:X拡大率,0,1000,100
---track1:中心X,-1000,1000,0
---track2:Y拡大率,0,1000,100
---track3:中心Y,-1000,1000,0
+---$track:X拡大率
+---min=0
+---max=1000
+local track0 = 100
+---$track:中心X
+---min=-1000
+---max=1000
+local track1 = 0
+---$track:Y拡大率
+---min=0
+---max=1000
+local track2 = 100
+---$track:中心Y
+---min=-1000
+---max=1000
+local track3 = 0
 --check0:自動調節,1
 if obj.check0 then
 	s = obj.getvalue("zoom") / 100
 else
 	s = 1
 end
-obj.ox = obj.track1 + (obj.ox - obj.track1) * obj.track0 / 100 * s
-obj.oy = obj.track3 + (obj.oy - obj.track3) * obj.track2 / 100 * s
+obj.ox = track1 + (obj.ox - track1) * track0 / 100 * s
+obj.oy = track3 + (obj.oy - track3) * track2 / 100 * s
 
 --自動調節は、「文字毎に個別オブジェクト」にチェックした状態で拡大率を変化させても、字間が自動で調節されるようにします。

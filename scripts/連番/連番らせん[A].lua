@@ -1,7 +1,20 @@
---track0:個数,0,300,10,1
---track1:回転差分,-360,360,10
---track2:座標差分,-1000,1000,10
---track3:回転,-3600,3600,0
+---$track:個数
+---min=0
+---max=300
+---step=1
+local n = 10
+---$track:回転差分
+---min=-360
+---max=360
+local drot = 10
+---$track:座標差分
+---min=-1000
+---max=1000
+local dpos = 10
+---$track:回転
+---min=-3600
+---max=3600
+local rot = 0
 --dialog:軸[0-2],rasen_jiku=2;向き[0-2],rasen_dir=1;初期半径,rasen_r=100;半径差分,rasen_dr=0;大きさ,zoom=0;透明度,alpha=0;回転に同期移動/chk,douki=0;
 --
 --※GH螺旋配置(sm13806316参照)を改変したものです。
@@ -16,7 +29,3 @@
 --    1:面を円の外側に向ける（軸がZの場合は上側を円の外側に向ける）
 --    2:面を円の内側に向ける（軸がZの場合は上側を円の内側に向ける）
 --
-n = obj.track0
-drot = obj.track1
-dpos = obj.track2
-rot = obj.track3

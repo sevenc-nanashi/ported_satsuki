@@ -1,7 +1,21 @@
---track0:個数,1,100,3,1
---track1:幅,0,2000,6
---track2:しきい値,0,255,128,1
---track3:細かさ,0,50,12
+---$track:個数
+---min=1
+---max=100
+---step=1
+local n = 3
+---$track:幅
+---min=0
+---max=2000
+local d = 6
+---$track:しきい値
+---min=0
+---max=255
+---step=1
+local sikii = 128
+---$track:細かさ
+---min=0
+---max=50
+local koma = 12
 --dialog:横サイズ,sw=800;縦サイズ,sh=450;ランダム＋幅,habar=0;乱数,rns=0;色/col,col=0xffffff;
 
 --[[
@@ -10,10 +24,6 @@ http://www.nicovideo.jp/watch/sm21178949
 からダウンロードし、当スクリプトファイルと同じフォルダに入れてください。
 ]]
 
-local n = obj.track0
-local d = obj.track1
-local sikii = obj.track2
-local koma = obj.track3
 local ln = math.sqrt(sw ^ 2 + sh ^ 2)
 
 --ライン

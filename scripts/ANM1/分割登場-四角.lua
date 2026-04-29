@@ -1,13 +1,24 @@
---track0:分割数,1,500,5,1
---track1:時間,-10,10,5,0.01
---track2:方向,-360,360,0
---track3:散らばり,0,360,0
+---$track:分割数
+---min=1
+---max=500
+---step=1
+local n = 5
+---$track:時間
+---min=-10
+---max=10
+---step=0.01
+local track1 = 5
+---$track:方向
+---min=-360
+---max=360
+local d = 0
+---$track:散らばり
+---min=0
+---max=360
+local b = 0
 --dialog:フェード/chk,f=0;登場距離[%],ll=100;渦角度[度],rz=0;Z距離,oz=0;縦横比[%],as=0;加減速[1-5],beki=2;
 obj.effect()
-n = obj.track0
-t = obj.track1 / 2
-d = obj.track2
-b = obj.track3
+t = track1 / 2
 h = obj.h / n
 w = obj.w / n
 for j = 0, n - 1 do

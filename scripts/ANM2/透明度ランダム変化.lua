@@ -1,12 +1,24 @@
---track0:X間隔,-1000,1000,100
---track1:Y間隔,-1000,1000,100
---track2:X個数,1,100,5,1
---track3:Y個数,1,100,3,1
+---$track:X間隔
+---min=-1000
+---max=1000
+local track0 = 100
+---$track:Y間隔
+---min=-1000
+---max=1000
+local track1 = 100
+---$track:X個数
+---min=1
+---max=100
+---step=1
+local nx = 5
+---$track:Y個数
+---min=1
+---max=100
+---step=1
+local ny = 3
 --dialog:間隔[s],f=0.5;透明最小値[%],m=0;
-nx = obj.track2
-ny = obj.track3
-gx = obj.track0 / 100
-gy = obj.track1 / 100
+gx = track0 / 100
+gy = track1 / 100
 w = obj.w
 h = obj.h
 w_size = (nx + (nx - 1) * (gx - 1)) * w

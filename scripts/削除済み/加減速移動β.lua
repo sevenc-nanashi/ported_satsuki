@@ -1,11 +1,22 @@
---track0:加減速,1,5,2,1
---track1:減/加/S,0,2,0,1
---track2:非表示,0,1,0,1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local beki = 2
+---$track:減/加/S
+---min=0
+---max=2
+---step=1
+local track1 = 0
+---$track:非表示
+---min=0
+---max=1
+---step=1
+local track2 = 0
 --dialog:X軸/chk,xx=1;Y軸/chk,yy=1;Z軸/chk,zz=1;拡大率/chk,ss=1;色/col,color=0xff0000;
 
-beki = obj.track0
---beki=math.floor(obj.track0)
-mode = math.floor(obj.track1)
+--beki=math.floor(beki)
+mode = math.floor(track1)
 
 t = 1 - obj.time / obj.totaltime
 
@@ -39,7 +50,7 @@ obj.draw()
 
 --補助線
 a = 1 / 2
-if obj.track2 == 1 then
+if track2 == 1 then
 	a = 0
 end
 

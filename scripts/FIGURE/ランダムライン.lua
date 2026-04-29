@@ -1,12 +1,23 @@
---track0:本数,1,400,10,1
---track1:幅,0,100,2
---track2:幅[+%],0,200,50,1
---track3:斜閾値,0,300,50,1
+---$track:本数
+---min=1
+---max=400
+---step=1
+local n = 10
+---$track:幅
+---min=0
+---max=100
+local dw0 = 2
+---$track:幅[+%]
+---min=0
+---max=200
+---step=1
+local dwr = 50
+---$track:斜閾値
+---min=0
+---max=300
+---step=1
+local k = 50
 --dialog:色/col,col=0xff8000;ランダム変化/chk,chk=1;
-n = obj.track0
-dw0 = obj.track1
-dwr = obj.track2
-k = obj.track3
 w = obj.screen_w / 2
 h = obj.screen_h / 2
 L = math.sqrt(obj.screen_w ^ 2, obj.screen_h / 2 ^ 2) * 2

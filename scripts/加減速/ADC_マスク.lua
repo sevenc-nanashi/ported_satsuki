@@ -1,7 +1,20 @@
---track0:回転1,-720,720,0
---track1:サイズ1,0,2000,100
---track2:縦横比1,-100,100,0
---track3:ぼかし1,0,200,0,1
+---$track:回転1
+---min=-720
+---max=720
+local track0 = 0
+---$track:サイズ1
+---min=0
+---max=2000
+local track1 = 100
+---$track:縦横比1
+---min=-100
+---max=100
+local track2 = 0
+---$track:ぼかし1
+---min=0
+---max=200
+---step=1
+local track3 = 0
 --dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;マスクの種類,ty=2;X,x=0;Y,y=0;回転2,r2=0;サイズ2,s2=0;縦横比2[%],as2=0;ぼかし2,bk2=0;反転/chk,ht=0;
 
 --共通部分
@@ -27,10 +40,10 @@ else
 end
 
 --フィルタ効果
-r = obj.track0 + r2 * t
-s = obj.track1 + s2 * t
-as = obj.track2 + as2 * t
-bk = obj.track3 + bk2 * t
+r = track0 + r2 * t
+s = track1 + s2 * t
+as = track2 + as2 * t
+bk = track3 + bk2 * t
 obj.effect(
 	"マスク",
 	"X",

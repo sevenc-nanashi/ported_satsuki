@@ -1,10 +1,23 @@
---track0:横分割,1,1024,50,1
---track1:縦分割,1,1024,50,1
---track2:音量,0,800,100
---track3:種類,0,3,0,1
+---$track:横分割
+---min=1
+---max=1024
+---step=1
+local wdiv = 50
+---$track:縦分割
+---min=1
+---max=1024
+---step=1
+local hdiv = 50
+---$track:音量
+---min=0
+---max=800
+local track2 = 100
+---$track:種類
+---min=0
+---max=3
+---step=1
+local mode = 0
 --dialog:横スペース(%),wsp=25;縦スペース(%),hsp=25;
-wdiv = obj.track0
-hdiv = obj.track1
 zoom = obj.getvalue("zoom") / 100
 W = obj.w / zoom
 H = obj.h / zoom
@@ -12,8 +25,7 @@ w = W / wdiv
 h = H / hdiv
 wsp0 = w * wsp / 100 / 2
 hsp0 = h * hsp / 100 / 2
-vol = obj.track2 / 100
-mode = obj.track3
+vol = track2 / 100
 obj.setoption("drawtarget", "tempbuffer", W, H)
 obj.setoption("blend", "alpha_add")
 

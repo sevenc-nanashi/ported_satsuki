@@ -1,14 +1,26 @@
---track0:X間隔,-1000,1000,100
---track1:Y間隔,-1000,1000,100
---track2:X個数,1,100,3,1
---track3:Y個数,1,100,3,1
+---$track:X間隔
+---min=-1000
+---max=1000
+local gx = 100
+---$track:Y間隔
+---min=-1000
+---max=1000
+local gy = 100
+---$track:X個数
+---min=1
+---max=100
+---step=1
+local nx = 3
+---$track:Y個数
+---min=1
+---max=100
+---step=1
+local ny = 3
 --dialog:Z間隔(pxl),gz=300;Z個数,nz=1;XY軸段違い/chk,yd=0;ZY軸段違い/chk,zd=0;個別基準/chk,mode=0;
 obj.effect()
-nx = obj.track2
-ny = obj.track3
 if mode < 1 then
-	gx = obj.track0 / 100
-	gy = obj.track1 / 100
+	gx = gx / 100
+	gy = gy / 100
 	w = obj.w
 	h = obj.h
 	for k = 0, nz - 1 do
@@ -32,8 +44,6 @@ if mode < 1 then
 		end
 	end
 else
-	gx = obj.track0
-	gy = obj.track1
 	for k = 0, nz - 1 do
 		z = -gz * (nz - 1) / 2 + k * gz
 		for j = 0, ny - 1 do

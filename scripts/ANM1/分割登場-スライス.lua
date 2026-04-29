@@ -1,13 +1,25 @@
---track0:時間[s],-5,5,1,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:分割数,1,500,5,1
---track3:モード,0,3,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local t = 1
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local u = 0.3
+---$track:分割数
+---min=1
+---max=500
+---step=1
+local n = 5
+---$track:モード
+---min=0
+---max=3
+---step=1
+local mode = 0
 --dialog:縦方向/chk,tated=0;縦分割/chk,tateb=0;交互/chk,kougo=0;加減速[1-5],beki=2;登場距離[%],l=100;
 obj.effect()
-t = obj.track0
-u = obj.track1
-n = obj.track2
-mode = obj.track3
 --a:登場座標(x,y)の符号
 --d:登場順番
 for i = 0, n - 1 do

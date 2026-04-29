@@ -1,22 +1,31 @@
---track0:回転,-720,720,0
---track1:分割数,0,24,2,1
---track2:オフセット,-720,720,0
+---$track:回転
+---min=-720
+---max=720
+local track0 = 0
+---$track:分割数
+---min=0
+---max=24
+---step=1
+local n = 2
+---$track:オフセット
+---min=-720
+---max=720
+local track2 = 0
 --dialog:回転に連動/chk,rendo=1;連動角度,rendk=45;
 
 local w = obj.w * 100 / obj.getvalue("zoom")
 local h = obj.h * 100 / obj.getvalue("zoom")
 local l = math.sqrt(w ^ 2 + h ^ 2)
-local offsetr = math.rad(obj.track2)
-local r0 = math.rad(obj.track0)
+local offsetr = math.rad(track2)
+local r0 = math.rad(track0)
 
 if rendk < 1 then
 	rendk = 1
 end
 
 if rendo == 1 then
-	n = math.abs(math.floor(obj.track0 / rendk))
+	n = math.abs(math.floor(track0 / rendk))
 else
-	n = obj.track1
 end
 
 if n > 0 then

@@ -1,12 +1,24 @@
---track0:割合,0,100,50
---track1:幅,10,800,30
---track2:角度,-360,360,60
---track3:時間,-5,5,0.50,0.01
+---$track:割合
+---min=0
+---max=100
+local track0 = 50
+---$track:幅
+---min=10
+---max=800
+local haba = 30
+---$track:角度
+---min=-360
+---max=360
+local track2 = 60
+---$track:時間
+---min=-5
+---max=5
+---step=0.01
+local t = 0.50
 --check0:時間指定で登場,0
 obj.copybuffer("tmp", "obj")
 
-local t = obj.track3
-local d = 1 - obj.track0 / 100
+local d = 1 - track0 / 100
 if obj.check0 then
 	if t == 0 then
 		return
@@ -18,8 +30,7 @@ if obj.check0 then
 	d = math.max(d, 0)
 end
 local ww, hh = obj.getpixel()
-local haba = obj.track1
-local r = math.rad(obj.track2)
+local r = math.rad(track2)
 local w = math.sqrt(ww ^ 2 + hh ^ 2) / 2
 local n = math.ceil(w / haba) + 2
 local ls = math.sqrt(w ^ 2 + haba ^ 2)

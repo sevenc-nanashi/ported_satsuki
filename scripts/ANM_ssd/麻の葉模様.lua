@@ -1,13 +1,22 @@
---track0:サイズ,10,500,50
---track1:ライン幅,0,50,2
---track2:横サイズ,0,4000,800
---track3:縦サイズ,0,4000,450
+---$track:サイズ
+---min=10
+---max=500
+local l = 50
+---$track:ライン幅
+---min=0
+---max=50
+local track1 = 2
+---$track:横サイズ
+---min=0
+---max=4000
+local w = 800
+---$track:縦サイズ
+---min=0
+---max=4000
+local h = 450
 --dialog:色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;
 
-local l = obj.track0
-local d = math.min(obj.track1, 3 / (6 + 4 * math.sqrt(3)) * l)
-local w = obj.track2
-local h = obj.track3
+local d = math.min(track1, 3 / (6 + 4 * math.sqrt(3)) * l)
 local sl = l - (4 / math.sqrt(3) + 2) * d
 
 obj.setoption("drawtarget", "tempbuffer", w, h)

@@ -1,9 +1,15 @@
---track0:サイズ,5,500,50,1
---track1:隙間%,0,100,10
+---$track:サイズ
+---min=5
+---max=500
+---step=1
+local s = 50
+---$track:隙間%
+---min=0
+---max=100
+local track1 = 10
 --dialog:反転/chk,hanten=0;
 obj.copybuffer("tmp", "obj")
-s = obj.track0
-line = s / 2 * obj.track1 / 100
+line = s / 2 * track1 / 100
 w = obj.w / obj.getvalue("zoom") * 100
 h = obj.h / obj.getvalue("zoom") * 100
 nx = math.ceil(w / s / 2)

@@ -1,7 +1,20 @@
---track0:経過時間,0,50,0,0.01
---track1:中心X,-1000,1000,0
---track2:中心Y,-1000,1000,0
---track3:中心z,-1000,1000,0
+---$track:経過時間
+---min=0
+---max=50
+---step=0.01
+local track0 = 0
+---$track:中心X
+---min=-1000
+---max=1000
+local ax = 0
+---$track:中心Y
+---min=-1000
+---max=1000
+local ay = 0
+---$track:中心z
+---min=-1000
+---max=1000
+local az = 0
 --dialog:破片サイズ,size=50;速度,speed=100;重力,grav=100;時間差,delay=100;距離影響,impact=100;ランダム回転,spin=100;ランダム方向,diff=100;再生速度,step=1.0;仮想bufサイズ[%],kaso=100;
 local px = {}
 local py = {}
@@ -9,7 +22,7 @@ local pz = {}
 local pu = {}
 local pv = {}
 
-tm = obj.track0 / 10 * step
+tm = track0 / 10 * step
 obj.effect()
 grav = grav * 6
 delay = delay * 0.002
@@ -22,9 +35,6 @@ end
 zoom_val = obj.getvalue("zoom") / 100
 xl = obj.w / zoom_val
 yl = obj.h / zoom_val
-ax = obj.track1
-ay = obj.track2
-az = obj.track3
 sp = speed * 0.01 * math.sqrt(impact)
 w = math.floor(xl / size)
 h = math.floor(yl / size)

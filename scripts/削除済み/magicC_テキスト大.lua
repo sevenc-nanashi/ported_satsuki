@@ -1,5 +1,7 @@
---track0:半径調整,0,150,100
-tbl = obj.track0
+---$track:半径調整
+---min=0
+---max=150
+local tbl = 100
 
 if t < 0 then
 	tbt = (t / 10 - obj.time + obj.totaltime + t * 0.5 + obj.index / obj.num * t * 0.6) / t * 10

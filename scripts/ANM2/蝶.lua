@@ -1,13 +1,25 @@
---track0:羽ばたき,0,500,100
---track1:角度,0,180,120
---track2:上下,0,200,30
---track3:羽(手動),-720,720,0
+---$track:羽ばたき
+---min=0
+---max=500
+local track0 = 100
+---$track:角度
+---min=0
+---max=180
+local track1 = 120
+---$track:上下
+---min=0
+---max=200
+local track2 = 30
+---$track:羽(手動)
+---min=-720
+---max=720
+local track3 = 0
 obj.effect()
-r = math.sin(math.pi * 2 * obj.time * obj.track0 / 100)
-f = (obj.track1 * r + obj.track3) * math.pi / 180
+r = math.sin(math.pi * 2 * obj.time * track0 / 100)
+f = (track1 * r + track3) * math.pi / 180
 x = -obj.w / 2 * (1 + math.cos(f)) / 2
 z = -obj.w / 2 * math.sin(f / 2)
-obj.oy = r * obj.track2
+obj.oy = r * track2
 obj.rx = -30
 w = obj.w / 2
 h = obj.h / 2

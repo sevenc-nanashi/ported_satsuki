@@ -1,12 +1,20 @@
---track0:上辺[%],-800,800,100
---track1:右辺[%],-800,800,100
---track2:下辺[%],-800,800,100
---track3:左辺[%],-800,800,100
+---$track:上辺[%]
+---min=-800
+---max=800
+local a = 100
+---$track:右辺[%]
+---min=-800
+---max=800
+local b = 100
+---$track:下辺[%]
+---min=-800
+---max=800
+local c = 100
+---$track:左辺[%]
+---min=-800
+---max=800
+local d = 100
 --dialog:上辺中心[%],e=0;右辺中心[%],f=0;下辺中心[%],g=0;左辺中心[%],h=0;
-a = obj.track0
-b = obj.track1
-c = obj.track2
-d = obj.track3
 e = e / 100 * obj.w / 2
 f = f / 100 * obj.h / 2
 g = g / 100 * obj.w / 2

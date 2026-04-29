@@ -1,12 +1,24 @@
---track0:個数,1,200,5,1
---track1:間隔,-1000,1000,50
---track2:角度,-720,720,0
---track3:回転軸,0,2,0,1
+---$track:個数
+---min=1
+---max=200
+---step=1
+local n = 5
+---$track:間隔
+---min=-1000
+---max=1000
+local l = 50
+---$track:角度
+---min=-720
+---max=720
+local track2 = 0
+---$track:回転軸
+---min=0
+---max=2
+---step=1
+local track3 = 0
 --check0:双方向,sou=0
 obj.effect()
-n = obj.track0
-l = obj.track1
-r = obj.track2 + 90
+r = track2 + 90
 w, h = obj.w, obj.h
 aa = 0
 bb = n - 1
@@ -17,11 +29,11 @@ end
 for i = aa, bb do
 	sin = math.sin(r * math.pi / 180) * l * i
 	cos = -math.cos(r * math.pi / 180) * l * i
-	if obj.track3 < 1 then
+	if track3 < 1 then
 		cx = sin
 		cy = cos
 		z = 0
-	elseif obj.track3 < 2 then
+	elseif track3 < 2 then
 		cx = sin
 		cy = 0
 		z = cos

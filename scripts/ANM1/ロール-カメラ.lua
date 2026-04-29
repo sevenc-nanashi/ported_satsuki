@@ -1,9 +1,15 @@
---track0:屈曲率,10,500,10
---track1:中心[%],-100,100,0
+---$track:屈曲率
+---min=10
+---max=500
+local track0 = 10
+---$track:中心[%]
+---min=-100
+---max=100
+local track1 = 0
 --dialog:縦ロール/chk,tate=0;反転/chk,hanten=0;軸を中心に/chk,m=0;分割数,n=28;
 obj.effect()
-nd = n * obj.track0 / 10
-c = math.floor(n / 2 * obj.track1 / 100)
+nd = n * track0 / 10
+c = math.floor(n / 2 * track1 / 100)
 if tate == 0 then
 	r = obj.w / n / math.sin(math.pi * 2 / nd)
 	if hanten == 1 then

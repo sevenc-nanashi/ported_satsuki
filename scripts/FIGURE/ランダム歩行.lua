@@ -1,11 +1,25 @@
---track0:個数,1,50,5,1
---track1:速さ,0.1,50,5
---track2:残像[s],0.01,10,2,0.01
---track3:サイズ,0,1000,30,1
+---$track:個数
+---min=1
+---max=50
+---step=1
+local track0 = 5
+---$track:速さ
+---min=0.1
+---max=50
+local v = 5
+---$track:残像[s]
+---min=0.01
+---max=10
+---step=0.01
+local track2 = 2
+---$track:サイズ
+---min=0
+---max=1000
+---step=1
+local track3 = 30
 --dialog:図形/fig,fig="円";色/col,col=0xffffff;カラフル/chk,cful=1;ランダムサイズ[-%],rsize=50;縮小化/chk,dcsize=0;フェードなし/chk,fade=0;初期位置ランダム/chk,st=0;平均数,nj=2;
-f = obj.track2 * obj.framerate
-v = obj.track1
-n = obj.track0 - 1
+f = track2 * obj.framerate
+n = track0 - 1
 w = obj.screen_w / 2
 h = obj.screen_h / 2
 for k = 0, n do
@@ -20,7 +34,7 @@ for k = 0, n do
 		c = col
 	end
 
-	obj.load("figure", fig, c, obj.track3)
+	obj.load("figure", fig, c, track3)
 	obj.effect()
 	x = 0
 	y = 0

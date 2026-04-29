@@ -1,10 +1,17 @@
---track0:サイズ,1,1000,400
---track1:回転速度,-200,200,80
---track2:四角調整,0,200,100
+---$track:サイズ
+---min=1
+---max=1000
+local s = 400
+---$track:回転速度
+---min=-200
+---max=200
+local track1 = 80
+---$track:四角調整
+---min=0
+---max=200
+local st = 100
 --color:0xffffff
-s = obj.track0
-r = obj.track1 * obj.time
-st = obj.track2
+r = track1 * obj.time
 obj.load("figure", "円", color, s, 3)
 obj.effect()
 obj.draw()

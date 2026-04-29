@@ -1,7 +1,21 @@
---track0:サイズ,10,1000,80,1
---track1:回転,-720,720,0
---track2:虹角度,-720,720,-60
---track3:タイプ,0,2,1,1
+---$track:サイズ
+---min=10
+---max=1000
+---step=1
+local track0 = 80
+---$track:回転
+---min=-720
+---max=720
+local r = 0
+---$track:虹角度
+---min=-720
+---max=720
+local gr = -60
+---$track:タイプ
+---min=0
+---max=2
+---step=1
+local typ = 1
 --dialog:横サイズ,WS=800;縦サイズ,HS=450;単色/col,col=0xffffff;
 
 --[[
@@ -11,10 +25,7 @@ http://www.pixiv.net/member_illust.php?mode=medium&illust_id=8359819
 スクリプト上で完全再現は挫折しました…orz
 ]]
 
-local s = math.floor(obj.track0 / 2) * 2
-local r = obj.track1
-local gr = obj.track2
-local typ = obj.track3
+local s = math.floor(track0 / 2) * 2
 
 local hab1 = s * 0.12
 local hab2 = s * 0.15

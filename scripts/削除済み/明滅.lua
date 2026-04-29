@@ -1,7 +1,13 @@
---track0:間隔[ms],0,5000,1000
---track1:モード,0,3,0,1
-t = obj.track0 / 1000
-mode = obj.track1
+---$track:間隔[ms]
+---min=0
+---max=5000
+local track0 = 1000
+---$track:モード
+---min=0
+---max=3
+---step=1
+local mode = 0
+t = track0 / 1000
 if mode < 1 then --ノーマル
 	if obj.time % t < t / 2 then
 		obj.alpha = 1.0

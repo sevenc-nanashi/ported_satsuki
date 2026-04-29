@@ -1,15 +1,28 @@
---track0:サイズ,5,2000,50,1
---track1:拡大率,0,500,100,1
---track2:回転,-720,720,0
---track3:ライン幅,0,4000,4000,1
+---$track:サイズ
+---min=5
+---max=2000
+---step=1
+local track0 = 50
+---$track:拡大率
+---min=0
+---max=500
+---step=1
+local track1 = 100
+---$track:回転
+---min=-720
+---max=720
+local rr = 0
+---$track:ライン幅
+---min=0
+---max=4000
+---step=1
+local lhaba = 4000
 --dialog:図形(種類)/fig,fig="円";色(負は元色)/col,col=0xffffff;反転/chk,han=0;交互/chk,kogo=1;個別拡大,ss=100;縦隙間,ttsm=1;横隙間,yksm=1;横六角形/chk,yoko6=0;
 
 obj.effect("反転", "透明度反転", han)
 local w, h = obj.getpixel()
-local mtd = obj.track1 / 100
-local lhaba = obj.track3
-local s = math.min(obj.track0, w, h)
-local rr = obj.track2
+local mtd = track1 / 100
+local s = math.min(track0, w, h)
 x = {}
 y = {}
 k = {}

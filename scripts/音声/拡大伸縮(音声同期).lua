@@ -1,13 +1,25 @@
---track0:閾値,0,5000,1200,1
---track1:音域,1,50,1,1
---track2:拡大率,100,800,200
---track3:減衰率,0,100,4
+---$track:閾値
+---min=0
+---max=5000
+---step=1
+local siki = 1200
+---$track:音域
+---min=1
+---max=50
+---step=1
+local track1 = 1
+---$track:拡大率
+---min=100
+---max=800
+local s = 200
+---$track:減衰率
+---min=0
+---max=100
+local track3 = 4
 --dialog:Xスケール[%],xs=100;Yスケール[%],ys=100;分割数,div=5;補助線表示/chk,hojo=1;補助線高さ[%],hh=100;
 obj.effect()
-siki = obj.track0
-i = math.min(obj.track1, div)
-s = obj.track2
-sd = obj.track3 / 100
+i = math.min(track1, div)
+sd = track3 / 100
 buf = {}
 n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
 if buf[i] > siki then

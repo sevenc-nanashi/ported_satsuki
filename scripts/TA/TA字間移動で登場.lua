@@ -1,9 +1,22 @@
---track0:時間[s],-10,10,3,0.01
---track1:字間率,-1000,1000,300
---track2:中心座標,-1000,1000,0
---track3:加減速,1,5,2,1
+---$track:時間[s]
+---min=-10
+---max=10
+---step=0.01
+local t = 3
+---$track:字間率
+---min=-1000
+---max=1000
+local track1 = 300
+---$track:中心座標
+---min=-1000
+---max=1000
+local track2 = 0
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local track3 = 2
 --dialog:縦書き/chk,tate=0;フェード/chk,fade=0;
-t = obj.track0
 if t == 0 then
 	return
 elseif t < 0 then
@@ -15,11 +28,11 @@ if i > 0 then
 	if i > 1 then
 		i = 1
 	end
-	i = i ^ obj.track3
+	i = i ^ track3
 	if tate == 1 then
-		obj.oy = obj.track2 + (obj.oy - obj.track2) * (1 + obj.track1 / 100 * i)
+		obj.oy = track2 + (obj.oy - track2) * (1 + track1 / 100 * i)
 	else
-		obj.ox = obj.track2 + (obj.ox - obj.track2) * (1 + obj.track1 / 100 * i)
+		obj.ox = track2 + (obj.ox - track2) * (1 + track1 / 100 * i)
 	end
 	obj.alpha = obj.alpha * (1 - i * fade)
 end

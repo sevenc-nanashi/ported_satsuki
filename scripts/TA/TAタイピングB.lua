@@ -1,5 +1,11 @@
---track0:-横幅,0,256,0
---track1:太さ,0,256,1
+---$track:-横幅
+---min=0
+---max=256
+local track0 = 0
+---$track:太さ
+---min=0
+---max=256
+local track1 = 1
 --color:0xffffff
 obj.effect()
 if obj.index <= n - 1 then
@@ -21,7 +27,7 @@ obj.draw()
 if obj.time < v * n then
 	size = tp[1][4]
 	obj.load("figure", "四角形", color, size)
-	obj.effect("クリッピング", "上", size - obj.track1, "右", obj.track0)
+	obj.effect("クリッピング", "上", size - track1, "右", track0)
 	obj.effect()
 	cv = math.floor(obj.time / v)
 	x = tp[cv + 1][1] + size / 2 - tp[cv + 1][3] / 2

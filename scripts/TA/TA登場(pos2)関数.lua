@@ -1,9 +1,18 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:加減速,1,5,2,1
-ta = obj.track0
-tb = obj.track1
-beki = obj.track2
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local beki = 2
 if obj.index == 0 then
 	if pp2 == null then
 		pp2 = {}

@@ -1,11 +1,21 @@
---track0:サイズ,10,200,50,1
---track1:横サイズ,0,4000,800,1
---track2:縦サイズ,0,4000,450,1
+---$track:サイズ
+---min=10
+---max=200
+---step=1
+local track0 = 50
+---$track:横サイズ
+---min=0
+---max=4000
+---step=1
+local w = 800
+---$track:縦サイズ
+---min=0
+---max=4000
+---step=1
+local h = 450
 --dialog:色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;
 
-local s = math.floor(obj.track0 / 2) * 2 / 4
-local w = obj.track1
-local h = obj.track2
+local s = math.floor(track0 / 2) * 2 / 4
 
 obj.setoption("drawtarget", "tempbuffer", w, h)
 

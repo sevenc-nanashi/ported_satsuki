@@ -1,5 +1,7 @@
---track0:半径調整,0,150,100
-tsl = obj.track0
+---$track:半径調整
+---min=0
+---max=150
+local tsl = 100
 
 if t < 0 then
 	tst = (t / 10 - obj.time + obj.totaltime + t * 0.5 + (obj.num - obj.index) / obj.num * t * 0.6) / t * 10

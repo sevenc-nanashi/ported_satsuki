@@ -1,7 +1,19 @@
---track0:始制X,-500,500,0
---track1:始制Y,-500,500,-100
---track2:終制X,-500,500,0
---track3:終制Y,-500,500,-100
+---$track:始制X
+---min=-500
+---max=500
+local sxa = 0
+---$track:始制Y
+---min=-500
+---max=500
+local sya = -100
+---$track:終制X
+---min=-500
+---max=500
+local sxb = 0
+---$track:終制Y
+---min=-500
+---max=500
+local syb = -100
 --dialog:始制Z,sza=0;終制Z,szb=0;補助線表示/chk,se=1;制御点色/col,color=0xff0000;
 obj.effect()
 --始点
@@ -21,10 +33,6 @@ yb = y1 - obj.getvalue("y", obj.time)
 zb = z1 - obj.getvalue("z", obj.time)
 
 --制御点
-sxa = obj.track0
-sya = obj.track1
-sxb = obj.track2
-syb = obj.track3
 
 --座標の計算
 t = obj.time / obj.totaltime

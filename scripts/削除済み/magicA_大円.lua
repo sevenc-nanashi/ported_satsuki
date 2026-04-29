@@ -1,12 +1,22 @@
---track0:サイズ,1,1000,600
---track1:回転速度,-200,200,80
---track2:登場時間,-10,10,1.5
---track3:ブラー,0,75,40
+---$track:サイズ
+---min=1
+---max=1000
+local s = 600
+---$track:回転速度
+---min=-200
+---max=200
+local track1 = 80
+---$track:登場時間
+---min=-10
+---max=10
+local t = 1.5
+---$track:ブラー
+---min=0
+---max=75
+local blur = 40
 --color:0xffffff
 
-s = obj.track0
-r = obj.track1 * obj.time
-t = obj.track2
+r = track1 * obj.time
 
 --大きな円
 aa = 1
@@ -67,7 +77,6 @@ obj.effect()
 obj.draw(0, 0, 0, 1 - 0.6 * tb, ab, -200 * tb, 20 * tb, r)
 
 --４小円
-blur = obj.track3
 ac = 1
 
 if t < 0 then

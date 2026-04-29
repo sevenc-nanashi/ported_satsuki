@@ -1,6 +1,17 @@
---track0:位置基準,0,100,50,0.01
---track1:字間,0,512,34
---track2:始終透明,0,1,0,1
+---$track:位置基準
+---min=0
+---max=100
+---step=0.01
+local track0 = 50
+---$track:字間
+---min=0
+---max=512
+local track1 = 34
+---$track:始終透明
+---min=0
+---max=1
+---step=1
+local track2 = 0
 --check0:時間基準,0
 
 obj.effect()
@@ -8,17 +19,17 @@ obj.effect()
 if obj.check0 then
 	otm_j = obj.time / obj.totaltime
 else
-	otm_j = obj.track0 / 100
+	otm_j = track0 / 100
 end
 
-t = otm_j * (obj.totaltime + (obj.num - 1) * obj.track1 / 100) - obj.index * obj.track1 / 100
+t = otm_j * (obj.totaltime + (obj.num - 1) * track1 / 100) - obj.index * track1 / 100
 
 if t < 0 then
 	t = 0
-	obj.alpha = 1 - obj.track2
+	obj.alpha = 1 - track2
 elseif t > obj.totaltime then
 	t = obj.totaltime
-	obj.alpha = 1 - obj.track2
+	obj.alpha = 1 - track2
 end
 
 obj.ox = 0

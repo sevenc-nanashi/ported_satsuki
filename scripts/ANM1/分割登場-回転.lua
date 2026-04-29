@@ -1,13 +1,24 @@
---track0:時間[s],-5,5,1,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:回転,-720,720,360
---track3:分割数,1,500,5,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local t = 1
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local u = 0.3
+---$track:回転
+---min=-720
+---max=720
+local k = 360
+---$track:分割数
+---min=1
+---max=500
+---step=1
+local n = 5
 --dialog:フェード/chk,f=1;縦分割/chk,yjiku=0;逆順/chk,jun=0;加減速[1-5],beki=2;
 obj.effect()
-t = obj.track0
-u = obj.track1
-k = obj.track2
-n = obj.track3
 for i = 0, n - 1 do
 	if jun == 0 then
 		d = i * u

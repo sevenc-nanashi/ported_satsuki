@@ -1,13 +1,23 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:文字間隔,-500,500,34
---track3:拡大率,0,800,100
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:文字間隔
+---min=-500
+---max=500
+local w = 34
+---$track:拡大率
+---min=0
+---max=800
+local s = 100
 --dialog:切替フレーム,k=3;フェード/chk,f=0;Y軸,y=0;
 obj.effect()
-ta = obj.track0
-tb = obj.track1
-w = obj.track2
-s = obj.track3
 obj.ox = 0
 for i = 0, obj.num - 1 do
 	if ta == 0 then

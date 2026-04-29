@@ -1,12 +1,24 @@
---track0:サイズ,1,1000,100,1
---track1:奥行き,1,500,20,1
---track2:ライン幅,0,4000,4000,1
---track3:縦横比,-100,100,0
+---$track:サイズ
+---min=1
+---max=1000
+---step=1
+local s = 100
+---$track:奥行き
+---min=1
+---max=500
+---step=1
+local w = 20
+---$track:ライン幅
+---min=0
+---max=4000
+---step=1
+local track2 = 4000
+---$track:縦横比
+---min=-100
+---max=100
+local aspect = 0
 --color:0xffffff
-s = obj.track0
-w = obj.track1
-h = math.min(obj.track2, s / 2)
-aspect = obj.track3
+h = math.min(track2, s / 2)
 asx = math.max(aspect, 0)
 asy = math.max(-aspect, 0)
 

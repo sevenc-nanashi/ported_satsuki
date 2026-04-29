@@ -1,15 +1,24 @@
---track0:時間,-5,5,-1,0.01
---track1:走査幅,1,100,2
---track2:縁調整%,100,800,110
---track3:影速度,-1000,1000,100
+---$track:時間
+---min=-5
+---max=5
+---step=0.01
+local t = -1
+---$track:走査幅
+---min=1
+---max=100
+local l = 2
+---$track:縁調整%
+---min=100
+---max=800
+local ensize = 110
+---$track:影速度
+---min=-1000
+---max=1000
+local kage_v = 100
 --dialog:縁あり/chk,edg=1;縁アス比/chk,as=1;走査線あり/chk,sou=1;走査線強さ[%],sou_alp=50;走査線色/col,sou_col=0x000000;影あり/chk,kage=1;影の幅,kage_haba=80;白線の幅,senhaba=2;
-t = obj.track0
-l = obj.track1
-ensize = obj.track2
 zoom = obj.getvalue("zoom") / 100
 h = obj.h / zoom
 w = obj.w / zoom
-kage_v = obj.track3
 
 if t == 0 then
 	i = 0

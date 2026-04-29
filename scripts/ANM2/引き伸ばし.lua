@@ -1,16 +1,28 @@
---track0:伸度,0,800,0
---track1:幅[%],0.1,100,10
---track2:基準[%],-100,100,0
---track3:中心[%],-100,100,0
+---$track:伸度
+---min=0
+---max=800
+local track0 = 0
+---$track:幅[%]
+---min=0.1
+---max=100
+local track1 = 10
+---$track:基準[%]
+---min=-100
+---max=100
+local track2 = 0
+---$track:中心[%]
+---min=-100
+---max=100
+local track3 = 0
 --dialog:縦方向/chk,dir=0;幅部分を表示/chk,alp=0;
 obj.effect()
 w = obj.w / 2
 h = obj.h / 2
 if dir < 1 then
-	natto = obj.w * obj.track0 / 100
-	haba = obj.w * obj.track1 / 100
-	c = (obj.w - haba) / 2 * obj.track2 / 100
-	t = natto * obj.track3 / 100
+	natto = obj.w * track0 / 100
+	haba = obj.w * track1 / 100
+	c = (obj.w - haba) / 2 * track2 / 100
+	t = natto * track3 / 100
 
 	c0 = c - haba / 2 - natto + t
 	c1 = c + haba / 2 + natto + t
@@ -22,10 +34,10 @@ if dir < 1 then
 	obj.drawpoly(c1 - 1, -h, 0, x1, -h, 0, x1, h, 0, c1 - 1, h, 0, u1 - 1, 0, w * 2, 0, w * 2, h * 2, u1 - 1, h * 2)
 	obj.drawpoly(c0, -h, 0, c1, -h, 0, c1, h, 0, c0, h, 0, u0, 0, u1, 0, u1, h * 2, u0, h * 2, 1 - alp / 2)
 else
-	natto = obj.h * obj.track0 / 100
-	haba = obj.h * obj.track1 / 100
-	c = (obj.h - haba) / 2 * obj.track2 / 100
-	t = natto * obj.track3 / 100
+	natto = obj.h * track0 / 100
+	haba = obj.h * track1 / 100
+	c = (obj.h - haba) / 2 * track2 / 100
+	t = natto * track3 / 100
 
 	c0 = c - haba / 2 - natto + t
 	c1 = c + haba / 2 + natto + t

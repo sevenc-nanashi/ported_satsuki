@@ -1,10 +1,19 @@
---track0:サイズ,1,800,25,1
---track1:横回数,1,200,2,1
---track2:縦回数,1,200,2,1
+---$track:サイズ
+---min=1
+---max=800
+---step=1
+local s = 25
+---$track:横回数
+---min=1
+---max=200
+---step=1
+local w = 2
+---$track:縦回数
+---min=1
+---max=200
+---step=1
+local h = 2
 --dialog:色1/col,col1=0xffffff;色2/col,col2=0x000000;
-s = obj.track0
-w = obj.track1
-h = obj.track2
 function ICHIMATSU(col, a)
 	obj.load("figure", "四角形", col, 2)
 	obj.effect()

@@ -1,13 +1,24 @@
---track0:閾値,0,5000,1200,1
---track1:音域,1,50,1,1
---track2:範囲,0,200,10
---track3:角度,-360,360,90
+---$track:閾値
+---min=0
+---max=5000
+---step=1
+local siki = 1200
+---$track:音域
+---min=1
+---max=50
+---step=1
+local track1 = 1
+---$track:範囲
+---min=0
+---max=200
+local s = 10
+---$track:角度
+---min=-360
+---max=360
+local r = 90
 --dialog:分割数,div=5;色ずれ幅[%],iro=0;色ずれ種類[0-2],iro_ty=0;補助線表示/chk,hojo=1;補助線高さ[%],hh=100;
 obj.effect()
-siki = obj.track0
-i = math.min(obj.track1, div)
-s = obj.track2
-r = obj.track3
+i = math.min(track1, div)
 buf = {}
 n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
 if buf[i] > siki then

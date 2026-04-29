@@ -1,12 +1,24 @@
---track0:横幅,0,2000,640
---track1:縦幅%,0,800,100
---track2:ライン幅,0,500,10,1
---track3:分割数,1,1024,50,1
+---$track:横幅
+---min=0
+---max=2000
+local W = 640
+---$track:縦幅%
+---min=0
+---max=800
+local track1 = 100
+---$track:ライン幅
+---min=0
+---max=500
+---step=1
+local l = 10
+---$track:分割数
+---min=1
+---max=1024
+---step=1
+local track3 = 50
 --color:0xffffff
-W = obj.track0
-H = obj.track1 / 100
-l = obj.track2
-div = obj.track3 + 1
+H = track1 / 100
+div = track3 + 1
 buf = {}
 n = obj.getaudio(buf, "audiobuffer", "pcm", div)
 w = W / (n - 1)

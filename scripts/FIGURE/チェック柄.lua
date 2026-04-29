@@ -1,5 +1,13 @@
---track0:横回数,1,100,1,1
---track1:縦回数,1,100,1,1
+---$track:横回数
+---min=1
+---max=100
+---step=1
+local track0 = 1
+---$track:縦回数
+---min=1
+---max=100
+---step=1
+local track1 = 1
 --dialog:背景色/col,col0=0x8080ff;チェック色/col,col1=0xffffff;
 s = 100 / 100
 s0 = 35 * s
@@ -17,4 +25,4 @@ obj.drawpoly(s3, -s1, 0, s1, -s1, 0, s1, s1, 0, s3, s1, 0, 0, 0, 1, 0, 1, 1, 0, 
 obj.drawpoly(-s1, s3, 0, s1, s3, 0, s1, s1, 0, -s1, s1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0.5) --下
 obj.drawpoly(-s1, -s1, 0, -s3, -s1, 0, -s3, s1, 0, -s1, s1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0.5) --左
 obj.load("tempbuffer")
-obj.effect("画像ループ", "横回数", obj.track0, "縦回数", obj.track1)
+obj.effect("画像ループ", "横回数", track0, "縦回数", track1)

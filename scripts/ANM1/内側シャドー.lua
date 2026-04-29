@@ -1,7 +1,20 @@
---track0:X,-200,200,5
---track1:Y,-200,200,5
---track2:濃さ,0,100,50
---track3:拡散,0,300,5,1
+---$track:X
+---min=-200
+---max=200
+local x = 5
+---$track:Y
+---min=-200
+---max=200
+local y = 5
+---$track:濃さ
+---min=0
+---max=100
+local track2 = 50
+---$track:拡散
+---min=0
+---max=300
+---step=1
+local l = 5
 --color:0x000000
 
 --http://www.nicovideo.jp/watch/sm16334110
@@ -10,9 +23,6 @@
 zoom = obj.getvalue("zoom") / 100
 w = obj.w / zoom
 h = obj.h / zoom
-x = obj.track0
-y = obj.track1
-l = obj.track3
 
 --元画像の保存
 require("extbuffer")
@@ -30,9 +40,9 @@ obj.draw()
 --シャドーの描画
 extbuffer.read(2)
 obj.effect("反転", "透明度反転", 1)
-obj.effect("ぼかし", "範囲", obj.track3)
+obj.effect("ぼかし", "範囲", l)
 obj.effect("グラデーション", "color", color, "color2", color)
-obj.draw(x, y, 0, 1, obj.track2 / 100)
+obj.draw(x, y, 0, 1, track2 / 100)
 --画像の切り抜き
 extbuffer.read(2)
 obj.effect("反転", "透明度反転", 1)

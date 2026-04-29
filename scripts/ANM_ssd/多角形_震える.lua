@@ -1,7 +1,22 @@
---track0:ライン幅,2,100,20,1
---track1:頂点数,2,16,3,1
---track2:固定ｻｲｽﾞ,0,2000,0,1
---track3:縦横比,-100,100,0
+---$track:ライン幅
+---min=2
+---max=100
+---step=1
+local track0 = 20
+---$track:頂点数
+---min=2
+---max=16
+---step=1
+local n = 3
+---$track:固定ｻｲｽﾞ
+---min=0
+---max=2000
+---step=1
+local track2 = 0
+---$track:縦横比
+---min=-100
+---max=100
+local track3 = 0
 --dialog:色/col,col=0xffffff;座標,pos={0,-150,130,75,-130,75};繰り返し描画数,r_num=nil;繰り返し分周,r_frq=nil;簡易塗り潰し/chk,fill=0;震える範囲,f_ran=20;震える間隔,f_kan=10;カクカク/chk,kak=0;
 if r_num == nil then
 	r_num = 1
@@ -20,11 +35,10 @@ if r_frq < 1 then
 end
 f_kan = f_kan * (1 - kak * 2)
 
-n = obj.track1
-l = math.floor(obj.track0) / 2
-if obj.track2 > 0 then
+l = math.floor(track0) / 2
+if track2 > 0 then
 	-- 固定座標
-	w = obj.track2 / 2
+	w = track2 / 2
 	for i = 0, n - 1 do
 		if f_kan > 0 then
 			t = obj.time * 100 / f_kan
@@ -76,13 +90,13 @@ else
 	end
 end
 -- 縦横比変更
-if obj.track3 < 0 then
-	dy = 1 + obj.track3 / 100
+if track3 < 0 then
+	dy = 1 + track3 / 100
 	for i = 0, n - 1 do
 		pos[i * 2 + 2] = pos[i * 2 + 2] * dy
 	end
-elseif obj.track3 > 0 then
-	dx = 1 - obj.track3 / 100
+elseif track3 > 0 then
+	dx = 1 - track3 / 100
 	for i = 0, n - 1 do
 		pos[i * 2 + 1] = pos[i * 2 + 1] * dx
 	end

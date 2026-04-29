@@ -1,7 +1,10 @@
---track0:散逸度,0,100,100
+---$track:散逸度
+---min=0
+---max=100
+local track0 = 100
 --dialog:座標,pos={}
 obj.effect()
-r = obj.track0 / 100
+r = track0 / 100
 obj.setanchor("pos", obj.num, "line")
 
 if obj.index == 0 then

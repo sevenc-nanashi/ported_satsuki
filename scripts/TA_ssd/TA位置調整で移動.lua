@@ -1,11 +1,25 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:開始[s],0,100,0,0.01
---track3:登場順,0,5,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:開始[s]
+---min=0
+---max=100
+---step=0.01
+local st = 0
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:加減速[1-5],beki=2;減/加/S[0-2],adc=0;タイプ/chk,type=0;座標,pos={};
 obj.effect()
-st = obj.track2
-jun = obj.track3
 
 obj.setanchor("pos", obj.num, "line")
 
@@ -42,11 +56,9 @@ else
 end
 
 if type < 1 then
-	ta = obj.track0
-	tb = obj.track1
 else
-	ta = obj.track0 * (1 - mode / obj.num)
-	tb = obj.track1 / obj.num
+	ta = ta * (1 - mode / obj.num)
+	tb = tb / obj.num
 end
 
 if ta < 0 then

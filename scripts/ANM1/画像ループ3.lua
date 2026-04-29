@@ -1,5 +1,11 @@
---track0:X軸[%],-2000,2000,0
---track1:Y軸[%],-2000,2000,0
+---$track:X軸[%]
+---min=-2000
+---max=2000
+local track0 = 0
+---$track:Y軸[%]
+---min=-2000
+---max=2000
+local track1 = 0
 --dialog:初速X,vx=0;初速Y,vy=0;加速度X,vxa=0;加速度Y,vya=0;
 obj.effect()
 
@@ -14,8 +20,8 @@ if vy * vya < 0 and obj.time >= -vy / vya then
 end
 
 --ループ
-X = obj.w * obj.track0 / 100 + v_x
-Y = obj.h * obj.track1 / 100 + v_y
+X = obj.w * track0 / 100 + v_x
+Y = obj.h * track1 / 100 + v_y
 x = math.abs(X) % obj.w
 y = math.abs(Y) % obj.h
 w = obj.w / 2

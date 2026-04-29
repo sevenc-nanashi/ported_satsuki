@@ -1,5 +1,8 @@
---track0:表示速度,0,100,5
-v = 1 / obj.track0 --単位：秒/文字
+---$track:表示速度
+---min=0
+---max=100
+local track0 = 5
+v = 1 / track0 --単位：秒/文字
 n = obj.num
 if obj.index == 0 then
 	if tp == null then

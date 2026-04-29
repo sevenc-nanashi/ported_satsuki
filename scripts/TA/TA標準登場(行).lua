@@ -1,11 +1,20 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:行数,1,256,5,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:行数
+---min=1
+---max=256
+---step=1
+local n = 5
 --dialog:フェード/chk,fade=0;拡大率[+%],s=0;X距離,x=0;Y距離,y=0;Z距離,z=0;Z軸回転,rz=0;加減速[1-5],beki=2;
 obj.effect()
-ta = obj.track0
-tb = obj.track1
-n = obj.track2
 w = obj.w / 2
 h = obj.h / 2 / n
 alp = 1

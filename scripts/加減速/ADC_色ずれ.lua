@@ -1,7 +1,21 @@
---track0:幅1,0,500,5,1
---track1:幅2,-500,500,0,1
---track2:角度1,-720,720,0
---track3:角度2,-720,720,0
+---$track:幅1
+---min=0
+---max=500
+---step=1
+local track0 = 5
+---$track:幅2
+---min=-500
+---max=500
+---step=1
+local track1 = 0
+---$track:角度1
+---min=-720
+---max=720
+local track2 = 0
+---$track:角度2
+---min=-720
+---max=720
+local track3 = 0
 --dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;色ずれの種類[0-2],ty=0;
 
 --共通部分
@@ -27,6 +41,6 @@ else
 end
 
 --フィルタ効果
-h = obj.track0 + obj.track1 * t
-r = obj.track2 + obj.track3 * t
+h = track0 + track1 * t
+r = track2 + track3 * t
 obj.effect("色ずれ", "ずれ幅", h, "角度", r, "type", ty)

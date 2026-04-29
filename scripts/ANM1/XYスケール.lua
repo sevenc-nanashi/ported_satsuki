@@ -1,7 +1,11 @@
---track0:Xスケール,0,1000,100
---track1:Yスケール,0,1000,100
-xscale = obj.track0
-yscale = obj.track1
+---$track:Xスケール
+---min=0
+---max=1000
+local xscale = 100
+---$track:Yスケール
+---min=0
+---max=1000
+local yscale = 100
 obj.zoom = math.max(xscale, yscale) / 100
 if xscale > yscale then
 	--アスペクト比をマイナス方向にしてやる必要がある

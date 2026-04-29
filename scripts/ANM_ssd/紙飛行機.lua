@@ -1,12 +1,21 @@
---track0:長さ,0,1000,200
---track1:幅,0,500,80
---track2:高さ,0,500,50
---track3:回転,-3600,3600,0,0.01
+---$track:長さ
+---min=0
+---max=1000
+local k_l = 200
+---$track:幅
+---min=0
+---max=500
+local k_w = 80
+---$track:高さ
+---min=0
+---max=500
+local k_h = 50
+---$track:回転
+---min=-3600
+---max=3600
+---step=0.01
+local track3 = 0
 --dialog:隙間,k_gap=50;色/col,col=0xffffff;自動方向(移動時のみ)/chk,j_hoko=0;計算基準軸(0or1),axis=0;
-
-local k_l = obj.track0
-local k_w = obj.track1
-local k_h = obj.track2
 
 if j_hoko == 0 then
 	obj.load("figure", "四角形", col, 2)
@@ -64,7 +73,7 @@ else
 	base_x = obj.getvalue("x")
 	base_y = obj.getvalue("y")
 	base_z = obj.getvalue("z")
-	--obj.load("figure","円",col,obj.track0)
+	--obj.load("figure","円",col,k_l)
 	--obj.effect()
 	--obj.setoption("billboard",3)
 	obj.ox = obj.ox - base_x
@@ -159,7 +168,7 @@ else
 	obj.oz = obj.oz + base_z
 
 	-- 先端部分
-	--if( obj.track1 > 0 ) then
+	--if( k_w > 0 ) then
 	obj.load("figure", "四角形", col, 3)
 	obj.effect()
 	obj.setoption("billboard", 0)
@@ -196,7 +205,7 @@ else
 	end
 
 	--	先端の回転
-	r = (obj.track3 + 90) * math.pi / 180
+	r = (track3 + 90) * math.pi / 180
 	s = math.sin(r)
 	c = math.cos(r)
 	r00 = vx * vx * (1 - c) + c
@@ -227,8 +236,8 @@ else
 		m21 = -y * z * (1 - c)
 		m22 = y * y * (1 - c) + c
 
-		--		l = obj.track1/2
-		--		w = obj.track0/2
+		--		l = k_w/2
+		--		w = k_l/2
 
 		cal_draw(k_l, 0, 0, 0, 0, -k_w - k_gap, 0, 0, -k_gap + 0.5, k_l, 0, 0) --左翼
 		cal_draw(k_l, 0, 0, 0, 0, k_w + k_gap, 0, 0, k_gap - 0.5, k_l, 0, 0) --右翼
@@ -257,8 +266,8 @@ else
 		m21 = y * s
 		m22 = c
 
-		--		l = obj.track1/2
-		--		w = obj.track0/2
+		--		l = k_w/2
+		--		w = k_l/2
 
 		cal_draw(0, 0, k_l, 0, -k_w - k_gap, 0, 0, -k_gap + 0.5, 0, 0, 0, k_l) --左翼
 		cal_draw(0, 0, k_l, 0, k_w + k_gap, 0, 0, k_gap - 0.5, 0, 0, 0, k_l) --右翼

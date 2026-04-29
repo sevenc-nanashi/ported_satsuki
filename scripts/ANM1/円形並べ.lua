@@ -1,12 +1,22 @@
---track0:個数,1,100,10,1
---track1:距離,0,2000,200
---track2:拡大率,0,800,100
---track3:回転,-360,360,0
+---$track:個数
+---min=1
+---max=100
+---step=1
+local n = 10
+---$track:距離
+---min=0
+---max=2000
+local l = 200
+---$track:拡大率
+---min=0
+---max=800
+local track2 = 100
+---$track:回転
+---min=-360
+---max=360
+local rz = 0
 --dialog:回転なし/chk,dir=0;個別基準/chk,mode=0;
-n = obj.track0
-s = obj.track2 / 100
-l = obj.track1
-rz = obj.track3
+s = track2 / 100
 
 if mode == 0 then
 	zoom = obj.getvalue("zoom") / 100 / s

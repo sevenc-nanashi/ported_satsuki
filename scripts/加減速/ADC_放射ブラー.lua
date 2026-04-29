@@ -1,9 +1,18 @@
---track0:時間[s],-5,5,1,0.01
---track1:範囲1,0,300,0
---track2:範囲2,-300,300,0
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:範囲1
+---min=0
+---max=300
+local track1 = 0
+---$track:範囲2
+---min=-300
+---max=300
+local track2 = 0
 --dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;X,x=0;Y,y=0;サイズ固定/chk,fix=0;
 
-ta = obj.track0
 --共通部分
 if ta == 0 then
 	return
@@ -27,5 +36,5 @@ else
 end
 
 --フィルタ効果
-h = obj.track1 + obj.track2 * t
+h = track1 + track2 * t
 obj.effect("放射ブラー", "範囲", h, "X", x, "Y", y, "サイズ固定", fix)

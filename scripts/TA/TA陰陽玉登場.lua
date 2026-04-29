@@ -1,10 +1,19 @@
---track0:時間[s],-10,10,3,0.01
---track1:角度,-720,720,360
---track2:加減速,1,5,2,1
+---$track:時間[s]
+---min=-10
+---max=10
+---step=0.01
+local t = 3
+---$track:角度
+---min=-720
+---max=720
+local rz = 360
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local track2 = 2
 --dialog:文字回転/chk,k=1;
-t = obj.track0
-rz = obj.track1
-beki = math.floor(obj.track2)
+beki = math.floor(track2)
 mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
 ta = t * (1 - mode / obj.num)
 tb = t / obj.num

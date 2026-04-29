@@ -1,9 +1,19 @@
---track0:個数,0,100,10,1
---track1:距離,0,2000,200
---track2:拡大率,0,800,100
---track3:回転,-360,360,0
+---$track:個数
+---min=0
+---max=100
+---step=1
+local n = 10
+---$track:距離
+---min=0
+---max=2000
+local l = 200
+---$track:拡大率
+---min=0
+---max=800
+local track2 = 100
+---$track:回転
+---min=-360
+---max=360
+local rr = 0
 --dialog:Y軸回転なし/chk,dir=0;
-n = obj.track0
-l = obj.track1
-k = obj.track2 / 100
-rr = obj.track3
+k = track2 / 100

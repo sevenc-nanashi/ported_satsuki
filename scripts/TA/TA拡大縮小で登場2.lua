@@ -1,11 +1,25 @@
---track0:時間[s],-10,10,2,0.01
---track1:間隔[s],0,2,0.2,0.01
---track2:拡大率,0,1000,500
---track3:回数,1,10,3,1
+---$track:時間[s]
+---min=-10
+---max=10
+---step=0.01
+local t = 2
+---$track:間隔[s]
+---min=0
+---max=2
+---step=0.01
+local tb = 0.2
+---$track:拡大率
+---min=0
+---max=1000
+local track2 = 500
+---$track:回数
+---min=1
+---max=10
+---step=1
+local track3 = 3
 --dialog:X距離,x=0;Y距離,y=0;Z距離,z=0;加減速[1-5],beki1=2;減衰[0-3],beki0=2;
-tb = obj.track1
-k = math.floor(obj.track3)
-s = obj.track2 / 100 - 1
+k = math.floor(track3)
+s = track2 / 100 - 1
 
 local indexes = {}
 for i = 0, obj.num - 1 do
@@ -20,13 +34,12 @@ for i = 0, obj.num - 1 do
 end
 f = indexes[obj.index + 1] * tb
 
-if obj.track0 == 0 then
+if t == 0 then
 	return
-elseif obj.track0 > 0 then
-	t = obj.track0
+elseif t > 0 then
 	time = math.max(obj.time - f, 0)
 else
-	t = -obj.track0
+	t = -t
 	time = math.max(obj.totaltime - obj.time - f, 0)
 end
 

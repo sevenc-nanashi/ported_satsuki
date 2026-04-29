@@ -1,13 +1,25 @@
---track0:歪曲,0,500,100
---track1:中心X%,-100,100,0
---track2:中心Y%,-100,100,0
---track3:固定位置,0,2,0,1
+---$track:歪曲
+---min=0
+---max=500
+local track0 = 100
+---$track:中心X%
+---min=-100
+---max=100
+local track1 = 0
+---$track:中心Y%
+---min=-100
+---max=100
+local track2 = 0
+---$track:固定位置
+---min=0
+---max=2
+---step=1
+local k = 0
 --dialog:分割数,n=28;
 obj.effect()
-t = obj.track0 / 100
-cx = obj.track1 / 2
-cy = obj.track2 / 2
-k = obj.track3
+t = track0 / 100
+cx = track1 / 2
+cy = track2 / 2
 h = obj.h / n
 w = obj.w / n
 H = obj.h / 2

@@ -1,12 +1,24 @@
---track0:個数,1,20,5,1
---track1:再生速度,0,800,100
---track2:再生位置,0,300,0,0.01
---track3:配置範囲,0,1000,100
+---$track:個数
+---min=1
+---max=20
+---step=1
+local n = 5
+---$track:再生速度
+---min=0
+---max=800
+local track1 = 100
+---$track:再生位置
+---min=0
+---max=300
+---step=0.01
+local f = 0
+---$track:配置範囲
+---min=0
+---max=1000
+local track3 = 100
 --file:
-n = obj.track0
-v = obj.track1 / 100
-f = obj.track2
-l = obj.track3 / 100
+v = track1 / 100
+l = track3 / 100
 tt = obj.load(file)
 for i = 0, n - 1 do
 	x = obj.rand(-obj.screen_w, obj.screen_w, i, 0) / 2 * l

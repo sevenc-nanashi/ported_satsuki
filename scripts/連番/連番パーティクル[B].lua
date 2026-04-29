@@ -1,8 +1,14 @@
---track0:File数,0,500,10,1
---track1:連番桁,1,8,4,1
+---$track:File数
+---min=0
+---max=500
+---step=1
+local totalfile = 10
+---$track:連番桁
+---min=1
+---max=8
+---step=1
+local kt = 4
 --file:
-totalfile = obj.track0
-kt = obj.track1
 n = obj.totaltime / b
 for i = 0, n - 1 do
 	--連番画像読み込み(from hksy.obj)を改変

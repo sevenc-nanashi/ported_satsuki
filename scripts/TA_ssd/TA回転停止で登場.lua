@@ -1,13 +1,26 @@
---track0:間隔[s],-5,5,0.3,0.01
---track1:速度,-1000,1000,270
---track2:待機[s],0,10,0,0.01
---track3:登場順,0,5,0,1
+---$track:間隔[s]
+---min=-5
+---max=5
+---step=0.01
+local track0 = 0.3
+---$track:速度
+---min=-1000
+---max=1000
+local rv = 270
+---$track:待機[s]
+---min=0
+---max=10
+---step=0.01
+local track2 = 0
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:X軸回転/chk,rx=0;Y軸回転/chk,ry=0;Z軸回転/chk,rz=1;移動距離,id_len=0;移動角度,id_r=0;
 
-local ts = obj.time - obj.track2
-local tb = math.abs(obj.track0)
-local rv = obj.track1
-local jun = obj.track3
+local ts = obj.time - track2
+local tb = math.abs(track0)
 local ta = math.abs(360 / rv)
 
 if jun < 1 then --順番に登場
@@ -35,8 +48,8 @@ else --外側から登場
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
 end
 
-if obj.track0 < 0 then
-	i = -(-ta - obj.num * tb - obj.time - obj.track2 + obj.totaltime + mode * tb) / ta
+if track0 < 0 then
+	i = -(-ta - obj.num * tb - obj.time - track2 + obj.totaltime + mode * tb) / ta
 else
 	i = (ta - ts + mode * tb) / ta
 end

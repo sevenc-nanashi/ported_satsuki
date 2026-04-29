@@ -1,11 +1,19 @@
---track0:時間[s],0,10,2,0.01
---track1:間隔[s],0,10,1,0.01
---track2:傾き範囲,0,360,30
+---$track:時間[s]
+---min=0
+---max=10
+---step=0.01
+local ta = 2
+---$track:間隔[s]
+---min=0
+---max=10
+---step=0.01
+local tb = 1
+---$track:傾き範囲
+---min=0
+---max=360
+local rz = 30
 --check0:縮小,0
 
-ta = obj.track0
-tb = obj.track1
-rz = obj.track2
 t = (ta - obj.time + obj.index * tb) / ta
 a = t
 if t > 0 then

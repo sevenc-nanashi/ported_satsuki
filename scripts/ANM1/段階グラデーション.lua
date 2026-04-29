@@ -1,10 +1,18 @@
---track0:幅,0,2000,200
---track1:分割数,1,50,4,1
---track2:角度,-360,360,0
+---$track:幅
+---min=0
+---max=2000
+local h = 200
+---$track:分割数
+---min=1
+---max=50
+---step=1
+local track1 = 4
+---$track:角度
+---min=-360
+---max=360
+local r = 0
 --dialog:色1/col,col1=0xffff00;色2/col,col2=0xff0000;中心X,cx=0;中心Y,cy=0;
-h = obj.track0
-n = math.floor(obj.track1)
-r = obj.track2
+n = math.floor(track1)
 col1_r = math.floor(col1 / 16 ^ 4)
 col1_g = math.floor((col1 - col1_r * 16 ^ 4) / 256)
 col1_b = col1 - col1_r * 16 ^ 4 - col1_g * 16 ^ 2

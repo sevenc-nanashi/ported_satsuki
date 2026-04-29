@@ -1,10 +1,23 @@
---track0:時間[s],-5,5,1,0.01
---track1:方向,-360,360,0,0.01
---track2:距離,0,20000,300
---track3:拡大率,0,800,100
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:方向
+---min=-360
+---max=360
+---step=0.01
+local track1 = 0
+---$track:距離
+---min=0
+---max=20000
+local l = 300
+---$track:拡大率
+---min=0
+---max=800
+local s = 100
 --dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;縦横比[%],as=0;Z軸,z=0;X回転,rx=0;Y回転,ry=0;Z回転,rz=0;
 
-ta = obj.track0
 --共通部分
 if ta == 0 then
 	return
@@ -28,9 +41,7 @@ else
 end
 
 --フィルタ効果
-r = obj.track1 + 90
-l = obj.track2
-s = obj.track3
+r = track1 + 90
 obj.ox = obj.ox + l * math.cos(r * math.pi / 180) * t
 obj.oy = obj.oy + l * math.sin(r * math.pi / 180) * t
 obj.oz = obj.oz + z * t

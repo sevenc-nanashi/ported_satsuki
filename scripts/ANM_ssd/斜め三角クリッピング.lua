@@ -1,12 +1,23 @@
---track0:横幅,5,500,50
---track1:高さ,0,1000,50
---track2:角度,-720,720,0,0.01
---track3:速さ,-500,500,0
+---$track:横幅
+---min=5
+---max=500
+local track0 = 50
+---$track:高さ
+---min=0
+---max=1000
+local lh = 50
+---$track:角度
+---min=-720
+---max=720
+---step=0.01
+local cr = 0
+---$track:速さ
+---min=-500
+---max=500
+local track3 = 0
 --dialog:中心,pos={};
-lw = obj.track0 * 2
-lh = obj.track1
-cr = obj.track2
-offs = obj.time * obj.track3 % lw
+lw = track0 * 2
+offs = obj.time * track3 % lw
 obj.setanchor("pos", 1)
 cx = pos[1]
 cy = pos[2]

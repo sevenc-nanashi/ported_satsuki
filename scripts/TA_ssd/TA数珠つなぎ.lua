@@ -1,11 +1,22 @@
---track0:角度範囲,-360,360,60
---track1:方向,-360,360,0
---track2:字間,-800,800,100
---track3:拡大,1,100,100
+---$track:角度範囲
+---min=-360
+---max=360
+local track0 = 60
+---$track:方向
+---min=-360
+---max=360
+local off_r = 0
+---$track:字間
+---min=-800
+---max=800
+local track2 = 100
+---$track:拡大
+---min=1
+---max=100
+local track3 = 100
 --dialog:回転あり/chk,rc=0;ランダム種,seed=1;
 
-r = obj.track0 / 2
-off_r = obj.track1
+r = track0 / 2
 
 --字間の配列
 if obj.index == 0 then
@@ -19,7 +30,7 @@ tj[obj.index + 1] = { obj.ox, obj.oy }
 rzoom = {}
 idz = 0
 for i = 1, obj.num + 1 do
-	zz = obj.rand(obj.track3, 100, -11 - seed, i) / 100
+	zz = obj.rand(track3, 100, -11 - seed, i) / 100
 	idz = idz + 1
 	rzoom[idz] = zz
 end
@@ -31,7 +42,7 @@ for i = 0, obj.num - 1 do
 		yy = 0
 		if i > 0 then
 			for j = 1, i do
-				l = obj.track2 / 100 * (tj[j + 1][1] - tj[j][1]) * (rzoom[j] + rzoom[j + 1]) / 2
+				l = track2 / 100 * (tj[j + 1][1] - tj[j][1]) * (rzoom[j] + rzoom[j + 1]) / 2
 				xx = xx + l * math.cos(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
 				yy = yy + l * math.sin(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
 			end

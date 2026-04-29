@@ -1,23 +1,35 @@
---track0:XY振幅,0,500,200
---track1:間隔,1,500,100
---track2:個数,1,100,3,1
---track3:範囲,0,100,100
+---$track:XY振幅
+---min=0
+---max=500
+local track0 = 200
+---$track:間隔
+---min=1
+---max=500
+local track1 = 100
+---$track:個数
+---min=1
+---max=100
+---step=1
+local n = 3
+---$track:範囲
+---min=0
+---max=100
+local track3 = 100
 --dialog:Z軸振幅,zsh=0;Z軸回転範囲,rz=10;ランダム角度,rrz=0;ランダムサイズ[-%],rs=0;ランダム透明度[-%],ralp=0;差分,sbn=7.7;
 
-n = obj.track2
-thuk = obj.track3 / 100
+thuk = track3 / 100
 for i = 0, n - 1 do
-	t = (obj.time + i * sbn) * 100 / obj.track1
+	t = (obj.time + i * sbn) * 100 / track1
 	p = math.floor(t)
 	t = t - p
-	x0 = obj.rand(-1000, 1000, 0 + i, p + 0) / 1000 * obj.track0 * thuk
-	x1 = obj.rand(-1000, 1000, 0 + i, p + 1) / 1000 * obj.track0 * thuk
-	x2 = obj.rand(-1000, 1000, 0 + i, p + 2) / 1000 * obj.track0 * thuk
-	x3 = obj.rand(-1000, 1000, 0 + i, p + 3) / 1000 * obj.track0 * thuk
-	y0 = obj.rand(-1000, 1000, 1 + i, p + 0) / 1000 * obj.track0 * thuk
-	y1 = obj.rand(-1000, 1000, 1 + i, p + 1) / 1000 * obj.track0 * thuk
-	y2 = obj.rand(-1000, 1000, 1 + i, p + 2) / 1000 * obj.track0 * thuk
-	y3 = obj.rand(-1000, 1000, 1 + i, p + 3) / 1000 * obj.track0 * thuk
+	x0 = obj.rand(-1000, 1000, 0 + i, p + 0) / 1000 * track0 * thuk
+	x1 = obj.rand(-1000, 1000, 0 + i, p + 1) / 1000 * track0 * thuk
+	x2 = obj.rand(-1000, 1000, 0 + i, p + 2) / 1000 * track0 * thuk
+	x3 = obj.rand(-1000, 1000, 0 + i, p + 3) / 1000 * track0 * thuk
+	y0 = obj.rand(-1000, 1000, 1 + i, p + 0) / 1000 * track0 * thuk
+	y1 = obj.rand(-1000, 1000, 1 + i, p + 1) / 1000 * track0 * thuk
+	y2 = obj.rand(-1000, 1000, 1 + i, p + 2) / 1000 * track0 * thuk
+	y3 = obj.rand(-1000, 1000, 1 + i, p + 3) / 1000 * track0 * thuk
 	z0 = obj.rand(-1000, 1000, 2 + i, p + 0) / 1000 * zsh * thuk
 	z1 = obj.rand(-1000, 1000, 2 + i, p + 1) / 1000 * zsh * thuk
 	z2 = obj.rand(-1000, 1000, 2 + i, p + 2) / 1000 * zsh * thuk

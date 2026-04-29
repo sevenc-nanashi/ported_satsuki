@@ -1,12 +1,21 @@
---track0:ゴミ閾値,0,100,90
---track1:ゴミサイズ,0,200,100
---track2:縦線閾値,0,100,90
---track3:輝度変化,0,100,90
+---$track:ゴミ閾値
+---min=0
+---max=100
+local gs = 90
+---$track:ゴミサイズ
+---min=0
+---max=200
+local track1 = 100
+---$track:縦線閾値
+---min=0
+---max=100
+local ts = 90
+---$track:輝度変化
+---min=0
+---max=100
+local kh = 90
 --dialog:縁色/col,color=0x6b4a2b;ノイズ色/col,ncolor=0x000000;縁アス比/chk,as=0;縁あり/chk,ed=1;輝度反転/chk,ha=0;
-gs = obj.track0
-gb = obj.track1 / 100
-ts = obj.track2
-kh = obj.track3
+gb = track1 / 100
 
 --白背景
 obj.load("figure", "背景", 0xffffff)

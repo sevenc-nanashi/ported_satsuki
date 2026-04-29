@@ -1,14 +1,25 @@
---track0:サイズ,5,500,50,1
---track1:半径,0,2000,100
---track2:中心X,-2000,2000,0
---track3:中心Y,-2000,2000,0
+---$track:サイズ
+---min=5
+---max=500
+---step=1
+local s = 50
+---$track:半径
+---min=0
+---max=2000
+local r = 100
+---$track:中心X
+---min=-2000
+---max=2000
+local track2 = 0
+---$track:中心Y
+---min=-2000
+---max=2000
+local track3 = 0
 --check0:反転,0
 
 obj.copybuffer("tmp", "obj")
-s = obj.track0
-r = obj.track1
-cx = -obj.track2
-cy = -obj.track3
+cx = -track2
+cy = -track3
 
 w = obj.w / obj.getvalue("zoom") * 100
 h = obj.h / obj.getvalue("zoom") * 100

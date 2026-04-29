@@ -1,17 +1,31 @@
---track0:連番桁,1,8,4,1
---track1:再生速度,0,1000,100
---track2:開始位置,0,10000,0,1
---track3:ループ位置,0,10000,10000,1
+---$track:連番桁
+---min=1
+---max=8
+---step=1
+local kt = 4
+---$track:再生速度
+---min=0
+---max=1000
+local track1 = 100
+---$track:開始位置
+---min=0
+---max=10000
+---step=1
+local track2 = 0
+---$track:ループ位置
+---min=0
+---max=10000
+---step=1
+local track3 = 10000
 --file:
 
 --連番画像読み込み(hksy.obj)を改変したものです。
 --ファイル名は(0001.png)などの連番数字が前提
-kt = obj.track0
 lp = string.len(file) - (kt + 4)
 path = string.sub(file, 1, lp)
 ext = string.sub(file, -3)
 frame = obj.time * obj.framerate
-num = (frame * (obj.track1 / 100)) % (obj.track3 - obj.track2 + 1) + obj.track2
+num = (frame * (track1 / 100)) % (track3 - track2 + 1) + track2
 name = string.format("%0" .. kt .. "d", num) .. "." .. ext
 load = path .. name
 obj.load("image", load)

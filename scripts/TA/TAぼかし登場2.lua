@@ -1,11 +1,24 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:範囲,0,300,100,1
---track3:登場順,0,5,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:範囲
+---min=0
+---max=300
+---step=1
+local track2 = 100
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:横方向/chk,yoko=0;拡大率,z=400;
-ta = obj.track0
-tb = obj.track1
-jun = obj.track3
 a = 1
 
 if jun < 1 then
@@ -33,7 +46,7 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if obj.track0 < 0 then
+if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
 else
 	i = (ta - obj.time + mode * tb) / ta
@@ -49,5 +62,5 @@ if i > 0 then
 	end
 	obj.zoom = obj.zoom + i * (z - 100) / 100
 	obj.aspect = obj.aspect + i * (1 - 1 / z * 100) * a
-	obj.effect("ぼかし", "範囲", i * obj.track2, "縦横比", -100 * a)
+	obj.effect("ぼかし", "範囲", i * track2, "縦横比", -100 * a)
 end

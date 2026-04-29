@@ -1,11 +1,17 @@
---track0:横幅,5,500,50
---track1:高さ,0,1000,50
---track2:offset,-500,500,0
+---$track:横幅
+---min=5
+---max=500
+local lw = 50
+---$track:高さ
+---min=0
+---max=1000
+local lh = 50
+---$track:offset
+---min=-500
+---max=500
+local set = 0
 --dialog:上(1/ON),dir1=1;下,dir2=1;左,dir3=0;右,dir4=0;
 w, h = obj.getpixel()
-lw = obj.track0
-lh = obj.track1
-set = obj.track2
 offs = set % lw * 2
 n = math.floor(w / lw / 2) + 1
 

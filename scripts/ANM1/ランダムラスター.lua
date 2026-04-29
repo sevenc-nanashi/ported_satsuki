@@ -1,13 +1,25 @@
---track0:横幅(小),0,1000,50
---track1:横幅(大),0,1000,500
---track2:閾値(小),0,100,50
---track3:閾値(大),0,100,90
+---$track:横幅(小)
+---min=0
+---max=1000
+local track0 = 50
+---$track:横幅(大)
+---min=0
+---max=1000
+local track1 = 500
+---$track:閾値(小)
+---min=0
+---max=100
+local track2 = 50
+---$track:閾値(大)
+---min=0
+---max=100
+local track3 = 90
 --dialog:横方向のみ/chk,dir0=1;縦方向のみ/chk,dir1=0;高さ,h=5;色ずれ幅[%],iro=0;色ずれ種類[0〜2],ty=0;
 l = rand(0, 100)
-if l > obj.track3 then
-	w = obj.rand(0, obj.track1)
-elseif l > obj.track2 then
-	w = obj.rand(0, obj.track0)
+if l > track3 then
+	w = obj.rand(0, track1)
+elseif l > track2 then
+	w = obj.rand(0, track0)
 else
 	w = 0
 end

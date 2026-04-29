@@ -1,11 +1,25 @@
---track0:X,-2000,2000,0
---track1:Y,-2000,2000,0
---track2:範囲,0,2000,100,1
---track3:範囲表示,0,1,1,1
+---$track:X
+---min=-2000
+---max=2000
+local track0 = 0
+---$track:Y
+---min=-2000
+---max=2000
+local track1 = 0
+---$track:範囲
+---min=0
+---max=2000
+---step=1
+local track2 = 100
+---$track:範囲表示
+---min=0
+---max=1
+---step=1
+local track3 = 1
 --dialog:X,x=0;Y,y=0;Z,z=0;拡大率,s=50;透明度,alp=0;X回転,rx=0;Y回転,ry=0;Z回転,rz=0;加減速[1-5],beki=2;自動移動[0-2],jido=0;幅,h_hb0=2000;
 
 obj.effect()
-h_sz = obj.track2 / 2
+h_sz = track2 / 2
 h_hb = math.min(h_sz, h_hb0)
 
 obj.setanchor("track", 0, "line")
@@ -43,7 +57,7 @@ else
 end
 
 --範囲表示
-if obj.track3 == 1 then
+if track3 == 1 then
 	obj.load("figure", "円", 0xff0000, h_sz * 2, h_hb)
 	obj.draw(px, py, 0, 1, 0.5 / obj.num)
 end

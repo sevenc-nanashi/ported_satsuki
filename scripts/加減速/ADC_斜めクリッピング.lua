@@ -1,7 +1,22 @@
---track0:中心X1,-2000,2000,0,1
---track1:中心Y1,-2000,2000,0,1
---track2:角度1,-720,720,0
---track3:幅1,-2000,2000,0,1
+---$track:中心X1
+---min=-2000
+---max=2000
+---step=1
+local track0 = 0
+---$track:中心Y1
+---min=-2000
+---max=2000
+---step=1
+local track1 = 0
+---$track:角度1
+---min=-720
+---max=720
+local track2 = 0
+---$track:幅1
+---min=-2000
+---max=2000
+---step=1
+local track3 = 0
 --dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;中心X2,x2=0;中心Y2,y2=0;角度2,r2=0;幅2,w2=0;ぼかし,bk=0;
 
 --共通部分
@@ -27,8 +42,8 @@ else
 end
 
 --フィルタ効果
-x = obj.track0 + x2 * t
-y = obj.track1 + y2 * t
-r = obj.track2 + r2 * t
-w = obj.track3 + w2 * t
+x = track0 + x2 * t
+y = track1 + y2 * t
+r = track2 + r2 * t
+w = track3 + w2 * t
 obj.effect("斜めクリッピング", "中心X", x, "中心Y", y, "角度", r, "ぼかし", bk, "幅", w)

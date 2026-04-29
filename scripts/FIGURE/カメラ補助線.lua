@@ -1,10 +1,22 @@
---track0:サイズ,1,20000,3000,1
---track1:ライン幅,1,100,10,1
---track2:テキスト,0,256,80,1
+---$track:サイズ
+---min=1
+---max=20000
+---step=1
+local track0 = 3000
+---$track:ライン幅
+---min=1
+---max=100
+---step=1
+local track1 = 10
+---$track:テキスト
+---min=0
+---max=256
+---step=1
+local track2 = 80
 --color:0xffffff
-s = obj.track0 / 2
-l = obj.track1 / 2
-fs = obj.track2 / 2
+s = track0 / 2
+l = track1 / 2
+fs = track2 / 2
 obj.load("figure", "四角形", color, 2)
 obj.drawpoly(-s, 0, s, s, 0, s, s, 0, -s, -s, 0, -s, 0, 0, 1, 0, 1, 1, 0, 1, 0.5)
 obj.load("figure", "四角形", 0xffffff, 2)

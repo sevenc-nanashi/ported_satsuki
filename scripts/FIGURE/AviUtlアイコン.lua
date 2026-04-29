@@ -1,8 +1,12 @@
---track0:サイズ,48,2000,48,1
+---$track:サイズ
+---min=48
+---max=2000
+---step=1
+local track0 = 48
 --dialog:色1/col,color=0x000000;色2/col,color1=0xffffff;
 
-s = obj.track0 / 2 / 24
-obj.setoption("dst", "tmp", obj.track0, obj.track0)
+s = track0 / 2 / 24
+obj.setoption("dst", "tmp", track0, track0)
 obj.load("figure", "四角形", color1, 2)
 obj.drawpoly(-s * 24, -s * 24, 0, s * 24, -s * 24, 0, s * 24, s * 24, 0, -s * 24, s * 24, 0)
 

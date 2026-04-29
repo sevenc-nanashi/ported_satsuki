@@ -1,12 +1,24 @@
---track0:拡大率,0,800,100
---track1:高さ,0,800,100
---track2:分割数,1,1024,50,1
---track3:奥行き,0,800,50
+---$track:拡大率
+---min=0
+---max=800
+local track0 = 100
+---$track:高さ
+---min=0
+---max=800
+local track1 = 100
+---$track:分割数
+---min=1
+---max=1024
+---step=1
+local div = 50
+---$track:奥行き
+---min=0
+---max=800
+local track3 = 50
 obj.effect()
-div = obj.track2
-hh = obj.track1 / 100
-s = obj.track0 / 100
-z = obj.track3 / 2
+hh = track1 / 100
+s = track0 / 100
+z = track3 / 2
 buf = {}
 n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
 w = obj.w / n

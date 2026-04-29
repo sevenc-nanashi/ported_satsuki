@@ -1,12 +1,24 @@
---track0:半径,1,2000,200
---track1:ライン幅,0,2000,10
---track2:辺数,3,24,4,1
---track3:回転数,1,10,1,1
+---$track:半径
+---min=1
+---max=2000
+local l = 200
+---$track:ライン幅
+---min=0
+---max=2000
+local w = 10
+---$track:辺数
+---min=3
+---max=24
+---step=1
+local track2 = 4
+---$track:回転数
+---min=1
+---max=10
+---step=1
+local track3 = 1
 --color:0xffffff
-l = obj.track0
-w = obj.track1
-n = math.floor(obj.track2)
-m = math.floor(obj.track3)
+n = math.floor(track2)
+m = math.floor(track3)
 if w >= l then
 	w = l
 end

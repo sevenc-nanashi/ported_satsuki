@@ -1,10 +1,22 @@
---track0:サイズ,0,2000,100
---track1:赤,0,255,255
---track2:緑,0,255,255
---track3:青,0,255,255
+---$track:サイズ
+---min=0
+---max=2000
+local track0 = 100
+---$track:赤
+---min=0
+---max=255
+local track1 = 255
+---$track:緑
+---min=0
+---max=255
+local track2 = 255
+---$track:青
+---min=0
+---max=255
+local track3 = 255
 --dialog:種類/fig,name="円";
-r = math.floor(obj.track1)
-g = math.floor(obj.track2)
-b = math.floor(obj.track3)
+r = math.floor(track1)
+g = math.floor(track2)
+b = math.floor(track3)
 color = string.format("0x%02x%02x%02x", r, g, b)
-obj.load("figure", name, color, obj.track0, 1000)
+obj.load("figure", name, color, track0, 1000)

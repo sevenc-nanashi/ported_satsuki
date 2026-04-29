@@ -1,12 +1,24 @@
---track0:X間隔,-1000,1000,100
---track1:Y間隔,-1000,1000,100
---track2:X個数,1,100,5,1
---track3:Y個数,1,100,3,1
+---$track:X間隔
+---min=-1000
+---max=1000
+local track0 = 100
+---$track:Y間隔
+---min=-1000
+---max=1000
+local track1 = 100
+---$track:X個数
+---min=1
+---max=100
+---step=1
+local nx = 5
+---$track:Y個数
+---min=1
+---max=100
+---step=1
+local ny = 3
 obj.effect()
-nx = obj.track2
-ny = obj.track3
-gx = obj.track0 / 100 - (1 - math.cos(math.pi * 30 / 180))
-gy = obj.track1 / 100 - (1 - math.sin(math.pi * 30 / 180) * 1.5)
+gx = track0 / 100 - (1 - math.cos(math.pi * 30 / 180))
+gy = track1 / 100 - (1 - math.sin(math.pi * 30 / 180) * 1.5)
 w = obj.w
 h = obj.h
 for j = 0, ny - 1 do

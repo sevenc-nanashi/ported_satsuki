@@ -1,9 +1,20 @@
---track0:個数,0,100,8,1
---track1:幅,0,1000,10,1
---track2:角度,-720,720,0
+---$track:個数
+---min=0
+---max=100
+---step=1
+local track0 = 8
+---$track:幅
+---min=0
+---max=1000
+---step=1
+local track1 = 10
+---$track:角度
+---min=-720
+---max=720
+local track2 = 0
 --dialog:中心X,x=0;中心Y,y=0;
-n = math.floor(obj.track0 / 2)
-if obj.track1 > 0 then
+n = math.floor(track0 / 2)
+if track1 > 0 then
 	for i = 0, n - 1 do
 		obj.effect(
 			"斜めクリッピング",
@@ -12,9 +23,9 @@ if obj.track1 > 0 then
 			"中心Y",
 			y,
 			"角度",
-			180 / n * i + obj.track2,
+			180 / n * i + track2,
 			"幅",
-			-obj.track1
+			-track1
 		)
 	end
 end

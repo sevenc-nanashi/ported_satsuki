@@ -1,13 +1,22 @@
---track0:長さ,0,5000,100
---track1:幅,0,500,20
---track2:3サイズ,0,1000,50
---track3:3横幅,0,1000,100
+---$track:長さ
+---min=0
+---max=5000
+local l = 100
+---$track:幅
+---min=0
+---max=500
+local w = 20
+---$track:3サイズ
+---min=0
+---max=1000
+local s = 50
+---$track:3横幅
+---min=0
+---max=1000
+local track3 = 100
 --color:0xffffff
 
-l = obj.track0
-w = obj.track1
-s = obj.track2
-tw = obj.track3 / 100
+tw = track3 / 100
 b = 2 --位置調整
 
 obj.load("figure", "三角形", color, s * 2)

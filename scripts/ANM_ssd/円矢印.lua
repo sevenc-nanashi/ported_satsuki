@@ -1,12 +1,23 @@
---track0:サイズ,1,2000,100,1
---track1:ライン幅,1,1000,20,1
---track2:頭サイズ,0,1000,50,1
---track3:角度,0,360,260
+---$track:サイズ
+---min=1
+---max=2000
+---step=1
+local size = 100
+---$track:ライン幅
+---min=1
+---max=1000
+---step=1
+local haba = 20
+---$track:頭サイズ
+---min=0
+---max=1000
+---step=1
+local hds = 50
+---$track:角度
+---min=0
+---max=360
+local r = 260
 --dialog:色/col,col=0xffff00;図形/fig,fig="三角形";上下反転/chk,jgh=0;左右反転/chk,syh=0;中心角,cc=0;終点あり/chk,siri=0;
-size = obj.track0
-haba = obj.track1
-hds = obj.track2
-r = obj.track3
 
 --仮想バッファに描画
 kaso = math.max(size - haba + hds, size)
@@ -58,10 +69,6 @@ obj.effect("反転", "上下反転", jgh, "左右反転", syh)
 --  --track2:頭サイズ,0,1000,50,1
 --  --track3:角度,0,360,260
 --  --dialog:色/col,col=0xffff00;
-size = obj.track0
-haba = obj.track1
-hds = obj.track2
-r = obj.track3
 
 --仮想バッファに描画
 kaso=math.max(size-haba+hds,size)

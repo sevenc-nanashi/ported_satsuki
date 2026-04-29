@@ -1,13 +1,25 @@
---track0:サイズ,1,1000,100,1
---track1:ライン幅,0,4000,10,1
---track2:透明度,0,100,50
---track3:明滅間隔,0,5,1,0.01
+---$track:サイズ
+---min=1
+---max=1000
+---step=1
+local s1 = 100
+---$track:ライン幅
+---min=0
+---max=4000
+---step=1
+local h = 10
+---$track:透明度
+---min=0
+---max=100
+local track2 = 50
+---$track:明滅間隔
+---min=0
+---max=5
+---step=0.01
+local t = 1
 --dialog:縁色/col,col1=0xffffff;内色/col,col2=0x0000ff;明滅あり/chk,mode=0;
-s1 = obj.track0
-h = obj.track1
 s2 = s1 - h * 2
-a = obj.track2 / 100
-t = obj.track3
+a = track2 / 100
 
 if mode < 1 then
 	alp = a

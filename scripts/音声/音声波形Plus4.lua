@@ -1,12 +1,24 @@
---track0:分割数,2,1024,51,1
---track1:ライン幅,1,100,3
---track2:横幅,1,2000,640
---track3:閾値,1,2000,500,1
+---$track:分割数
+---min=2
+---max=1024
+---step=1
+local n = 51
+---$track:ライン幅
+---min=1
+---max=100
+local track1 = 3
+---$track:横幅
+---min=1
+---max=2000
+local W = 640
+---$track:閾値
+---min=1
+---max=2000
+---step=1
+local track3 = 500
 --dialog:高さ[%],H=150;色/col,color=0x00ff00;尖鋭化/chk,kaku=1;閾値を減算/chk,sist=1;
-n = obj.track0
-l = obj.track1 / 2
-W = obj.track2
-siki = obj.track3 * 10
+l = track1 / 2
+siki = track3 * 10
 w = W / (n - 1)
 bun = math.floor(1024 / n)
 buf = {}

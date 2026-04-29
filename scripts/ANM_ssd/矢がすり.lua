@@ -1,13 +1,20 @@
---track0:横幅,1,500,15
---track1:長さ,1,500,65
---track2:横サイズ,0,4000,800
---track3:縦サイズ,0,4000,450
+---$track:横幅
+---min=1
+---max=500
+local ww = 15
+---$track:長さ
+---min=1
+---max=500
+local hh = 65
+---$track:横サイズ
+---min=0
+---max=4000
+local w = 800
+---$track:縦サイズ
+---min=0
+---max=4000
+local h = 450
 --dialog:ライン幅,lhb=2;色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;タイプ2/chk,uuss=1;
-
-local ww = obj.track0
-local hh = obj.track1
-local w = obj.track2
-local h = obj.track3
 
 obj.setoption("drawtarget", "tempbuffer", w, h)
 

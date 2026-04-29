@@ -1,10 +1,19 @@
---track0:個数,1,500,10,1
---track1:時間差[s],0,3,0.1,0.01
---track2:終時間[s],0,30,0,0.01
+---$track:個数
+---min=1
+---max=500
+---step=1
+local n = 10
+---$track:時間差[s]
+---min=0
+---max=3
+---step=0.01
+local t = 0.1
+---$track:終時間[s]
+---min=0
+---max=30
+---step=0.01
+local f = 0
 obj.effect()
-n = obj.track0
-t = obj.track1
-f = obj.track2
 for i = 0, n - 1 do
 	if obj.time <= t * i then
 		x = 0

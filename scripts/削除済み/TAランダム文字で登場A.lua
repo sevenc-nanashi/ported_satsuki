@@ -1,16 +1,52 @@
---track0:時間[ms],-5000,5000,1000
---track1:間隔[ms],0,2000,300
---track2:拡大率,0,800,100
---track3:y軸距離,-1000,1000,-200
+---$track:時間[ms]
+---min=-5000
+---max=5000
+local track0 = 1000
+---$track:間隔[ms]
+---min=0
+---max=2000
+local track1 = 300
+---$track:拡大率
+---min=0
+---max=800
+local s = 100
+---$track:y軸距離
+---min=-1000
+---max=1000
+local y = -200
 --check0:フェード,1
-ta = obj.track0 / 1000
-tb = obj.track1 / 1000
-s = obj.track2
-y = obj.track3
+ta = track0 / 1000
+tb = track1 / 1000
 
 num = obj.num
-word =
-	{ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" }
+word = {
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+}
 if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + obj.index * tb) / ta
 else

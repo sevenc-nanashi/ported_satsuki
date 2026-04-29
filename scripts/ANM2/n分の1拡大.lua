@@ -1,2 +1,5 @@
---track0:100/n,1,2000,100
-obj.zoom = obj.zoom * 100 / obj.track0
+---$track:100/n
+---min=1
+---max=2000
+local track0 = 100
+obj.zoom = obj.zoom * 100 / track0

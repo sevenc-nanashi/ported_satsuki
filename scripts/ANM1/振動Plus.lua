@@ -1,13 +1,22 @@
---track0:振幅,0,1000,50
---track1:周期[s],0,2,0.2,0.01
---track2:個数,0,100,10,1
---track3:閾値,0,100,0
+---$track:振幅
+---min=0
+---max=1000
+local l = 50
+---$track:周期[s]
+---min=0
+---max=2
+---step=0.01
+local time = 0.2
+---$track:個数
+---min=0
+---max=100
+---step=1
+local n = 10
+---$track:閾値
+---min=0
+---max=100
+local siki = 0
 --dialog:z軸振動の有無/chk,zz=1;
-
-l = obj.track0
-time = obj.track1
-n = obj.track2
-siki = obj.track3
 
 function sindo(x, y, z, t, s)
 	a = obj.rand(0, 100, 0, math.floor(obj.time / t))

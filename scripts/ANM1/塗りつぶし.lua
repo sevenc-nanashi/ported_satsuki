@@ -1,6 +1,16 @@
---track0:モノクロ,0,100,0
---track1:強さ,0,100,100
---track2:合成,0,9,0,1
+---$track:モノクロ
+---min=0
+---max=100
+local track0 = 0
+---$track:強さ
+---min=0
+---max=100
+local track1 = 100
+---$track:合成
+---min=0
+---max=9
+---step=1
+local track2 = 0
 --color:0xffffff
-obj.effect("単色化", "強さ", obj.track0)
-obj.effect("グラデーション", "強さ", obj.track1, "color", color, "color2", color, "blend", obj.track2)
+obj.effect("単色化", "強さ", track0)
+obj.effect("グラデーション", "強さ", track1, "color", color, "color2", color, "blend", track2)

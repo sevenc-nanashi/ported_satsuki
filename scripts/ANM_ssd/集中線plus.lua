@@ -1,13 +1,20 @@
---track0:線％,0.1,10,1
---track1:空き％,1,20,5
---track2:中心,0,800,100
---track3:回転,-720,720,0
+---$track:線％
+---min=0.1
+---max=10
+local vb = 1
+---$track:空き％
+---min=1
+---max=20
+local va = 5
+---$track:中心
+---min=0
+---max=800
+local lc = 100
+---$track:回転
+---min=-720
+---max=720
+local r = 0
 --dialog:色/col,col=0xffffff;横サイズ,w=800;縦サイズ,h=450;中心座標,pos={0,0};中心ランダム％,lc_r=20;ランダム種,rseed=0;切替ﾌﾚｰﾑ(0/無),kfr=0;
-
-local vb = obj.track0
-local va = obj.track1
-local lc = obj.track2
-local r = obj.track3
 
 obj.setanchor("pos", 1)
 local cx = pos[1]

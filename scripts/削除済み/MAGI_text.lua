@@ -1,7 +1,12 @@
---track0:半径調整,0,150,100
---track1:速度調整,-200,200,100
-l = obj.track0
-tr = 360 * obj.index / obj.num + r * obj.track0 / 100
+---$track:半径調整
+---min=0
+---max=150
+local l = 100
+---$track:速度調整
+---min=-200
+---max=200
+local track1 = 100
+tr = 360 * obj.index / obj.num + r * l / 100
 obj.ox = math.sin(tr * math.pi / 180) * s * 0.95 / 2 * l / 100
 obj.oy = -math.cos(tr * math.pi / 180) * s * 0.95 / 2 * l / 100
 obj.rz = tr

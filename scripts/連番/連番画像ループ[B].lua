@@ -1,8 +1,14 @@
---track0:File数,0,500,10,1
---track1:連番桁,1,8,4,1
+---$track:File数
+---min=0
+---max=500
+---step=1
+local totalfile = 10
+---$track:連番桁
+---min=1
+---max=8
+---step=1
+local kt = 4
 --file:
-totalfile = obj.track0
-kt = obj.track1
 for k = 0, nz - 1 do
 	z = -gz * (nz - 1) / 2 + k * gz
 	for j = 0, ny - 1 do

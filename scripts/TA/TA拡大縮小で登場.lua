@@ -1,11 +1,23 @@
---track0:時間[s],-5,5,0.3,0.01
---track1:間隔[s],0,5,0.3,0.01
---track2:拡大率,0,1000,300
---track3:登場順,0,5,0,1
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 0.3
+---$track:間隔[s]
+---min=0
+---max=5
+---step=0.01
+local tb = 0.3
+---$track:拡大率
+---min=0
+---max=1000
+local track2 = 300
+---$track:登場順
+---min=0
+---max=5
+---step=1
+local jun = 0
 --dialog:フェード/chk,fade=0;X距離,x=0;Y距離,y=0;Z距離,z=0;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;
-ta = obj.track0
-tb = obj.track1
-jun = obj.track3
 
 if jun < 1 then
 	mode = obj.index --順番に登場
@@ -32,7 +44,7 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if obj.track0 < 0 then
+if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
 else
 	i = (ta - obj.time + mode * tb) / ta
@@ -42,7 +54,7 @@ if i > 0 then
 		obj.alpha = 0
 		i = 1
 	end
-	obj.zoom = obj.zoom + 4 * (i - i * i * i) * (obj.track2 - 100) / 100
+	obj.zoom = obj.zoom + 4 * (i - i * i * i) * (track2 - 100) / 100
 	obj.ox = obj.ox + x * i
 	obj.oy = obj.oy + y * i
 	obj.oz = obj.oz + z * i

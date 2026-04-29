@@ -1,11 +1,22 @@
---track0:範囲,0,1000,50,1
---track1:Z基準,-20000,20000,0
---track2:最大値,0,1000,300,1
+---$track:範囲
+---min=0
+---max=1000
+---step=1
+local track0 = 50
+---$track:Z基準
+---min=-20000
+---max=20000
+local track1 = 0
+---$track:最大値
+---min=0
+---max=1000
+---step=1
+local track2 = 300
 --dialog:奥をぼかす/chk,oku=1;手前をぼかす/chk,mae=1;
-if obj.z > obj.track1 then
-	l = (obj.z - obj.track1) / 10000 * oku
+if obj.z > track1 then
+	l = (obj.z - track1) / 10000 * oku
 else
-	l = (obj.track1 - obj.z) / 10000 * mae
+	l = (track1 - obj.z) / 10000 * mae
 end
-l = math.min(l * obj.track0, obj.track2)
+l = math.min(l * track0, track2)
 obj.effect("ぼかし", "範囲", l)

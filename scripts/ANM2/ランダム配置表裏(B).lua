@@ -1,4 +1,8 @@
---track0:裏反転,0,1,0,1
+---$track:裏反転
+---min=0
+---max=1
+---step=1
+local track0 = 0
 --file:
 obj.effect()
 for i = 0, n - 1 do
@@ -29,7 +33,7 @@ end
 
 obj.setoption("culling", 1)
 obj.load(file)
-obj.effect("反転", "左右反転", obj.track0)
+obj.effect("反転", "左右反転", track0)
 obj.effect()
 for i = 0, n - 1 do
 	x = (

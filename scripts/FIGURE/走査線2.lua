@@ -1,12 +1,20 @@
---track0:ライン幅,1,100,20
---track1:間隔補正,0,500,100
---track2:範囲拡大,0,500,100
+---$track:ライン幅
+---min=1
+---max=100
+local l0 = 20
+---$track:間隔補正
+---min=0
+---max=500
+local track1 = 100
+---$track:範囲拡大
+---min=0
+---max=500
+local track2 = 100
 --color:0xffffff
 obj.load("figure", "四角形", color, 2)
-w = obj.screen_w * obj.track2 / 100
-h = obj.screen_h * obj.track2 / 100
-l0 = obj.track0
-l1 = l0 * obj.track1 / 100
+w = obj.screen_w * track2 / 100
+h = obj.screen_h * track2 / 100
+l1 = l0 * track1 / 100
 n = math.floor(h / (l0 + l1))
 obj.setoption("dst", "tmp", w, h)
 for i = 0, n do

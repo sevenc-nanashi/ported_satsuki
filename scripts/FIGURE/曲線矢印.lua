@@ -1,13 +1,27 @@
---track0:ライン幅,1,1000,20
---track1:先端size,0,1000,50,1
---track2:頂点数,3,16,3,1
---track3:分割数,1,50,20,1
+---$track:ライン幅
+---min=1
+---max=1000
+local track0 = 20
+---$track:先端size
+---min=0
+---max=1000
+---step=1
+local track1 = 50
+---$track:頂点数
+---min=3
+---max=16
+---step=1
+local track2 = 3
+---$track:分割数
+---min=1
+---max=50
+---step=1
+local BN = 20
 --dialog:色/col,col=0xffff00;先端図形/fig,fig="三角形";両端を丸める/chk,maru=0;座標,pos={-100,0,0,-50,100,0};
 
-l = math.floor(obj.track0) / 2
-size = obj.track1 / math.sqrt(2)
-NN = obj.track2 - 1
-BN = obj.track3
+l = math.floor(track0) / 2
+size = track1 / math.sqrt(2)
+NN = track2 - 1
 obj.setanchor("pos", NN + 1, "line")
 
 XX = {}

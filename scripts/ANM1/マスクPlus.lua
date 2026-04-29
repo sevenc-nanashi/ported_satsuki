@@ -1,20 +1,32 @@
---track0:X,-4000,4000,0
---track1:Y,-4000,4000,0
---track2:サイズ,0,2000,100,1
---track3:回転,-720,720,0
+---$track:X
+---min=-4000
+---max=4000
+local cx = 0
+---$track:Y
+---min=-4000
+---max=4000
+local cy = 0
+---$track:サイズ
+---min=0
+---max=2000
+---step=1
+local track2 = 100
+---$track:回転
+---min=-720
+---max=720
+local track3 = 0
 --dialog:マスクの種類/fig,fig="円";ライン幅,line=4000;Xスケール[%],asx=100;Yスケール[%],asy=100;透明度[%],alp=0;ぼかし,br=0;
 
 obj.copybuffer("tmp", "obj")
 obj.alpha = 0
 
 obj.setoption("dst", "tmp")
-obj.load("figure", fig, 0xffffff, obj.track2, line)
+obj.load("figure", fig, 0xffffff, track2, line)
 obj.effect("ぼかし", "範囲", br)
 obj.setoption("blend", "alpha_sub")
-cx, cy = obj.track0, obj.track1
 w, h = obj.w / 2, obj.h / 2
 l = math.sqrt((w * asx / 100) ^ 2 + (h * asy / 100) ^ 2)
-r = math.rad(obj.track3)
+r = math.rad(track3)
 x0 = cx + math.cos(math.atan2(-h * asy / 100, -w * asx / 100) + r) * l
 x1 = cx + math.cos(math.atan2(-h * asy / 100, w * asx / 100) + r) * l
 x2 = cx + math.cos(math.atan2(h * asy / 100, w * asx / 100) + r) * l
