@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:位置基準
 ---min=0
 ---max=100
@@ -15,7 +15,6 @@ local track1 = 34
 local track2 = 0
 ---$check:時間基準
 local __rename_me_check0 = false
-
 
 obj.effect()
 

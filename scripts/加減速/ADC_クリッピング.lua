@@ -36,7 +36,6 @@ local lf2 = 0
 ---$value:右2
 local rt2 = 0
 
-
 --共通部分
 if ta == 0 then
 	return

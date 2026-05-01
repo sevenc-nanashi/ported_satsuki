@@ -25,7 +25,7 @@ local w = 800
 local h = 450
 
 ---$value:中心座標
-local pos = {0,0}
+local pos = { 0, 0 }
 
 ---$value:中心ランダム％
 local lc_r = 20
@@ -35,7 +35,6 @@ local rseed = 0
 
 ---$value:切替ﾌﾚｰﾑ(0
 local kfr = 0
-
 
 obj.setanchor("pos", 1)
 local cx = pos[1]

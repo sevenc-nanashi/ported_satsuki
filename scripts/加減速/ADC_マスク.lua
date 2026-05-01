@@ -49,7 +49,6 @@ local bk2 = 0
 ---$check:反転
 local ht = 0
 
-
 --共通部分
 if ta == 0 then
 	return

@@ -51,7 +51,6 @@ local rzv_ran = 0
 ---$value:ランダム拡大[-%]
 local s_ran = 0
 
-
 b = 1 / track0 --出力間隔(秒)
 v = l / track2 --距離を進むのにかかる時間
 dir = -track3 + 90 --出力方向

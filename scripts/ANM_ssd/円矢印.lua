@@ -36,7 +36,6 @@ local cc = 0
 ---$check:終点あり
 local siri = 0
 
-
 --仮想バッファに描画
 kaso = math.max(size - haba + hds, size)
 obj.setoption("blend", "alpha_add")

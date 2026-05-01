@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:間隔[s]
 ---min=-5
 ---max=5
@@ -32,7 +32,6 @@ local id_len = 0
 
 ---$value:移動角度
 local id_r = 0
-
 
 local ts = obj.time - track2
 local tb = math.abs(track0)

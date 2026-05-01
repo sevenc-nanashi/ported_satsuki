@@ -34,7 +34,6 @@ local alp = 0
 ---$value:ぼかし
 local br = 0
 
-
 obj.copybuffer("tmp", "obj")
 obj.alpha = 0
 

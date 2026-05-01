@@ -28,7 +28,6 @@ local j_hoko = 0
 ---$value:計算基準軸(0or1)
 local axis = 0
 
-
 if j_hoko == 0 then
 	obj.load("figure", "四角形", col, 2)
 	obj.effect()

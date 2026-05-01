@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:X
 ---min=-2000
 ---max=2000
@@ -49,7 +49,6 @@ local jido = 0
 
 ---$value:幅
 local h_hb0 = 2000
-
 
 obj.effect()
 h_sz = track2 / 2

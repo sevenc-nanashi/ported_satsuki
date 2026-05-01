@@ -29,7 +29,6 @@ local ss = 1
 ---$color:色
 local color = 0xff0000
 
-
 --beki=math.floor(beki)
 mode = math.floor(track1)
 

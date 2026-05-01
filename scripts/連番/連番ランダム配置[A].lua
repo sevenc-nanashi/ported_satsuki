@@ -37,7 +37,6 @@ local kz = 1
 ---$value:拡大最小[-%]
 local s_min = 0
 
-
 w = track1 / 100 --範囲
 v = track2 / 100 --移動速度
 r = track3 / 100 --回転速度

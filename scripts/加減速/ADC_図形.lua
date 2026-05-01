@@ -34,7 +34,6 @@ local col = 0xffffff
 ---$value:ライン幅2
 local l2 = 0
 
-
 --共通部分
 if ta == 0 then
 	return

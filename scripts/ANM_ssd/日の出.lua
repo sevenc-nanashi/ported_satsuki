@@ -36,8 +36,7 @@ local h = 450
 local figr = 0
 
 ---$value:中心座標
-local pos = {0,0}
-
+local pos = { 0, 0 }
 
 local val = track1 / 100
 

@@ -23,8 +23,7 @@ local fig = "三角形"
 local maru = 0
 
 ---$value:座標
-local pos = {-100,0,100,0}
-
+local pos = { -100, 0, 100, 0 }
 
 l = math.floor(track0) / 2
 s = track1 / math.sqrt(2)

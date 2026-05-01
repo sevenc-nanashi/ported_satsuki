@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:時間[s]
 ---min=-5
 ---max=5
@@ -27,7 +27,6 @@ local as = 0
 
 ---$value:拡大率
 local s = 150
-
 
 if jun < 1 then
 	mode = obj.index --順番に登場

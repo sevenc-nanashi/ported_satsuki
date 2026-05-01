@@ -26,7 +26,6 @@ local HS = 450
 ---$color:単色
 local col = 0xffffff
 
-
 --[[
 【素材】フォトショップでプリズムもどき【メイキング】
 http://www.pixiv.net/member_illust.php?mode=medium&illust_id=8359819

@@ -10,7 +10,6 @@ local color = 0x000000
 ---$color:色2
 local color1 = 0xffffff
 
-
 s = track0 / 2 / 24
 obj.setoption("dst", "tmp", track0, track0)
 obj.load("figure", "四角形", color1, 2)

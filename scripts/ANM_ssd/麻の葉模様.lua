@@ -21,7 +21,6 @@ local col1 = 0x000000
 ---$color:色2(負値で透明)
 local col2 = 0xffffff
 
-
 local d = math.min(track1, 3 / (6 + 4 * math.sqrt(3)) * l)
 local sl = l - (4 / math.sqrt(3) + 2) * d
 

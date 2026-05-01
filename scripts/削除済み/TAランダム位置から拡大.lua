@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:時間[s]
 ---min=0
 ---max=10
@@ -15,7 +15,6 @@ local tb = 1
 local rz = 30
 ---$check:縮小
 local __rename_me_check0 = false
-
 
 t = (ta - obj.time + obj.index * tb) / ta
 a = t

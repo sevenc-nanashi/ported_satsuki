@@ -31,7 +31,6 @@ local fs = 100
 ---$value:増加率
 local pl = 0
 
-
 n = math.floor(track0 / 2)
 obj.setoption("dst", "tmp", n * 5 * 2, lmax * 2 * 1.5)
 obj.load("figure", fig, col, size, line)

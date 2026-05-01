@@ -14,7 +14,6 @@ local f = 5
 ---$color:縁色
 local wcolor = 0x555555
 
-
 for i = 0, 2 do
 	if i == 0 then
 		obj.load("figure", "背景", wcolor, 100)

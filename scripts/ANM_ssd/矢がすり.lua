@@ -27,7 +27,6 @@ local col2 = 0xffffff
 ---$check:タイプ2
 local uuss = 1
 
-
 obj.setoption("drawtarget", "tempbuffer", w, h)
 
 --背景

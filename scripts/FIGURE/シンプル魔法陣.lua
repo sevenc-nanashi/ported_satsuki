@@ -46,7 +46,6 @@ local tll = 100
 ---$value:textサイズ調整(%)
 local ttsize = 100
 
-
 w = math.min(track1, l)
 rv = obj.time * 36 * v
 

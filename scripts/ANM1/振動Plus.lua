@@ -20,7 +20,6 @@ local siki = 0
 ---$check:z軸振動の有無
 local zz = 1
 
-
 function sindo(x, y, z, t, s)
 	a = obj.rand(0, 100, 0, math.floor(obj.time / t))
 	if a < s then

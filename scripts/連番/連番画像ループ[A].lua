@@ -28,4 +28,3 @@ local yd = 0
 
 ---$check:ZY軸段違い
 local zd = 0
-

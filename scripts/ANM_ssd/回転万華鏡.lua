@@ -18,7 +18,6 @@ local rendo = 1
 ---$value:連動角度
 local rendk = 45
 
-
 local w = obj.w * 100 / obj.getvalue("zoom")
 local h = obj.h * 100 / obj.getvalue("zoom")
 local l = math.sqrt(w ^ 2 + h ^ 2)

@@ -33,5 +33,4 @@ local isen = 10
 ---$check:両極を描画
 local pdraw = 0
 
-
 --※GH球状配置2(sm13806316参照)を改変したものです。

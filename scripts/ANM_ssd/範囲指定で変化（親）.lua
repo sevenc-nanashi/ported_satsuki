@@ -55,7 +55,6 @@ local jido = 0
 ---$check:自動時回転あり
 local jdk = 1
 
-
 obj.effect()
 
 h_sz = track0 / 2

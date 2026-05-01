@@ -19,14 +19,13 @@ local name = "四角形"
 local han = 0
 
 ---$value:座標
-local pos = {-100,-100,100,-100,100,100,-100,100}
+local pos = { -100, -100, 100, -100, 100, 100, -100, 100 }
 
 ---$value:分割数
 local div = 8
 
 ---$value:描画方法(0〜4)
 local mode = 1
-
 
 if obj.getoption("track_mode", 0) == 0 then
 	obj.setanchor("pos", 4, "loop")

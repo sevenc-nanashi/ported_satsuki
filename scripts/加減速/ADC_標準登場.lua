@@ -38,7 +38,6 @@ local ry = 0
 ---$value:Z回転
 local rz = 0
 
-
 --共通部分
 if ta == 0 then
 	return

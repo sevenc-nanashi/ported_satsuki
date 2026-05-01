@@ -22,7 +22,7 @@ local track3 = 0
 local col = 0xffffff
 
 ---$value:座標
-local pos = {0,-150,130,75,-130,75}
+local pos = { 0, -150, 130, 75, -130, 75 }
 
 ---$value:繰り返し描画数
 local r_num = nil

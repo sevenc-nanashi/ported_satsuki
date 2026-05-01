@@ -29,7 +29,6 @@ local mode = 0
 ---$value:色ずれの種類[0-2]
 local ty = 0
 
-
 --共通部分
 if ta == 0 then
 	return

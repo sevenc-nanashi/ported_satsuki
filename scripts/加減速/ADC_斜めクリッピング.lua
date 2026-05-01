@@ -42,7 +42,6 @@ local w2 = 0
 ---$value:ぼかし
 local bk = 0
 
-
 --共通部分
 if ta == 0 then
 	return

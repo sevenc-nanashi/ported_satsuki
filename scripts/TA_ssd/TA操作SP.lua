@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:最大値
 ---min=100
 ---max=800
@@ -12,7 +12,6 @@ local itk = 0
 
 ---$value:座標
 local pos = {}
-
 
 n = obj.num
 W = obj.screen_w / 2

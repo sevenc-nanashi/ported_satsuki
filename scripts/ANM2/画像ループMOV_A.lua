@@ -19,4 +19,3 @@ local nx = 3
 local ny = 3
 ---$check:XY軸段違い
 local yd = 0
-

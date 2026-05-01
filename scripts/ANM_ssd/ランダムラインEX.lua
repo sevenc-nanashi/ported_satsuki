@@ -32,7 +32,6 @@ local rns = 0
 ---$color:色
 local col = 0xffffff
 
-
 --[[
 ティム氏の色調補正セットにある「T_Color_Module.dll」が必要です。
 http://www.nicovideo.jp/watch/sm21178949

@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:時間[s]
 ---min=0
 ---max=5
@@ -48,7 +48,6 @@ local beki = 2
 
 ---$check:アウトは逆方向
 local gyaku = 1
-
 
 --インアウトがマイナスの時は最初or最後の中間点でフェードインアウト。数値の時は指定した秒数でフェードインアウト。ゼロのときはフェードインアウトなし。
 

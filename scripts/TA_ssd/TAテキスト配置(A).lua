@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:基準サイズ
 ---min=0
 ---max=512
@@ -25,7 +25,6 @@ local text = "さんぷる"
 
 ---$value:(XY座標)
 local pos = {}
-
 
 ranz = track1 / 100
 ranrz = track2 / 100

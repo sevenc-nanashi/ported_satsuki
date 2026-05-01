@@ -27,7 +27,6 @@ local y = 0
 ---$check:サイズ固定
 local fix = 0
 
-
 --共通部分
 if ta == 0 then
 	return

@@ -42,7 +42,6 @@ local yksm = 1
 ---$check:横六角形
 local yoko6 = 0
 
-
 obj.effect("反転", "透明度反転", han)
 local w, h = obj.getpixel()
 local mtd = track1 / 100

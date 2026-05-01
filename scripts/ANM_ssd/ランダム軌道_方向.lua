@@ -21,7 +21,6 @@ local ralp = 0
 ---$value:差分
 local sbn = 7.7
 
-
 for i = 0, n - 1 do
 	t = (obj.time + i * sbn) * 100 / track1
 	p = math.floor(t)

@@ -28,7 +28,6 @@ local col4 = 0xc9c526
 ---$color:細
 local col2 = 0x000000
 
-
 obj.setoption("drawtarget", "tempbuffer", 130, 130)
 
 --緑
