@@ -16,7 +16,18 @@ local track2 = 0
 ---min=-720
 ---max=720
 local track3 = 0
---dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;色ずれの種類[0-2],ty=0;
+---$value:時間[s]
+local ta = 1
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:色ずれの種類[0-2]
+local ty = 0
+
 
 --共通部分
 if ta == 0 then

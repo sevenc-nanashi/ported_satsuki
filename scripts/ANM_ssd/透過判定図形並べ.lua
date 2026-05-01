@@ -17,7 +17,30 @@ local rr = 0
 ---max=4000
 ---step=1
 local lhaba = 4000
---dialog:図形(種類)/fig,fig="円";色(負は元色)/col,col=0xffffff;反転/chk,han=0;交互/chk,kogo=1;個別拡大,ss=100;縦隙間,ttsm=1;横隙間,yksm=1;横六角形/chk,yoko6=0;
+---$figure:図形(種類)
+local fig = "円"
+
+---$color:色(負は元色)
+local col = 0xffffff
+
+---$check:反転
+local han = 0
+
+---$check:交互
+local kogo = 1
+
+---$value:個別拡大
+local ss = 100
+
+---$value:縦隙間
+local ttsm = 1
+
+---$value:横隙間
+local yksm = 1
+
+---$check:横六角形
+local yoko6 = 0
+
 
 obj.effect("反転", "透明度反転", han)
 local w, h = obj.getpixel()

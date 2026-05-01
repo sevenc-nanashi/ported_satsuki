@@ -6,7 +6,18 @@ local track0 = 10
 ---min=-100
 ---max=100
 local track1 = 0
---dialog:縦ロール/chk,tate=0;反転/chk,hanten=0;軸を中心に/chk,m=0;分割数,n=28;
+---$check:縦ロール
+local tate = 0
+
+---$check:反転
+local hanten = 0
+
+---$check:軸を中心に
+local m = 0
+
+---$value:分割数
+local n = 28
+
 obj.effect()
 nd = n * track0 / 10
 c = math.floor(n / 2 * track1 / 100)

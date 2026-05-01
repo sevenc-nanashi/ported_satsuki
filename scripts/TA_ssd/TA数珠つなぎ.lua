@@ -14,7 +14,12 @@ local track2 = 100
 ---min=1
 ---max=100
 local track3 = 100
---dialog:回転あり/chk,rc=0;ランダム種,seed=1;
+---$check:回転あり
+local rc = 0
+
+---$value:ランダム種
+local seed = 1
+
 
 r = track0 / 2
 

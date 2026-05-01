@@ -15,7 +15,24 @@ local n = 3
 ---min=0
 ---max=100
 local track3 = 100
---dialog:Z軸振幅,zsh=0;Z軸回転範囲,rz=10;ランダム角度,rrz=0;ランダムサイズ[-%],rs=0;ランダム透明度[-%],ralp=0;差分,sbn=7.7;
+---$value:Z軸振幅
+local zsh = 0
+
+---$value:Z軸回転範囲
+local rz = 10
+
+---$value:ランダム角度
+local rrz = 0
+
+---$value:ランダムサイズ[-%]
+local rs = 0
+
+---$value:ランダム透明度[-%]
+local ralp = 0
+
+---$value:差分
+local sbn = 7.7
+
 
 thuk = track3 / 100
 for i = 0, n - 1 do

@@ -15,7 +15,9 @@ local cr = 0
 ---min=-500
 ---max=500
 local track3 = 0
---dialog:中心,pos={};
+---$value:中心
+local pos = {}
+
 lw = track0 * 2
 offs = obj.time * track3 % lw
 obj.setanchor("pos", 1)

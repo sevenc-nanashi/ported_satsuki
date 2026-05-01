@@ -17,7 +17,27 @@ local track2 = 300
 ---max=5
 ---step=1
 local jun = 0
---dialog:フェード/chk,fade=0;X距離,x=0;Y距離,y=0;Z距離,z=0;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;
+---$check:フェード
+local fade = 0
+
+---$value:X距離
+local x = 0
+
+---$value:Y距離
+local y = 0
+
+---$value:Z距離
+local z = 0
+
+---$value:X軸回転
+local rx = 0
+
+---$value:Y軸回転
+local ry = 0
+
+---$value:Z軸回転
+local rz = 0
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場

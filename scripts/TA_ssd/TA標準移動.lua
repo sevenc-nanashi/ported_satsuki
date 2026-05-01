@@ -18,7 +18,36 @@ local st = 0
 ---max=5
 ---step=1
 local jun = 0
---dialog:拡大率,s=100;X距離,x=0;Y距離,y=100;Z距離,z=0;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;加減速[1-5],beki=2;減/加/S[0-2],adc=0;タイプ/chk,typ=0;
+---$value:拡大率
+local s = 100
+
+---$value:X距離
+local x = 0
+
+---$value:Y距離
+local y = 100
+
+---$value:Z距離
+local z = 0
+
+---$value:X軸回転
+local rx = 0
+
+---$value:Y軸回転
+local ry = 0
+
+---$value:Z軸回転
+local rz = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local adc = 0
+
+---$check:タイプ
+local typ = 0
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場

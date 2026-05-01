@@ -14,7 +14,33 @@ local track2 = 50
 ---min=-720
 ---max=720
 local rr = 0
---dialog:図形(種類)/fig,fig="円";色(負の値で元色)/col,col=0xffffff;反転/chk,han=0;サイズ二値化/chk,nt=0;透明二値化/chk,nta=0;個別拡大[%],ss=100;文字/chk,tex=0;文字(文字),text="＋";文字(font),font="MS UI Gothic";
+---$figure:図形(種類)
+local fig = "円"
+
+---$color:色(負の値で元色)
+local col = 0xffffff
+
+---$check:反転
+local han = 0
+
+---$check:サイズ二値化
+local nt = 0
+
+---$check:透明二値化
+local nta = 0
+
+---$value:個別拡大[%]
+local ss = 100
+
+---$check:文字
+local tex = 0
+
+---$value:文字(文字)
+local text = "＋"
+
+---$value:文字(font)
+local font = "MS UI Gothic"
+
 obj.effect("反転", "輝度反転", han)
 w = obj.w * 100 / obj.getvalue("zoom")
 h = obj.h * 100 / obj.getvalue("zoom")

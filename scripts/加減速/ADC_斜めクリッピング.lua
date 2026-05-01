@@ -17,7 +17,30 @@ local track2 = 0
 ---max=2000
 ---step=1
 local track3 = 0
---dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;中心X2,x2=0;中心Y2,y2=0;角度2,r2=0;幅2,w2=0;ぼかし,bk=0;
+---$value:時間[s]
+local ta = 1
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:中心X2
+local x2 = 0
+
+---$value:中心Y2
+local y2 = 0
+
+---$value:角度2
+local r2 = 0
+
+---$value:幅2
+local w2 = 0
+
+---$value:ぼかし
+local bk = 0
+
 
 --共通部分
 if ta == 0 then

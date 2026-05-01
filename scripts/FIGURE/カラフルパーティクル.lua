@@ -14,7 +14,42 @@ local track2 = 400
 ---min=-360
 ---max=360
 local track3 = 0
---dialog:種類/fig,name="円";サイズ,f_size=100;ライン幅,f_line=4000;ランダム方向,dir_ran=30;ランダム速度[-%],v_ran=0;透過速度[%],av=100;拡大速度[%],sv=0;ランダムZ角度,rz_ran=0;X軸ランダム,x_ran=0;Y軸ランダム,y_ran=0;ランダムZ回転,rzv_ran=0;ランダム拡大[-%],s_ran=0;
+---$figure:種類
+local name = "円"
+
+---$value:サイズ
+local f_size = 100
+
+---$value:ライン幅
+local f_line = 4000
+
+---$value:ランダム方向
+local dir_ran = 30
+
+---$value:ランダム速度[-%]
+local v_ran = 0
+
+---$value:透過速度[%]
+local av = 100
+
+---$value:拡大速度[%]
+local sv = 0
+
+---$value:ランダムZ角度
+local rz_ran = 0
+
+---$value:X軸ランダム
+local x_ran = 0
+
+---$value:Y軸ランダム
+local y_ran = 0
+
+---$value:ランダムZ回転
+local rzv_ran = 0
+
+---$value:ランダム拡大[-%]
+local s_ran = 0
+
 
 b = 1 / track0 --出力間隔(秒)
 v = l / track2 --距離を進むのにかかる時間

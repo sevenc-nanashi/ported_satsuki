@@ -16,7 +16,24 @@ local d = 0
 ---min=0
 ---max=360
 local b = 0
---dialog:フェード/chk,f=0;登場距離[%],ll=100;渦角度[度],rz=0;Z距離,oz=0;縦横比[%],as=0;加減速[1-5],beki=2;
+---$check:フェード
+local f = 0
+
+---$value:登場距離[%]
+local ll = 100
+
+---$value:渦角度[度]
+local rz = 0
+
+---$value:Z距離
+local oz = 0
+
+---$value:縦横比[%]
+local as = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
 obj.effect()
 t = track1 / 2
 h = obj.h / n

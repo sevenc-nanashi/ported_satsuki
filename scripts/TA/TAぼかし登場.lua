@@ -18,7 +18,15 @@ local track2 = 10
 ---max=5
 ---step=1
 local jun = 0
---dialog:フェード/chk,fade=0;縦横比(-100〜100),as=0;拡大率,s=150;
+---$check:フェード
+local fade = 0
+
+---$value:縦横比(-100〜100)
+local as = 0
+
+---$value:拡大率
+local s = 150
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場

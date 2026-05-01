@@ -11,7 +11,21 @@ local track1 = 0
 ---min=-300
 ---max=300
 local track2 = 0
---dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;X,x=0;Y,y=0;サイズ固定/chk,fix=0;
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:X
+local x = 0
+
+---$value:Y
+local y = 0
+
+---$check:サイズ固定
+local fix = 0
+
 
 --共通部分
 if ta == 0 then

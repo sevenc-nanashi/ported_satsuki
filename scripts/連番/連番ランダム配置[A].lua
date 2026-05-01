@@ -15,7 +15,27 @@ local track2 = 0
 ---min=0
 ---max=1000
 local track3 = 0
---dialog:X軸範囲[%],wx=100;Y軸範囲[%],wy=100;Z軸範囲[%],wz=0;X回転/chk,kx=0;Y回転/chk,ky=0;Z回転/chk,kz=1;拡大最小[-%],s_min=0;
+---$value:X軸範囲[%]
+local wx = 100
+
+---$value:Y軸範囲[%]
+local wy = 100
+
+---$value:Z軸範囲[%]
+local wz = 0
+
+---$check:X回転
+local kx = 0
+
+---$check:Y回転
+local ky = 0
+
+---$check:Z回転
+local kz = 1
+
+---$value:拡大最小[-%]
+local s_min = 0
+
 
 w = track1 / 100 --範囲
 v = track2 / 100 --移動速度

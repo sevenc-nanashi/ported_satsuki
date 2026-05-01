@@ -14,7 +14,15 @@ local track2 = 50
 ---min=0
 ---max=180
 local track3 = 30
---dialog:初期位置/chk,a=1;Z軸方向/chk,z=0;乱数,i=0;
+---$check:初期位置
+local a = 1
+
+---$check:Z軸方向
+local z = 0
+
+---$value:乱数
+local i = 0
+
 t = obj.time * track0 / 1000
 obj.ox = obj.ox + (a + t) * obj.rand(-obj.w, obj.w, obj.index, i) * track1 / 200
 obj.oy = obj.oy + (a + t) * obj.rand(-obj.h, obj.h, obj.index, i + 1) * track1 / 100

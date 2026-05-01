@@ -17,7 +17,33 @@ local track2 = 100
 ---min=0
 ---max=2000
 local sl = 0
---dialog:ランダム速度[-%],v_ran=90;透過速度[%],av=100;拡大速度[%],sv=0;ランダム回転/chk,rz_ran=0;回転速度[度],rzv_ran=0;ランダム拡大[-%],s_ran=0;減速度[1-5],beki=3;終点で消える/chk,zero=1;乱数,ran=0;
+---$value:ランダム速度[-%]
+local v_ran = 90
+
+---$value:透過速度[%]
+local av = 100
+
+---$value:拡大速度[%]
+local sv = 0
+
+---$check:ランダム回転
+local rz_ran = 0
+
+---$value:回転速度[度]
+local rzv_ran = 0
+
+---$value:ランダム拡大[-%]
+local s_ran = 0
+
+---$value:減速度[1-5]
+local beki = 3
+
+---$check:終点で消える
+local zero = 1
+
+---$value:乱数
+local ran = 0
+
 obj.effect()
 v = l / track2 --距離を進むのにかかる時間
 for i = 0, n - 1 do

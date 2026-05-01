@@ -15,7 +15,39 @@ local track2 = 0
 ---max=200
 ---step=1
 local track3 = 0
---dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;マスクの種類,ty=2;X,x=0;Y,y=0;回転2,r2=0;サイズ2,s2=0;縦横比2[%],as2=0;ぼかし2,bk2=0;反転/chk,ht=0;
+---$value:時間[s]
+local ta = 1
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:マスクの種類
+local ty = 2
+
+---$value:X
+local x = 0
+
+---$value:Y
+local y = 0
+
+---$value:回転2
+local r2 = 0
+
+---$value:サイズ2
+local s2 = 0
+
+---$value:縦横比2[%]
+local as2 = 0
+
+---$value:ぼかし2
+local bk2 = 0
+
+---$check:反転
+local ht = 0
+
 
 --共通部分
 if ta == 0 then

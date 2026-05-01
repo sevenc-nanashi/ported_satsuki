@@ -10,7 +10,18 @@ local track1 = 1
 ---min=0
 ---max=256
 local track2 = 100
---dialog:フォント,font="MS UI Cothic";文字色/col,col1=0xffffff;影・縁色/col,col2=0x000000;装飾タイプ[0-4],type=0;
+---$value:フォント
+local font = "MS UI Cothic"
+
+---$color:文字色
+local col1 = 0xffffff
+
+---$color:影・縁色
+local col2 = 0x000000
+
+---$value:装飾タイプ[0-4]
+local type = 0
+
 word = {
 	"A",
 	"B",

@@ -17,7 +17,30 @@ local track2 = 2
 ---max=1000
 ---step=1
 local track3 = 30
---dialog:図形/fig,fig="円";色/col,col=0xffffff;カラフル/chk,cful=1;ランダムサイズ[-%],rsize=50;縮小化/chk,dcsize=0;フェードなし/chk,fade=0;初期位置ランダム/chk,st=0;平均数,nj=2;
+---$figure:図形
+local fig = "円"
+
+---$color:色
+local col = 0xffffff
+
+---$check:カラフル
+local cful = 1
+
+---$value:ランダムサイズ[-%]
+local rsize = 50
+
+---$check:縮小化
+local dcsize = 0
+
+---$check:フェードなし
+local fade = 0
+
+---$check:初期位置ランダム
+local st = 0
+
+---$value:平均数
+local nj = 2
+
 f = track2 * obj.framerate
 n = track0 - 1
 w = obj.screen_w / 2

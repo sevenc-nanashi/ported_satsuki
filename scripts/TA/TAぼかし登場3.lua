@@ -18,7 +18,9 @@ local track2 = 10
 ---max=5
 ---step=1
 local jun = 0
---dialog:左から/chk,hidari=0;
+---$check:左から
+local hidari = 0
+
 a = 1
 
 if jun < 1 then

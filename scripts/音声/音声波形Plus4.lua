@@ -16,7 +16,18 @@ local W = 640
 ---max=2000
 ---step=1
 local track3 = 500
---dialog:高さ[%],H=150;色/col,color=0x00ff00;尖鋭化/chk,kaku=1;閾値を減算/chk,sist=1;
+---$value:高さ[%]
+local H = 150
+
+---$color:色
+local color = 0x00ff00
+
+---$check:尖鋭化
+local kaku = 1
+
+---$check:閾値を減算
+local sist = 1
+
 l = track1 / 2
 siki = track3 * 10
 w = W / (n - 1)

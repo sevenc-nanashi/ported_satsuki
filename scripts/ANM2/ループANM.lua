@@ -16,7 +16,30 @@ local track2 = 50
 ---min=-100
 ---max=100
 local track3 = 0
---dialog:X,x=0;Y,y=0;Z,z=0;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;開始位置[s],f=0;待機2回/chk,wait=0;
+---$value:X
+local x = 0
+
+---$value:Y
+local y = 0
+
+---$value:Z
+local z = 0
+
+---$value:X軸回転
+local rx = 0
+
+---$value:Y軸回転
+local ry = 0
+
+---$value:Z軸回転
+local rz = 0
+
+---$value:開始位置[s]
+local f = 0
+
+---$check:待機2回
+local wait = 0
+
 w = math.min(track1, t)
 r = 0
 time0 = (math.max(obj.time - f, 0)) % t

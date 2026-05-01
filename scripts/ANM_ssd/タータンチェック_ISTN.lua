@@ -15,7 +15,18 @@ local s = 100
 ---max=300
 ---step=1
 local track3 = 1
---dialog:背色/col,col1=0x143e10;太1/col,col3=0xa81616;太2/col,col4=0xc9c526;細/col,col2=0x000000;
+---$color:背色
+local col1 = 0x143e10
+
+---$color:太1
+local col3 = 0xa81616
+
+---$color:太2
+local col4 = 0xc9c526
+
+---$color:細
+local col2 = 0x000000
+
 
 obj.setoption("drawtarget", "tempbuffer", 130, 130)
 

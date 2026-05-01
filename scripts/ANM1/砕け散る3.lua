@@ -15,7 +15,33 @@ local ay = 0
 ---min=-1000
 ---max=1000
 local az = 0
---dialog:破片サイズ,size=50;速度,speed=100;重力,grav=100;時間差,delay=100;距離影響,impact=100;ランダム回転,spin=100;ランダム方向,diff=100;再生速度,step=1.0;仮想bufサイズ[%],kaso=100;
+---$value:破片サイズ
+local size = 50
+
+---$value:速度
+local speed = 100
+
+---$value:重力
+local grav = 100
+
+---$value:時間差
+local delay = 100
+
+---$value:距離影響
+local impact = 100
+
+---$value:ランダム回転
+local spin = 100
+
+---$value:ランダム方向
+local diff = 100
+
+---$value:再生速度
+local step = 1.0
+
+---$value:仮想bufサイズ[%]
+local kaso = 100
+
 local px = {}
 local py = {}
 local pz = {}

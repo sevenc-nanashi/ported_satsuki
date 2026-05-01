@@ -16,7 +16,27 @@ local l = 300
 ---min=0
 ---max=800
 local s = 100
---dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;縦横比[%],as=0;Z軸,z=0;X回転,rx=0;Y回転,ry=0;Z回転,rz=0;
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:縦横比[%]
+local as = 0
+
+---$value:Z軸
+local z = 0
+
+---$value:X回転
+local rx = 0
+
+---$value:Y回転
+local ry = 0
+
+---$value:Z回転
+local rz = 0
+
 
 --共通部分
 if ta == 0 then

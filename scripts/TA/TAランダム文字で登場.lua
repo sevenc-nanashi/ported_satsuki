@@ -16,7 +16,15 @@ local w = 34
 ---min=0
 ---max=800
 local s = 100
---dialog:切替フレーム,k=3;フェード/chk,f=0;Y軸,y=0;
+---$value:切替フレーム
+local k = 3
+
+---$check:フェード
+local f = 0
+
+---$value:Y軸
+local y = 0
+
 obj.effect()
 obj.ox = 0
 for i = 0, obj.num - 1 do

@@ -16,7 +16,9 @@ local track2 = 50
 ---max=100
 ---step=1
 local track3 = 90
---dialog:切替時間[s],kt=0.01;
+---$value:切替時間[s]
+local kt = 0.01
+
 t = math.floor(obj.time / kt)
 l = rand(0, 100, 0, t)
 if l > track3 then

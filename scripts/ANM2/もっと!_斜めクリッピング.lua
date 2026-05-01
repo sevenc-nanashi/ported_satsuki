@@ -12,7 +12,12 @@ local track1 = 10
 ---min=-720
 ---max=720
 local track2 = 0
---dialog:中心X,x=0;中心Y,y=0;
+---$value:中心X
+local x = 0
+
+---$value:中心Y
+local y = 0
+
 n = math.floor(track0 / 2)
 if track1 > 0 then
 	for i = 0, n - 1 do

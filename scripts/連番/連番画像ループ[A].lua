@@ -16,4 +16,15 @@ local nx = 3
 ---max=100
 ---step=1
 local ny = 3
---dialog:Z間隔(pxl),gz=300;Z個数,nz=1;XY軸段違い/chk,yd=0;ZY軸段違い/chk,zd=0;
+---$value:Z間隔(pxl)
+local gz = 300
+
+---$value:Z個数
+local nz = 1
+
+---$check:XY軸段違い
+local yd = 0
+
+---$check:ZY軸段違い
+local zd = 0
+

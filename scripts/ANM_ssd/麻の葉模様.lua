@@ -14,7 +14,12 @@ local w = 800
 ---min=0
 ---max=4000
 local h = 450
---dialog:色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;
+---$color:色1
+local col1 = 0x000000
+
+---$color:色2(負値で透明)
+local col2 = 0xffffff
+
 
 local d = math.min(track1, 3 / (6 + 4 * math.sqrt(3)) * l)
 local sl = l - (4 / math.sqrt(3) + 2) * d

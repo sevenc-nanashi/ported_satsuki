@@ -2,7 +2,12 @@
 ---min=0
 ---max=100
 local track0 = 100
---dialog:色/col,coln=0xffffff;輝度保持/chk,kid=0;
+---$color:色
+local coln = 0xffffff
+
+---$check:輝度保持
+local kid = 0
+
 obj.setoption("culling", 1)
 obj.effect()
 obj.draw()

@@ -16,7 +16,21 @@ local s = 200
 ---min=0
 ---max=100
 local track3 = 4
---dialog:Xスケール[%],xs=100;Yスケール[%],ys=100;分割数,div=5;補助線表示/chk,hojo=1;補助線高さ[%],hh=100;
+---$value:Xスケール[%]
+local xs = 100
+
+---$value:Yスケール[%]
+local ys = 100
+
+---$value:分割数
+local div = 5
+
+---$check:補助線表示
+local hojo = 1
+
+---$value:補助線高さ[%]
+local hh = 100
+
 obj.effect()
 i = math.min(track1, div)
 sd = track3 / 100

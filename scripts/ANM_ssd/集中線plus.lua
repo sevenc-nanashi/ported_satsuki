@@ -14,7 +14,27 @@ local lc = 100
 ---min=-720
 ---max=720
 local r = 0
---dialog:色/col,col=0xffffff;横サイズ,w=800;縦サイズ,h=450;中心座標,pos={0,0};中心ランダム％,lc_r=20;ランダム種,rseed=0;切替ﾌﾚｰﾑ(0/無),kfr=0;
+---$color:色
+local col = 0xffffff
+
+---$value:横サイズ
+local w = 800
+
+---$value:縦サイズ
+local h = 450
+
+---$value:中心座標
+local pos = {0,0}
+
+---$value:中心ランダム％
+local lc_r = 20
+
+---$value:ランダム種
+local rseed = 0
+
+---$value:切替ﾌﾚｰﾑ(0
+local kfr = 0
+
 
 obj.setanchor("pos", 1)
 local cx = pos[1]

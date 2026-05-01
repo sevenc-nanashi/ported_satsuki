@@ -16,7 +16,12 @@ local nx = 5
 ---max=100
 ---step=1
 local ny = 3
---dialog:間隔[s],f=0.5;透明最小値[%],m=0;
+---$value:間隔[s]
+local f = 0.5
+
+---$value:透明最小値[%]
+local m = 0
+
 gx = track0 / 100
 gy = track1 / 100
 w = obj.w

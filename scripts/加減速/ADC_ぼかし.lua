@@ -17,7 +17,18 @@ local track2 = 0
 ---min=-100
 ---max=100
 local track3 = 0
---dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;光の強さ,br=2;サイズ固定/chk,fix=0;
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:光の強さ
+local br = 2
+
+---$check:サイズ固定
+local fix = 0
+
 
 --共通部分
 if ta == 0 then

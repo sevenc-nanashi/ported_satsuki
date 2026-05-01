@@ -15,7 +15,21 @@ local track2 = 100
 ---min=0
 ---max=5000
 local track3 = 0
---dialog:種類/fig,name="円";サイズ,f_size=100;ライン幅,f_line=4000;ランダムZ回転,rzv_ran=0;ランダム拡大[-%],s_ran=0;
+---$figure:種類
+local name = "円"
+
+---$value:サイズ
+local f_size = 100
+
+---$value:ライン幅
+local f_line = 4000
+
+---$value:ランダムZ回転
+local rzv_ran = 0
+
+---$value:ランダム拡大[-%]
+local s_ran = 0
+
 for i = 0, n do
 	c = (obj.rand(0, 100, i, 100) - 50) / 100
 	if c < 0 then

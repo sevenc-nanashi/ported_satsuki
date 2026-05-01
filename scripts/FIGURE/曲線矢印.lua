@@ -17,7 +17,18 @@ local track2 = 3
 ---max=50
 ---step=1
 local BN = 20
---dialog:色/col,col=0xffff00;先端図形/fig,fig="三角形";両端を丸める/chk,maru=0;座標,pos={-100,0,0,-50,100,0};
+---$color:色
+local col = 0xffff00
+
+---$figure:先端図形
+local fig = "三角形"
+
+---$check:両端を丸める
+local maru = 0
+
+---$value:座標
+local pos = {-100,0,0,-50,100,0}
+
 
 l = math.floor(track0) / 2
 size = track1 / math.sqrt(2)

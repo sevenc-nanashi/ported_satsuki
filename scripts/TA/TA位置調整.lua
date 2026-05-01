@@ -2,7 +2,9 @@
 ---min=0
 ---max=100
 local track0 = 100
---dialog:座標,pos={}
+---$value:座標
+local pos = {}
+
 obj.effect()
 r = track0 / 100
 obj.setanchor("pos", obj.num, "line")

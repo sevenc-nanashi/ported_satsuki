@@ -10,7 +10,18 @@ local lh = 50
 ---min=-500
 ---max=500
 local set = 0
---dialog:上(1/ON),dir1=1;下,dir2=1;左,dir3=0;右,dir4=0;
+---$check:上
+local dir1 = 1
+
+---$check:下
+local dir2 = 1
+
+---$check:左
+local dir3 = 0
+
+---$check:右
+local dir4 = 0
+
 w, h = obj.getpixel()
 offs = set % lw * 2
 n = math.floor(w / lw / 2) + 1

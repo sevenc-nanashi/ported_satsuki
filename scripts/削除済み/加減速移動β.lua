@@ -13,7 +13,21 @@ local track1 = 0
 ---max=1
 ---step=1
 local track2 = 0
---dialog:X軸/chk,xx=1;Y軸/chk,yy=1;Z軸/chk,zz=1;拡大率/chk,ss=1;色/col,color=0xff0000;
+---$check:X軸
+local xx = 1
+
+---$check:Y軸
+local yy = 1
+
+---$check:Z軸
+local zz = 1
+
+---$check:拡大率
+local ss = 1
+
+---$color:色
+local color = 0xff0000
+
 
 --beki=math.floor(beki)
 mode = math.floor(track1)

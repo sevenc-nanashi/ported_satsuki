@@ -15,7 +15,15 @@ local track2 = 100
 ---min=0
 ---max=1000
 local track3 = 100
---dialog:Z軸範囲[%],wz=0;拡大最小[-%],s_min=0;速度最小[-%],vx_min=0;
+---$value:Z軸範囲[%]
+local wz = 0
+
+---$value:拡大最小[-%]
+local s_min = 0
+
+---$value:速度最小[-%]
+local vx_min = 0
+
 obj.effect()
 w = obj.w / 2
 h = obj.h / 2 / n

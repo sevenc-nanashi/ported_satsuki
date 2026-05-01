@@ -17,7 +17,21 @@ local track2 = 0
 ---max=5
 ---step=1
 local jun = 0
---dialog:X軸回転/chk,rx=0;Y軸回転/chk,ry=0;Z軸回転/chk,rz=1;移動距離,id_len=0;移動角度,id_r=0;
+---$check:X軸回転
+local rx = 0
+
+---$check:Y軸回転
+local ry = 0
+
+---$check:Z軸回転
+local rz = 1
+
+---$value:移動距離
+local id_len = 0
+
+---$value:移動角度
+local id_r = 0
+
 
 local ts = obj.time - track2
 local tb = math.abs(track0)

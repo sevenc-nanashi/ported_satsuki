@@ -14,7 +14,24 @@ local h = 50
 ---min=0
 ---max=100
 local syu = 10
---dialog:X振動,x=50;Y振動,y=50;Z振動,z=50;揺れ幅倍率,haba=3;色ずれ幅,irozure=100;色ずれ種類[0〜2],ty=0;
+---$value:X振動
+local x = 50
+
+---$value:Y振動
+local y = 50
+
+---$value:Z振動
+local z = 50
+
+---$value:揺れ幅倍率
+local haba = 3
+
+---$value:色ずれ幅
+local irozure = 100
+
+---$value:色ずれ種類[0〜2]
+local ty = 0
+
 obj.effect(
 	"振動",
 	"X",

@@ -7,7 +7,9 @@ local s = 50
 ---min=0
 ---max=100
 local track1 = 10
---dialog:反転/chk,hanten=0;
+---$check:反転
+local hanten = 0
+
 obj.copybuffer("tmp", "obj")
 line = s / 2 * track1 / 100
 w = obj.w / obj.getvalue("zoom") * 100

@@ -16,7 +16,15 @@ local gr = -60
 ---max=2
 ---step=1
 local typ = 1
---dialog:横サイズ,WS=800;縦サイズ,HS=450;単色/col,col=0xffffff;
+---$value:横サイズ
+local WS = 800
+
+---$value:縦サイズ
+local HS = 450
+
+---$color:単色
+local col = 0xffffff
+
 
 --[[
 【素材】フォトショップでプリズムもどき【メイキング】

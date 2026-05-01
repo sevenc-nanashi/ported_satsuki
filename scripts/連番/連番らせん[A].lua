@@ -15,7 +15,27 @@ local dpos = 10
 ---min=-3600
 ---max=3600
 local rot = 0
---dialog:軸[0-2],rasen_jiku=2;向き[0-2],rasen_dir=1;初期半径,rasen_r=100;半径差分,rasen_dr=0;大きさ,zoom=0;透明度,alpha=0;回転に同期移動/chk,douki=0;
+---$value:軸[0-2]
+local rasen_jiku = 2
+
+---$value:向き[0-2]
+local rasen_dir = 1
+
+---$value:初期半径
+local rasen_r = 100
+
+---$value:半径差分
+local rasen_dr = 0
+
+---$value:大きさ
+local zoom = 0
+
+---$value:透明度
+local alpha = 0
+
+---$check:回転に同期移動
+local douki = 0
+
 --
 --※GH螺旋配置(sm13806316参照)を改変したものです。
 --

@@ -11,7 +11,12 @@ local n = 2
 ---min=-720
 ---max=720
 local track2 = 0
---dialog:回転に連動/chk,rendo=1;連動角度,rendk=45;
+---$check:回転に連動
+local rendo = 1
+
+---$value:連動角度
+local rendk = 45
+
 
 local w = obj.w * 100 / obj.getvalue("zoom")
 local h = obj.h * 100 / obj.getvalue("zoom")

@@ -3,7 +3,12 @@
 ---max=2000
 ---step=1
 local track0 = 48
---dialog:色1/col,color=0x000000;色2/col,color1=0xffffff;
+---$color:色1
+local color = 0x000000
+
+---$color:色2
+local color1 = 0xffffff
+
 
 s = track0 / 2 / 24
 obj.setoption("dst", "tmp", track0, track0)

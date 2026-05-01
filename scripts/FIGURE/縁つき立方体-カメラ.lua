@@ -17,7 +17,15 @@ local track2 = 50
 ---max=5
 ---step=0.01
 local t = 1
---dialog:縁色/col,col1=0xffffff;内色/col,col2=0x0000ff;明滅あり/chk,mode=0;
+---$color:縁色
+local col1 = 0xffffff
+
+---$color:内色
+local col2 = 0x0000ff
+
+---$check:明滅あり
+local mode = 0
+
 s2 = s1 - h * 2
 a = track2 / 100
 

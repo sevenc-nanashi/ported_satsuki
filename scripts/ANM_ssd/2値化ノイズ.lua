@@ -17,7 +17,12 @@ local hks = 0
 ---max=5
 ---step=1
 local nizs = 0
---dialog:色/col,col=0xffffff;輝度保持/chk,kdhj=0;
+---$color:色
+local col = 0xffffff
+
+---$check:輝度保持
+local kdhj = 0
+
 
 --[[
 ティム氏の色調補正セットにある「T_Color_Module.dll」が必要です。

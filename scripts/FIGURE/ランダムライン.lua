@@ -17,7 +17,12 @@ local dwr = 50
 ---max=300
 ---step=1
 local k = 50
---dialog:色/col,col=0xff8000;ランダム変化/chk,chk=1;
+---$color:色
+local col = 0xff8000
+
+---$check:ランダム変化
+local chk = 1
+
 w = obj.screen_w / 2
 h = obj.screen_h / 2
 L = math.sqrt(obj.screen_w ^ 2, obj.screen_h / 2 ^ 2) * 2

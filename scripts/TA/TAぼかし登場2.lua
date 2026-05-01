@@ -18,7 +18,12 @@ local track2 = 100
 ---max=5
 ---step=1
 local jun = 0
---dialog:横方向/chk,yoko=0;拡大率,z=400;
+---$check:横方向
+local yoko = 0
+
+---$value:拡大率
+local z = 400
+
 a = 1
 
 if jun < 1 then

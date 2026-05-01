@@ -14,7 +14,18 @@ local c = 100
 ---min=-800
 ---max=800
 local d = 100
---dialog:上辺中心[%],e=0;右辺中心[%],f=0;下辺中心[%],g=0;左辺中心[%],h=0;
+---$value:上辺中心[%]
+local e = 0
+
+---$value:右辺中心[%]
+local f = 0
+
+---$value:下辺中心[%]
+local g = 0
+
+---$value:左辺中心[%]
+local h = 0
+
 e = e / 100 * obj.w / 2
 f = f / 100 * obj.h / 2
 g = g / 100 * obj.w / 2

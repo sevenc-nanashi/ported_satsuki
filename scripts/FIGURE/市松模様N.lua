@@ -13,7 +13,12 @@ local w = 2
 ---max=200
 ---step=1
 local h = 2
---dialog:色1/col,col1=0xffffff;色2/col,col2=0x000000;
+---$color:色1
+local col1 = 0xffffff
+
+---$color:色2
+local col2 = 0x000000
+
 function ICHIMATSU(col, a)
 	obj.load("figure", "四角形", col, 2)
 	obj.effect()

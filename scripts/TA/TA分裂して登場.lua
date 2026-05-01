@@ -17,7 +17,9 @@ local track2 = 20
 ---max=5
 ---step=1
 local jun = 0
---dialog:横方向/chk,yoko=0;
+---$check:横方向
+local yoko = 0
+
 obj.effect()
 
 if jun < 1 then

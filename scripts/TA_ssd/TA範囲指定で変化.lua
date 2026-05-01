@@ -16,7 +16,39 @@ local track2 = 100
 ---max=1
 ---step=1
 local track3 = 1
---dialog:X,x=0;Y,y=0;Z,z=0;拡大率,s=50;透明度,alp=0;X回転,rx=0;Y回転,ry=0;Z回転,rz=0;加減速[1-5],beki=2;自動移動[0-2],jido=0;幅,h_hb0=2000;
+---$value:X
+local x = 0
+
+---$value:Y
+local y = 0
+
+---$value:Z
+local z = 0
+
+---$value:拡大率
+local s = 50
+
+---$value:透明度
+local alp = 0
+
+---$value:X回転
+local rx = 0
+
+---$value:Y回転
+local ry = 0
+
+---$value:Z回転
+local rz = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:自動移動[0-2]
+local jido = 0
+
+---$value:幅
+local h_hb0 = 2000
+
 
 obj.effect()
 h_sz = track2 / 2

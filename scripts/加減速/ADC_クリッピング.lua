@@ -14,7 +14,27 @@ local track2 = 0
 ---min=0
 ---max=2000
 local track3 = 0
---dialog:時間[s],ta=1;加減速[1-5],beki=2;減/加/S[0-2],mode=0;上2,up2=0;下2,dw2=0;左2,lf2=0;右2,rt2=0;
+---$value:時間[s]
+local ta = 1
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$value:上2
+local up2 = 0
+
+---$value:下2
+local dw2 = 0
+
+---$value:左2
+local lf2 = 0
+
+---$value:右2
+local rt2 = 0
+
 
 --共通部分
 if ta == 0 then

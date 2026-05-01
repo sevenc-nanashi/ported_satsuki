@@ -6,7 +6,12 @@ local track0 = 200
 ---min=0
 ---max=800
 local track1 = 100
---dialog:一体化/chk,itk=0;座標,pos={};
+---$check:一体化
+local itk = 0
+
+---$value:座標
+local pos = {}
+
 
 n = obj.num
 W = obj.screen_w / 2

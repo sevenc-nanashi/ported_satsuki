@@ -18,7 +18,18 @@ local st = 0
 ---max=5
 ---step=1
 local jun = 0
---dialog:加減速[1-5],beki=2;減/加/S[0-2],adc=0;タイプ/chk,type=0;座標,pos={};
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local adc = 0
+
+---$check:タイプ
+local type = 0
+
+---$value:座標
+local pos = {}
+
 obj.effect()
 
 obj.setanchor("pos", obj.num, "line")

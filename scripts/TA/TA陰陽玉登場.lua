@@ -12,7 +12,9 @@ local rz = 360
 ---max=5
 ---step=1
 local track2 = 2
---dialog:文字回転/chk,k=1;
+---$check:文字回転
+local k = 1
+
 beki = math.floor(track2)
 mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
 ta = t * (1 - mode / obj.num)

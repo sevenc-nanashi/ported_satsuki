@@ -8,7 +8,12 @@ local track0 = 1
 ---max=100
 ---step=1
 local track1 = 1
---dialog:背景色/col,col0=0x8080ff;チェック色/col,col1=0xffffff;
+---$color:背景色
+local col0 = 0x8080ff
+
+---$color:チェック色
+local col1 = 0xffffff
+
 s = 100 / 100
 s0 = 35 * s
 s1 = (52 + 3) * s

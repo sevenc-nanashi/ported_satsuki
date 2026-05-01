@@ -18,7 +18,15 @@ local s = 2.0
 ---max=5
 ---step=1
 local jun = 0
---dialog:揺れ幅,haba=100;種類[0-4],syu=0;タイプ/chk,type=0;
+---$value:揺れ幅
+local haba = 100
+
+---$value:種類[0-4]
+local syu = 0
+
+---$check:タイプ
+local type = 0
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場

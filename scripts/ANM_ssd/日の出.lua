@@ -16,7 +16,27 @@ local r = 0
 ---max=2000
 ---step=1
 local s = 200
---dialog:色1/col,col=0xff0000;色2(負値で透明)/col,col2=0xffff00;図形/fig,fig="円";横サイズ,w=800;縦サイズ,h=450;図形角度,figr=0;中心座標,pos={0,0};
+---$color:色1
+local col = 0xff0000
+
+---$color:色2(負値で透明)
+local col2 = 0xffff00
+
+---$figure:図形
+local fig = "円"
+
+---$value:横サイズ
+local w = 800
+
+---$value:縦サイズ
+local h = 450
+
+---$value:図形角度
+local figr = 0
+
+---$value:中心座標
+local pos = {0,0}
+
 
 local val = track1 / 100
 

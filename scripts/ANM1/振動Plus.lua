@@ -16,7 +16,9 @@ local n = 10
 ---min=0
 ---max=100
 local siki = 0
---dialog:z軸振動の有無/chk,zz=1;
+---$check:z軸振動の有無
+local zz = 1
+
 
 function sindo(x, y, z, t, s)
 	a = obj.rand(0, 100, 0, math.floor(obj.time / t))

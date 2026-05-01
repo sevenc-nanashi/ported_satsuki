@@ -16,7 +16,21 @@ local sikii = 128
 ---min=0
 ---max=50
 local koma = 12
---dialog:横サイズ,sw=800;縦サイズ,sh=450;ランダム＋幅,habar=0;乱数,rns=0;色/col,col=0xffffff;
+---$value:横サイズ
+local sw = 800
+
+---$value:縦サイズ
+local sh = 450
+
+---$value:ランダム＋幅
+local habar = 0
+
+---$value:乱数
+local rns = 0
+
+---$color:色
+local col = 0xffffff
+
 
 --[[
 ティム氏の色調補正セットにある「T_Color_Module.dll」が必要です。

@@ -7,7 +7,18 @@ local track0 = 0.3
 ---min=-100
 ---max=100
 local v = 0
---dialog:X軸1,xa=40;X軸2,xb=150;Y軸1,ya=150;Y軸2,yb=80;
+---$value:X軸1
+local xa = 40
+
+---$value:X軸2
+local xb = 150
+
+---$value:Y軸1
+local ya = 150
+
+---$value:Y軸2
+local yb = 80
+
 t = track0 / 3
 xa = xa + (xa - 100) * v / 100
 xb = xb + (xb - 100) * v / 100

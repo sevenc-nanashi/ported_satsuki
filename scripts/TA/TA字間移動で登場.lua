@@ -16,7 +16,12 @@ local track2 = 0
 ---max=5
 ---step=1
 local track3 = 2
---dialog:縦書き/chk,tate=0;フェード/chk,fade=0;
+---$check:縦書き
+local tate = 0
+
+---$check:フェード
+local fade = 0
+
 if t == 0 then
 	return
 elseif t < 0 then

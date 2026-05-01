@@ -16,7 +16,15 @@ local track2 = 0
 ---min=0
 ---max=100
 local track3 = 0
---dialog:英数字/chk,es=0;テキスト,text="さんぷる";(XY座標),pos={};
+---$check:英数字
+local es = 0
+
+---$value:テキスト
+local text = "さんぷる"
+
+---$value:(XY座標)
+local pos = {}
+
 
 ranz = track1 / 100
 ranrz = track2 / 100

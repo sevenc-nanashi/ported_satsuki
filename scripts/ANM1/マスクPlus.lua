@@ -15,7 +15,24 @@ local track2 = 100
 ---min=-720
 ---max=720
 local track3 = 0
---dialog:マスクの種類/fig,fig="円";ライン幅,line=4000;Xスケール[%],asx=100;Yスケール[%],asy=100;透明度[%],alp=0;ぼかし,br=0;
+---$figure:マスクの種類
+local fig = "円"
+
+---$value:ライン幅
+local line = 4000
+
+---$value:Xスケール[%]
+local asx = 100
+
+---$value:Yスケール[%]
+local asy = 100
+
+---$value:透明度[%]
+local alp = 0
+
+---$value:ぼかし
+local br = 0
+
 
 obj.copybuffer("tmp", "obj")
 obj.alpha = 0

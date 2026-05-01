@@ -10,7 +10,12 @@ local track1 = -100
 ---min=-1000
 ---max=1000
 local track2 = 0
---dialog:補助線表示/chk,hojo=1;補助線色/col,color=0xff0000;
+---$check:補助線表示
+local hojo = 1
+
+---$color:補助線色
+local color = 0xff0000
+
 obj.effect()
 --始点
 x0 = obj.getvalue("x", 0)

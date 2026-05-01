@@ -17,7 +17,21 @@ local track2 = 500
 ---max=10
 ---step=1
 local track3 = 3
---dialog:X距離,x=0;Y距離,y=0;Z距離,z=0;加減速[1-5],beki1=2;減衰[0-3],beki0=2;
+---$value:X距離
+local x = 0
+
+---$value:Y距離
+local y = 0
+
+---$value:Z距離
+local z = 0
+
+---$value:加減速[1-5]
+local beki1 = 2
+
+---$value:減衰[0-3]
+local beki0 = 2
+
 k = math.floor(track3)
 s = track2 / 100 - 1
 

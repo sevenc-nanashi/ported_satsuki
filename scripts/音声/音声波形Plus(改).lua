@@ -17,7 +17,12 @@ local track2 = 100
 ---max=3
 ---step=1
 local mode = 0
---dialog:横スペース(%),wsp=25;縦スペース(%),hsp=25;
+---$value:横スペース(%)
+local wsp = 25
+
+---$value:縦スペース(%)
+local hsp = 25
+
 zoom = obj.getvalue("zoom") / 100
 W = obj.w / zoom
 H = obj.h / zoom

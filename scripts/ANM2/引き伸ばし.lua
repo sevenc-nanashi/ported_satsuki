@@ -14,7 +14,12 @@ local track2 = 0
 ---min=-100
 ---max=100
 local track3 = 0
---dialog:縦方向/chk,dir=0;幅部分を表示/chk,alp=0;
+---$check:縦方向
+local dir = 0
+
+---$check:幅部分を表示
+local alp = 0
+
 obj.effect()
 w = obj.w / 2
 h = obj.h / 2

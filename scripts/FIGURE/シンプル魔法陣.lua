@@ -18,7 +18,33 @@ local cw = 5
 ---max=7
 ---step=1
 local j = 2
---dialog:色/col,col=0xffffff;回転速度,v=1;図形2つ/chk,fig_num=1;外円調整(%),soto=100;text(英数字のみ),text="ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";textサイズ,tsize=34;textフォント,font="MS UI Gothic";text半径調整(%),tll=100;textサイズ調整(%),ttsize=100;
+---$color:色
+local col = 0xffffff
+
+---$value:回転速度
+local v = 1
+
+---$check:図形2つ
+local fig_num = 1
+
+---$value:外円調整(%)
+local soto = 100
+
+---$value:text(英数字のみ)
+local text = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+---$value:textサイズ
+local tsize = 34
+
+---$value:textフォント
+local font = "MS UI Gothic"
+
+---$value:text半径調整(%)
+local tll = 100
+
+---$value:textサイズ調整(%)
+local ttsize = 100
+
 
 w = math.min(track1, l)
 rv = obj.time * 36 * v

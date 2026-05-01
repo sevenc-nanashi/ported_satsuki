@@ -14,7 +14,9 @@ local track2 = 500
 ---min=0
 ---max=1000
 local track3 = 10
---dialog:種類/fig,name="円";
+---$figure:種類
+local name = "円"
+
 n = obj.totaltime / track1
 for i = 0, n do
 	ra = obj.rand(0, 255, 0, i)

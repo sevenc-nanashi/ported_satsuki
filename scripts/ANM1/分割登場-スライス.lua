@@ -18,7 +18,21 @@ local n = 5
 ---max=3
 ---step=1
 local mode = 0
---dialog:縦方向/chk,tated=0;縦分割/chk,tateb=0;交互/chk,kougo=0;加減速[1-5],beki=2;登場距離[%],l=100;
+---$check:縦方向
+local tated = 0
+
+---$check:縦分割
+local tateb = 0
+
+---$check:交互
+local kougo = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:登場距離[%]
+local l = 100
+
 obj.effect()
 --a:登場座標(x,y)の符号
 --d:登場順番

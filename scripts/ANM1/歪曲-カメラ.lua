@@ -15,7 +15,9 @@ local track2 = 0
 ---max=2
 ---step=1
 local k = 0
---dialog:分割数,n=28;
+---$value:分割数
+local n = 28
+
 obj.effect()
 t = track0 / 100
 cx = track1 / 2

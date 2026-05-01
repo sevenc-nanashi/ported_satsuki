@@ -16,7 +16,21 @@ local s = 10
 ---min=-360
 ---max=360
 local r = 90
---dialog:分割数,div=5;色ずれ幅[%],iro=0;色ずれ種類[0-2],iro_ty=0;補助線表示/chk,hojo=1;補助線高さ[%],hh=100;
+---$value:分割数
+local div = 5
+
+---$value:色ずれ幅[%]
+local iro = 0
+
+---$value:色ずれ種類[0-2]
+local iro_ty = 0
+
+---$check:補助線表示
+local hojo = 1
+
+---$value:補助線高さ[%]
+local hh = 100
+
 obj.effect()
 i = math.min(track1, div)
 buf = {}

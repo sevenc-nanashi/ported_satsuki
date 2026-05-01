@@ -17,7 +17,18 @@ local k = 360
 ---max=500
 ---step=1
 local n = 5
---dialog:フェード/chk,f=1;縦分割/chk,yjiku=0;逆順/chk,jun=0;加減速[1-5],beki=2;
+---$check:フェード
+local f = 1
+
+---$check:縦分割
+local yjiku = 0
+
+---$check:逆順
+local jun = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
 obj.effect()
 for i = 0, n - 1 do
 	if jun == 0 then

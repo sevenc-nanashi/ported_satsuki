@@ -14,7 +14,18 @@ local w = 800
 ---min=0
 ---max=4000
 local h = 450
---dialog:ライン幅,lhb=2;色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;タイプ2/chk,uuss=1;
+---$value:ライン幅
+local lhb = 2
+
+---$color:色1
+local col1 = 0x000000
+
+---$color:色2(負値で透明)
+local col2 = 0xffffff
+
+---$check:タイプ2
+local uuss = 1
+
 
 obj.setoption("drawtarget", "tempbuffer", w, h)
 

@@ -18,7 +18,21 @@ local track2 = 500
 ---max=500
 ---step=1
 local track3 = 10
---dialog:種類/fig,name="円";色/col,c=0xffffff;カラフル/chk,colful=0;ランダム角度/chk,rrz=1;仮想bufサイズ[%],ss=100;
+---$figure:種類
+local name = "円"
+
+---$color:色
+local c = 0xffffff
+
+---$check:カラフル
+local colful = 0
+
+---$check:ランダム角度
+local rrz = 1
+
+---$value:仮想bufサイズ[%]
+local ss = 100
+
 n = obj.totaltime / track1
 obj.setoption("dst", "tmp", obj.screen_w * ss / 100, obj.screen_h * ss / 100)
 for i = 0, n do

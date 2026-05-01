@@ -13,7 +13,27 @@ local tb = 0.3
 ---max=256
 ---step=1
 local n = 5
---dialog:フェード/chk,fade=0;拡大率[+%],s=0;X距離,x=0;Y距離,y=0;Z距離,z=0;Z軸回転,rz=0;加減速[1-5],beki=2;
+---$check:フェード
+local fade = 0
+
+---$value:拡大率[+%]
+local s = 0
+
+---$value:X距離
+local x = 0
+
+---$value:Y距離
+local y = 0
+
+---$value:Z距離
+local z = 0
+
+---$value:Z軸回転
+local rz = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
 obj.effect()
 w = obj.w / 2
 h = obj.h / 2 / n

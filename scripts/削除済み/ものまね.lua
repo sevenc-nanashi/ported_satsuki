@@ -7,7 +7,18 @@ local lay = 1
 ---min=-5000
 ---max=5000
 local track1 = 0
---dialog:X倍率,xx=100;Y倍率,yy=100;Z倍率,zz=100;拡大倍率,ss=100;
+---$value:X倍率
+local xx = 100
+
+---$value:Y倍率
+local yy = 100
+
+---$value:Z倍率
+local zz = 100
+
+---$value:拡大倍率
+local ss = 100
+
 t = track1 / 1000
 obj.ox = obj.getvalue("layer" .. lay .. ".x", obj.time + t) * xx / 100
 obj.oy = obj.getvalue("layer" .. lay .. ".y", obj.time + t) * yy / 100

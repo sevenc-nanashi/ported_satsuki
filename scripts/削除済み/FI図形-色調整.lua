@@ -14,7 +14,9 @@ local track2 = 255
 ---min=0
 ---max=255
 local track3 = 255
---dialog:種類/fig,name="円";
+---$figure:種類
+local name = "円"
+
 r = math.floor(track1)
 g = math.floor(track2)
 b = math.floor(track3)

@@ -15,5 +15,7 @@ local track2 = 100
 ---min=-360
 ---max=360
 local rr = 0
---dialog:Y軸回転なし/chk,dir=0;
+---$check:Y軸回転なし
+local dir = 0
+
 k = track2 / 100

@@ -18,7 +18,36 @@ local out_time = 1
 ---max=5
 ---step=1
 local jun = 2
---dialog:フェード/chk,fade=1;X距離,x=0;Y距離,y=0;Z距離,z=0;拡大,s=100;X軸回転,rx=0;Y軸回転,ry=0;Z軸回転,rz=0;加減速[1-5],beki=2;アウトは逆方向/chk,gyaku=1;
+---$check:フェード
+local fade = 1
+
+---$value:X距離
+local x = 0
+
+---$value:Y距離
+local y = 0
+
+---$value:Z距離
+local z = 0
+
+---$value:拡大
+local s = 100
+
+---$value:X軸回転
+local rx = 0
+
+---$value:Y軸回転
+local ry = 0
+
+---$value:Z軸回転
+local rz = 0
+
+---$value:加減速[1-5]
+local beki = 2
+
+---$check:アウトは逆方向
+local gyaku = 1
+
 
 --インアウトがマイナスの時は最初or最後の中間点でフェードインアウト。数値の時は指定した秒数でフェードインアウト。ゼロのときはフェードインアウトなし。
 

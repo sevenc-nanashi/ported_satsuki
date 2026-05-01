@@ -16,4 +16,6 @@ local nx = 3
 ---max=100
 ---step=1
 local ny = 3
---dialog:XY軸段違い/chk,yd=0;
+---$check:XY軸段違い
+local yd = 0
+

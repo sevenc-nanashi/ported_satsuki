@@ -15,7 +15,42 @@ local track2 = 0
 ---max=16
 ---step=1
 local track3 = 1
---dialog:Xあり/chk,xx=1;Yあり/chk,yy=1;Zあり/chk,zz=1;グラフ内[0-1],gn=1;座標,pos={};仮想bufサイズ[%],bufsize=100;グラフ表示/chk,hojo=1;G横サイズ,gwsize=400;G縦サイズ,ghsize=300;G色/col,col=0xffff00;Gライン幅,line=5;G分割数,BN=20;
+---$check:Xあり
+local xx = 1
+
+---$check:Yあり
+local yy = 1
+
+---$check:Zあり
+local zz = 1
+
+---$value:グラフ内[0-1]
+local gn = 1
+
+---$value:座標
+local pos = {}
+
+---$value:仮想bufサイズ[%]
+local bufsize = 100
+
+---$check:グラフ表示
+local hojo = 1
+
+---$value:G横サイズ
+local gwsize = 400
+
+---$value:G縦サイズ
+local ghsize = 300
+
+---$color:G色
+local col = 0xffff00
+
+---$value:Gライン幅
+local line = 5
+
+---$value:G分割数
+local BN = 20
+
 
 l = math.floor(line) / 2
 NN = track3 + 1

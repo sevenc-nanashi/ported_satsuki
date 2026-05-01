@@ -15,7 +15,12 @@ local track2 = 100
 ---min=-360
 ---max=360
 local rz = 0
---dialog:回転なし/chk,dir=0;個別基準/chk,mode=0;
+---$check:回転なし
+local dir = 0
+
+---$check:個別基準
+local mode = 0
+
 s = track2 / 100
 
 if mode == 0 then

@@ -11,7 +11,21 @@ local fsize = 100
 ---max=4000
 ---step=1
 local line = 4000
---dialog:図形/fig,name="四角形";反転/chk,han=0;座標,pos={-100,-100,100,-100,100,100,-100,100};分割数,div=8;描画方法(0〜4),mode=1;
+---$figure:図形
+local name = "四角形"
+
+---$check:反転
+local han = 0
+
+---$value:座標
+local pos = {-100,-100,100,-100,100,100,-100,100}
+
+---$value:分割数
+local div = 8
+
+---$value:描画方法(0〜4)
+local mode = 1
+
 
 if obj.getoption("track_mode", 0) == 0 then
 	obj.setanchor("pos", 4, "loop")

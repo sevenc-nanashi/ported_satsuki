@@ -11,7 +11,18 @@ local track1 = 4
 ---min=-360
 ---max=360
 local r = 0
---dialog:色1/col,col1=0xffff00;色2/col,col2=0xff0000;中心X,cx=0;中心Y,cy=0;
+---$color:色1
+local col1 = 0xffff00
+
+---$color:色2
+local col2 = 0xff0000
+
+---$value:中心X
+local cx = 0
+
+---$value:中心Y
+local cy = 0
+
 n = math.floor(track1)
 col1_r = math.floor(col1 / 16 ^ 4)
 col1_g = math.floor((col1 - col1_r * 16 ^ 4) / 256)

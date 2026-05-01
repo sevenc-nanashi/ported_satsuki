@@ -15,7 +15,21 @@ local track2 = 0
 ---min=0
 ---max=1000
 local track3 = 0
---dialog:X軸範囲[%],wx=100;Y軸範囲[%],wy=100;Z軸範囲[%],wz=100;Z回転/chk,kz=1;拡大最小[-%],s_min=0;
+---$value:X軸範囲[%]
+local wx = 100
+
+---$value:Y軸範囲[%]
+local wy = 100
+
+---$value:Z軸範囲[%]
+local wz = 100
+
+---$check:Z回転
+local kz = 1
+
+---$value:拡大最小[-%]
+local s_min = 0
+
 obj.effect()
 w = obj.w / 2
 h = obj.h / 2 / n

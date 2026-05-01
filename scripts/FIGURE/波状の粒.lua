@@ -15,7 +15,21 @@ local lmax = 100
 ---min=0
 ---max=500
 local wmax = 50
---dialog:種類/fig,fig="円";色/col,col=0xffffff;ライン幅,line=4000;変化速度[ms],fs=100;増加率,pl=0;
+---$figure:種類
+local fig = "円"
+
+---$color:色
+local col = 0xffffff
+
+---$value:ライン幅
+local line = 4000
+
+---$value:変化速度[ms]
+local fs = 100
+
+---$value:増加率
+local pl = 0
+
 
 n = math.floor(track0 / 2)
 obj.setoption("dst", "tmp", n * 5 * 2, lmax * 2 * 1.5)

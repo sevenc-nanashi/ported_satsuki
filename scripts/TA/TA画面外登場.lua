@@ -17,7 +17,9 @@ local track2 = 0
 ---max=5
 ---step=1
 local jun = 0
---dialog:拡大率,s=100;
+---$value:拡大率
+local s = 100
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場

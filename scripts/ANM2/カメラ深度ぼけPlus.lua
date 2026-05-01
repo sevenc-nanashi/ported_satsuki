@@ -12,7 +12,12 @@ local track1 = 0
 ---max=1000
 ---step=1
 local track2 = 300
---dialog:奥をぼかす/chk,oku=1;手前をぼかす/chk,mae=1;
+---$check:奥をぼかす
+local oku = 1
+
+---$check:手前をぼかす
+local mae = 1
+
 if obj.z > track1 then
 	l = (obj.z - track1) / 10000 * oku
 else

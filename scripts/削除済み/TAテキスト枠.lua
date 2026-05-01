@@ -16,7 +16,12 @@ local s_col = 34
 ---min=0
 ---max=256
 local s_row = 34
---dialog:横位置[0〜2],col_mode=0;縦位置[0〜2],row_mode=0;
+---$value:横位置[0〜2]
+local col_mode = 0
+
+---$value:縦位置[0〜2]
+local row_mode = 0
+
 for i = 0, row do
 	if obj.index >= i * col then
 		if obj.index < (i + 1) * col then

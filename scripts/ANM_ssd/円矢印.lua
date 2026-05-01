@@ -17,7 +17,24 @@ local hds = 50
 ---min=0
 ---max=360
 local r = 260
---dialog:色/col,col=0xffff00;図形/fig,fig="三角形";上下反転/chk,jgh=0;左右反転/chk,syh=0;中心角,cc=0;終点あり/chk,siri=0;
+---$color:色
+local col = 0xffff00
+
+---$figure:図形
+local fig = "三角形"
+
+---$check:上下反転
+local jgh = 0
+
+---$check:左右反転
+local syh = 0
+
+---$value:中心角
+local cc = 0
+
+---$check:終点あり
+local siri = 0
+
 
 --仮想バッファに描画
 kaso = math.max(size - haba + hds, size)
@@ -68,7 +85,24 @@ obj.effect("反転", "上下反転", jgh, "左右反転", syh)
 --  --track1:ライン幅,1,1000,20,1
 --  --track2:頭サイズ,0,1000,50,1
 --  --track3:角度,0,360,260
---  --dialog:色/col,col=0xffff00;
+--  ---$color:色
+local col = 0xffff00
+
+---$figure:図形
+local fig = "三角形"
+
+---$check:上下反転
+local jgh = 0
+
+---$check:左右反転
+local syh = 0
+
+---$value:中心角
+local cc = 0
+
+---$check:終点あり
+local siri = 0
+
 
 --仮想バッファに描画
 kaso=math.max(size-haba+hds,size)

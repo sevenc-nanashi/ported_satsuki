@@ -14,7 +14,18 @@ local sxb = 0
 ---min=-500
 ---max=500
 local syb = -100
---dialog:始制Z,sza=0;終制Z,szb=0;補助線表示/chk,se=1;制御点色/col,color=0xff0000;
+---$value:始制Z
+local sza = 0
+
+---$value:終制Z
+local szb = 0
+
+---$check:補助線表示
+local se = 1
+
+---$color:制御点色
+local color = 0xff0000
+
 obj.effect()
 --始点
 x0 = obj.getvalue("x", 0)

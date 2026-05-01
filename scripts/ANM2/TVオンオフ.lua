@@ -15,7 +15,30 @@ local ensize = 110
 ---min=-1000
 ---max=1000
 local kage_v = 100
---dialog:縁あり/chk,edg=1;縁アス比/chk,as=1;走査線あり/chk,sou=1;走査線強さ[%],sou_alp=50;走査線色/col,sou_col=0x000000;影あり/chk,kage=1;影の幅,kage_haba=80;白線の幅,senhaba=2;
+---$check:縁あり
+local edg = 1
+
+---$check:縁アス比
+local as = 1
+
+---$check:走査線あり
+local sou = 1
+
+---$value:走査線強さ[%]
+local sou_alp = 50
+
+---$color:走査線色
+local sou_col = 0x000000
+
+---$check:影あり
+local kage = 1
+
+---$value:影の幅
+local kage_haba = 80
+
+---$value:白線の幅
+local senhaba = 2
+
 zoom = obj.getvalue("zoom") / 100
 h = obj.h / zoom
 w = obj.w / zoom

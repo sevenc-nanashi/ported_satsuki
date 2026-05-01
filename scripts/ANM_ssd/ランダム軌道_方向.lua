@@ -11,7 +11,15 @@ local track1 = 100
 ---max=100
 ---step=1
 local n = 3
---dialog:ランダムサイズ[-%],rs=0;ランダム透明度[-%],ralp=0;差分,sbn=7.7;
+---$value:ランダムサイズ[-%]
+local rs = 0
+
+---$value:ランダム透明度[-%]
+local ralp = 0
+
+---$value:差分
+local sbn = 7.7
+
 
 for i = 0, n - 1 do
 	t = (obj.time + i * sbn) * 100 / track1

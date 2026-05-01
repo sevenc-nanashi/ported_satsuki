@@ -11,6 +11,26 @@ local rotshift = 0
 ---max=4
 ---step=1
 local dir = 3
---dialog:極スケール[%],pscale=100;Xスケール[%],xscale=100;Yスケール[%],yscale=100;Zスケール[%],zscale=100;経線頂点,keisen=10;緯線頂点,isen=10;両極を描画/chk,pdraw=0;
+---$value:極スケール[%]
+local pscale = 100
+
+---$value:Xスケール[%]
+local xscale = 100
+
+---$value:Yスケール[%]
+local yscale = 100
+
+---$value:Zスケール[%]
+local zscale = 100
+
+---$value:経線頂点
+local keisen = 10
+
+---$value:緯線頂点
+local isen = 10
+
+---$check:両極を描画
+local pdraw = 0
+
 
 --※GH球状配置2(sm13806316参照)を改変したものです。

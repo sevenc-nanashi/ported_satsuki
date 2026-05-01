@@ -6,7 +6,18 @@ local track0 = 0
 ---min=-2000
 ---max=2000
 local track1 = 0
---dialog:初速X,vx=0;初速Y,vy=0;加速度X,vxa=0;加速度Y,vya=0;
+---$value:初速X
+local vx = 0
+
+---$value:初速Y
+local vy = 0
+
+---$value:加速度X
+local vxa = 0
+
+---$value:加速度Y
+local vya = 0
+
 obj.effect()
 
 --加速度関連

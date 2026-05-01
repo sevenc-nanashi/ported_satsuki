@@ -10,7 +10,9 @@ local w = 400
 ---min=0
 ---max=20
 local f = 5
---dialog:縁色/col,wcolor=0x555555;
+---$color:縁色
+local wcolor = 0x555555
+
 
 for i = 0, 2 do
 	if i == 0 then

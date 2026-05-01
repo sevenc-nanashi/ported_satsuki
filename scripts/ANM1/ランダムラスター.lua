@@ -14,7 +14,21 @@ local track2 = 50
 ---min=0
 ---max=100
 local track3 = 90
---dialog:横方向のみ/chk,dir0=1;縦方向のみ/chk,dir1=0;高さ,h=5;色ずれ幅[%],iro=0;色ずれ種類[0〜2],ty=0;
+---$check:横方向のみ
+local dir0 = 1
+
+---$check:縦方向のみ
+local dir1 = 0
+
+---$value:高さ
+local h = 5
+
+---$value:色ずれ幅[%]
+local iro = 0
+
+---$value:色ずれ種類[0〜2]
+local ty = 0
+
 l = rand(0, 100)
 if l > track3 then
 	w = obj.rand(0, track1)

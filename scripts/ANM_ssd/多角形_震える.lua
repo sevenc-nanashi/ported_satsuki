@@ -17,7 +17,30 @@ local track2 = 0
 ---min=-100
 ---max=100
 local track3 = 0
---dialog:色/col,col=0xffffff;座標,pos={0,-150,130,75,-130,75};繰り返し描画数,r_num=nil;繰り返し分周,r_frq=nil;簡易塗り潰し/chk,fill=0;震える範囲,f_ran=20;震える間隔,f_kan=10;カクカク/chk,kak=0;
+---$color:色
+local col = 0xffffff
+
+---$value:座標
+local pos = {0,-150,130,75,-130,75}
+
+---$value:繰り返し描画数
+local r_num = nil
+
+---$value:繰り返し分周
+local r_frq = nil
+
+---$check:簡易塗り潰し
+local fill = 0
+
+---$value:震える範囲
+local f_ran = 20
+
+---$value:震える間隔
+local f_kan = 10
+
+---$check:カクカク
+local kak = 0
+
 if r_num == nil then
 	r_num = 1
 end

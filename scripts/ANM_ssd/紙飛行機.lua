@@ -15,7 +15,18 @@ local k_h = 50
 ---max=3600
 ---step=0.01
 local track3 = 0
---dialog:隙間,k_gap=50;色/col,col=0xffffff;自動方向(移動時のみ)/chk,j_hoko=0;計算基準軸(0or1),axis=0;
+---$value:隙間
+local k_gap = 50
+
+---$color:色
+local col = 0xffffff
+
+---$check:自動方向(移動時のみ)
+local j_hoko = 0
+
+---$value:計算基準軸(0or1)
+local axis = 0
+
 
 if j_hoko == 0 then
 	obj.load("figure", "四角形", col, 2)

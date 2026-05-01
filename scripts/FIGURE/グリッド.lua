@@ -14,7 +14,12 @@ local track2 = 100
 ---min=0
 ---max=500
 local track3 = 100
---dialog:色/col,color=0x0000ff;横線のみ/chk,yoko=0;
+---$color:色
+local color = 0x0000ff
+
+---$check:横線のみ
+local yoko = 0
+
 obj.load("figure", "四角形", color, 2)
 w = obj.screen_w * track2 / 100
 h = obj.screen_h * track3 / 100

@@ -8,7 +8,15 @@ local track0 = 34
 ---max=5
 ---step=1
 local track1 = 1
---dialog:文字色/col,col1=0xffffff;縁色/col,col2=0x000000;座標,pos={};
+---$color:文字色
+local col1 = 0xffffff
+
+---$color:縁色
+local col2 = 0x000000
+
+---$value:座標
+local pos = {}
+
 obj.setanchor("pos", 3, "line")
 obj.setfont("MS UI Gothic", track0, 3, col1, col2)
 local r1 = math.deg(math.atan2(pos[2] - pos[4], pos[1] - pos[3]) + math.pi)

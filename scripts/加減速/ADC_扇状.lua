@@ -17,7 +17,24 @@ local track2 = 100
 ---max=4000
 ---step=1
 local track3 = 4000
---dialog:加減速[1-5],beki=2;減/加/S[0-2],mode=0;色/col,col=0xffffff;中心2,c2=0;サイズ2,s2=0;ライン幅2,h2=0;
+---$value:加減速[1-5]
+local beki = 2
+
+---$value:減
+local mode = 0
+
+---$color:色
+local col = 0xffffff
+
+---$value:中心2
+local c2 = 0
+
+---$value:サイズ2
+local s2 = 0
+
+---$value:ライン幅2
+local h2 = 0
+
 
 --共通部分
 if ta == 0 then

@@ -14,7 +14,21 @@ local ts = 90
 ---min=0
 ---max=100
 local kh = 90
---dialog:縁色/col,color=0x6b4a2b;ノイズ色/col,ncolor=0x000000;縁アス比/chk,as=0;縁あり/chk,ed=1;輝度反転/chk,ha=0;
+---$color:縁色
+local color = 0x6b4a2b
+
+---$color:ノイズ色
+local ncolor = 0x000000
+
+---$check:縁アス比
+local as = 0
+
+---$check:縁あり
+local ed = 1
+
+---$check:輝度反転
+local ha = 0
+
 gb = track1 / 100
 
 --白背景

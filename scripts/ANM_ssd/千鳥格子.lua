@@ -13,7 +13,11 @@ local w = 800
 ---max=4000
 ---step=1
 local h = 450
---dialog:色1/col,col1=0x000000;色2(負値で透明)/col,col2=0xffffff;
+---$color:色1
+local col1 = 0x000000
+
+---$color:色2
+local col2 = nil
 
 local s = math.floor(track0 / 2) * 2 / 4
 

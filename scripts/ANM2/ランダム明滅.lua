@@ -16,7 +16,18 @@ local nx = 5
 ---max=100
 ---step=1
 local ny = 3
---dialog:明滅最大[s],max=5;明滅最小[s],min=1;開始位置[s],f=3;閾値[%],s=0;
+---$value:明滅最大[s]
+local max = 5
+
+---$value:明滅最小[s]
+local min = 1
+
+---$value:開始位置[s]
+local f = 3
+
+---$value:閾値[%]
+local s = 0
+
 gx = track0 / 100
 gy = track1 / 100
 w = obj.w
