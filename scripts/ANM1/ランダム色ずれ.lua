@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\光効果
 ---$track:横幅(小)
 ---min=0
 ---max=1000

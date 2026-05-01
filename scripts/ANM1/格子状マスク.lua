@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\クリッピング
 ---$track:サイズ
 ---min=5
 ---max=500

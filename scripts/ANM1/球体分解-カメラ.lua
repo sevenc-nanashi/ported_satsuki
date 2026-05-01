@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:屈曲率
 ---min=10
 ---max=500
@@ -10,11 +11,13 @@ local track1 = 0
 ---min=-100
 ---max=100
 local track2 = 0
---check0:反転,0
+---$check:反転
+local __rename_me_check0 = false
+
 --obj.setoption('antialias',0)
 obj.effect("反転", "上下反転", "1")
 obj.effect()
-if obj.check0 then
+if __rename_me_check0 then
 	obj.effect("反転", "左右反転", "1")
 	obj.ry = 180
 end

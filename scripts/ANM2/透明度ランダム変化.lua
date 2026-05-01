@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:X間隔
 ---min=-1000
 ---max=1000

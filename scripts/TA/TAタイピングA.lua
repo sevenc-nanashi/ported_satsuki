@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:表示速度
 ---min=0
 ---max=100

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カスタムオブジェクト
 ---$track:横分割
 ---min=1
 ---max=1024

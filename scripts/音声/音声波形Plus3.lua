@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カスタムオブジェクト
 ---$track:横幅
 ---min=0
 ---max=2000

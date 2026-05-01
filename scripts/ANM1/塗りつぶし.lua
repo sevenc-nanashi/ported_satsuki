@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\色調整
 ---$track:モノクロ
 ---min=0
 ---max=100

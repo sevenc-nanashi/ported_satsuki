@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カスタムオブジェクト
 ---$track:サイズ
 ---min=1
 ---max=1000

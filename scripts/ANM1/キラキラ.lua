@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\光効果
 ---$track:個数
 ---min=1
 ---max=500

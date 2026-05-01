@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\ぼかし
 ---$track:上
 ---min=0
 ---max=2000

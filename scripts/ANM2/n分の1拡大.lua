@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:100/n
 ---min=1
 ---max=2000

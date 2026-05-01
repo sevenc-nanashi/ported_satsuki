@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:屈曲率
 ---min=10
 ---max=500

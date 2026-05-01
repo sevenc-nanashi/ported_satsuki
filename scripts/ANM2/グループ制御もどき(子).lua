@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\オブジェクト制御
 if jiku < 1 then
 	l_rz = math.sqrt(obj.getvalue("x") ^ 2 + obj.getvalue("y") ^ 2) * zoom
 	r_rz = math.atan2(obj.getvalue("y"), obj.getvalue("x"))

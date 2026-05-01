@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\画面効果
 ---$track:ライン幅
 ---min=1
 ---max=100

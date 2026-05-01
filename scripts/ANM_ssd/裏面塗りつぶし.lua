@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\色調整
 ---$track:強さ
 ---min=0
 ---max=100

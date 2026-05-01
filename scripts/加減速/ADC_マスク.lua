@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\クリッピング
 ---$track:回転1
 ---min=-720
 ---max=720

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\クリッピング
 ---$track:深さ
 ---min=1
 ---max=500

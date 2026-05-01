@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カスタムオブジェクト
 ---$track:時間[s]
 ---min=0
 ---max=10

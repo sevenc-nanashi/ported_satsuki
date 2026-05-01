@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カスタムオブジェクト
 ---$track:閾値
 ---min=0
 ---max=100

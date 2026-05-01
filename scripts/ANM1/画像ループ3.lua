@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:X軸[%]
 ---min=-2000
 ---max=2000

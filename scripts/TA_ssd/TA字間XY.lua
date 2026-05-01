@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:X拡大率
 ---min=0
 ---max=1000
@@ -14,8 +15,10 @@ local track2 = 100
 ---min=-1000
 ---max=1000
 local track3 = 0
---check0:自動調節,1
-if obj.check0 then
+---$check:自動調節
+local __rename_me_check0 = false
+
+if __rename_me_check0 then
 	s = obj.getvalue("zoom") / 100
 else
 	s = 1

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:上辺[%]
 ---min=-800
 ---max=800

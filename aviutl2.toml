@@ -9,19 +9,20 @@ version = "0.1.0"
 aulua = "aulua build"
 
 [artifacts.satsuki_anm2]
-source = "./build/satsuki.anm2"
-destination = "Script/satsuki.anm2"
+source = "./build/@satsuki.anm2.anm2"
+destination = "Script/@satsuki.anm2.anm2"
 build.group = "aulua"
 
 [artifacts.satsuki_obj2]
-source = "./build/satsuki.obj2"
-destination = "Script/satsuki.obj2"
+source = "./build/@satsuki.obj2.obj2"
+destination = "Script/@satsuki.obj2.obj2"
 build.group = "aulua"
 
 [artifacts.satsuki_tra2]
-source = "./build/satsuki.tra2"
-destination = "Script/satsuki.tra2"
+source = "./build/@satsuki.tra2.tra2"
+destination = "Script/@satsuki.tra2.tra2"
 build.group = "aulua"
 
 [development]
 aviutl2_version = "latest"
+catalog_dependencies = ["sevenc-nanashi.aviutl2-rs.rusty_scripts_search"]

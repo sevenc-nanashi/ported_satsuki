@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:距離
 ---min=0
 ---max=2000

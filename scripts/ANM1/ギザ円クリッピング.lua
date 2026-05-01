@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\クリッピング
 ---$track:サイズ
 ---min=5
 ---max=500
@@ -15,7 +16,9 @@ local track2 = 0
 ---min=-2000
 ---max=2000
 local track3 = 0
---check0:反転,0
+---$check:反転
+local __rename_me_check0 = false
+
 
 obj.copybuffer("tmp", "obj")
 cx = -track2
@@ -33,7 +36,7 @@ for j = -ny, ny do
 	for i = -nx, nx do
 		x = i * s
 		a = 0.5
-		if obj.check0 then
+		if __rename_me_check0 then
 			a = -0.5
 		end
 		l = math.sqrt((x + cx) ^ 2 + (y + cy) ^ 2)

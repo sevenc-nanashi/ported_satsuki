@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:Xスケール
 ---min=0
 ---max=1000

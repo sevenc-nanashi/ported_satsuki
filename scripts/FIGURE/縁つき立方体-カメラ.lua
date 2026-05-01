@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\装飾
 ---$track:サイズ
 ---min=1
 ---max=1000

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\装飾
 ---$track:拡大率
 ---min=0
 ---max=800

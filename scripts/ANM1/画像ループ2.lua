@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:X間隔
 ---min=-1000
 ---max=1000

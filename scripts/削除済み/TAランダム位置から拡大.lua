@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:時間[s]
 ---min=0
 ---max=10
@@ -12,7 +13,9 @@ local tb = 1
 ---min=0
 ---max=360
 local rz = 30
---check0:縮小,0
+---$check:縮小
+local __rename_me_check0 = false
+
 
 t = (ta - obj.time + obj.index * tb) / ta
 a = t
@@ -31,6 +34,6 @@ obj.oy = rand(-range_h, range_h, obj.index, 0)
 obj.zoom = 1 - t
 obj.alpha = a
 obj.rz = obj.rand(-rz / 2, rz / 2, 0, obj.index)
-if obj.check0 then
+if __rename_me_check0 then
 	obj.zoom = t
 end

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果
 ---$track:登場[f]
 ---min=0
 ---max=150

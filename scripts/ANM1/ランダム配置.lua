@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:個数
 ---min=0
 ---max=1000

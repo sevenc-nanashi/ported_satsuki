@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:閾値
 ---min=0
 ---max=5000

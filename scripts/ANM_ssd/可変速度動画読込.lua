@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:再生位置
 ---min=0
 ---max=50000

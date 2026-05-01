@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:X
 ---min=-5000
 ---max=5000

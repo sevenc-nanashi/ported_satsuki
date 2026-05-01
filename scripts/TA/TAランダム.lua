@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:散逸度
 ---min=0
 ---max=100
@@ -10,7 +11,9 @@ local track1 = 50
 ---min=0
 ---max=200
 local track2 = 50
---check0:拡大/透明も変化,0
+---$check:拡大/透明も変化
+local __rename_me_check0 = false
+
 xscale = 0.5
 yscale = 0.5
 
@@ -30,7 +33,7 @@ obj.ox = x * a + obj.ox * b
 obj.oy = y * a + obj.oy * b
 obj.rz = 0 + obj.rz * b
 
-if obj.check0 then
+if __rename_me_check0 then
 	obj.zoom = obj.rand(1, 150, obj.index, track1) / 100
 	obj.alpha = obj.rand(1, 100, obj.index, track1) / 100
 

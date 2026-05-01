@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:しきい値
 ---min=0
 ---max=100

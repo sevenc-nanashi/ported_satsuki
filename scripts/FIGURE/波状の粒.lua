@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\加工
 ---$track:個数
 ---min=2
 ---max=200

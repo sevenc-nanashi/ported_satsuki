@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:加減速
 ---min=1
 ---max=5

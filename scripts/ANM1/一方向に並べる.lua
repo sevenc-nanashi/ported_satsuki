@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:個数
 ---min=1
 ---max=200
@@ -16,13 +17,15 @@ local track2 = 0
 ---max=2
 ---step=1
 local track3 = 0
---check0:双方向,sou=0
+---$check:双方向
+local __rename_me_check0 = false
+
 obj.effect()
 r = track2 + 90
 w, h = obj.w, obj.h
 aa = 0
 bb = n - 1
-if obj.check0 then
+if __rename_me_check0 then
 	aa = -n + 1
 	bb = n - 1
 end

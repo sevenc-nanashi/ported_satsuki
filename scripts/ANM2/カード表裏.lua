@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 --file:
 obj.effect()
 obj.draw()

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果
 ---$track:時間
 ---min=-5
 ---max=5

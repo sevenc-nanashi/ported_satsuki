@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:横幅(小)
 ---min=0
 ---max=1000

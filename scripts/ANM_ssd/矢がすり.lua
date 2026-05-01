@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\加工
 ---$track:横幅
 ---min=1
 ---max=500

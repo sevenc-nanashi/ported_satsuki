@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:時間[s]
 ---min=-5
 ---max=5
@@ -18,7 +19,9 @@ local s = 2.0
 ---max=5
 ---step=1
 local jun = 0
---check0:タイプ,0
+---$check:タイプ
+local __rename_me_check0 = false
+
 
 if jun < 1 then
 	mode = obj.index --順番に登場
@@ -45,7 +48,7 @@ else
 	mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if obj.check0 then
+if __rename_me_check0 then
 	ta = ta * (1 - mode / obj.num)
 	tb = tb / obj.num
 end

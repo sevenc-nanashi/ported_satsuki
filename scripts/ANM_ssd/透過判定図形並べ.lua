@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:サイズ
 ---min=5
 ---max=2000

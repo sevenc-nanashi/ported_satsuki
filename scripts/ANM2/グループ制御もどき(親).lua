@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\オブジェクト制御
 ---$track:透明度2
 ---min=0
 ---max=100

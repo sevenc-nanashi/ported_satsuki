@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:XY振幅
 ---min=0
 ---max=500

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:半径
 ---min=1
 ---max=1000

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\ぼかし
 ---$track:ブラー
 ---min=0
 ---max=500

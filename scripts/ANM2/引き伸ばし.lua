@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:伸度
 ---min=0
 ---max=800

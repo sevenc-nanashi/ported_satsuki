@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果
 ---$track:分割数
 ---min=1
 ---max=500

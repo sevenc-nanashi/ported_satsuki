@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:時間[ms]
 ---min=-5000
 ---max=5000
@@ -14,7 +15,9 @@ local s = 100
 ---min=-1000
 ---max=1000
 local y = -200
---check0:フェード,1
+---$check:フェード
+local __rename_me_check0 = false
+
 ta = track0 / 1000
 tb = track1 / 1000
 
@@ -62,6 +65,6 @@ if i > 0 then
 	obj.alpha = 0
 end
 fade = 0
-if obj.check0 then
+if __rename_me_check0 then
 	fade = 1
 end

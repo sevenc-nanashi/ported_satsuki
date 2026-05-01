@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\クリッピング
 ---$track:中心X1
 ---min=-2000
 ---max=2000

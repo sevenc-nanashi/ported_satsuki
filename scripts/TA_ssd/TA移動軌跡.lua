@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:位置基準
 ---min=0
 ---max=100
@@ -12,11 +13,13 @@ local track1 = 34
 ---max=1
 ---step=1
 local track2 = 0
---check0:時間基準,0
+---$check:時間基準
+local __rename_me_check0 = false
+
 
 obj.effect()
 
-if obj.check0 then
+if __rename_me_check0 then
 	otm_j = obj.time / obj.totaltime
 else
 	otm_j = track0 / 100

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\アニメーション効果
 ---$track:間隔[s]
 ---min=0
 ---max=5

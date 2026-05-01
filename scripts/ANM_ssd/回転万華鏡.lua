@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:回転
 ---min=-720
 ---max=720

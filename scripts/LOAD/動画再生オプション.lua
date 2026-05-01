@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:開始
 ---min=0
 ---max=600

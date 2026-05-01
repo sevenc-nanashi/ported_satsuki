@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\色調整
 ---$track:サイズ
 ---min=1
 ---max=256

@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\切り替え効果
 ---$track:割合
 ---min=0
 ---max=100
@@ -15,11 +16,13 @@ local track2 = 60
 ---max=5
 ---step=0.01
 local t = 0.50
---check0:時間指定で登場,0
+---$check:時間指定で登場
+local __rename_me_check0 = false
+
 obj.copybuffer("tmp", "obj")
 
 local d = 1 - track0 / 100
-if obj.check0 then
+if __rename_me_check0 then
 	if t == 0 then
 		return
 	elseif t < 0 then

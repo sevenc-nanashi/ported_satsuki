@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\装飾
 ---$track:X
 ---min=-200
 ---max=200

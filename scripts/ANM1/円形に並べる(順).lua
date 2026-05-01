@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:個数
 ---min=0
 ---max=100
@@ -17,7 +18,9 @@ local a = 0.3
 ---max=5
 ---step=0.01
 local b = 0.3
---check0:外向き,0
+---$check:外向き
+local __rename_me_check0 = false
+
 obj.effect()
 for i = 0, n - 1 do
 	if a == 0 then
@@ -32,7 +35,7 @@ for i = 0, n - 1 do
 	x = math.sin(r * math.pi / 180) * l
 	y = -math.cos(r * math.pi / 180) * l
 	rz = 360 * i / n
-	if obj.check0 then
+	if __rename_me_check0 then
 		x = -x
 		rz = -rz - 180
 	end

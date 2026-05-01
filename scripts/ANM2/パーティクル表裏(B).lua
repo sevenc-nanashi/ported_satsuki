@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:裏反転
 ---min=0
 ---max=1

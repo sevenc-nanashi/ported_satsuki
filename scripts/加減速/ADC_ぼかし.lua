@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\ぼかし
 ---$track:時間[s]
 ---min=-5
 ---max=5

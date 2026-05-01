@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\光効果
 ---$track:RGB
 ---min=0
 ---max=2

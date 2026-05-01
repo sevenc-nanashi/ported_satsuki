@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\カメラ制御
 ---$track:サイズ
 ---min=1
 ---max=20000

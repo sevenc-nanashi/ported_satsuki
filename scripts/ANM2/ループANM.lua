@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\配置
 ---$track:ループ[s]
 ---min=0
 ---max=20

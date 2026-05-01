@@ -1,3 +1,4 @@
+--label:${ROOT_CATEGORY}\変形
 ---$track:頻度
 ---min=0.1
 ---max=500
