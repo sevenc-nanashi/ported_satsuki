@@ -13,16 +13,19 @@ local track1 = 100
 local track2 = 100
 --color:0xffffff
 obj.load("figure", "四角形", color, 2)
-w = obj.screen_w * track2 / 100
-h = obj.screen_h * track2 / 100
-l1 = l0 * track1 / 100
-n = math.floor(h / (l0 + l1))
-obj.setoption("dst", "tmp", w, h)
-for i = 0, n do
-	x0 = -w / 2
-	x1 = w / 2
-	y0 = -h / 2 + (l0 + l1) * i
-	y2 = -h / 2 + l0 + (l0 + l1) * i
-	obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0)
-end
+
+--[[pixelshader@scanline2:
+---$include "./shaders/scanline2.hlsl"
+]]
+
+local w = obj.screen_w * track2 / 100
+local h = obj.screen_h * track2 / 100
+local l1 = l0 * track1 / 100
+
+obj.setoption("drawtarget", "tempbuffer", w, h)
+obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
+obj.pixelshader("scanline2", "tempbuffer", "tempbuffer", {
+	l0,
+	l0 + l1,
+})
 obj.load("tempbuffer")

@@ -120,8 +120,6 @@ scripts:
         label: 2値化ノイズ@ANM_ssd
       - path: "./scripts/ANM1/しきい値フィルタ.lua"
         label: しきい値フィルタ@ANM1
-      - path: "./scripts/ANM1/XYスケール.lua"
-        label: XYスケール@ANM1
       - path: "./scripts/ANM2/n分の1拡大.lua"
         label: n分の1拡大@ANM2
       - path: "./scripts/ANM2/カード表裏.lua"
