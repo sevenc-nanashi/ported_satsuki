@@ -12,7 +12,8 @@ local track1 = 100
 ---max=300
 ---step=1
 local track2 = 0
---color:0x000000
+---$color:色
+local color = 0x000000
 
 --http://www.nicovideo.jp/watch/sm16334110
 --こちらで公開されている「extbuffer.lua」と「extbuffer_core.dll」が必須です。

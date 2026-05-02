@@ -14,7 +14,9 @@ local w = 20
 ---max=4000
 ---step=1
 local track2 = 4000
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 h = math.min(track2, s / 2)
 
 obj.load("figure", "星型", color, s, h)

@@ -9,7 +9,9 @@ local track0 = 34
 ---max=4
 ---step=1
 local track1 = 3
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 r = math.floor(color / 16 ^ 4)
 g = math.floor((color - r * 16 ^ 4) / 256)
 b = color - r * 16 ^ 4 - g * 16 ^ 2

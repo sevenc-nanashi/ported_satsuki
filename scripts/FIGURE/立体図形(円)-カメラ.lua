@@ -19,7 +19,9 @@ local track2 = 4000
 ---max=100
 ---step=1
 local n = 50
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 h = math.min(track2, s / 2)
 
 obj.load("figure", "円", color, s, h)

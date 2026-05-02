@@ -15,7 +15,8 @@ local t = 1.5
 ---min=0
 ---max=75
 local blur = 40
---color:0xffffff
+---$color:色
+local color = 0xffffff
 
 r = track1 * obj.time
 

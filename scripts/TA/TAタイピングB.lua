@@ -7,7 +7,9 @@ local track0 = 0
 ---min=0
 ---max=256
 local track1 = 1
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 obj.effect()
 if obj.index <= n - 1 then
 	for i = 0, n - 1 do

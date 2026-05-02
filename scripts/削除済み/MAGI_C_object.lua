@@ -15,7 +15,9 @@ local st = 99
 ---min=-10
 ---max=10
 local t = 0
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 r = track1 * obj.time
 obj.load("figure", "円", color, s, 3)
 obj.effect()

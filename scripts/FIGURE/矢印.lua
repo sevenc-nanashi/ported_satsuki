@@ -15,7 +15,8 @@ local s = 50
 ---min=0
 ---max=1000
 local track3 = 100
---color:0xffffff
+---$color:色
+local color = 0xffffff
 
 tw = track3 / 100
 b = 2 --位置調整

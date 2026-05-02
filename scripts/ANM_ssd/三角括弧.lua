@@ -16,7 +16,8 @@ local l = 50
 ---min=-10000
 ---max=10000
 local track3 = 0
---color:0xffffff
+---$color:色
+local color = 0xffffff
 
 local r = math.rad(track1 / 2)
 local tl = l + w / 2 / math.tan(r)

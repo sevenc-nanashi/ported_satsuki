@@ -17,7 +17,9 @@ local l = 10
 ---max=1024
 ---step=1
 local track3 = 50
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 H = track1 / 100
 div = track3 + 1
 buf = {}

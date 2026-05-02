@@ -11,7 +11,9 @@ local track1 = 100
 ---min=0
 ---max=500
 local track2 = 100
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 obj.load("figure", "四角形", color, 2)
 
 --[[pixelshader@scanline2:

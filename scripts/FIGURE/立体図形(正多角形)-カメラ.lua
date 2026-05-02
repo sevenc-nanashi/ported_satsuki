@@ -19,7 +19,9 @@ local track2 = 4000
 ---max=6
 ---step=1
 local n = 4
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 h = math.min(track2, s / 2)
 kaku = { "三角形", "四角形", "五角形", "六角形" }
 

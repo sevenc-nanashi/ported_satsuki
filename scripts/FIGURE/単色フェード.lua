@@ -9,7 +9,9 @@ local track0 = 0.5
 ---max=10
 ---step=0.01
 local track1 = 0.5
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 obj.load("figure", "背景", color, 100)
 obj.alpha = 0
 if obj.time < track0 then

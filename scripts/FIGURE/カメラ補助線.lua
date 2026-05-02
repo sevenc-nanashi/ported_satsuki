@@ -14,7 +14,9 @@ local track1 = 10
 ---max=256
 ---step=1
 local track2 = 80
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 s = track0 / 2
 l = track1 / 2
 fs = track2 / 2

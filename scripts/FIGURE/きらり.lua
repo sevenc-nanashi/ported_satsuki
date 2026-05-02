@@ -11,7 +11,9 @@ local track1 = 100
 ---min=0
 ---max=100
 local track2 = 70
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 obj.setoption("dst", "tmp", s, s)
 obj.load("figure", "三角形", color, s / 2)
 obj.effect("ぼかし", "範囲", s / 15, "縦横比", 100)

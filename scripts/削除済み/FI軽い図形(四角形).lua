@@ -15,7 +15,9 @@ local track2 = 0
 ---min=-100
 ---max=100
 local track3 = 0
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 obj.load("figure", "四角形", color, 2)
 sx = track0 / 2
 sy = track1 / 2

@@ -17,7 +17,9 @@ local track2 = 4
 ---max=10
 ---step=1
 local track3 = 1
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 n = math.floor(track2)
 m = math.floor(track3)
 if w >= l then

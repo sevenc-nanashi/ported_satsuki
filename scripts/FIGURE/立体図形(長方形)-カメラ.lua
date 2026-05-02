@@ -18,7 +18,9 @@ local track2 = 4000
 ---min=-100
 ---max=100
 local aspect = 0
---color:0xffffff
+---$color:色
+local color = 0xffffff
+
 h = math.min(track2, s / 2)
 asx = math.max(aspect, 0)
 asy = math.max(-aspect, 0)
