@@ -15,6 +15,7 @@ local sxb = 0
 ---min=-500
 ---max=500
 local syb = -100
+--trackgroup@sxa,sya,sxb,syb:制御点
 ---$value:始制Z
 local sza = 0
 
@@ -29,20 +30,20 @@ local color = 0xff0000
 
 obj.effect()
 --始点
-x0 = obj.getvalue("x", 0)
-y0 = obj.getvalue("y", 0)
-z0 = obj.getvalue("z", 0)
-xa = x0 - obj.getvalue("x", obj.time)
-ya = y0 - obj.getvalue("y", obj.time)
-za = z0 - obj.getvalue("z", obj.time)
+local x0 = obj.getvalue("x", 0)
+local y0 = obj.getvalue("y", 0)
+local z0 = obj.getvalue("z", 0)
+local xa = x0 - obj.getvalue("x", obj.time)
+local ya = y0 - obj.getvalue("y", obj.time)
+local za = z0 - obj.getvalue("z", obj.time)
 
 --終点
-x1 = obj.getvalue("x", obj.totaltime)
-y1 = obj.getvalue("y", obj.totaltime)
-z1 = obj.getvalue("z", obj.totaltime)
-xb = x1 - obj.getvalue("x", obj.time)
-yb = y1 - obj.getvalue("y", obj.time)
-zb = z1 - obj.getvalue("z", obj.time)
+local x1 = obj.getvalue("x", obj.totaltime)
+local y1 = obj.getvalue("y", obj.totaltime)
+local z1 = obj.getvalue("z", obj.totaltime)
+local xb = x1 - obj.getvalue("x", obj.time)
+local yb = y1 - obj.getvalue("y", obj.time)
+local zb = z1 - obj.getvalue("z", obj.time)
 
 --制御点
 
@@ -55,7 +56,7 @@ obj.draw()
 
 --補助線
 if se == 1 then
-	a = 1 / 2
+	local a = 1 / 2
 	obj.setoption("billboard", 3)
 	obj.load("figure", "円", color, 50)
 	obj.draw(xa, ya, za, 1, a)
@@ -66,12 +67,12 @@ if se == 1 then
 	obj.draw(xb + sxb, yb + syb, zb + szb, 1, a)
 	obj.setoption("billboard", 3)
 	obj.load("figure", "円", color, 10)
-	n = 20
+	local n = 20
 	for i = 0, n - 1 do
-		t = i / n
-		x = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
-		y = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
-		z = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
+		local t = i / n
+		local x = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
+		local y = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
+		local z = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
 		obj.draw(x, y, z, 1, a)
 	end
 end
