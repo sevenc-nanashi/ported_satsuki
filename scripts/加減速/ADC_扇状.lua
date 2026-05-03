@@ -1,42 +1,55 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
----$track:時間[s]
----min=-5
----max=5
----step=0.01
-local ta = 1
 ---$track:中心角1
 ---min=0
 ---max=360
 local track1 = 360
+---$track:中心角2
+---min=-360
+---max=360
+---step=1
+local c2 = 0
 ---$track:サイズ1
 ---min=0
 ---max=4000
 ---step=1
 local track2 = 100
----$track:ライン1
+---$track:サイズ2
+---min=-4000
+---max=4000
+---step=1
+local s2 = 0
+---$track:ライン幅1
 ---min=0
 ---max=4000
 ---step=1
 local track3 = 4000
----$value:加減速[1-5]
-local beki = 2
-
----$value:減
-local mode = 0
-
+---$track:ライン幅2
+---min=-4000
+---max=4000
+---step=1
+local h2 = 0
 ---$color:色
 local col = 0xffffff
 
----$value:中心2
-local c2 = 0
-
----$value:サイズ2
-local s2 = 0
-
----$value:ライン幅2
-local h2 = 0
+--separator:加減速
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local beki = 2
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local mode = 0
 
 --共通部分
+local t
 if ta == 0 then
 	return
 elseif ta < 0 then
@@ -59,10 +72,10 @@ else
 end
 
 --フィルタ効果(「扇状」を改変)
-c = track1 + c2 * t
-s = track2 + s2 * t
-h = track3 + h2 * t
-l = math.floor(s / 2)
+local c = track1 + c2 * t
+local s = track2 + s2 * t
+local h = track3 + h2 * t
+local l = math.floor(s / 2)
 obj.load("figure", "円", col, l * 2, h)
 obj.effect("斜めクリッピング", "角度", 180 - c / 2)
 obj.effect("ミラー", "境目調整", -l)

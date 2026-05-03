@@ -1,9 +1,4 @@
 --label:${ROOT_CATEGORY}\切り替え効果
----$track:時間[s]
----min=-5
----max=5
----step=0.01
-local ta = 1
 ---$track:方向
 ---min=-360
 ---max=360
@@ -17,28 +12,51 @@ local l = 300
 ---min=0
 ---max=800
 local s = 100
----$value:加減速[1-5]
-local beki = 2
-
----$value:減
-local mode = 0
-
----$value:縦横比[%]
+---$track:縦横比[%]
+---min=-100
+---max=100
 local as = 0
 
----$value:Z軸
+---$track:Z軸
+---min=-20000
+---max=20000
+---step=1
 local z = 0
 
----$value:X回転
+---$track:X回転
+---min=-720
+---max=720
 local rx = 0
 
----$value:Y回転
+---$track:Y回転
+---min=-720
+---max=720
 local ry = 0
 
----$value:Z回転
+---$track:Z回転
+---min=-720
+---max=720
 local rz = 0
 
+--separator:加減速
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local beki = 2
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local mode = 0
+
 --共通部分
+local t
 if ta == 0 then
 	return
 elseif ta < 0 then
@@ -61,7 +79,7 @@ else
 end
 
 --フィルタ効果
-r = track1 + 90
+local r = track1 + 90
 obj.ox = obj.ox + l * math.cos(r * math.pi / 180) * t
 obj.oy = obj.oy + l * math.sin(r * math.pi / 180) * t
 obj.oz = obj.oz + z * t

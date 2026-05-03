@@ -3,40 +3,57 @@
 ---min=0
 ---max=2000
 local track0 = 0
+---$track:上2
+---min=-2000
+---max=2000
+---step=1
+local up2 = 0
 ---$track:下1
 ---min=0
 ---max=2000
 local track1 = 0
+---$track:下2
+---min=-2000
+---max=2000
+---step=1
+local dw2 = 0
 ---$track:左1
 ---min=0
 ---max=2000
 local track2 = 0
+---$track:左2
+---min=-2000
+---max=2000
+---step=1
+local lf2 = 0
 ---$track:右1
 ---min=0
 ---max=2000
 local track3 = 0
----$value:時間[s]
+---$track:右2
+---min=-2000
+---max=2000
+---step=1
+local rt2 = 0
+--separator:加減速
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
 local ta = 1
-
----$value:加減速[1-5]
+---$track:加減速
+---min=1
+---max=5
+---step=1
 local beki = 2
-
----$value:減
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
 local mode = 0
 
----$value:上2
-local up2 = 0
-
----$value:下2
-local dw2 = 0
-
----$value:左2
-local lf2 = 0
-
----$value:右2
-local rt2 = 0
-
 --共通部分
+local t
 if ta == 0 then
 	return
 elseif ta < 0 then
@@ -59,8 +76,8 @@ else
 end
 
 --フィルタ効果
-up = track0 + up2 * t
-dw = track1 + dw2 * t
-lf = track2 + lf2 * t
-rt = track3 + rt2 * t
+local up = track0 + up2 * t
+local dw = track1 + dw2 * t
+local lf = track2 + lf2 * t
+local rt = track3 + rt2 * t
 obj.effect("クリッピング", "上", up, "下", dw, "左", lf, "右", rt)

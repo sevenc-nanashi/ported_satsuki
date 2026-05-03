@@ -1,9 +1,4 @@
 --label:${ROOT_CATEGORY}\ぼかし
----$track:時間[s]
----min=-5
----max=5
----step=0.01
-local ta = 1
 ---$track:範囲1
 ---min=0
 ---max=300
@@ -18,19 +13,34 @@ local track2 = 0
 ---min=-100
 ---max=100
 local track3 = 0
----$value:加減速[1-5]
-local beki = 2
-
----$value:減
-local mode = 0
-
----$value:光の強さ
+---$track:光の強さ
+---min=0
+---max=5
+---step=0.01
 local br = 2
 
 ---$check:サイズ固定
 local fix = 0
 
+--separator:加減速
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local ta = 1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local beki = 2
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local mode = 0
+
 --共通部分
+local t
 if ta == 0 then
 	return
 elseif ta < 0 then
@@ -53,5 +63,5 @@ else
 end
 
 --フィルタ効果
-h = track1 + track2 * t
+local h = track1 + track2 * t
 obj.effect("ぼかし", "範囲", h, "縦横比", track3, "光の強さ", br, "サイズ固定", fix)
