@@ -7,6 +7,10 @@ local sxa = 0
 ---min=-500
 ---max=500
 local sya = -100
+---$track:始制Z
+---min=-500
+---max=500
+local sza = 0
 ---$track:終制X
 ---min=-500
 ---max=500
@@ -15,12 +19,12 @@ local sxb = 0
 ---min=-500
 ---max=500
 local syb = -100
---trackgroup@sxa,sya,sxb,syb:制御点
----$value:始制Z
-local sza = 0
-
----$value:終制Z
+---$track:終制Z
+---min=-500
+---max=500
 local szb = 0
+--trackgroup@sxa,sya,sza:開始制御点
+--trackgroup@sxb,syb,szb:終了制御点
 
 ---$check:補助線表示
 local se = 1
@@ -48,7 +52,7 @@ local zb = z1 - obj.getvalue("z", obj.time)
 --制御点
 
 --座標の計算
-t = obj.time / obj.totaltime
+local t = obj.time / obj.totaltime
 obj.ox = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
 obj.oy = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
 obj.oz = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
@@ -69,10 +73,10 @@ if se == 1 then
 	obj.load("figure", "円", color, 10)
 	local n = 20
 	for i = 0, n - 1 do
-		local t = i / n
-		local x = ((1 - t) ^ 3) * xa + 3 * t * ((1 - t) ^ 2) * (sxa + xa) + 3 * (t ^ 2) * (1 - t) * (sxb + xb) + (t ^ 3) * xb
-		local y = ((1 - t) ^ 3) * ya + 3 * t * ((1 - t) ^ 2) * (sya + ya) + 3 * (t ^ 2) * (1 - t) * (syb + yb) + (t ^ 3) * yb
-		local z = ((1 - t) ^ 3) * za + 3 * t * ((1 - t) ^ 2) * (sza + za) + 3 * (t ^ 2) * (1 - t) * (szb + zb) + (t ^ 3) * zb
+		local t2 = i / n
+		local x = ((1 - t2) ^ 3) * xa + 3 * t2 * ((1 - t2) ^ 2) * (sxa + xa) + 3 * (t2 ^ 2) * (1 - t2) * (sxb + xb) + (t2 ^ 3) * xb
+		local y = ((1 - t2) ^ 3) * ya + 3 * t2 * ((1 - t2) ^ 2) * (sya + ya) + 3 * (t2 ^ 2) * (1 - t2) * (syb + yb) + (t2 ^ 3) * yb
+		local z = ((1 - t2) ^ 3) * za + 3 * t2 * ((1 - t2) ^ 2) * (sza + za) + 3 * (t2 ^ 2) * (1 - t2) * (szb + zb) + (t2 ^ 3) * zb
 		obj.draw(x, y, z, 1, a)
 	end
 end

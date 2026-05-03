@@ -3,3 +3,7 @@
 "github:karoterra/aviutl2-aulua" = "latest"
 "npm:rulesync" = "latest"
 stylua = "latest"
+
+[tasks]
+build = ["aulua build"]
+dev = "mise watch -i scripts build"
