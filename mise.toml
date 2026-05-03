@@ -6,4 +6,4 @@ stylua = "latest"
 
 [tasks]
 build = ["aulua build"]
-dev = "mise watch -i scripts build"
+dev = "mise watch -i scripts -d 10ms build"
