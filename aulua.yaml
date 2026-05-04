@@ -14,18 +14,10 @@ scripts:
         label: 2次ベジェ曲線@ANM2
       - path: "./scripts/ANM2/3次ベジェ曲線.lua"
         label: 3次ベジェ曲線@ANM2
-      - path: "./scripts/削除済み/MAGI_A_object.lua"
-        label: MAGI_A_object@削除済みANM@削除済み
-      - path: "./scripts/削除済み/MAGI_B_object.lua"
-        label: MAGI_B_object@削除済みANM@削除済み
-      - path: "./scripts/削除済み/MAGI_C_object.lua"
-        label: MAGI_C_object@削除済みANM@削除済み
       - path: "./scripts/削除済み/MAGI_text.lua"
         label: MAGI_text@削除済みANM@削除済み
       - path: "./scripts/ANM2/TVオンオフ.lua"
         label: TVオンオフ@ANM2
-      - path: "./scripts/削除済み/magicA_大円.lua"
-        label: magicA_大円@削除済みANM@削除済み
       - path: "./scripts/削除済み/magicB_テキスト4.lua"
         label: magicB_テキスト4@削除済みANM@削除済み
       - path: "./scripts/削除済み/magicC_テキスト大.lua"
@@ -364,6 +356,14 @@ scripts:
         label: FIランダムに輪が出現2@削除済みFIG@削除済み
       - path: "./scripts/削除済み/FI軽い図形(四角形).lua"
         label: FI軽い図形(四角形)@削除済みFIG@削除済み
+      - path: "./scripts/削除済み/MAGI_A_object.lua"
+        label: MAGI_A_object@削除済みANM@削除済み
+      - path: "./scripts/削除済み/MAGI_B_object.lua"
+        label: MAGI_B_object@削除済みANM@削除済み
+      - path: "./scripts/削除済み/MAGI_C_object.lua"
+        label: MAGI_C_object@削除済みANM@削除済み
+      - path: "./scripts/削除済み/magicA_大円.lua"
+        label: magicA_大円@削除済みANM@削除済み
       - path: "./scripts/FIGURE/きらり.lua"
         label: きらり@FIGURE
       - path: "./scripts/FIGURE/グリッド.lua"

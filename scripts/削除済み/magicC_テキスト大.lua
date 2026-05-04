@@ -2,30 +2,53 @@
 ---$track:半径調整
 ---min=0
 ---max=150
-local tbl = 100
+local radius_adjust = 100
+local entrance_duration = S_MAGI_entrance_duration
+local rotation = S_MAGI_rotation
+local size = S_MAGI_size
 
-if t < 0 then
-	tbt = (t / 10 - obj.time + obj.totaltime + t * 0.5 + obj.index / obj.num * t * 0.6) / t * 10
+local text_progress
+if entrance_duration < 0 then
+	text_progress = (
+		entrance_duration / 10
+		- obj.time
+		+ obj.totaltime
+		+ entrance_duration * 0.5
+		+ obj.index / obj.num * entrance_duration * 0.6
+	)
+		/ entrance_duration
+		* 10
 else
-	tbt = (t / 10 - obj.time + t * 0.5 + obj.index / obj.num * t * 0.6) / t * 10
+	text_progress = (
+		entrance_duration / 10
+		- obj.time
+		+ entrance_duration * 0.5
+		+ obj.index / obj.num * entrance_duration * 0.6
+	)
+		/ entrance_duration
+		* 10
 end
 
-if tbt > 0 then
-	if tbt > 1 then
-		tbt = 1
+if text_progress > 0 then
+	if text_progress > 1 then
+		text_progress = 1
 		obj.alpha = 0
 	end
 else
-	tbt = 0
+	text_progress = 0
 end
-tbt = tbt * tbt
+text_progress = text_progress * text_progress
 
-tr = 360 * obj.index / obj.num - r
-obj.ox = math.sin(tr * math.pi / 180) * s * 7 / 8 / 2 * tbl / 100
-obj.oy = -math.cos(tr * math.pi / 180) * s * 7 / 8 / 2 * tbl / 100
-obj.rz = tr
-obj.alpha = 1 - tbt
-g = math.floor(obj.num / 4)
-if obj.index % g == 0 or obj.index % g == 1 or obj.index % g == g - 1 then
+local text_rotation = 360 * obj.index / obj.num - rotation
+obj.ox = math.sin(text_rotation * math.pi / 180) * size * 7 / 8 / 2 * radius_adjust / 100
+obj.oy = -math.cos(text_rotation * math.pi / 180) * size * 7 / 8 / 2 * radius_adjust / 100
+obj.rz = text_rotation
+obj.alpha = 1 - text_progress
+local quarter_count = math.floor(obj.num / 4)
+if
+	obj.index % quarter_count == 0
+	or obj.index % quarter_count == 1
+	or obj.index % quarter_count == quarter_count - 1
+then
 	obj.alpha = 0
 end

@@ -2,29 +2,48 @@
 ---$track:半径調整
 ---min=0
 ---max=150
-local tsl = 100
+local radius_adjust = 100
+local entrance_duration = S_MAGI_entrance_duration
+local rotation = S_MAGI_rotation
+local size = S_MAGI_size
 
-if t < 0 then
-	tst = (t / 10 - obj.time + obj.totaltime + t * 0.5 + (obj.num - obj.index) / obj.num * t * 0.6) / t * 10
+local text_progress
+if entrance_duration < 0 then
+	text_progress = (
+		entrance_duration / 10
+		- obj.time
+		+ obj.totaltime
+		+ entrance_duration * 0.5
+		+ (obj.num - obj.index) / obj.num * entrance_duration * 0.6
+	)
+		/ entrance_duration
+		* 10
 else
-	tst = (t / 10 - obj.time + t * 0.5 + (obj.num - obj.index) / obj.num * t * 0.6) / t * 10
+	text_progress = (
+		entrance_duration / 10
+		- obj.time
+		+ entrance_duration * 0.5
+		+ (obj.num - obj.index) / obj.num * entrance_duration * 0.6
+	)
+		/ entrance_duration
+		* 10
 end
 
-if tst > 0 then
-	if tst > 1 then
-		tst = 1
+if text_progress > 0 then
+	if text_progress > 1 then
+		text_progress = 1
 		obj.alpha = 0
 	end
 else
-	tst = 0
+	text_progress = 0
 end
-tst = tst * tst
+text_progress = text_progress * text_progress
 
-tr = 360 * obj.index / obj.num + r
-obj.ox = math.sin(tr * math.pi / 180) * s * 0.465 / 2 * tsl / 100
-obj.oy = -math.cos(tr * math.pi / 180) * s * 0.465 / 2 * tsl / 100
-obj.rz = tr
-obj.alpha = 1 - tst
+local text_rotation = 360 * obj.index / obj.num + rotation
+obj.ox = math.sin(text_rotation * math.pi / 180) * size * 0.465 / 2 * radius_adjust / 100
+obj.oy = -math.cos(text_rotation * math.pi / 180) * size * 0.465 / 2 * radius_adjust / 100
+obj.rz = text_rotation
+obj.alpha = 1 - text_progress
 if obj.index % (obj.num / 4) == 0 then
 	obj.zoom = 1.2
 end
