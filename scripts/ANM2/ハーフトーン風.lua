@@ -1,39 +1,48 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
----$track:サイズ
+--group:サイズ
+---$track:val::サイズ
 ---min=5
 ---max=200
 local size = 50
----$track:size閾値
+
+---$track:サイズ閾値
 ---min=0
 ---max=100
 local size_threshold = 50
+---$check:サイズ二値化
+local nt = 0
+
+--group:透明度
 ---$track:透明閾値
 ---min=0
 ---max=100
 local alpha_threshold = 50
+---$check:透明二値化
+local nta = 0
+
+--group:
+
 ---$track:回転
 ---min=-720
 ---max=720
 local rr = 0
----$figure:図形
-local fig = "円"
 
 ---$color:色
 local col = nil
 
 ---$check:反転
 local inverted = 0
+---$figure:図形
+local fig = "円"
 
----$check:サイズ二値化
-local nt = 0
-
----$check:透明二値化
-local nta = 0
-
----$value:個別拡大[%]
+---$track:個別拡大[%]
+---min=0
+---max=200
+---step=1
 local ss = 100
 
----$check:文字
+--group:文字
+---$check:val::文字
 local tex = 0
 
 ---$string:文字(文字)
