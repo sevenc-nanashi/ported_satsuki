@@ -2,27 +2,27 @@
 ---$track:サイズ
 ---min=5
 ---max=200
-local track0 = 50
+local size = 50
 ---$track:size閾値
 ---min=0
 ---max=100
-local track1 = 50
+local size_threshold = 50
 ---$track:透明閾値
 ---min=0
 ---max=100
-local track2 = 50
+local alpha_threshold = 50
 ---$track:回転
 ---min=-720
 ---max=720
 local rr = 0
----$figure:図形(種類)
+---$figure:図形
 local fig = "円"
 
----$color:色(負の値で元色)
-local col = 0xffffff
+---$color:色
+local col = nil
 
 ---$check:反転
-local han = 0
+local inverted = 0
 
 ---$check:サイズ二値化
 local nt = 0
@@ -36,77 +36,45 @@ local ss = 100
 ---$check:文字
 local tex = 0
 
----$value:文字(文字)
+---$string:文字(文字)
 local text = "＋"
 
----$value:文字(font)
+---$font:文字(font)
 local font = "MS UI Gothic"
 
-obj.effect("反転", "輝度反転", han)
-w = obj.w * 100 / obj.getvalue("zoom")
-h = obj.h * 100 / obj.getvalue("zoom")
-s = math.min(track0, w, h)
-si = track1 / 100
-sia = track2 / 100
-x = {}
-y = {}
-k = {}
-a = {}
-o_col = {}
-idx = 0
+obj.effect("反転", "輝度反転", inverted)
+local w = obj.w * 100 / obj.getvalue("zoom")
+local h = obj.h * 100 / obj.getvalue("zoom")
+local s = math.min(size, w, h)
+local si = size_threshold / 100
+local sia = alpha_threshold / 100
+local use_source_color = col == nil or col < 0
+local draw_col = use_source_color and 0xffffff or col
 
-nx = math.floor(w / s / 2)
-ny = math.floor(h / s / 2)
-for j = -ny - 1, ny do
-	dot_y = h / 2 + (j + 0.5) * s
-	y0 = j * s
-	for i = -nx - 1, nx do
-		dot_x = w / 2 + (i + 0.5) * s
-		x0 = i * s
-		kido, cb, cr, alp = obj.getpixel(dot_x, dot_y, "yc")
-		color2 = obj.getpixel(dot_x, dot_y, "col")
-		idx = idx + 1
-		x[idx] = x0
-		y[idx] = y0
-		k[idx] = kido
-		o_col[idx] = color2
-		a[idx] = alp
-	end
+--[[pixelshader@halftone:
+---$include "./shaders/halftone.hlsl"
+]]
+obj.copybuffer("cache:original", "object")
+obj.setoption("drawtarget", "tempbuffer", s, s)
+if tex < 1 then
+	obj.load("figure", fig, draw_col, s)
+else
+	obj.setfont(font, s, 0, draw_col)
+	obj.load("text", text)
 end
-
-obj.setoption("dst", "tmp", w, h)
-for i = 1, idx do
-	if nt < 1 then
-		sk = math.min(k[i] / 4096, 1)
-	elseif k[i] >= 4096 * si then
-		sk = 1
-	else
-		sk = 0
-	end
-
-	if nta < 1 then
-		aa = math.min(a[i] / 4096, 1)
-	elseif a[i] >= 4096 * sia then
-		aa = 1
-	else
-		aa = 0
-	end
-
-	if sk > 0 and aa > 0 then
-		if col < 0 then
-			col0 = o_col[i]
-		else
-			col0 = col
-		end
-
-		if tex < 1 then
-			obj.load("figure", fig, col0, s * sk)
-		else
-			obj.setfont(font, s * sk, 0, col0)
-			obj.load("text", text)
-		end
-
-		obj.draw(x[i] + s / 2, y[i] + s / 2, 0, ss / 100, aa, 0, 0, rr)
-	end
-end
-obj.load("tempbuffer")
+obj.draw()
+obj.copybuffer("cache:figure", "tempbuffer")
+obj.copybuffer("object", "cache:original")
+obj.setoption("drawtarget", "framebuffer")
+obj.pixelshader("halftone", "object", { "object", "cache:figure" }, {
+	s,
+	si,
+	sia,
+	nt,
+	nta,
+	ss / 100,
+	math.rad(rr),
+	w,
+	h,
+	use_source_color and 1 or 0,
+})
