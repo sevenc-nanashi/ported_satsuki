@@ -4,41 +4,63 @@
 ---max=5
 ---step=0.01
 local t = -1
+
 ---$track:走査幅
 ---min=1
 ---max=100
 local l = 2
----$track:縁調整%
----min=100
----max=800
-local ensize = 110
----$track:影速度
----min=-1000
----max=1000
-local kage_v = 100
+
+---$track:白線の幅
+---min=0
+---max=100
+---step=1
+local senhaba = 2
+
+--group:縁
 ---$check:縁あり
 local edg = 1
 
 ---$check:縁アス比
 local as = 1
 
+---$track:縁調整%
+---min=100
+---max=800
+local ensize = 110
+
+--group:走査線
+
 ---$check:走査線あり
 local sou = 1
 
----$value:走査線強さ[%]
+---$track:走査線強さ[%]
+---min=0
+---max=100
+---step=1
 local sou_alp = 50
 
 ---$color:走査線色
 local sou_col = 0x000000
 
+--group:影
+
 ---$check:影あり
 local kage = 1
 
----$value:影の幅
+---$track:影速度
+---min=-1000
+---max=1000
+local kage_v = 100
+
+---$track:影の幅
+---min=0
+---max=500
+---step=1
 local kage_haba = 80
 
----$value:白線の幅
-local senhaba = 2
+--[[pixelshader@tv_on_off_scanline:
+---$include "./shaders/tv_on_off_scanline.hlsl"
+]]
 
 zoom = obj.getvalue("zoom") / 100
 h = obj.h / zoom
@@ -59,19 +81,19 @@ if i < 6 / 9 then
 
 	--走査線の描画
 	if sou == 1 then
-		obj.setoption("blend", 5)
-		obj.load("figure", "四角形", sou_col, 2)
-		n = math.floor(h / l / 2)
-		for i = 0, n do
-			x0 = -w / 2
-			x1 = w / 2
-			y0 = -h / 2 + 2 * l * i
-			y2 = -h / 2 + l + 2 * l * i
-			obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, 0, 0, 1, 0, 1, 1, 0, 1, sou_alp / 100)
-		end
+		local sou_r = math.floor(sou_col / 0x10000) % 0x100 / 255
+		local sou_g = math.floor(sou_col / 0x100) % 0x100 / 255
+		local sou_b = sou_col % 0x100 / 255
+		obj.pixelshader("tv_on_off_scanline", "tempbuffer", "tempbuffer", {
+			l,
+			sou_alp / 100,
+			sou_r,
+			sou_g,
+			sou_b,
+		})
 	end
 
-	obj.setoption("blend", 0)
+	obj.setoption("blend", "none")
 	--横影の描画
 	if kage == 1 then
 		obj.load("figure", "四角形", 0x000000, w)
@@ -83,7 +105,7 @@ if i < 6 / 9 then
 	if edg == 1 then
 		ss = 50
 		obj.load("figure", "四角形", 0x000000, ss * 2)
-		obj.effect("マスク", "type", 1, "サイズ", ss, "マスクの反転", 1)
+		obj.effect("マスク", "マスクの種類", "円", "サイズ", ss, "マスクの反転", 1)
 		obj.effect("ぼかし", "範囲", 10, "サイズ固定", 1)
 		w = w * ensize / 100
 		h = h * ensize / 100
