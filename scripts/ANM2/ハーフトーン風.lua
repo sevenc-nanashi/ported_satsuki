@@ -32,14 +32,15 @@ local col = nil
 
 ---$check:反転
 local inverted = 0
----$figure:図形
-local fig = "円"
 
 ---$track:個別拡大[%]
 ---min=0
 ---max=200
 ---step=1
 local ss = 100
+
+---$figure:図形
+local fig = "円"
 
 --group:文字
 ---$check:val::文字
