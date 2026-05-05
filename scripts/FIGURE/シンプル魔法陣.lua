@@ -1,99 +1,112 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$color:色
+local col = 0xffffff
+--group:外円
 ---$track:半径
 ---min=1
 ---max=2000
 ---step=1
 local l = 200
----$track:角幅
----min=0
----max=2000
----step=1
-local track1 = 5
 ---$track:円幅
 ---min=0
 ---max=2000
 ---step=1
 local cw = 5
----$track:種類
----min=1
----max=7
----step=1
-local j = 2
----$color:色
-local col = 0xffffff
 
----$value:回転速度
+---$track:外円調整[%]
+---min=0
+---max=500
+---step=1
+local soto = 100
+
+--group:内部
+---$select:種類
+---三角形=1
+---四角形=2
+---五角形=3
+---五芒星=4
+---七芒星=5
+---八芒星=6
+---九芒星=7
+local j = 2
+---$track:角幅
+---min=0
+---max=2000
+---step=1
+local circle_weight = 5
+
+---$track:回転速度
+---min=-100
+---max=100
+---step=0.01
 local v = 1
 
 ---$check:図形2つ
-local fig_num = 1
+local fig_num = true
 
----$value:外円調整(%)
-local soto = 100
+--group:テキスト
 
----$value:text(英数字のみ)
+---$string:テキスト内容
 local text = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
----$value:textサイズ
+---$track:テキストサイズ
+---min=1
+---max=500
+---step=1
 local tsize = 34
 
----$value:textフォント
+---$font:テキストフォント
 local font = "MS UI Gothic"
 
----$value:text半径調整(%)
+---$track:テキスト半径調整[%]
+---min=0
+---max=500
+---step=1
 local tll = 100
 
----$value:textサイズ調整(%)
+---$track:テキストサイズ調整[%]
+---min=0
+---max=500
+---step=1
 local ttsize = 100
 
-w = math.min(track1, l)
-rv = obj.time * 36 * v
+--[[pixelshader@simple_magic_circle:
+---$include "./shaders/simple_magic_circle.hlsl"
+]]
 
---多角形ラインの描画
-list_n = { 3, 4, 5, 5, 7, 8, 9 }
-list_m = { 1, 1, 1, 2, 2, 3, 2 }
-n = list_n[j]
-m = list_m[j]
+local w = math.min(circle_weight, l)
+local rv = obj.time * 36 * v
+local list_n = { 3, 4, 5, 5, 7, 8, 9 }
+local list_m = { 1, 1, 1, 2, 2, 3, 2 }
+local n = list_n[j]
+local m = list_m[j]
+local size = (l * 2 + cw + cw * 2 / 3 + tsize * 2) * soto / 100
+local draw_second_figure = fig_num and 1 or 0
+
 obj.load("figure", "四角形", col, 2)
-obj.setoption("dst", "tmp", l * 2, l * 2)
+obj.setoption("drawtarget", "tempbuffer", size, size)
 obj.setoption("blend", "alpha_add")
-for i = 0, n - 1 do
-	r0 = math.rad(m * 360 * i / n)
-	r1 = math.rad(m * 360 * (i + 1) / n)
-	x0 = math.cos(r0) * l
-	x1 = math.cos(r1) * l
-	x2 = math.cos(r1) * l * (1 - w / l)
-	x3 = math.cos(r0) * l * (1 - w / l)
-	y0 = math.sin(r0) * l
-	y1 = math.sin(r1) * l
-	y2 = math.sin(r1) * l * (1 - w / l)
-	y3 = math.sin(r0) * l * (1 - w / l)
-	obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, 0, 0, 1, 0, 1, 1, 0, 1)
-end
-
-obj.load("tempbuffer")
-size = (l * 2 + cw + cw * 2 / 3 + tsize * 2) * soto / 100
-obj.setoption("dst", "tmp", size, size)
-obj.draw(0, 0, 0, 1, 1, 0, 0, rv)
-if fig_num == 1 then
-	obj.draw(0, 0, 0, 1, 1, 0, 0, -rv + 180 / n)
-end
-
---円の描画
-obj.load("figure", "円", col, l * 2 + cw * 2 / 3, cw * 2 / 3)
-obj.draw()
-obj.load("figure", "円", col, size, cw)
-obj.draw()
+obj.drawpoly(-size / 2, -size / 2, 0, size / 2, -size / 2, 0, size / 2, size / 2, 0, -size / 2, size / 2, 0)
+obj.pixelshader("simple_magic_circle", "tempbuffer", "tempbuffer", {
+	size,
+	l,
+	w,
+	cw,
+	rv,
+	n,
+	m,
+	draw_second_figure,
+})
 
 --テキストの描画
-tlen = string.len(text)
+local tlen = string.len(text)
 for i = 1, tlen do
 	obj.setfont(font, tsize * ttsize / 100, 0, col)
 	obj.load("text", string.sub(text, i, i))
-	tl = (l + tsize / 2) * tll / 100
-	tr = 360 * i / tlen - rv
-	tx = math.sin(tr * math.pi / 180) * tl
-	ty = -math.cos(tr * math.pi / 180) * tl
+	local tl = (l + tsize / 2) * tll / 100
+	local tr = 360 * i / tlen - rv
+	local tx = math.sin(tr * math.pi / 180) * tl
+	local ty = -math.cos(tr * math.pi / 180) * tl
 	obj.draw(tx, ty, 0, 1, 1, 0, 0, tr)
 end
 obj.load("tempbuffer")
