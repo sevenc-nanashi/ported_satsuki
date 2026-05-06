@@ -24,22 +24,26 @@ local col = 0xff8000
 ---$check:ランダム変化
 local chk = 1
 
-w = obj.screen_w / 2
-h = obj.screen_h / 2
-L = math.sqrt(obj.screen_w ^ 2, obj.screen_h / 2 ^ 2) * 2
-ran = 0
+local w = obj.screen_w / 2
+local h = obj.screen_h / 2
+local L = math.sqrt(obj.screen_w ^ 2, obj.screen_h / 2 ^ 2) * 2
+local ran = 0
 if chk == 1 then
 	ran = obj.rand(0, 100)
 end
 
 obj.setoption("dst", "tmp", w * 2 + 100, h * 2 + 100)
 obj.load("figure", "四角形", col, 2)
+local figure_w = obj.w
+local figure_h = obj.h
+local vertices = {}
+
 for i = 0, n - 1 do
-	cx = obj.rand(-w, w, i, ran + 0)
-	cy = obj.rand(-h, h, i, ran + 1)
-	dw = dw0 * (1 + obj.rand(0, dwr, i, ran + 2) / 100)
-	l = math.sqrt((dw / 2) ^ 2 + L ^ 2)
-	r_jud = obj.rand(0, 200 + k, i, ran + 3)
+	local cx = obj.rand(-w, w, i, ran + 0)
+	local cy = obj.rand(-h, h, i, ran + 1)
+	local dw = dw0 * (1 + obj.rand(0, dwr, i, ran + 2) / 100)
+	local r_jud = obj.rand(0, 200 + k, i, ran + 3)
+	local r
 	if r_jud <= 100 then
 		r = 0
 	elseif r_jud <= 200 then
@@ -47,14 +51,42 @@ for i = 0, n - 1 do
 	else
 		r = math.rad(obj.rand(0, 180, i, ran + 4))
 	end
-	x0 = cx + math.cos(math.atan2(-L / 2, -dw / 2) + r) * l
-	x1 = cx + math.cos(math.atan2(-L / 2, dw / 2) + r) * l
-	x2 = cx + math.cos(math.atan2(L / 2, dw / 2) + r) * l
-	x3 = cx + math.cos(math.atan2(L / 2, -dw / 2) + r) * l
-	y0 = cy + math.sin(math.atan2(-L / 2, -dw / 2) + r) * l
-	y1 = cy + math.sin(math.atan2(-L / 2, dw / 2) + r) * l
-	y2 = cy + math.sin(math.atan2(L / 2, dw / 2) + r) * l
-	y3 = cy + math.sin(math.atan2(L / 2, -dw / 2) + r) * l
-	obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0)
+
+	local cos_r = math.cos(r)
+	local sin_r = math.sin(r)
+	local half_dw = dw / 2
+	local half_L = L / 2
+	local x0 = cx - half_dw * cos_r + half_L * sin_r
+	local x1 = cx + half_dw * cos_r + half_L * sin_r
+	local x2 = cx + half_dw * cos_r - half_L * sin_r
+	local x3 = cx - half_dw * cos_r - half_L * sin_r
+	local y0 = cy - half_dw * sin_r - half_L * cos_r
+	local y1 = cy + half_dw * sin_r - half_L * cos_r
+	local y2 = cy + half_dw * sin_r + half_L * cos_r
+	local y3 = cy - half_dw * sin_r + half_L * cos_r
+
+	vertices[#vertices + 1] = {
+		x0,
+		y0,
+		0,
+		x1,
+		y1,
+		0,
+		x2,
+		y2,
+		0,
+		x3,
+		y3,
+		0,
+		0,
+		0,
+		figure_w,
+		0,
+		figure_w,
+		figure_h,
+		0,
+		figure_h,
+	}
 end
+obj.drawpoly(vertices)
 obj.load("tempbuffer")

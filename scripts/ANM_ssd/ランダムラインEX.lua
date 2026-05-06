@@ -7,6 +7,7 @@ local n = 3
 ---$track:幅
 ---min=0
 ---max=2000
+---step=1
 local d = 6
 ---$track:しきい値
 ---min=0
@@ -16,26 +17,37 @@ local sikii = 128
 ---$track:細かさ
 ---min=0
 ---max=50
+---step=0.01
 local koma = 12
----$value:横サイズ
+---$track:横サイズ
+---min=0
+---max=4000
+---step=1
 local sw = 800
 
----$value:縦サイズ
+---$track:縦サイズ
+---min=0
+---max=4000
+---step=1
 local sh = 450
 
----$value:ランダム＋幅
+---$track:ランダム＋幅
+---min=0
+---max=2000
+---step=1
 local habar = 0
 
----$value:乱数
+---$track:乱数
+---min=0
+---max=10000
+---step=1
 local rns = 0
 
 ---$color:色
 local col = 0xffffff
 
---[[
-ティム氏の色調補正セットにある「T_Color_Module.dll」が必要です。
-http://www.nicovideo.jp/watch/sm21178949
-からダウンロードし、当スクリプトファイルと同じフォルダに入れてください。
+--[[pixelshader@randomLineExApplyTexture:
+---$include "shaders/random_line_ex_apply_texture.hlsl"
 ]]
 
 local ln = math.sqrt(sw ^ 2 + sh ^ 2)
@@ -44,34 +56,58 @@ local ln = math.sqrt(sw ^ 2 + sh ^ 2)
 obj.setoption("drawtarget", "tempbuffer", sw, sh)
 
 obj.load("figure", "四角形", 0xffffff, 2)
+local figure_w = obj.w
+local figure_h = obj.h
+local vertices = {}
 
 for i = 0, n - 1 do
-	cx = obj.rand(-sw / 2, sw / 2, i + 0, rns)
-	cy = obj.rand(-sh / 2, sh / 2, i + 1, rns)
-	r = obj.rand(0, 180, i + 2, rns)
-	dr = obj.rand(d, d + habar, i + 3, rns)
+	local cx = obj.rand(-sw / 2, sw / 2, i + 0, rns)
+	local cy = obj.rand(-sh / 2, sh / 2, i + 1, rns)
+	local r = math.rad(obj.rand(0, 180, i + 2, rns))
+	local dr = obj.rand(d, d + habar, i + 3, rns)
+	local cos_r = math.cos(r)
+	local sin_r = math.sin(r)
+	local half_dr = dr / 2
 
-	x0 = cx + math.cos(math.rad(r)) * ln + math.cos(math.rad(r + 90)) * dr / 2
-	x1 = cx + math.cos(math.rad(r)) * ln + math.cos(math.rad(r - 90)) * dr / 2
-	x2 = cx + math.cos(math.rad(r + 180)) * ln + math.cos(math.rad(r - 90)) * dr / 2
-	x3 = cx + math.cos(math.rad(r + 180)) * ln + math.cos(math.rad(r + 90)) * dr / 2
-	y0 = cy + math.sin(math.rad(r)) * ln + math.sin(math.rad(r + 90)) * dr / 2
-	y1 = cy + math.sin(math.rad(r)) * ln + math.sin(math.rad(r - 90)) * dr / 2
-	y2 = cy + math.sin(math.rad(r + 180)) * ln + math.sin(math.rad(r - 90)) * dr / 2
-	y3 = cy + math.sin(math.rad(r + 180)) * ln + math.sin(math.rad(r + 90)) * dr / 2
+	local x0 = cx + cos_r * ln - sin_r * half_dr
+	local x1 = cx + cos_r * ln + sin_r * half_dr
+	local x2 = cx - cos_r * ln + sin_r * half_dr
+	local x3 = cx - cos_r * ln - sin_r * half_dr
+	local y0 = cy + sin_r * ln + cos_r * half_dr
+	local y1 = cy + sin_r * ln - cos_r * half_dr
+	local y2 = cy - sin_r * ln - cos_r * half_dr
+	local y3 = cy - sin_r * ln + cos_r * half_dr
 
-	obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0)
+	vertices[#vertices + 1] = {
+		x0,
+		y0,
+		0,
+		x1,
+		y1,
+		0,
+		x2,
+		y2,
+		0,
+		x3,
+		y3,
+		0,
+		0,
+		0,
+		figure_w,
+		0,
+		figure_w,
+		figure_h,
+		0,
+		figure_h,
+	}
 end
+obj.drawpoly(vertices)
 
 obj.load("tempbuffer")
 
 --ノイズ
 obj.effect("ノイズ", "周期X", koma, "周期Y", koma, "mode", 1)
 
-require("T_Color_Module")
-local userdata, w, h = obj.getpixeldata()
-T_Color_Module.binarization(userdata, w, h, sikii, 1)
-obj.putpixeldata(userdata)
+obj.pixelshader("randomLineExApplyTexture", "object", "object", { sikii })
 
-obj.effect("カラーキー", "color_yc", 0, "status", 1)
 obj.effect("単色化", "color", col, "輝度を保持する", 0)
