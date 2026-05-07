@@ -194,6 +194,8 @@ scripts:
         label: 連番画像ループ[A]@連番
       - path: "./scripts/連番/連番画像ループ[B].lua"
         label: 連番画像ループ[B]@連番
+      - path: "./scripts/加減速/ADC_標準登場.lua"
+        label: ADC_標準登場@加減速
       - path: "./scripts/TA/TAぼかし登場.lua"
         label: TAぼかし登場@TA
       - path: "./scripts/TA/TAぼかし登場2.lua"
@@ -284,8 +286,6 @@ scripts:
         label: TA起き上がって登場@TA_ssd
       - path: "./scripts/TA/TA陰陽玉登場.lua"
         label: TA陰陽玉登場@TA
-      - path: "./scripts/加減速/ADC_標準登場.lua"
-        label: ADC_標準登場@加減速
       - path: "./scripts/ANM1/ぽよよーんと登場.lua"
         label: ぽよよーんと登場@ANM1
       - path: "./scripts/ANM1/伸縮登場.lua"
@@ -340,12 +340,12 @@ scripts:
     sources:
       - path: "./scripts/FIGURE/走査線2.lua"
         label: 走査線2@FIGURE
-      - path: "./scripts/FIGURE/AviUtlアイコン.lua"
-        label: AviUtlアイコン@FIGURE
       - path: "./scripts/加減速/ADC_図形.lua"
         label: ADC_図形@加減速
       - path: "./scripts/加減速/ADC_扇状.lua"
         label: ADC_扇状@加減速
+      - path: "./scripts/FIGURE/AviUtlアイコン.lua"
+        label: AviUtlアイコン@FIGURE
       - path: "./scripts/削除済み/FIメーター2.lua"
         label: FIメーター2@削除済みFIG@削除済み
       - path: "./scripts/削除済み/FIランダムに大文字が出現.lua"
