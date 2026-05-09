@@ -177,15 +177,15 @@ for i = 0, n - 1 do
 end
 -- 頂点描画
 obj.load("figure", "円", col, l * 8)
-local vertices = {}
+local polygons = {}
 for i = 0, n - 1 do
   x0 = pos[i * 2 + 1]
   y0 = pos[i * 2 + 2]
-  table.insert(vertices,
+  table.insert(polygons,
     { x0 - l, y0 - l, 0, x0 + l, y0 - l, 0, x0 + l, y0 + l, 0, x0 - l, y0 + l, 0, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h })
 end
-obj.drawpoly(vertices)
-obj.setoption("blend", 0)
+obj.drawpoly(polygons)
+obj.setoption("blend", "none")
 obj.load("tempbuffer")
 -- 繰り返し描画
 if r_num > 1 then

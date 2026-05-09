@@ -11,17 +11,17 @@ local w = 10
 ---min=3
 ---max=24
 ---step=1
-local track2 = 4
+local num_edges = 4
 ---$track:回転数
 ---min=1
 ---max=10
 ---step=1
-local track3 = 1
+local num_skips = 1
 ---$color:色
 local color = 0xffffff
 
-n = math.floor(track2)
-m = math.floor(track3)
+local n = math.floor(num_edges)
+local m = math.floor(num_skips)
 if w >= l then
 	w = l
 end
