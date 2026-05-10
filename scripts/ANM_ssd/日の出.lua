@@ -58,6 +58,8 @@ local cx = 0
 ---step=0.01
 local cy = 0
 
+--trackgroup@cx,cy:中心
+
 local val = ratio / 100
 
 obj.setanchor("cx,cy", 1)
