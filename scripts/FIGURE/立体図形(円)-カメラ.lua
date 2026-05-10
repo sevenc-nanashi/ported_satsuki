@@ -35,7 +35,7 @@ for k = 0, 1 do
   size = size - 2 * h * k
   obj.load("figure", "四角形", color, math.ceil(size / divisions))
   obj.effect()
-  local l = size / 2
+  local l = size / 2 + (k * 2 - 1)
   local r = 360 / divisions
   local polygons = {}
   for i = 0, divisions - 1 do
