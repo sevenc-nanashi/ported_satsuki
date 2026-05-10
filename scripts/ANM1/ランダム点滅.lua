@@ -15,5 +15,5 @@ local track1 = 0
 local track2 = 0.01
 a = rand(0, 99, 1, math.floor(obj.time / track2))
 if a >= track0 then
-	obj.alpha = obj.alpha * track1 / 100
+    obj.alpha = obj.alpha * track1 / 100
 end

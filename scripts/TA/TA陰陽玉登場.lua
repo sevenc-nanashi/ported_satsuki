@@ -21,21 +21,21 @@ mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
 ta = t * (1 - mode / obj.num)
 tb = t / obj.num
 if t == 0 then
-	return
+    return
 elseif t < 0 then
-	i = (ta - obj.time + obj.totaltime + tb * mode) / ta
+    i = (ta - obj.time + obj.totaltime + tb * mode) / ta
 else
-	i = (ta - obj.time + tb * mode) / ta
+    i = (ta - obj.time + tb * mode) / ta
 end
 if i > 0 then
-	if i > 1 then
-		i = 1
-	end
-	i = i ^ beki
-	x = obj.ox * (1 - i)
-	y = obj.oy
-	r = rz * math.pi / 180 * i
-	obj.ox = x * math.cos(r) - y * math.sin(r)
-	obj.oy = x * math.sin(r) + y * math.cos(r)
-	obj.rz = obj.rz + math.deg(r) * k
+    if i > 1 then
+        i = 1
+    end
+    i = i ^ beki
+    x = obj.ox * (1 - i)
+    y = obj.oy
+    r = rz * math.pi / 180 * i
+    obj.ox = x * math.cos(r) - y * math.sin(r)
+    obj.oy = x * math.sin(r) + y * math.cos(r)
+    obj.rz = obj.rz + math.deg(r) * k
 end

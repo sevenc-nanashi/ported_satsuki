@@ -19,12 +19,12 @@ local __rename_me_check0 = false
 t = (ta - obj.time + obj.index * tb) / ta
 a = t
 if t > 0 then
-	if t > 1 then
-		t = 1
-		a = a * 0
-	end
+    if t > 1 then
+        t = 1
+        a = a * 0
+    end
 else
-	t = 0
+    t = 0
 end
 range_w = obj.screen_w / 2 - obj.w * obj.zoom
 range_h = obj.screen_h / 2 - obj.h * obj.zoom
@@ -34,5 +34,5 @@ obj.zoom = 1 - t
 obj.alpha = a
 obj.rz = obj.rand(-rz / 2, rz / 2, 0, obj.index)
 if __rename_me_check0 then
-	obj.zoom = t
+    obj.zoom = t
 end

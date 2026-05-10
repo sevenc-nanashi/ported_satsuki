@@ -22,13 +22,13 @@ local __rename_me_check0 = false
 k = track2 / 100
 obj.effect()
 for i = 0, n - 1 do
-	r = 360 * i / n + rr
-	x = math.sin(r * math.pi / 180) * l * k
-	z = -math.cos(r * math.pi / 180) * l * k
-	s = obj.zoom * k
-	ry = -360 * i / n - rr
-	if __rename_me_check0 then
-		ry = ry * 0
-	end
-	obj.draw(x, 0, z, s, 1, 0, ry, 0)
+    r = 360 * i / n + rr
+    x = math.sin(r * math.pi / 180) * l * k
+    z = -math.cos(r * math.pi / 180) * l * k
+    s = obj.zoom * k
+    ry = -360 * i / n - rr
+    if __rename_me_check0 then
+        ry = ry * 0
+    end
+    obj.draw(x, 0, z, s, 1, 0, ry, 0)
 end

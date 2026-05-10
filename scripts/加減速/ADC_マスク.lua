@@ -72,24 +72,24 @@ local mode = 0
 --共通部分
 local t
 if ta == 0 then
-	return
+    return
 elseif ta < 0 then
-	t = (ta - obj.time + obj.totaltime) / ta
+    t = (ta - obj.time + obj.totaltime) / ta
 else
-	t = (ta - obj.time) / ta
+    t = (ta - obj.time) / ta
 end
 t = math.max(0, t)
 
 if mode < 1 then
-	t = t ^ beki
+    t = t ^ beki
 elseif mode < 2 then
-	t = 1 - (1 - t) ^ beki
+    t = 1 - (1 - t) ^ beki
 else
-	if t <= 0.5 then
-		t = (2 * t) ^ beki / 2
-	else
-		t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
-	end
+    if t <= 0.5 then
+        t = (2 * t) ^ beki / 2
+    else
+        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+    end
 end
 
 --フィルタ効果
@@ -98,21 +98,21 @@ local s = track1 + s2 * t
 local as = track2 + as2 * t
 local bk = track3 + bk2 * t
 obj.effect(
-	"マスク",
-	"X",
-	x,
-	"Y",
-	y,
-	"回転",
-	r,
-	"サイズ",
-	s,
-	"縦横比",
-	as,
-	"ぼかし",
-	bk,
-	"マスクの反転",
-	ht,
-	"type",
-	ty
+    "マスク",
+    "X",
+    x,
+    "Y",
+    y,
+    "回転",
+    r,
+    "サイズ",
+    s,
+    "縦横比",
+    as,
+    "ぼかし",
+    bk,
+    "マスクの反転",
+    ht,
+    "type",
+    ty
 )

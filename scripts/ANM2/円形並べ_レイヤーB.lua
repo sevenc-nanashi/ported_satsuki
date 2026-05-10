@@ -6,6 +6,6 @@ obj.oz = z
 obj.zoom = obj.zoom * s
 obj.rz = r
 if soto == 1 then
-	obj.ox = -obj.ox
-	obj.rz = -obj.rz - 180
+    obj.ox = -obj.ox
+    obj.rz = -obj.rz - 180
 end

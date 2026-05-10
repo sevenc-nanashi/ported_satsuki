@@ -32,30 +32,30 @@ local ty = 0
 
 l = rand(0, 100)
 if l > track3 then
-	w = obj.rand(0, track1)
+    w = obj.rand(0, track1)
 elseif l > track2 then
-	w = obj.rand(0, track0)
+    w = obj.rand(0, track0)
 else
-	w = 0
+    w = 0
 end
 if dir0 == 1 and dir1 == 0 then
-	dir = 0
+    dir = 0
 elseif dir0 == 0 and dir1 == 1 then
-	dir = 1
+    dir = 1
 else
-	dir = math.floor(obj.rand(0, 199) / 100)
+    dir = math.floor(obj.rand(0, 199) / 100)
 end
 obj.effect("色ずれ", "ずれ幅", w * iro / 100, "角度", 90 * (1 - dir), "type", ty)
 obj.effect(
-	"ラスター",
-	"横幅",
-	w,
-	"高さ",
-	h,
-	"周期",
-	rand(0, 200) / 100,
-	"ランダム振幅",
-	1,
-	"縦ラスター",
-	dir
+    "ラスター",
+    "横幅",
+    w,
+    "高さ",
+    h,
+    "周期",
+    rand(0, 200) / 100,
+    "ランダム振幅",
+    1,
+    "縦ラスター",
+    dir
 )

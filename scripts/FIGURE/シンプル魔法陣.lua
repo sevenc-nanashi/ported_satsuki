@@ -88,25 +88,25 @@ obj.setoption("drawtarget", "tempbuffer", size, size)
 obj.setoption("blend", "alpha_add")
 obj.drawpoly(-size / 2, -size / 2, 0, size / 2, -size / 2, 0, size / 2, size / 2, 0, -size / 2, size / 2, 0)
 obj.pixelshader("simple_magic_circle", "tempbuffer", "tempbuffer", {
-	size,
-	l,
-	w,
-	cw,
-	rv,
-	n,
-	m,
-	draw_second_figure,
+    size,
+    l,
+    w,
+    cw,
+    rv,
+    n,
+    m,
+    draw_second_figure,
 })
 
 --テキストの描画
 local tlen = string.len(text)
 for i = 1, tlen do
-	obj.setfont(font, tsize * ttsize / 100, 0, col)
-	obj.load("text", string.sub(text, i, i))
-	local tl = (l + tsize / 2) * tll / 100
-	local tr = 360 * i / tlen - rv
-	local tx = math.sin(tr * math.pi / 180) * tl
-	local ty = -math.cos(tr * math.pi / 180) * tl
-	obj.draw(tx, ty, 0, 1, 1, 0, 0, tr)
+    obj.setfont(font, tsize * ttsize / 100, 0, col)
+    obj.load("text", string.sub(text, i, i))
+    local tl = (l + tsize / 2) * tll / 100
+    local tr = 360 * i / tlen - rv
+    local tx = math.sin(tr * math.pi / 180) * tl
+    local ty = -math.cos(tr * math.pi / 180) * tl
+    obj.draw(tx, ty, 0, 1, 1, 0, 0, tr)
 end
 obj.load("tempbuffer")

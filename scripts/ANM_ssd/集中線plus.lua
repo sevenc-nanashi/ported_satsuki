@@ -49,28 +49,28 @@ local b = 0
 local i = 1
 
 while b <= 100 do
-	if kfr == 0 then
-		fr_num = 0
-	else
-		fr_num = math.floor(obj.frame / kfr)
-	end
+    if kfr == 0 then
+        fr_num = 0
+    else
+        fr_num = math.floor(obj.frame / kfr)
+    end
 
-	a = b + obj.rand(0, 100, i + math.floor(rseed), fr_num) / 100 * va
-	b = a + obj.rand(0, 100, i + 1 + math.floor(rseed), fr_num) / 100 * vb
-	llc = lc * (1 + obj.rand(0, 100, i + 2 + math.floor(rseed), fr_num) / 100 * lc_r / 100)
+    a = b + obj.rand(0, 100, i + math.floor(rseed), fr_num) / 100 * va
+    b = a + obj.rand(0, 100, i + 1 + math.floor(rseed), fr_num) / 100 * vb
+    llc = lc * (1 + obj.rand(0, 100, i + 2 + math.floor(rseed), fr_num) / 100 * lc_r / 100)
 
-	if a <= 100 and b <= 100 then
-		x0 = cx + llc * math.cos(math.rad(r + 360 * (a + b) / 2 / 100))
-		y0 = cy + llc * math.sin(math.rad(r + 360 * (a + b) / 2 / 100))
-		x1 = cx + l * math.cos(math.rad(r + 360 * a / 100))
-		y1 = cy + l * math.sin(math.rad(r + 360 * a / 100))
-		x2 = cx + l * math.cos(math.rad(r + 360 * (a + b) / 2 / 100))
-		y2 = cy + l * math.sin(math.rad(r + 360 * (a + b) / 2 / 100))
-		x3 = cx + l * math.cos(math.rad(r + 360 * b / 100))
-		y3 = cy + l * math.sin(math.rad(r + 360 * b / 100))
-		obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0)
-	end
-	i = i + 1
+    if a <= 100 and b <= 100 then
+        x0 = cx + llc * math.cos(math.rad(r + 360 * (a + b) / 2 / 100))
+        y0 = cy + llc * math.sin(math.rad(r + 360 * (a + b) / 2 / 100))
+        x1 = cx + l * math.cos(math.rad(r + 360 * a / 100))
+        y1 = cy + l * math.sin(math.rad(r + 360 * a / 100))
+        x2 = cx + l * math.cos(math.rad(r + 360 * (a + b) / 2 / 100))
+        y2 = cy + l * math.sin(math.rad(r + 360 * (a + b) / 2 / 100))
+        x3 = cx + l * math.cos(math.rad(r + 360 * b / 100))
+        y3 = cy + l * math.sin(math.rad(r + 360 * b / 100))
+        obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0)
+    end
+    i = i + 1
 end
 
 obj.load("tempbuffer")

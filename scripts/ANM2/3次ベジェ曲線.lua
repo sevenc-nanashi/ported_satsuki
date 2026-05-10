@@ -60,23 +60,32 @@ obj.draw()
 
 --補助線
 if se == 1 then
-	local a = 1 / 2
-	obj.setoption("billboard", 3)
-	obj.load("figure", "円", color, 50)
-	obj.draw(xa, ya, za, 1, a)
-	obj.draw(xb, yb, zb, 1, a)
-	obj.setoption("billboard", 3)
-	obj.load("figure", "四角形", color, 50)
-	obj.draw(xa + sxa, ya + sya, za + sza, 1, a)
-	obj.draw(xb + sxb, yb + syb, zb + szb, 1, a)
-	obj.setoption("billboard", 3)
-	obj.load("figure", "円", color, 10)
-	local n = 20
-	for i = 0, n - 1 do
-		local t2 = i / n
-		local x = ((1 - t2) ^ 3) * xa + 3 * t2 * ((1 - t2) ^ 2) * (sxa + xa) + 3 * (t2 ^ 2) * (1 - t2) * (sxb + xb) + (t2 ^ 3) * xb
-		local y = ((1 - t2) ^ 3) * ya + 3 * t2 * ((1 - t2) ^ 2) * (sya + ya) + 3 * (t2 ^ 2) * (1 - t2) * (syb + yb) + (t2 ^ 3) * yb
-		local z = ((1 - t2) ^ 3) * za + 3 * t2 * ((1 - t2) ^ 2) * (sza + za) + 3 * (t2 ^ 2) * (1 - t2) * (szb + zb) + (t2 ^ 3) * zb
-		obj.draw(x, y, z, 1, a)
-	end
+    local a = 1 / 2
+    obj.setoption("billboard", 3)
+    obj.load("figure", "円", color, 50)
+    obj.draw(xa, ya, za, 1, a)
+    obj.draw(xb, yb, zb, 1, a)
+    obj.setoption("billboard", 3)
+    obj.load("figure", "四角形", color, 50)
+    obj.draw(xa + sxa, ya + sya, za + sza, 1, a)
+    obj.draw(xb + sxb, yb + syb, zb + szb, 1, a)
+    obj.setoption("billboard", 3)
+    obj.load("figure", "円", color, 10)
+    local n = 20
+    for i = 0, n - 1 do
+        local t2 = i / n
+        local x = ((1 - t2) ^ 3) * xa
+            + 3 * t2 * ((1 - t2) ^ 2) * (sxa + xa)
+            + 3 * (t2 ^ 2) * (1 - t2) * (sxb + xb)
+            + (t2 ^ 3) * xb
+        local y = ((1 - t2) ^ 3) * ya
+            + 3 * t2 * ((1 - t2) ^ 2) * (sya + ya)
+            + 3 * (t2 ^ 2) * (1 - t2) * (syb + yb)
+            + (t2 ^ 3) * yb
+        local z = ((1 - t2) ^ 3) * za
+            + 3 * t2 * ((1 - t2) ^ 2) * (sza + za)
+            + 3 * (t2 ^ 2) * (1 - t2) * (szb + zb)
+            + (t2 ^ 3) * zb
+        obj.draw(x, y, z, 1, a)
+    end
 end

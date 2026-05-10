@@ -9,33 +9,33 @@ local size = S_MAGI_size
 
 local text_progress
 if entrance_duration < 0 then
-	text_progress = (
-		entrance_duration / 10
-		- obj.time
-		+ obj.totaltime
-		+ entrance_duration * 0.5
-		+ (obj.num - obj.index) / obj.num * entrance_duration * 0.6
-	)
-		/ entrance_duration
-		* 10
+    text_progress = (
+        entrance_duration / 10
+        - obj.time
+        + obj.totaltime
+        + entrance_duration * 0.5
+        + (obj.num - obj.index) / obj.num * entrance_duration * 0.6
+    )
+        / entrance_duration
+        * 10
 else
-	text_progress = (
-		entrance_duration / 10
-		- obj.time
-		+ entrance_duration * 0.5
-		+ (obj.num - obj.index) / obj.num * entrance_duration * 0.6
-	)
-		/ entrance_duration
-		* 10
+    text_progress = (
+        entrance_duration / 10
+        - obj.time
+        + entrance_duration * 0.5
+        + (obj.num - obj.index) / obj.num * entrance_duration * 0.6
+    )
+        / entrance_duration
+        * 10
 end
 
 if text_progress > 0 then
-	if text_progress > 1 then
-		text_progress = 1
-		obj.alpha = 0
-	end
+    if text_progress > 1 then
+        text_progress = 1
+        obj.alpha = 0
+    end
 else
-	text_progress = 0
+    text_progress = 0
 end
 text_progress = text_progress * text_progress
 
@@ -45,5 +45,5 @@ obj.oy = -math.cos(text_rotation * math.pi / 180) * size * 0.465 / 2 * radius_ad
 obj.rz = text_rotation
 obj.alpha = 1 - text_progress
 if obj.index % (obj.num / 4) == 0 then
-	obj.zoom = 1.2
+    obj.zoom = 1.2
 end

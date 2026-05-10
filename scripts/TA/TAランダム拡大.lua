@@ -23,7 +23,7 @@ local kt = 0.01
 t = math.floor(obj.time / kt)
 l = rand(0, 100, 0, t)
 if l > track3 then
-	obj.zoom = obj.zoom * obj.rand(100, track1, 1, t) / 100
+    obj.zoom = obj.zoom * obj.rand(100, track1, 1, t) / 100
 elseif l > track2 then
-	obj.zoom = obj.zoom * obj.rand(100, track0, 2, t) / 100
+    obj.zoom = obj.zoom * obj.rand(100, track0, 2, t) / 100
 end

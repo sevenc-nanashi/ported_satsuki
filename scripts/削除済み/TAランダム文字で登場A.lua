@@ -23,47 +23,47 @@ tb = track1 / 1000
 
 num = obj.num
 word = {
-	"a",
-	"b",
-	"c",
-	"d",
-	"e",
-	"f",
-	"g",
-	"h",
-	"i",
-	"j",
-	"k",
-	"l",
-	"m",
-	"n",
-	"o",
-	"p",
-	"q",
-	"r",
-	"s",
-	"t",
-	"u",
-	"v",
-	"w",
-	"x",
-	"y",
-	"z",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
 }
 if ta < 0 then
-	i = (ta - obj.num * tb - obj.time + obj.totaltime + obj.index * tb) / ta
+    i = (ta - obj.num * tb - obj.time + obj.totaltime + obj.index * tb) / ta
 else
-	i = (ta - obj.time + obj.index * tb) / ta
+    i = (ta - obj.time + obj.index * tb) / ta
 end
 if i > 0 then
-	if i > 1 then
-		obj.alpha = 0
-		i = 1
-	end
-	i = i * i
-	obj.alpha = 0
+    if i > 1 then
+        obj.alpha = 0
+        i = 1
+    end
+    i = i * i
+    obj.alpha = 0
 end
 fade = 0
 if __rename_me_check0 then
-	fade = 1
+    fade = 1
 end

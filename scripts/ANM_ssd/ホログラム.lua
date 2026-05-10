@@ -139,185 +139,185 @@ obj.setoption("drawtarget", "tempbuffer", WS, HS)
 local nx = math.floor(WS / s)
 local ny = math.floor(HS / s)
 for j = -ny / 2, ny / 2 do
-	y = s * j
-	for i = -nx / 2, nx / 2 do
-		x = s * i
-		obj.draw(x, y)
-	end
+    y = s * j
+    for i = -nx / 2, nx / 2 do
+        x = s * i
+        obj.draw(x, y)
+    end
 end
 
 --グラデーション（虹）
 
 if typ == 2 or typ == 3 then
-	obj.load("tempbuffer")
-	obj.setoption("drawtarget", "tempbuffer", WS, HS)
+    obj.load("tempbuffer")
+    obj.setoption("drawtarget", "tempbuffer", WS, HS)
 
-	local gtu = 50
-	local ble = 9
+    local gtu = 50
+    local ble = 9
 
-	gl = math.sqrt(WS ^ 2 + HS ^ 2)
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 0)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 0)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0xff0000,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --赤
+    gl = math.sqrt(WS ^ 2 + HS ^ 2)
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 0)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 0)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0xff0000,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --赤
 
-	gl = math.sqrt(WS ^ 2 + HS ^ 2)
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 1)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 1)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0xffff00,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --黄
+    gl = math.sqrt(WS ^ 2 + HS ^ 2)
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 1)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 1)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0xffff00,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --黄
 
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 2)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 2)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0x00ff00,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --緑
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 2)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 2)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0x00ff00,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --緑
 
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 3)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 3)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0x00ffff,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --水
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 3)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 3)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0x00ffff,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --水
 
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 4)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 4)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0x0000ff,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --青
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 4)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 4)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0x0000ff,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --青
 
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 5)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 5)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0xff00ff,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --ピンク
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 5)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 5)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0xff00ff,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --ピンク
 
-	gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 6)
-	gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 6)
-	obj.effect(
-		"グラデーション",
-		"強さ",
-		gtu,
-		"color",
-		0xff0000,
-		"no_color2",
-		1,
-		"中心X",
-		gx,
-		"中心Y",
-		gy,
-		"幅",
-		gl / 5,
-		"角度",
-		gr,
-		"blend",
-		ble
-	) --赤
+    gx = math.sin(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 6)
+    gy = math.cos(-gr * math.pi / 180) * (gl / 2 - gl / 7 * 6)
+    obj.effect(
+        "グラデーション",
+        "強さ",
+        gtu,
+        "color",
+        0xff0000,
+        "no_color2",
+        1,
+        "中心X",
+        gx,
+        "中心Y",
+        gy,
+        "幅",
+        gl / 5,
+        "角度",
+        gr,
+        "blend",
+        ble
+    ) --赤
 
-	obj.draw()
+    obj.draw()
 end
 
 obj.load("tempbuffer")
 
 if typ == 1 then
-	obj.effect("単色化", "color", col)
+    obj.effect("単色化", "color", col)
 end
 
 obj.setoption("drawtarget", "tempbuffer", WS, HS)

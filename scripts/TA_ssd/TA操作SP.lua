@@ -22,48 +22,48 @@ obj.setanchor("pos", n * 2, "line", "inout")
 
 --仮想バッファ用
 if itk == 1 then
-	ww = obj.w
-	ksw = 0
-	ksh = 0
-	for i = 0, n - 1 do
-		dx = math.ceil(math.abs(pos[i * 2 + 1]) + ww + 1)
-		dy = math.ceil(math.abs(pos[i * 2 + 2]) + ww + 1)
-		if ksw < dx then
-			ksw = dx
-		end
-		if ksh < dy then
-			ksh = dy
-		end
-	end
-	obj.setoption("drawtarget", "tempbuffer", ksw * 2 * ss, ksh * 2 * ss)
+    ww = obj.w
+    ksw = 0
+    ksh = 0
+    for i = 0, n - 1 do
+        dx = math.ceil(math.abs(pos[i * 2 + 1]) + ww + 1)
+        dy = math.ceil(math.abs(pos[i * 2 + 2]) + ww + 1)
+        if ksw < dx then
+            ksw = dx
+        end
+        if ksh < dy then
+            ksh = dy
+        end
+    end
+    obj.setoption("drawtarget", "tempbuffer", ksw * 2 * ss, ksh * 2 * ss)
 end
 
 --ここまで
 
 for i = 0, (n - 1) * 2 do
-	if obj.index == i then
-		x = pos[i * 2 + 1] * ss
-		y = pos[i * 2 + 2] * ss
-		zzx = pos[i * 2 + 1 + n * 2]
-		zzy = pos[i * 2 + 2 + n * 2]
+    if obj.index == i then
+        x = pos[i * 2 + 1] * ss
+        y = pos[i * 2 + 2] * ss
+        zzx = pos[i * 2 + 1 + n * 2]
+        zzy = pos[i * 2 + 2 + n * 2]
 
-		if math.abs(zzx) > W or math.abs(zzy) > H then
-			zoom = 1 * ss
-		else
-			zoom = (zzx + W) / W / 2 * track0 / 100 * ss
-		end
-		if itk == 1 then
-			obj.draw(x, y, 0, zoom)
-		else
-			obj.ox = x
-			obj.oy = y
-			obj.zoom = zoom
-		end
-	end
+        if math.abs(zzx) > W or math.abs(zzy) > H then
+            zoom = 1 * ss
+        else
+            zoom = (zzx + W) / W / 2 * track0 / 100 * ss
+        end
+        if itk == 1 then
+            obj.draw(x, y, 0, zoom)
+        else
+            obj.ox = x
+            obj.oy = y
+            obj.zoom = zoom
+        end
+    end
 end
 
 if itk == 1 then
-	obj.load("tempbuffer")
+    obj.load("tempbuffer")
 end
 
 --8文字までしか使えません。

@@ -27,49 +27,49 @@ ya = ya + (ya - 100) * v / 100
 yb = yb + (yb - 100) * v / 100
 
 if t == 0 then
-	return
+    return
 elseif t > 0 then
-	if obj.time < t then
-		ta = (t - obj.time) / t
-		xscale = 0 + (xa - 0) * (1 - ta)
-		yscale = 0 + (ya - 0) * (1 - ta)
-	elseif obj.time < 2 * t then
-		tb = (t - (obj.time - t)) / t
-		xscale = xa + (xb - xa) * (1 - tb)
-		yscale = ya + (yb - ya) * (1 - tb)
-	elseif obj.time < 3 * t then
-		tc = (t - (obj.time - 2 * t)) / t
-		xscale = xb + (100 - xb) * (1 - tc)
-		yscale = yb + (100 - yb) * (1 - tc)
-	else
-		xscale = 100
-		yscale = 100
-	end
+    if obj.time < t then
+        ta = (t - obj.time) / t
+        xscale = 0 + (xa - 0) * (1 - ta)
+        yscale = 0 + (ya - 0) * (1 - ta)
+    elseif obj.time < 2 * t then
+        tb = (t - (obj.time - t)) / t
+        xscale = xa + (xb - xa) * (1 - tb)
+        yscale = ya + (yb - ya) * (1 - tb)
+    elseif obj.time < 3 * t then
+        tc = (t - (obj.time - 2 * t)) / t
+        xscale = xb + (100 - xb) * (1 - tc)
+        yscale = yb + (100 - yb) * (1 - tc)
+    else
+        xscale = 100
+        yscale = 100
+    end
 else
-	t = math.abs(t)
-	if obj.time > obj.totaltime - 3 * t then
-		if obj.time < obj.totaltime - 2 * t then
-			tc = (t - (obj.time - obj.totaltime + 3 * t)) / t
-			xscale = 100 + (xb - 100) * (1 - tc)
-			yscale = 100 + (yb - 100) * (1 - tc)
-		elseif obj.time < obj.totaltime - t then
-			tb = (t - (obj.time - obj.totaltime + 2 * t)) / t
-			xscale = xb + (xa - xb) * (1 - tb)
-			yscale = yb + (ya - yb) * (1 - tb)
-		else
-			ta = (t - (obj.time - obj.totaltime + t)) / t
-			xscale = xa + (0 - xa) * (1 - ta)
-			yscale = ya + (0 - ya) * (1 - ta)
-		end
-	else
-		xscale = 100
-		yscale = 100
-	end
+    t = math.abs(t)
+    if obj.time > obj.totaltime - 3 * t then
+        if obj.time < obj.totaltime - 2 * t then
+            tc = (t - (obj.time - obj.totaltime + 3 * t)) / t
+            xscale = 100 + (xb - 100) * (1 - tc)
+            yscale = 100 + (yb - 100) * (1 - tc)
+        elseif obj.time < obj.totaltime - t then
+            tb = (t - (obj.time - obj.totaltime + 2 * t)) / t
+            xscale = xb + (xa - xb) * (1 - tb)
+            yscale = yb + (ya - yb) * (1 - tb)
+        else
+            ta = (t - (obj.time - obj.totaltime + t)) / t
+            xscale = xa + (0 - xa) * (1 - ta)
+            yscale = ya + (0 - ya) * (1 - ta)
+        end
+    else
+        xscale = 100
+        yscale = 100
+    end
 end
 
 obj.zoom = math.max(xscale, yscale) / 100
 if xscale > yscale then
-	obj.aspect = yscale / xscale - 1
+    obj.aspect = yscale / xscale - 1
 else
-	obj.aspect = 1 - xscale / yscale
+    obj.aspect = 1 - xscale / yscale
 end

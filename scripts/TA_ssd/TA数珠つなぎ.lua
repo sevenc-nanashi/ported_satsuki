@@ -25,9 +25,9 @@ r = track0 / 2
 
 --字間の配列
 if obj.index == 0 then
-	if tj == null then
-		tj = {}
-	end
+    if tj == null then
+        tj = {}
+    end
 end
 tj[obj.index + 1] = { obj.ox, obj.oy }
 
@@ -35,28 +35,28 @@ tj[obj.index + 1] = { obj.ox, obj.oy }
 rzoom = {}
 idz = 0
 for i = 1, obj.num + 1 do
-	zz = obj.rand(track3, 100, -11 - seed, i) / 100
-	idz = idz + 1
-	rzoom[idz] = zz
+    zz = obj.rand(track3, 100, -11 - seed, i) / 100
+    idz = idz + 1
+    rzoom[idz] = zz
 end
 
 --メイン
 for i = 0, obj.num - 1 do
-	if obj.index == i then
-		xx = 0
-		yy = 0
-		if i > 0 then
-			for j = 1, i do
-				l = track2 / 100 * (tj[j + 1][1] - tj[j][1]) * (rzoom[j] + rzoom[j + 1]) / 2
-				xx = xx + l * math.cos(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
-				yy = yy + l * math.sin(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
-			end
-		end
-		obj.ox = xx
-		obj.oy = yy
-		if rc == 1 then
-			obj.rz = obj.rz + off_r + (obj.rand(-r, r, -1, i) + obj.rand(-r, r, -1 - seed, i + 1)) / 2
-		end
-		obj.zoom = obj.zoom * rzoom[i + 1]
-	end
+    if obj.index == i then
+        xx = 0
+        yy = 0
+        if i > 0 then
+            for j = 1, i do
+                l = track2 / 100 * (tj[j + 1][1] - tj[j][1]) * (rzoom[j] + rzoom[j + 1]) / 2
+                xx = xx + l * math.cos(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
+                yy = yy + l * math.sin(math.rad(off_r + obj.rand(-r, r, -1 - seed, j)))
+            end
+        end
+        obj.ox = xx
+        obj.oy = yy
+        if rc == 1 then
+            obj.rz = obj.rz + off_r + (obj.rand(-r, r, -1, i) + obj.rand(-r, r, -1 - seed, i + 1)) / 2
+        end
+        obj.zoom = obj.zoom * rzoom[i + 1]
+    end
 end

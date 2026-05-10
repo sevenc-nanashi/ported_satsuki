@@ -30,7 +30,7 @@ obj.effect("斜めクリッピング", "中心Y", 5, "角度", inner_angle * 54 
 obj.effect("斜めクリッピング", "中心Y", 5, "角度", -inner_angle * 54 / 108)
 obj.setoption("dst", "tmp", radius * 2, radius * 2)
 for i = 0, 4 do
-	obj.draw(0, 0, 0, 1, 1, 0, 0, 72 * i)
+    obj.draw(0, 0, 0, 1, 1, 0, 0, 72 * i)
 end
 
 obj.load("tempbuffer")

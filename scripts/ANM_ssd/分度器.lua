@@ -25,8 +25,8 @@ local r2 = math.deg(math.atan2(pos[6] - pos[4], pos[5] - pos[3]) + math.pi)
 local r0 = math.max(r1, r2) - math.min(r1, r2)
 local bdk
 if r0 > 180 then
-  bdk = 180 - r0 % 180
+    bdk = 180 - r0 % 180
 else
-  bdk = r0
+    bdk = r0
 end
 obj.load("text", math.floor(bdk * 10 ^ digits) / 10 ^ digits)

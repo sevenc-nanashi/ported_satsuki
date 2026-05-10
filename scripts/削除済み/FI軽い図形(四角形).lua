@@ -24,16 +24,16 @@ local sy = height / 2
 local cx = center_x / 100
 local cy = center_y / 100
 obj.drawpoly(
-	-sx * (1 + cx),
-	-sy * (1 + cy),
-	0,
-	sx * (1 - cx),
-	-sy * (1 + cy),
-	0,
-	sx * (1 - cx),
-	sy * (1 - cy),
-	0,
-	-sx * (1 + cx),
-	sy * (1 - cy),
-	0
+    -sx * (1 + cx),
+    -sy * (1 + cy),
+    0,
+    sx * (1 - cx),
+    -sy * (1 + cy),
+    0,
+    sx * (1 - cx),
+    sy * (1 - cy),
+    0,
+    -sx * (1 + cx),
+    sy * (1 - cy),
+    0
 )

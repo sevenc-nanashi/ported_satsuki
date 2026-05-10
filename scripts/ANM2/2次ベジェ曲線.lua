@@ -49,22 +49,22 @@ obj.draw()
 
 --補助線
 if hojo == 1 then
-	local a = 0.5
-	obj.setoption("billboard", 3)
-	obj.load("figure", "円", color, 50)
-	obj.draw(xa, ya, za, 1, a)
-	obj.draw(xb, yb, zb, 1, a)
-	obj.setoption("billboard", 3)
-	obj.load("figure", "四角形", color, 50)
-	obj.draw(sx, sy, sz, 1, a)
-	obj.setoption("billboard", 3)
-	obj.load("figure", "円", color, 10)
-	local n = 20
-	for i = 0, n - 1 do
-		t = i / n
-		local x = ((1 - t) ^ 2) * xa + 2 * t * (1 - t) * sx + (t ^ 2) * xb
-		local y = ((1 - t) ^ 2) * ya + 2 * t * (1 - t) * sy + (t ^ 2) * yb
-		local z = ((1 - t) ^ 2) * za + 2 * t * (1 - t) * sz + (t ^ 2) * zb
-		obj.draw(x, y, z, 1, a)
-	end
+    local a = 0.5
+    obj.setoption("billboard", 3)
+    obj.load("figure", "円", color, 50)
+    obj.draw(xa, ya, za, 1, a)
+    obj.draw(xb, yb, zb, 1, a)
+    obj.setoption("billboard", 3)
+    obj.load("figure", "四角形", color, 50)
+    obj.draw(sx, sy, sz, 1, a)
+    obj.setoption("billboard", 3)
+    obj.load("figure", "円", color, 10)
+    local n = 20
+    for i = 0, n - 1 do
+        t = i / n
+        local x = ((1 - t) ^ 2) * xa + 2 * t * (1 - t) * sx + (t ^ 2) * xb
+        local y = ((1 - t) ^ 2) * ya + 2 * t * (1 - t) * sy + (t ^ 2) * yb
+        local z = ((1 - t) ^ 2) * za + 2 * t * (1 - t) * sz + (t ^ 2) * zb
+        obj.draw(x, y, z, 1, a)
+    end
 end

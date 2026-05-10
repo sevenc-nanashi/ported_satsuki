@@ -67,109 +67,109 @@ h = obj.h / zoom
 w = obj.w / zoom
 
 if t == 0 then
-	i = 0
+    i = 0
 elseif t < 0 then
-	i = (t + obj.totaltime - obj.time) / t
+    i = (t + obj.totaltime - obj.time) / t
 else
-	i = (t - obj.time) / t
+    i = (t - obj.time) / t
 end
 i = math.max(i, 0)
 
 if i < 6 / 9 then
-	obj.setoption("drawtarget", "tempbuffer", w, h)
-	obj.draw()
+    obj.setoption("drawtarget", "tempbuffer", w, h)
+    obj.draw()
 
-	--走査線の描画
-	if sou == 1 then
-		local sou_r = math.floor(sou_col / 0x10000) % 0x100 / 255
-		local sou_g = math.floor(sou_col / 0x100) % 0x100 / 255
-		local sou_b = sou_col % 0x100 / 255
-		obj.pixelshader("tv_on_off_scanline", "tempbuffer", "tempbuffer", {
-			l,
-			sou_alp / 100,
-			sou_r,
-			sou_g,
-			sou_b,
-		})
-	end
+    --走査線の描画
+    if sou == 1 then
+        local sou_r = math.floor(sou_col / 0x10000) % 0x100 / 255
+        local sou_g = math.floor(sou_col / 0x100) % 0x100 / 255
+        local sou_b = sou_col % 0x100 / 255
+        obj.pixelshader("tv_on_off_scanline", "tempbuffer", "tempbuffer", {
+            l,
+            sou_alp / 100,
+            sou_r,
+            sou_g,
+            sou_b,
+        })
+    end
 
-	obj.setoption("blend", "none")
-	--横影の描画
-	if kage == 1 then
-		obj.load("figure", "四角形", 0x000000, w)
-		obj.effect("斜めクリッピング", "幅", kage_haba, "ぼかし", 20)
-		obj.draw(0, h / 2 - (kage_v * obj.time) % (h + 80 * 2), 0, 1, 0.4)
-	end
+    obj.setoption("blend", "none")
+    --横影の描画
+    if kage == 1 then
+        obj.load("figure", "四角形", 0x000000, w)
+        obj.effect("斜めクリッピング", "幅", kage_haba, "ぼかし", 20)
+        obj.draw(0, h / 2 - (kage_v * obj.time) % (h + 80 * 2), 0, 1, 0.4)
+    end
 
-	--縁の描画
-	if edg == 1 then
-		ss = 50
-		obj.load("figure", "四角形", 0x000000, ss * 2)
-		obj.effect("マスク", "マスクの種類", "円", "サイズ", ss, "マスクの反転", 1)
-		obj.effect("ぼかし", "範囲", 10, "サイズ固定", 1)
-		w = w * ensize / 100
-		h = h * ensize / 100
-		if as == 0 then
-			h = w
-		end
-		obj.drawpoly(
-			-w / 2,
-			-h / 2,
-			0,
-			w / 2,
-			-h / 2,
-			0,
-			w / 2,
-			h / 2,
-			0,
-			-w / 2,
-			h / 2,
-			0,
-			ss / 2,
-			ss / 2,
-			ss * 3 / 2,
-			ss / 2,
-			ss * 3 / 2,
-			ss * 3 / 2,
-			ss / 2,
-			ss * 3 / 2
-		)
-	end
+    --縁の描画
+    if edg == 1 then
+        ss = 50
+        obj.load("figure", "四角形", 0x000000, ss * 2)
+        obj.effect("マスク", "マスクの種類", "円", "サイズ", ss, "マスクの反転", 1)
+        obj.effect("ぼかし", "範囲", 10, "サイズ固定", 1)
+        w = w * ensize / 100
+        h = h * ensize / 100
+        if as == 0 then
+            h = w
+        end
+        obj.drawpoly(
+            -w / 2,
+            -h / 2,
+            0,
+            w / 2,
+            -h / 2,
+            0,
+            w / 2,
+            h / 2,
+            0,
+            -w / 2,
+            h / 2,
+            0,
+            ss / 2,
+            ss / 2,
+            ss * 3 / 2,
+            ss / 2,
+            ss * 3 / 2,
+            ss * 3 / 2,
+            ss / 2,
+            ss * 3 / 2
+        )
+    end
 
-	--全体を描画
-	obj.load("tempbuffer")
+    --全体を描画
+    obj.load("tempbuffer")
 
-	--登場・退場時のモーション
-	function HNK(i, sti, edi, stval, edval)
-		val = stval + (edval - stval) * (sti - i) / (sti - edi)
-		return val
-	end
+    --登場・退場時のモーション
+    function HNK(i, sti, edi, stval, edval)
+        val = stval + (edval - stval) * (sti - i) / (sti - edi)
+        return val
+    end
 
-	if i > 0 then
-		if i > 5 / 9 then
-			xscale = HNK(i, 6 / 9, 5 / 9, 0.7, 0.3)
-			yscale = HNK(i, 6 / 9, 5 / 9, 0.35, 1)
-			obj.effect("色調補正", "明るさ", HNK(i, 6 / 9, 5 / 9, 150, 120))
-		elseif i > 3 / 9 then
-			xscale = HNK(i, 5 / 9, 3 / 9, 0.3, 0.6)
-			yscale = HNK(i, 5 / 9, 3 / 9, 1, 0.6)
-			obj.effect("色調補正", "明るさ", HNK(i, 5 / 9, 3 / 9, 120, 100))
-		elseif i > 0 then
-			xscale = HNK(i, 3 / 9, 0, 0.6, 0.8)
-			yscale = HNK(i, 3 / 9, 0, 0.6, 1)
-		end
+    if i > 0 then
+        if i > 5 / 9 then
+            xscale = HNK(i, 6 / 9, 5 / 9, 0.7, 0.3)
+            yscale = HNK(i, 6 / 9, 5 / 9, 0.35, 1)
+            obj.effect("色調補正", "明るさ", HNK(i, 6 / 9, 5 / 9, 150, 120))
+        elseif i > 3 / 9 then
+            xscale = HNK(i, 5 / 9, 3 / 9, 0.3, 0.6)
+            yscale = HNK(i, 5 / 9, 3 / 9, 1, 0.6)
+            obj.effect("色調補正", "明るさ", HNK(i, 5 / 9, 3 / 9, 120, 100))
+        elseif i > 0 then
+            xscale = HNK(i, 3 / 9, 0, 0.6, 0.8)
+            yscale = HNK(i, 3 / 9, 0, 0.6, 1)
+        end
 
-		obj.zoom = math.max(xscale, yscale)
-		if xscale > yscale then
-			obj.aspect = obj.aspect + yscale / xscale - 1
-		else
-			obj.aspect = obj.aspect + 1 - xscale / yscale
-		end
-	end
+        obj.zoom = math.max(xscale, yscale)
+        if xscale > yscale then
+            obj.aspect = obj.aspect + yscale / xscale - 1
+        else
+            obj.aspect = obj.aspect + 1 - xscale / yscale
+        end
+    end
 else
-	--白線の描画
-	obj.load("figure", "四角形", 0xffffff, w)
-	obj.effect("斜めクリッピング", "幅", senhaba, "ぼかし", 0)
-	obj.effect("斜めクリッピング", "角度", 90, "幅", 10 + w * (1 - i) * 9 / 4, "ぼかし", 50)
-	obj.draw()
+    --白線の描画
+    obj.load("figure", "四角形", 0xffffff, w)
+    obj.effect("斜めクリッピング", "幅", senhaba, "ぼかし", 0)
+    obj.effect("斜めクリッピング", "角度", 90, "幅", 10 + w * (1 - i) * 9 / 4, "ぼかし", 50)
+    obj.draw()
 end

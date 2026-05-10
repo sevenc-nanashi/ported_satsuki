@@ -35,50 +35,50 @@ obj.load("figure", "四角形", 0xffffff, 2)
 
 --上
 if dir1 == 1 then
-	for i = -1, n do
-		x0 = -w / 2 + lw * 2 * i + offs
-		y0 = -h / 2
-		x1 = -w / 2 + lw * 2 * i + lw * 2 + offs
-		x2 = -w / 2 + lw * 2 * i + lw + offs
-		y2 = -h / 2 + lh
-		obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
-	end
+    for i = -1, n do
+        x0 = -w / 2 + lw * 2 * i + offs
+        y0 = -h / 2
+        x1 = -w / 2 + lw * 2 * i + lw * 2 + offs
+        x2 = -w / 2 + lw * 2 * i + lw + offs
+        y2 = -h / 2 + lh
+        obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
+    end
 end
 
 --下
 if dir2 == 1 then
-	for i = -1, n do
-		x0 = w / 2 - lw * 2 * i - offs
-		y0 = h / 2
-		x1 = w / 2 - lw * 2 * i - lw * 2 - offs
-		x2 = w / 2 - lw * 2 * i - lw - offs
-		y2 = h / 2 - lh
-		obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
-	end
+    for i = -1, n do
+        x0 = w / 2 - lw * 2 * i - offs
+        y0 = h / 2
+        x1 = w / 2 - lw * 2 * i - lw * 2 - offs
+        x2 = w / 2 - lw * 2 * i - lw - offs
+        y2 = h / 2 - lh
+        obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
+    end
 end
 
 --左
 if dir3 == 1 then
-	for i = -1, n do
-		x0 = -w / 2
-		y0 = -h / 2 + lw * 2 * i - offs
-		y1 = -h / 2 + lw * 2 + lw * 2 * i - offs
-		x2 = -w / 2 + lh
-		y2 = -h / 2 + lw + lw * 2 * i - offs
-		obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
-	end
+    for i = -1, n do
+        x0 = -w / 2
+        y0 = -h / 2 + lw * 2 * i - offs
+        y1 = -h / 2 + lw * 2 + lw * 2 * i - offs
+        x2 = -w / 2 + lh
+        y2 = -h / 2 + lw + lw * 2 * i - offs
+        obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
+    end
 end
 
 --右
 if dir4 == 1 then
-	for i = -1, n do
-		x0 = w / 2
-		y0 = h / 2 - lw * 2 * i + offs
-		y1 = h / 2 - lw * 2 - lw * 2 * i + offs
-		x2 = w / 2 - lh
-		y2 = h / 2 - lw - lw * 2 * i + offs
-		obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
-	end
+    for i = -1, n do
+        x0 = w / 2
+        y0 = h / 2 - lw * 2 * i + offs
+        y1 = h / 2 - lw * 2 - lw * 2 * i + offs
+        x2 = w / 2 - lh
+        y2 = h / 2 - lw - lw * 2 * i + offs
+        obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
+    end
 end
 
 obj.load("tempbuffer")

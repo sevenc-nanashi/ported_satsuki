@@ -25,32 +25,32 @@ local large_circle_alpha = 1
 
 local large_circle_progress
 if entrance_duration < 0 then
-	large_circle_progress = (entrance_duration - obj.time + obj.totaltime) / entrance_duration
+    large_circle_progress = (entrance_duration - obj.time + obj.totaltime) / entrance_duration
 else
-	large_circle_progress = (entrance_duration - obj.time) / entrance_duration
+    large_circle_progress = (entrance_duration - obj.time) / entrance_duration
 end
 
 if large_circle_progress > 0 then
-	if large_circle_progress > 1 then
-		large_circle_progress = 1
-		large_circle_alpha = 0
-	end
+    if large_circle_progress > 1 then
+        large_circle_progress = 1
+        large_circle_alpha = 0
+    end
 else
-	large_circle_progress = 0
+    large_circle_progress = 0
 end
 large_circle_progress = large_circle_progress * large_circle_progress
 
 obj.load("figure", "円", color, size * 1.005, 3)
 obj.effect()
 obj.draw(
-	0,
-	0,
-	0,
-	1 - 0.75 * large_circle_progress,
-	large_circle_alpha,
-	-180 * large_circle_progress,
-	-180 * large_circle_progress,
-	0
+    0,
+    0,
+    0,
+    1 - 0.75 * large_circle_progress,
+    large_circle_alpha,
+    -180 * large_circle_progress,
+    -180 * large_circle_progress,
+    0
 )
 obj.load("figure", "円", color, size * 3 / 4 * 1.015, 2)
 obj.effect()
@@ -58,26 +58,26 @@ obj.draw(0, 0, 0, 1 - 0.65 * large_circle_progress, large_circle_alpha, -180 * l
 obj.load("figure", "円", color, size * 0.53, 2)
 obj.effect()
 obj.draw(
-	0,
-	0,
-	0,
-	1 - 0.75 * large_circle_progress,
-	large_circle_alpha,
-	-360 * large_circle_progress,
-	-360 * large_circle_progress,
-	0
+    0,
+    0,
+    0,
+    1 - 0.75 * large_circle_progress,
+    large_circle_alpha,
+    -360 * large_circle_progress,
+    -360 * large_circle_progress,
+    0
 )
 obj.load("figure", "円", color, size * 0.4, 2)
 obj.effect()
 obj.draw(
-	0,
-	0,
-	0,
-	1 - 0.5 * large_circle_progress,
-	large_circle_alpha,
-	-180 * large_circle_progress,
-	-360 * large_circle_progress,
-	0
+    0,
+    0,
+    0,
+    1 - 0.5 * large_circle_progress,
+    large_circle_alpha,
+    -180 * large_circle_progress,
+    -360 * large_circle_progress,
+    0
 )
 
 --四角形
@@ -85,20 +85,20 @@ local square_alpha = 1
 
 local square_progress
 if entrance_duration < 0 then
-	square_progress = (entrance_duration / 4 - obj.time + obj.totaltime + entrance_duration * 0.9)
-		/ entrance_duration
-		* 4
+    square_progress = (entrance_duration / 4 - obj.time + obj.totaltime + entrance_duration * 0.9)
+        / entrance_duration
+        * 4
 else
-	square_progress = (entrance_duration / 4 - obj.time + entrance_duration * 0.9) / entrance_duration * 4
+    square_progress = (entrance_duration / 4 - obj.time + entrance_duration * 0.9) / entrance_duration * 4
 end
 
 if square_progress > 0 then
-	if square_progress > 1 then
-		square_progress = 1
-		square_alpha = 0
-	end
+    if square_progress > 1 then
+        square_progress = 1
+        square_alpha = 0
+    end
 else
-	square_progress = 0
+    square_progress = 0
 end
 square_progress = square_progress * square_progress
 
@@ -114,20 +114,20 @@ local small_circle_alpha = 1
 
 local small_circle_progress
 if entrance_duration < 0 then
-	small_circle_progress = (entrance_duration / 2 - obj.time + obj.totaltime + entrance_duration)
-		/ entrance_duration
-		* 2
+    small_circle_progress = (entrance_duration / 2 - obj.time + obj.totaltime + entrance_duration)
+        / entrance_duration
+        * 2
 else
-	small_circle_progress = (entrance_duration / 2 - obj.time + entrance_duration) / entrance_duration * 2
+    small_circle_progress = (entrance_duration / 2 - obj.time + entrance_duration) / entrance_duration * 2
 end
 
 if small_circle_progress > 0 then
-	if small_circle_progress > 1 then
-		small_circle_progress = 1
-		small_circle_alpha = 0
-	end
+    if small_circle_progress > 1 then
+        small_circle_progress = 1
+        small_circle_alpha = 0
+    end
 else
-	small_circle_progress = 0
+    small_circle_progress = 0
 end
 small_circle_progress = small_circle_progress * small_circle_progress
 
@@ -142,31 +142,31 @@ obj.load("figure", "円", color, size / 8, 2)
 obj.effect()
 obj.effect("放射ブラー", "範囲", radial_blur * small_circle_progress)
 obj.draw(
-	small_circle_y,
-	-small_circle_x,
-	0,
-	1 + small_circle_progress,
-	small_circle_alpha * (1 - small_circle_progress)
+    small_circle_y,
+    -small_circle_x,
+    0,
+    1 + small_circle_progress,
+    small_circle_alpha * (1 - small_circle_progress)
 )
 obj.load("figure", "円", color, size / 8, 2)
 obj.effect()
 obj.effect("放射ブラー", "範囲", radial_blur * small_circle_progress)
 obj.draw(
-	-small_circle_x,
-	-small_circle_y,
-	0,
-	1 + small_circle_progress,
-	small_circle_alpha * (1 - small_circle_progress)
+    -small_circle_x,
+    -small_circle_y,
+    0,
+    1 + small_circle_progress,
+    small_circle_alpha * (1 - small_circle_progress)
 )
 obj.load("figure", "円", color, size / 8, 2)
 obj.effect()
 obj.effect("放射ブラー", "範囲", radial_blur * small_circle_progress)
 obj.draw(
-	-small_circle_y,
-	small_circle_x,
-	0,
-	1 + small_circle_progress,
-	small_circle_alpha * (1 - small_circle_progress)
+    -small_circle_y,
+    small_circle_x,
+    0,
+    1 + small_circle_progress,
+    small_circle_alpha * (1 - small_circle_progress)
 )
 
 S_MAGI_rotation = rotation

@@ -24,9 +24,9 @@ obj.draw()
 obj.load("figure", "四角形", color, size / 2 * 0.9 * math.sqrt(2) * 0.99, 2)
 obj.effect()
 for j = 0, 1 do
-	for i = 0, 1 do
-		obj.draw(0, 0, 0, square_adjust / 100, 1, 0, 0, rotation * (1 - 2 * j) + 45 * i)
-	end
+    for i = 0, 1 do
+        obj.draw(0, 0, 0, square_adjust / 100, 1, 0, 0, rotation * (1 - 2 * j) + 45 * i)
+    end
 end
 
 S_MAGI_rotation = rotation

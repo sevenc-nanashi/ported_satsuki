@@ -69,23 +69,23 @@ obj.setoption("drawtarget", "tempbuffer", w, h)
 
 --背景色
 if col2 ~= nil then
-  obj.load("figure", "四角形", col2, 2)
-  obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
+    obj.load("figure", "四角形", col2, 2)
+    obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
 end
 
 --光
 local polygons = {}
 for i = 0, div - 1 do
-  local a = i / div
-  local b = a + 1 / div * val
-  local sr = r - 360 / div * val / 2 - 90
-  local x1 = cx + l * math.cos(math.rad(sr + 360 * a))
-  local y1 = cy + l * math.sin(math.rad(sr + 360 * a))
-  local x2 = cx + l * math.cos(math.rad(sr + 360 * (a + b) / 2))
-  local y2 = cy + l * math.sin(math.rad(sr + 360 * (a + b) / 2))
-  local x3 = cx + l * math.cos(math.rad(sr + 360 * b))
-  local y3 = cy + l * math.sin(math.rad(sr + 360 * b))
-  table.insert(polygons, { x1, y1, 0, x2, y2, 0, x3, y3, 0, cx, cy, 0, 0, 0, 1, 0, 1, 1, 0, 1 })
+    local a = i / div
+    local b = a + 1 / div * val
+    local sr = r - 360 / div * val / 2 - 90
+    local x1 = cx + l * math.cos(math.rad(sr + 360 * a))
+    local y1 = cy + l * math.sin(math.rad(sr + 360 * a))
+    local x2 = cx + l * math.cos(math.rad(sr + 360 * (a + b) / 2))
+    local y2 = cy + l * math.sin(math.rad(sr + 360 * (a + b) / 2))
+    local x3 = cx + l * math.cos(math.rad(sr + 360 * b))
+    local y3 = cy + l * math.sin(math.rad(sr + 360 * b))
+    table.insert(polygons, { x1, y1, 0, x2, y2, 0, x3, y3, 0, cx, cy, 0, 0, 0, 1, 0, 1, 1, 0, 1 })
 end
 obj.load("figure", "四角形", col, 2)
 obj.drawpoly(polygons)

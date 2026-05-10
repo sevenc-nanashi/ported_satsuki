@@ -22,9 +22,9 @@ v = track1 / 100
 l = track3 / 100
 tt = obj.load(file)
 for i = 0, n - 1 do
-	x = obj.rand(-obj.screen_w, obj.screen_w, i, 0) / 2 * l
-	y = obj.rand(-obj.screen_h, obj.screen_h, i, 1) / 2 * l
-	obj.load(file, (f + tt * i / n + obj.time * v) % tt)
-	obj.effect()
-	obj.draw(x, y, 0, 1, 1, 0, 0, obj.rand(0, 360, i, 2))
+    x = obj.rand(-obj.screen_w, obj.screen_w, i, 0) / 2 * l
+    y = obj.rand(-obj.screen_h, obj.screen_h, i, 1) / 2 * l
+    obj.load(file, (f + tt * i / n + obj.time * v) % tt)
+    obj.effect()
+    obj.draw(x, y, 0, 1, 1, 0, 0, obj.rand(0, 360, i, 2))
 end

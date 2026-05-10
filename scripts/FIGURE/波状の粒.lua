@@ -39,8 +39,8 @@ f = obj.time / fs * 1000
 k = obj.rand(0, wmax, 1, math.floor(f))
 l = obj.rand(0, lmax, 0, math.floor(f))
 for i = -n, n - 1 do
-	x = 5 * i
-	y = math.sin(math.pi * k * i / 180) * l * (1 + math.abs(i / 100 * pl / 100))
-	obj.draw(x, y)
+    x = 5 * i
+    y = math.sin(math.pi * k * i / 180) * l * (1 + math.abs(i / 100 * pl / 100))
+    obj.draw(x, y)
 end
 obj.load("tempbuffer")

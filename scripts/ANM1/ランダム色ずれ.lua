@@ -35,25 +35,25 @@ local br = 0
 
 l = rand(0, 100)
 if l > track3 then
-	w = obj.rand(0, track1)
+    w = obj.rand(0, track1)
 elseif l > track2 then
-	w = obj.rand(0, track0)
+    w = obj.rand(0, track0)
 else
-	w = 0
+    w = 0
 end
 if dir2 == 0 then
-	if dir0 == 1 and dir1 == 0 then
-		dir = 90
-	elseif dir0 == 0 and dir1 == 1 then
-		dir = 0
-	else
-		dir = 90 * (1 - math.floor(obj.rand(0, 199) / 100))
-	end
+    if dir0 == 1 and dir1 == 0 then
+        dir = 90
+    elseif dir0 == 0 and dir1 == 1 then
+        dir = 0
+    else
+        dir = 90 * (1 - math.floor(obj.rand(0, 199) / 100))
+    end
 else
-	dir = obj.rand(0, 360)
+    dir = obj.rand(0, 360)
 end
 if rty == 1 then
-	ty = math.floor(obj.rand(0, 299) / 100)
+    ty = math.floor(obj.rand(0, 299) / 100)
 end
 obj.effect("方向ブラー", "範囲", w * br / 100, "角度", dir)
 obj.effect("色ずれ", "ずれ幅", w, "角度", dir, "type", ty)

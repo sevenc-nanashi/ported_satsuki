@@ -24,6 +24,6 @@ obj.oy = -math.cos(r * math.pi / 180) * track0 * track1 / 100
 obj.zoom = obj.zoom * track1 / 100
 obj.rz = 360 * obj.index / (obj.num + track3) + track2
 if __rename_me_check0 then
-	obj.ox = -obj.ox
-	obj.rz = -obj.rz - 180
+    obj.ox = -obj.ox
+    obj.rz = -obj.rz - 180
 end

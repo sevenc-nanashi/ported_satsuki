@@ -56,9 +56,9 @@ local l = size / 2 - haba / 2
 local rr = math.rad(r - r * cc / 360)
 local cl
 if fig == "三角形" then
-  cl = hds * math.sin(math.rad(30)) / 2 - 1
+    cl = hds * math.sin(math.rad(30)) / 2 - 1
 else
-  cl = 0
+    cl = 0
 end
 local x = math.sin(rr) * l + math.cos(rr) * cl
 local y = -math.cos(rr) * l + math.sin(rr) * cl
@@ -66,15 +66,15 @@ obj.draw(x, y, 0, 1, 1, 0, 0, 90 + r * (1 - cc / 360))
 
 --終点図形
 if siri then
-  local rr2 = math.rad(-r * cc / 360)
-  if fig == "三角形" then
-    cl = hds * math.sin(math.rad(30)) / 2 - 1
-  else
-    cl = 0
-  end
-  x = math.sin(rr2) * l - math.cos(rr2) * cl
-  y = -math.cos(rr2) * l - math.sin(rr2) * cl
-  obj.draw(x, y, 0, 1, 1, 0, 0, -90 - r * cc / 360)
+    local rr2 = math.rad(-r * cc / 360)
+    if fig == "三角形" then
+        cl = hds * math.sin(math.rad(30)) / 2 - 1
+    else
+        cl = 0
+    end
+    x = math.sin(rr2) * l - math.cos(rr2) * cl
+    y = -math.cos(rr2) * l - math.sin(rr2) * cl
+    obj.draw(x, y, 0, 1, 1, 0, 0, -90 - r * cc / 360)
 end
 
 --仮想バッファから読み込み

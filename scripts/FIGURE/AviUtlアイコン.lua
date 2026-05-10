@@ -25,62 +25,62 @@ table.insert(polygons, { s * 17, -s * 24, 0, s * 15, -s * 24, 0, s * 15, s * 24,
 table.insert(polygons, { -s * 16, -s * 15, 0, s * 16, -s * 15, 0, s * 16, -s * 13, 0, -s * 16, -s * 13, 0 })
 table.insert(polygons, { -s * 16, s * 12, 0, s * 16, s * 12, 0, s * 16, s * 14, 0, -s * 16, s * 14, 0 })
 for i = -1, 7 do
-  table.insert(polygons, {
-    -s * 21,
-    -s * 21 + s * 6 * i,
-    0,
-    -s * 18,
-    -s * 21 + s * 6 * i,
-    0,
-    -s * 18,
-    -s * 17 + s * 6 * i,
-    0,
-    -s * 21,
-    -s * 17 + s * 6 * i,
-    0
-  })
+    table.insert(polygons, {
+        -s * 21,
+        -s * 21 + s * 6 * i,
+        0,
+        -s * 18,
+        -s * 21 + s * 6 * i,
+        0,
+        -s * 18,
+        -s * 17 + s * 6 * i,
+        0,
+        -s * 21,
+        -s * 17 + s * 6 * i,
+        0,
+    })
 end
 for i = -1, 7 do
-  table.insert(polygons, {
-    s * 21,
-    -s * 21 + s * 6 * i,
-    0,
-    s * 18,
-    -s * 21 + s * 6 * i,
-    0,
-    s * 18,
-    -s * 17 + s * 6 * i,
-    0,
-    s * 21,
-    -s * 17 + s * 6 * i,
-    0
-  })
+    table.insert(polygons, {
+        s * 21,
+        -s * 21 + s * 6 * i,
+        0,
+        s * 18,
+        -s * 21 + s * 6 * i,
+        0,
+        s * 18,
+        -s * 17 + s * 6 * i,
+        0,
+        s * 21,
+        -s * 17 + s * 6 * i,
+        0,
+    })
 end
 
 local polygons2 = {}
 for _, polygon in ipairs(polygons) do
-  table.insert(polygons2, {
-    polygon[1],
-    polygon[2],
-    polygon[3],
-    polygon[4],
-    polygon[5],
-    polygon[6],
-    polygon[7],
-    polygon[8],
-    polygon[9],
-    polygon[10],
-    polygon[11],
-    polygon[12],
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    0
-  })
+    table.insert(polygons2, {
+        polygon[1],
+        polygon[2],
+        polygon[3],
+        polygon[4],
+        polygon[5],
+        polygon[6],
+        polygon[7],
+        polygon[8],
+        polygon[9],
+        polygon[10],
+        polygon[11],
+        polygon[12],
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+    })
 end
 obj.drawpoly(polygons2)
 obj.load("tempbuffer")

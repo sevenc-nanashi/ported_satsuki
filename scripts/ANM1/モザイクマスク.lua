@@ -23,16 +23,16 @@ obj.load("figure", "四角形", 0xffffff, s)
 obj.setoption("dst", "tmp")
 obj.setoption("blend", "alpha_sub")
 for j = -ny, ny do
-	y = j * s
-	for i = -nx, nx do
-		x = i * s
-		ran = obj.rand(1, 100, nx + i + ransu * 3, ny + j + ransu * 7)
-		if ran > siki then
-			alp = 1
-		else
-			alp = 0
-		end
-		obj.draw(x, y, 0, 1, alp)
-	end
+    y = j * s
+    for i = -nx, nx do
+        x = i * s
+        ran = obj.rand(1, 100, nx + i + ransu * 3, ny + j + ransu * 7)
+        if ran > siki then
+            alp = 1
+        else
+            alp = 0
+        end
+        obj.draw(x, y, 0, 1, alp)
+    end
 end
 obj.load("tempbuffer")

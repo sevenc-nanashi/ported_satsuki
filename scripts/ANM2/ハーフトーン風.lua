@@ -67,24 +67,24 @@ local draw_col = use_source_color and 0xffffff or col
 obj.copybuffer("cache:original", "object")
 obj.setoption("drawtarget", "tempbuffer", s, s)
 if tex < 1 then
-	obj.load("figure", fig, draw_col, s)
+    obj.load("figure", fig, draw_col, s)
 else
-	obj.setfont(font, s, 0, draw_col)
-	obj.load("text", text)
+    obj.setfont(font, s, 0, draw_col)
+    obj.load("text", text)
 end
 obj.draw()
 obj.copybuffer("cache:figure", "tempbuffer")
 obj.copybuffer("object", "cache:original")
 obj.setoption("drawtarget", "framebuffer")
 obj.pixelshader("halftone", "object", { "object", "cache:figure" }, {
-	s,
-	si,
-	sia,
-	nt,
-	nta,
-	ss / 100,
-	math.rad(rr),
-	w,
-	h,
-	use_source_color and 1 or 0,
+    s,
+    si,
+    sia,
+    nt,
+    nta,
+    ss / 100,
+    math.rad(rr),
+    w,
+    h,
+    use_source_color and 1 or 0,
 })

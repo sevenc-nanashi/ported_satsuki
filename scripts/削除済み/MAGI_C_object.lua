@@ -28,17 +28,17 @@ obj.draw()
 
 local entrance_progress
 if entrance_duration < 0 then
-	entrance_progress = (entrance_duration - obj.time + obj.totaltime) / entrance_duration
+    entrance_progress = (entrance_duration - obj.time + obj.totaltime) / entrance_duration
 else
-	entrance_progress = (entrance_duration - obj.time) / entrance_duration
+    entrance_progress = (entrance_duration - obj.time) / entrance_duration
 end
 
 if entrance_progress > 0 then
-	if entrance_progress > 1 then
-		entrance_progress = 1
-	end
+    if entrance_progress > 1 then
+        entrance_progress = 1
+    end
 else
-	entrance_progress = 0
+    entrance_progress = 0
 end
 entrance_progress = entrance_progress * entrance_progress
 
@@ -49,7 +49,7 @@ obj.load("figure", "四角形", color, pentagon_size)
 obj.effect("クリッピング", "上", clip_top - 1, "下", clip_bottom - 2, "右", pentagon_size * entrance_progress)
 obj.effect()
 for j = 0, 1 do
-	for i = 0, 4 do
-		obj.draw(0, 0, 0, triangle_adjust / 100, 1, 0, 0, rotation * (1 - 2 * j) + 72 * i)
-	end
+    for i = 0, 4 do
+        obj.draw(0, 0, 0, triangle_adjust / 100, 1, 0, 0, rotation * (1 - 2 * j) + 72 * i)
+    end
 end

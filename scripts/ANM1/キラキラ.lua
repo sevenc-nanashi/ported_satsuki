@@ -48,21 +48,21 @@ local ran = 0
 obj.effect()
 v = l / track2 --距離を進むのにかかる時間
 for i = 0, n - 1 do
-	t = math.max((v - obj.time) / v, 0)
-	t = t ^ beki
-	x = (l * (1 - t) + obj.rand(0, sl, i, ran))
-		* math.cos(obj.rand(0, 360, i, ran) * math.pi / 180)
-		* obj.rand(100 - v_ran, 100, i, 1 + ran)
-		/ 100
-	y = (l * (1 - t) + obj.rand(0, sl, i, ran))
-		* math.sin(obj.rand(0, 360, i, ran) * math.pi / 180)
-		* obj.rand(100 - v_ran, 100, i, 1 + ran)
-		/ 100
-	zoom = 1 + sv / 100 * (1 - t) - obj.rand(0, s_ran, i, 10 + ran) / 100
-	alpha = 1 - av / 100 * (1 - t)
-	rz = obj.rand(0, 360, i, 6 + ran) * rz_ran + obj.rand(-rzv_ran / 2, rzv_ran / 2, i, 9 + ran) * obj.time
-	if zero == 1 and t == 0 then
-		alpha = 0
-	end
-	obj.draw(x, y, 0, zoom, alpha, 0, 0, rz)
+    t = math.max((v - obj.time) / v, 0)
+    t = t ^ beki
+    x = (l * (1 - t) + obj.rand(0, sl, i, ran))
+        * math.cos(obj.rand(0, 360, i, ran) * math.pi / 180)
+        * obj.rand(100 - v_ran, 100, i, 1 + ran)
+        / 100
+    y = (l * (1 - t) + obj.rand(0, sl, i, ran))
+        * math.sin(obj.rand(0, 360, i, ran) * math.pi / 180)
+        * obj.rand(100 - v_ran, 100, i, 1 + ran)
+        / 100
+    zoom = 1 + sv / 100 * (1 - t) - obj.rand(0, s_ran, i, 10 + ran) / 100
+    alpha = 1 - av / 100 * (1 - t)
+    rz = obj.rand(0, 360, i, 6 + ran) * rz_ran + obj.rand(-rzv_ran / 2, rzv_ran / 2, i, 9 + ran) * obj.time
+    if zero == 1 and t == 0 then
+        alpha = 0
+    end
+    obj.draw(x, y, 0, zoom, alpha, 0, 0, rz)
 end

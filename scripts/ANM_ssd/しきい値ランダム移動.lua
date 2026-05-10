@@ -6,8 +6,8 @@ local st = obj.getpoint(index)
 local ed = obj.getpoint(index + 1)
 local ra = math.random(100)
 if ra >= obj.getpoint("param") then
-	val_r = st
+    val_r = st
 else
-	val_r = st + (ed - st) * math.random(100) / 100
+    val_r = st + (ed - st) * math.random(100) / 100
 end
 return val_r

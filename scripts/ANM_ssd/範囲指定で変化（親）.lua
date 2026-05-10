@@ -65,6 +65,6 @@ obj.draw(0, 0, 0, 1, track2)
 
 --範囲表示
 if track3 == 1 then
-	obj.load("figure", "円", 0xff0000, h_sz * 2, h_hb)
-	obj.draw(0, 0, 0, 100 / obj.getvalue("zoom"), 0.5)
+    obj.load("figure", "円", 0xff0000, h_sz * 2, h_hb)
+    obj.draw(0, 0, 0, 100 / obj.getvalue("zoom"), 0.5)
 end

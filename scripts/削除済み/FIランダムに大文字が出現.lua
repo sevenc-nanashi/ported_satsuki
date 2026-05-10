@@ -31,47 +31,47 @@ local col2 = 0x000000
 local type = 0
 
 local word = {
-	"A",
-	"B",
-	"C",
-	"D",
-	"E",
-	"F",
-	"G",
-	"H",
-	"I",
-	"J",
-	"K",
-	"L",
-	"M",
-	"N",
-	"O",
-	"P",
-	"Q",
-	"R",
-	"S",
-	"T",
-	"U",
-	"V",
-	"W",
-	"X",
-	"Y",
-	"Z",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
 }
 local n = obj.totaltime / interval
 for i = 0, n do
-	obj.setfont(font, size, type, col1, col2)
-	obj.load("text", word[obj.rand(1, #word, i, 0)])
-	local t = (duration - obj.time + i * interval) / duration
-	if t > 0 then
-		if t > 1 then
-			obj.alpha = 0
-			t = 1
-		end
-	else
-		t = 0
-	end
-	local x = rand(-obj.screen_w / 2, obj.screen_w / 2, i, 0)
-	local y = rand(-obj.screen_h / 2, obj.screen_h / 2, i, 0)
-	obj.draw(x, y, 0, 1 - t, t, 0, 0, obj.rand(0, 360, 0, i))
+    obj.setfont(font, size, type, col1, col2)
+    obj.load("text", word[obj.rand(1, #word, i, 0)])
+    local t = (duration - obj.time + i * interval) / duration
+    if t > 0 then
+        if t > 1 then
+            obj.alpha = 0
+            t = 1
+        end
+    else
+        t = 0
+    end
+    local x = rand(-obj.screen_w / 2, obj.screen_w / 2, i, 0)
+    local y = rand(-obj.screen_h / 2, obj.screen_h / 2, i, 0)
+    obj.draw(x, y, 0, 1 - t, t, 0, 0, obj.rand(0, 360, 0, i))
 end

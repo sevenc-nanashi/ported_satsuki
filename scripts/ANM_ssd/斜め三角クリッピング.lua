@@ -51,12 +51,12 @@ obj.drawpoly(X0, Y0, 0, X1, Y1, 0, X2, Y2, 0, X3, Y3, 0)
 --三角クリッピング
 n = math.floor(lmax / lw) + 1
 for i = -n, n do
-	x0 = cx + math.cos(r2) * lw * i + offs * math.cos(r2)
-	y0 = cy + math.sin(r2) * lw * i + offs * math.sin(r2)
-	x1 = cx + math.cos(r1) * l1 + math.cos(r2) * lw * i + offs * math.cos(r2)
-	y1 = cy + math.sin(r1) * l1 + math.sin(r2) * lw * i + offs * math.sin(r2)
-	x2 = cx + math.cos(r2) * lw + math.cos(r2) * lw * i + offs * math.cos(r2)
-	y2 = cy + math.sin(r2) * lw + math.sin(r2) * lw * i + offs * math.sin(r2)
-	obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x0, y0, 0)
+    x0 = cx + math.cos(r2) * lw * i + offs * math.cos(r2)
+    y0 = cy + math.sin(r2) * lw * i + offs * math.sin(r2)
+    x1 = cx + math.cos(r1) * l1 + math.cos(r2) * lw * i + offs * math.cos(r2)
+    y1 = cy + math.sin(r1) * l1 + math.sin(r2) * lw * i + offs * math.sin(r2)
+    x2 = cx + math.cos(r2) * lw + math.cos(r2) * lw * i + offs * math.cos(r2)
+    y2 = cy + math.sin(r2) * lw + math.sin(r2) * lw * i + offs * math.sin(r2)
+    obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x0, y0, 0)
 end
 obj.load("tempbuffer")

@@ -19,19 +19,19 @@ local __rename_me_check0 = false
 obj.effect()
 
 if __rename_me_check0 then
-	otm_j = obj.time / obj.totaltime
+    otm_j = obj.time / obj.totaltime
 else
-	otm_j = track0 / 100
+    otm_j = track0 / 100
 end
 
 t = otm_j * (obj.totaltime + (obj.num - 1) * track1 / 100) - obj.index * track1 / 100
 
 if t < 0 then
-	t = 0
-	obj.alpha = 1 - track2
+    t = 0
+    obj.alpha = 1 - track2
 elseif t > obj.totaltime then
-	t = obj.totaltime
-	obj.alpha = 1 - track2
+    t = obj.totaltime
+    obj.alpha = 1 - track2
 end
 
 obj.ox = 0
@@ -53,25 +53,25 @@ cx = math.cos(r) * obj.w / 2
 sy = math.sin(r) * obj.h / 2
 cy = math.cos(r) * obj.h / 2
 obj.drawpoly(
-	x0 - cx - sy,
-	y0 + sx - cy,
-	0,
-	x0 + cx - sy,
-	y0 - sx - cy,
-	0,
-	x0 + cx + sy,
-	y0 - sx + cy,
-	0,
-	x0 - cx + sy,
-	y0 + sx + cy,
-	0,
-	0,
-	0,
-	obj.w,
-	0,
-	obj.w,
-	obj.h,
-	0,
-	obj.h
+    x0 - cx - sy,
+    y0 + sx - cy,
+    0,
+    x0 + cx - sy,
+    y0 - sx - cy,
+    0,
+    x0 + cx + sy,
+    y0 - sx + cy,
+    0,
+    x0 - cx + sy,
+    y0 + sx + cy,
+    0,
+    0,
+    0,
+    obj.w,
+    0,
+    obj.w,
+    obj.h,
+    0,
+    obj.h
 )
 obj.setoption("focus_mode", "fixed_size")

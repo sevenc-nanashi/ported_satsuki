@@ -26,14 +26,27 @@ obj.setoption("blend", "alpha_add")
 obj.setoption("drawtarget", "tempbuffer", tl, width)
 
 obj.load("figure", "四角形", color, 2)
-obj.drawpoly(tl / 2 - length, 0, 0, tl / 2, 0, 0, tl / 2 - width / 2 / math.tan(r), -width / 2, 0, -tl / 2, -width / 2, 0)
+obj.drawpoly(
+    tl / 2 - length,
+    0,
+    0,
+    tl / 2,
+    0,
+    0,
+    tl / 2 - width / 2 / math.tan(r),
+    -width / 2,
+    0,
+    -tl / 2,
+    -width / 2,
+    0
+)
 obj.drawpoly(tl / 2 - length, 0, 0, tl / 2, 0, 0, tl / 2 - width / 2 / math.tan(r), width / 2, 0, -tl / 2, width / 2, 0)
 
 obj.load("tempbuffer")
 
 --移動
 if movement ~= 0 then
-	local rz = math.rad(obj.getvalue("rz"))
-	obj.ox = obj.ox + movement * math.cos(rz)
-	obj.oy = obj.oy + movement * math.sin(rz)
+    local rz = math.rad(obj.getvalue("rz"))
+    obj.ox = obj.ox + movement * math.cos(rz)
+    obj.oy = obj.oy + movement * math.sin(rz)
 end

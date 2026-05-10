@@ -61,30 +61,30 @@ zi_ran = 0 --Z軸ランダム移動[未使用]
 
 n = obj.totaltime / b
 for i = 0, n - 1 do
-	c = (obj.rand(0, 100, i, 100) - 50) / 100
-	if c < 0 then
-		c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * -c) * 255)
-	else
-		c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * c) * 255) * 65536
-	end
-	obj.load("figure", name, c, f_size, f_line)
-	obj.effect()
-	t = (v - obj.time + i * b) / v
-	t = math.min(1, math.max(t, 0))
-	direct = obj.rand(dir - dir_ran / 2, dir + dir_ran / 2, i, 0)
-	x = l * math.cos(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-		+ obj.rand(-x_ran / 2, x_ran / 2, i, 1)
-	y = l * math.sin(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-		+ obj.rand(-y_ran / 2, y_ran / 2, i, 2)
-	z = obj.rand(-zi_ran / 2, zi_ran / 2, i, 11) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-		+ obj.rand(-z_ran / 2, z_ran / 2, i, 3)
-	zoom = 1 + sv / 100 * (1 - t) - obj.rand(0, s_ran, i, 10) / 100
-	alpha = 1 - av / 100 * (1 - t)
-	rx = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 4) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 7) * obj.time
-	ry = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 5) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 8) * obj.time
-	rz = obj.rand(-rz_ran / 2, rz_ran / 2, i, 6) + obj.rand(-rzv_ran / 2, rzv_ran / 2, i, 9) * obj.time
-	if t == 0 or t == 1 then
-		alpha = 0
-	end
-	obj.draw(x, y, z, zoom, alpha, rx, ry, rz)
+    c = (obj.rand(0, 100, i, 100) - 50) / 100
+    if c < 0 then
+        c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * -c) * 255)
+    else
+        c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * c) * 255) * 65536
+    end
+    obj.load("figure", name, c, f_size, f_line)
+    obj.effect()
+    t = (v - obj.time + i * b) / v
+    t = math.min(1, math.max(t, 0))
+    direct = obj.rand(dir - dir_ran / 2, dir + dir_ran / 2, i, 0)
+    x = l * math.cos(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
+        + obj.rand(-x_ran / 2, x_ran / 2, i, 1)
+    y = l * math.sin(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
+        + obj.rand(-y_ran / 2, y_ran / 2, i, 2)
+    z = obj.rand(-zi_ran / 2, zi_ran / 2, i, 11) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
+        + obj.rand(-z_ran / 2, z_ran / 2, i, 3)
+    zoom = 1 + sv / 100 * (1 - t) - obj.rand(0, s_ran, i, 10) / 100
+    alpha = 1 - av / 100 * (1 - t)
+    rx = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 4) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 7) * obj.time
+    ry = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 5) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 8) * obj.time
+    rz = obj.rand(-rz_ran / 2, rz_ran / 2, i, 6) + obj.rand(-rzv_ran / 2, rzv_ran / 2, i, 9) * obj.time
+    if t == 0 or t == 1 then
+        alpha = 0
+    end
+    obj.draw(x, y, z, zoom, alpha, rx, ry, rz)
 end

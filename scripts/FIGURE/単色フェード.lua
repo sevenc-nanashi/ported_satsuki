@@ -15,16 +15,16 @@ local color = 0xffffff
 obj.load("figure", "背景", color, 100)
 obj.alpha = 0
 if obj.time < track0 then
-	ta = (track0 - obj.time) / track0
-	if track0 == 0 then
-		ta = 1
-	end
-	obj.alpha = ta
+    ta = (track0 - obj.time) / track0
+    if track0 == 0 then
+        ta = 1
+    end
+    obj.alpha = ta
 end
 if obj.time > obj.totaltime - track1 then
-	tb = -(-track1 - obj.time + obj.totaltime) / track1
-	if track1 == 0 then
-		tb = 1
-	end
-	obj.alpha = tb
+    tb = -(-track1 - obj.time + obj.totaltime) / track1
+    if track1 == 0 then
+        tb = 1
+    end
+    obj.alpha = tb
 end

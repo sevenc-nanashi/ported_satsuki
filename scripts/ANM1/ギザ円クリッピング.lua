@@ -26,11 +26,11 @@ local flip = false
 
 local zoom = obj.getvalue("zoom")
 obj.pixelshader("pixelated_circle_clipping", "object", "object", {
-	s,
-	r,
-	param_cx,
-	param_cy,
-	obj.w / zoom * 100,
-	obj.h / zoom * 100,
-	flip and 1 or 0,
+    s,
+    r,
+    param_cx,
+    param_cy,
+    obj.w / zoom * 100,
+    obj.h / zoom * 100,
+    flip and 1 or 0,
 })

@@ -19,9 +19,9 @@ local track3 = 0
 local __rename_me_check0 = false
 
 if __rename_me_check0 then
-	s = obj.getvalue("zoom") / 100
+    s = obj.getvalue("zoom") / 100
 else
-	s = 1
+    s = 1
 end
 obj.ox = track1 + (obj.ox - track1) * track0 / 100 * s
 obj.oy = track3 + (obj.oy - track3) * track2 / 100 * s

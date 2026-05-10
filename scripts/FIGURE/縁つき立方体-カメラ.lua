@@ -31,9 +31,9 @@ s2 = s1 - h * 2
 a = track2 / 100
 
 if mode < 1 then
-	alp = a
+    alp = a
 else
-	alp = (math.sin(2 * math.pi * obj.time * (1 / t)) * 0.5 + 0.5) * a
+    alp = (math.sin(2 * math.pi * obj.time * (1 / t)) * 0.5 + 0.5) * a
 end
 
 obj.load("figure", "四角形", col1, s1, h)

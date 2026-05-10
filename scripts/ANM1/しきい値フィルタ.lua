@@ -44,5 +44,5 @@ local va5 = 0
 
 s = rand(0, 99, 0, math.floor(obj.time / track1))
 if s >= track0 then
-	obj.effect(name, pa1, va1, pa2, va2, pa3, va3, pa4, va4, pa5, va5)
+    obj.effect(name, pa1, va1, pa2, va2, pa3, va3, pa4, va4, pa5, va5)
 end

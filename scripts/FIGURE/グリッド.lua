@@ -38,10 +38,10 @@ local horizontal_only = yoko and 1 or 0
 obj.setoption("drawtarget", "tempbuffer", w, h)
 obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
 obj.pixelshader("grid", "tempbuffer", "tempbuffer", {
-	l0,
-	period,
-	w,
-	h,
-	horizontal_only,
+    l0,
+    period,
+    w,
+    h,
+    horizontal_only,
 })
 obj.load("tempbuffer")

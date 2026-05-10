@@ -45,38 +45,38 @@ obj.draw(0, 0, 0, 1, 0.2)
 
 --縁
 if ed == 1 then
-	ss = 50
-	obj.load("figure", "四角形", color, ss * 2)
-	obj.effect("マスク", "type", 1, "サイズ", ss, "マスクの反転", 1)
-	obj.effect("ぼかし", "範囲", 10, "サイズ固定", 1)
-	w = obj.screen_w / 2
-	h = w
-	if as == 1 then
-		h = obj.screen_h / 2
-	end
-	obj.setoption("dst", "tmp")
-	obj.drawpoly(
-		-w,
-		-h,
-		0,
-		w,
-		-h,
-		0,
-		w,
-		h,
-		0,
-		-w,
-		h,
-		0,
-		ss / 2,
-		ss / 2,
-		ss * 3 / 2,
-		ss / 2,
-		ss * 3 / 2,
-		ss * 3 / 2,
-		ss / 2,
-		ss * 3 / 2
-	)
+    ss = 50
+    obj.load("figure", "四角形", color, ss * 2)
+    obj.effect("マスク", "type", 1, "サイズ", ss, "マスクの反転", 1)
+    obj.effect("ぼかし", "範囲", 10, "サイズ固定", 1)
+    w = obj.screen_w / 2
+    h = w
+    if as == 1 then
+        h = obj.screen_h / 2
+    end
+    obj.setoption("dst", "tmp")
+    obj.drawpoly(
+        -w,
+        -h,
+        0,
+        w,
+        -h,
+        0,
+        w,
+        h,
+        0,
+        -w,
+        h,
+        0,
+        ss / 2,
+        ss / 2,
+        ss * 3 / 2,
+        ss / 2,
+        ss * 3 / 2,
+        ss * 3 / 2,
+        ss / 2,
+        ss * 3 / 2
+    )
 end
 
 --ゴミノイズ

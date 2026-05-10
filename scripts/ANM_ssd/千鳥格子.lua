@@ -25,8 +25,8 @@ local s = math.floor(track0 / 2) * 2 / 4
 obj.setoption("drawtarget", "tempbuffer", w, h)
 
 if col2 >= 0 then
-	obj.load("figure", "四角形", col2, 2)
-	obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
+    obj.load("figure", "四角形", col2, 2)
+    obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
 end
 
 --obj.setoption("blend","alpha_add")
@@ -36,15 +36,15 @@ local nx = math.floor(w / s / 4) + 1
 local ny = math.floor(h / s / 4) + 1
 
 for j = 0, ny - 1 do
-	local y = -h / 2 + 4 * s / 2 + j * 4 * s
-	for i = 0, nx - 1 do
-		local x = -w / 2 + 4 * s / 2 + i * 4 * s
-		obj.drawpoly(x - 2 * s, y - 2 * s, 0, x - s, y - 2 * s, 0, x - 2 * s, y - s, 0, x - 2 * s, y - 2 * s, 0)
-		obj.drawpoly(x + 2 * s, y + 2 * s, 0, x + s, y + 2 * s, 0, x + 2 * s, y + s, 0, x + 2 * s, y + 2 * s, 0)
-		obj.drawpoly(x, y - 2 * s, 0, x - 2 * s, y, 0, x - s, y, 0, x, y - s, 0)
-		obj.drawpoly(x, y + 2 * s, 0, x + 2 * s, y, 0, x + s, y, 0, x, y + s, 0)
-		obj.drawpoly(x, y - 2 * s, 0, x + 2 * s, y - 2 * s, 0, x + 2 * s, y, 0, x, y, 0)
-	end
+    local y = -h / 2 + 4 * s / 2 + j * 4 * s
+    for i = 0, nx - 1 do
+        local x = -w / 2 + 4 * s / 2 + i * 4 * s
+        obj.drawpoly(x - 2 * s, y - 2 * s, 0, x - s, y - 2 * s, 0, x - 2 * s, y - s, 0, x - 2 * s, y - 2 * s, 0)
+        obj.drawpoly(x + 2 * s, y + 2 * s, 0, x + s, y + 2 * s, 0, x + 2 * s, y + s, 0, x + 2 * s, y + 2 * s, 0)
+        obj.drawpoly(x, y - 2 * s, 0, x - 2 * s, y, 0, x - s, y, 0, x, y - s, 0)
+        obj.drawpoly(x, y + 2 * s, 0, x + 2 * s, y, 0, x + s, y, 0, x, y + s, 0)
+        obj.drawpoly(x, y - 2 * s, 0, x + 2 * s, y - 2 * s, 0, x + 2 * s, y, 0, x, y, 0)
+    end
 end
 
 obj.load("tempbuffer")

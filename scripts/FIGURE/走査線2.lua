@@ -27,7 +27,7 @@ local l1 = l0 * track1 / 100
 obj.setoption("drawtarget", "tempbuffer", w, h)
 obj.drawpoly(-w / 2, -h / 2, 0, w / 2, -h / 2, 0, w / 2, h / 2, 0, -w / 2, h / 2, 0)
 obj.pixelshader("scanline2", "tempbuffer", "tempbuffer", {
-	l0,
-	l0 + l1,
+    l0,
+    l0 + l1,
 })
 obj.load("tempbuffer")

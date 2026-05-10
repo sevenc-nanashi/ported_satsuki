@@ -55,42 +55,42 @@ local irozure = 100
 local ty = 0
 
 obj.effect(
-  "振動",
-  "X",
-  x,
-  "Y",
-  y,
-  "Z",
-  z,
-  "周期",
-  syu,
-  "ランダムに強さを変える",
-  1,
-  "複雑に振動",
-  1
+    "振動",
+    "X",
+    x,
+    "Y",
+    y,
+    "Z",
+    z,
+    "周期",
+    syu,
+    "ランダムに強さを変える",
+    1,
+    "複雑に振動",
+    1
 )
 obj.effect(
-  "振動",
-  "X",
-  -haba * x,
-  "Y",
-  -haba * y,
-  "Z",
-  -haba * z,
-  "周期",
-  haba * syu,
-  "ランダムに強さを変える",
-  1,
-  "複雑に振動",
-  1
+    "振動",
+    "X",
+    -haba * x,
+    "Y",
+    -haba * y,
+    "Z",
+    -haba * z,
+    "周期",
+    haba * syu,
+    "ランダムに強さを変える",
+    1,
+    "複雑に振動",
+    1
 )
 local s = rand(0, 100)
 if s > siki then
-  local dx = obj.rand(-obj.screen_w / 2, obj.screen_w / 2)
-  local dy = obj.rand(-obj.screen_h / 2, obj.screen_h / 2)
-  local a = obj.rand(0, t)
-  obj.effect("放射ブラー", "範囲", a, "X", dx, "Y", dy, "サイズ固定", 1)
-  obj.effect("発光", "強さ", 100 + a * 4, "拡散", 800, "しきい値", h, "サイズ固定", 1)
-  obj.effect("色ずれ", "ずれ幅", a / 2 * irozure / 100, "角度", obj.rand(0, 360), "色ずれの種類", ty)
-  obj.zoom = obj.zoom + a / 50
+    local dx = obj.rand(-obj.screen_w / 2, obj.screen_w / 2)
+    local dy = obj.rand(-obj.screen_h / 2, obj.screen_h / 2)
+    local a = obj.rand(0, t)
+    obj.effect("放射ブラー", "範囲", a, "X", dx, "Y", dy, "サイズ固定", 1)
+    obj.effect("発光", "強さ", 100 + a * 4, "拡散", 800, "しきい値", h, "サイズ固定", 1)
+    obj.effect("色ずれ", "ずれ幅", a / 2 * irozure / 100, "角度", obj.rand(0, 360), "色ずれの種類", ty)
+    obj.zoom = obj.zoom + a / 50
 end

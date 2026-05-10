@@ -45,18 +45,18 @@ w = math.min(track1, t)
 r = 0
 time0 = (math.max(obj.time - f, 0)) % t
 if wait == 0 then
-	if time0 <= t - w and time0 ~= 0 then
-		r = math.sin(math.pi * time0 / (t - w))
-	end
+    if time0 <= t - w and time0 ~= 0 then
+        r = math.sin(math.pi * time0 / (t - w))
+    end
 else
-	time1 = (math.max(obj.time - f, 0)) % (2 * t)
-	if time1 <= t - w then
-		r = math.sin(math.pi * time0 / (t - w) / 2)
-	elseif time1 <= t then
-		r = 1
-	elseif time1 <= 2 * t - w then
-		r = 1 - math.sin(math.pi * time0 / (t - w) / 2)
-	end
+    time1 = (math.max(obj.time - f, 0)) % (2 * t)
+    if time1 <= t - w then
+        r = math.sin(math.pi * time0 / (t - w) / 2)
+    elseif time1 <= t then
+        r = 1
+    elseif time1 <= 2 * t - w then
+        r = 1 - math.sin(math.pi * time0 / (t - w) / 2)
+    end
 end
 obj.ox = obj.ox + x * r
 obj.oy = obj.oy + y * r

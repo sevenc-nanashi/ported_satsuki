@@ -28,9 +28,9 @@ obj.oy = -math.cos(r * math.pi / 180) * l * s
 obj.zoom = obj.zoom * s
 obj.rz = r
 if __rename_me_check0 then
-	obj.ox = -obj.ox
-	obj.rz = -obj.rz - 180
-	soto = 1
+    obj.ox = -obj.ox
+    obj.rz = -obj.rz - 180
+    soto = 1
 end
 x = obj.x
 y = obj.y

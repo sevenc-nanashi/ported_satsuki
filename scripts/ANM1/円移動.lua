@@ -15,5 +15,5 @@ obj.ox = math.sin(r * math.pi * 2) * track0
 obj.oy = -math.cos(r * math.pi * 2) * track0
 obj.rz = r * 360 + 180
 if __rename_me_check0 then
-	obj.rz = obj.rz - 180
+    obj.rz = obj.rz - 180
 end

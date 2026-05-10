@@ -27,39 +27,39 @@ local base_y = -(ny + (ny - 1) * (gy - 1)) * h / 2
 local vertices = {}
 
 for j = 0, ny - 1 do
-	local y0 = base_y + h * j * gy
-	local y2 = y0 + h
-	local row_shift = 0
-	if j % 2 == 0 then
-		row_shift = w / 2 * gx
-	end
+    local y0 = base_y + h * j * gy
+    local y2 = y0 + h
+    local row_shift = 0
+    if j % 2 == 0 then
+        row_shift = w / 2 * gx
+    end
 
-	for i = 0, nx - 1 do
-		local x0 = base_x + w * i * gx + row_shift
-		local x1 = x0 + w
-		vertices[#vertices + 1] = {
-			x0,
-			y0,
-			0,
-			x1,
-			y0,
-			0,
-			x1,
-			y2,
-			0,
-			x0,
-			y2,
-			0,
-			0,
-			0,
-			w,
-			0,
-			w,
-			h,
-			0,
-			h,
-		}
-	end
+    for i = 0, nx - 1 do
+        local x0 = base_x + w * i * gx + row_shift
+        local x1 = x0 + w
+        vertices[#vertices + 1] = {
+            x0,
+            y0,
+            0,
+            x1,
+            y0,
+            0,
+            x1,
+            y2,
+            0,
+            x0,
+            y2,
+            0,
+            0,
+            0,
+            w,
+            0,
+            w,
+            h,
+            0,
+            h,
+        }
+    end
 end
 
 obj.drawpoly(vertices)

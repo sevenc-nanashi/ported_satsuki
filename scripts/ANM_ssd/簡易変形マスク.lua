@@ -28,19 +28,19 @@ local div = 8
 local mode = 1
 
 if obj.getoption("track_mode", 0) == 0 then
-	obj.setanchor("pos", 4, "loop")
+    obj.setanchor("pos", 4, "loop")
 else
-	obj.setanchor("pos", 8, "loop", "inout")
-	s = track0 / 100
-	for i = 1, 8 do
-		pos[i] = pos[i] + (pos[i + 8] - pos[i]) * s
-	end
+    obj.setanchor("pos", 8, "loop", "inout")
+    s = track0 / 100
+    for i = 1, 8 do
+        pos[i] = pos[i] + (pos[i + 8] - pos[i]) * s
+    end
 end
 if div < 1 then
-	div = 1
+    div = 1
 end
 if div > 50 then
-	div = 50
+    div = 50
 end
 
 -- 仮想バッファの解像度を決める
@@ -68,51 +68,51 @@ ex1 = px1
 ey1 = py1
 v1 = 0
 for y = 1, div do
-	sx0 = sx1
-	sy0 = sy1
-	ex0 = ex1
-	ey0 = ey1
-	sx1 = px0 + (px3 - px0) * y / div
-	sy1 = py0 + (py3 - py0) * y / div
-	ex1 = px1 + (px2 - px1) * y / div
-	ey1 = py1 + (py2 - py1) * y / div
-	v0 = v1
-	v1 = y * h / div
-	x1 = sx0
-	y1 = sy0
-	x2 = sx1
-	y2 = sy1
-	u1 = 0
-	for x = 1, div do
-		x0 = x1
-		y0 = y1
-		x1 = sx0 + (ex0 - sx0) * x / div
-		y1 = sy0 + (ey0 - sy0) * x / div
-		x3 = x2
-		y3 = y2
-		x2 = sx1 + (ex1 - sx1) * x / div
-		y2 = sy1 + (ey1 - sy1) * x / div
-		u0 = u1
-		u1 = x * w / div
-		if AND(mode, 1) ~= 0 then
-			if x == 1 or y == 1 or x == div or y == div then
-				obj.setoption("antialias", 1)
-			else
-				obj.setoption("antialias", 0)
-			end
-		end
-		if AND(mode, 2) == 0 then
-			obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x2, y2, 0, u0, v0, u1, v0, u1, v1, u1, v1)
-			obj.drawpoly(x0, y0, 0, x2, y2, 0, x3, y3, 0, x3, y3, 0, u0, v0, u1, v1, u0, v1, u0, v1)
-		else
-			obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v0, u1, v1, u0, v1)
-		end
-	end
+    sx0 = sx1
+    sy0 = sy1
+    ex0 = ex1
+    ey0 = ey1
+    sx1 = px0 + (px3 - px0) * y / div
+    sy1 = py0 + (py3 - py0) * y / div
+    ex1 = px1 + (px2 - px1) * y / div
+    ey1 = py1 + (py2 - py1) * y / div
+    v0 = v1
+    v1 = y * h / div
+    x1 = sx0
+    y1 = sy0
+    x2 = sx1
+    y2 = sy1
+    u1 = 0
+    for x = 1, div do
+        x0 = x1
+        y0 = y1
+        x1 = sx0 + (ex0 - sx0) * x / div
+        y1 = sy0 + (ey0 - sy0) * x / div
+        x3 = x2
+        y3 = y2
+        x2 = sx1 + (ex1 - sx1) * x / div
+        y2 = sy1 + (ey1 - sy1) * x / div
+        u0 = u1
+        u1 = x * w / div
+        if AND(mode, 1) ~= 0 then
+            if x == 1 or y == 1 or x == div or y == div then
+                obj.setoption("antialias", 1)
+            else
+                obj.setoption("antialias", 0)
+            end
+        end
+        if AND(mode, 2) == 0 then
+            obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x2, y2, 0, u0, v0, u1, v0, u1, v1, u1, v1)
+            obj.drawpoly(x0, y0, 0, x2, y2, 0, x3, y3, 0, x3, y3, 0, u0, v0, u1, v1, u0, v1, u0, v1)
+        else
+            obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v0, u1, v1, u0, v1)
+        end
+    end
 end
 obj.load("tempbuffer")
 obj.effect("反転", "透明度反転", 1 - han)
 if han == 0 then
-	obj.effect("クリッピング", "上", 1, "下", 1, "左", 1, "右", 1)
+    obj.effect("クリッピング", "上", 1, "下", 1, "左", 1, "右", 1)
 end
 obj.cx = obj.cx - sx
 obj.cy = obj.cy - sy

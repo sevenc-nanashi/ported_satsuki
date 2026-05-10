@@ -27,17 +27,17 @@ obj.drawpoly(-x, -y, length / 2, x, -y, length / 2, x, y, length / 2, -x, y, len
 obj.drawpoly(-x, -y, -length / 2, x, -y, -length / 2, x, y, -length / 2, -x, y, -length / 2)
 
 for k = 0, 1 do
-	size = size - 2 * h * k
-	obj.load("figure", "四角形", color, size / 2)
-	obj.effect()
-	local l = size / 2 * math.sin(18 * math.pi / 180) / math.cos(36 * math.pi / 180) - 1
-	for i = 0, 4 do
-		for j = 0, 1 do
-			local x0 = -size / 2 * math.sin(72 * i * math.pi / 180)
-			local x1 = l * math.cos((54 + 72 * i + 72 * j) * math.pi / 180)
-			local y0 = -size / 2 * math.cos(72 * i * math.pi / 180)
-			local y1 = -l * math.sin((54 + 72 * i + 72 * j) * math.pi / 180)
-			obj.drawpoly(x0, y0, -length / 2, x0, y0, length / 2, x1, y1, length / 2, x1, y1, -length / 2)
-		end
-	end
+    size = size - 2 * h * k
+    obj.load("figure", "四角形", color, size / 2)
+    obj.effect()
+    local l = size / 2 * math.sin(18 * math.pi / 180) / math.cos(36 * math.pi / 180) - 1
+    for i = 0, 4 do
+        for j = 0, 1 do
+            local x0 = -size / 2 * math.sin(72 * i * math.pi / 180)
+            local x1 = l * math.cos((54 + 72 * i + 72 * j) * math.pi / 180)
+            local y0 = -size / 2 * math.cos(72 * i * math.pi / 180)
+            local y1 = -l * math.sin((54 + 72 * i + 72 * j) * math.pi / 180)
+            obj.drawpoly(x0, y0, -length / 2, x0, y0, length / 2, x1, y1, length / 2, x1, y1, -length / 2)
+        end
+    end
 end

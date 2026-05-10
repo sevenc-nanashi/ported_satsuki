@@ -36,27 +36,46 @@ obj.drawpoly(-x, -y, -length / 2, x, -y, -length / 2, x, y, -length / 2, -x, y, 
 
 local corners = figure + 3
 for k = 0, 1 do
-  size = size - 2 * h * k
-  local l, sr
-  if corners == 4 then
-    l = size / 2 * math.sqrt(2) - 1
-    sr = 45
-  else
-    l = size / 2 - 1
-    sr = 90
-  end
-  obj.load("figure", "四角形", color, 2)
-  obj.effect()
-  local r = 360 / corners
-  local polygons = {}
-  for i = 0, corners - 1 do
-    local x0 = l * math.cos((sr + r * i) * math.pi / 180)
-    local x1 = l * math.cos((sr - r + r * i) * math.pi / 180)
-    local y0 = -l * math.sin((sr + r * i) * math.pi / 180)
-    local y1 = -l * math.sin((sr - r + r * i) * math.pi / 180)
-    table.insert(polygons,
-      { x0, y0, -length / 2, x0, y0, length / 2, x1, y1, length / 2, x1, y1, -length / 2, 0, 0, obj.w, 0, obj.w, obj.h,
-        0, obj.h })
-  end
-  obj.drawpoly(polygons)
+    size = size - 2 * h * k
+    local l, sr
+    if corners == 4 then
+        l = size / 2 * math.sqrt(2) - 1
+        sr = 45
+    else
+        l = size / 2 - 1
+        sr = 90
+    end
+    obj.load("figure", "四角形", color, 2)
+    obj.effect()
+    local r = 360 / corners
+    local polygons = {}
+    for i = 0, corners - 1 do
+        local x0 = l * math.cos((sr + r * i) * math.pi / 180)
+        local x1 = l * math.cos((sr - r + r * i) * math.pi / 180)
+        local y0 = -l * math.sin((sr + r * i) * math.pi / 180)
+        local y1 = -l * math.sin((sr - r + r * i) * math.pi / 180)
+        table.insert(polygons, {
+            x0,
+            y0,
+            -length / 2,
+            x0,
+            y0,
+            length / 2,
+            x1,
+            y1,
+            length / 2,
+            x1,
+            y1,
+            -length / 2,
+            0,
+            0,
+            obj.w,
+            0,
+            obj.w,
+            obj.h,
+            0,
+            obj.h,
+        })
+    end
+    obj.drawpoly(polygons)
 end

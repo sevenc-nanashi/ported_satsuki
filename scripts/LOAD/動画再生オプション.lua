@@ -22,8 +22,8 @@ v = track1 / 100
 a = track2 / 100
 c = 0
 if a < 0 and 2 * a * obj.time <= -v then
-	c = -v / 2 / a * (v - a * v / 2 / a)
-	a = 0
-	v = 0
+    c = -v / 2 / a * (v - a * v / 2 / a)
+    a = 0
+    v = 0
 end
 obj.load(file, (f + n * math.floor((obj.time * v + a * obj.time * obj.time + c) / n)) % obj.load(file))

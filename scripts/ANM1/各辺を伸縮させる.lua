@@ -33,16 +33,16 @@ g = g / 100 * obj.w / 2
 h = h / 100 * obj.h / 2
 obj.effect()
 obj.drawpoly(
-	obj.ox + (-e - obj.w / 2) * a / 100 + e,
-	obj.oy + (-h - obj.h / 2) * d / 100 + h,
-	0,
-	obj.ox + (-e + obj.w / 2) * a / 100 + e,
-	obj.oy + (-f - obj.h / 2) * b / 100 + f,
-	0,
-	obj.ox + (-g + obj.w / 2) * c / 100 + g,
-	obj.oy + (-f + obj.h / 2) * b / 100 + f,
-	0,
-	obj.ox + (-g - obj.w / 2) * c / 100 + g,
-	obj.oy + (-h + obj.h / 2) * d / 100 + h,
-	0
+    obj.ox + (-e - obj.w / 2) * a / 100 + e,
+    obj.oy + (-h - obj.h / 2) * d / 100 + h,
+    0,
+    obj.ox + (-e + obj.w / 2) * a / 100 + e,
+    obj.oy + (-f - obj.h / 2) * b / 100 + f,
+    0,
+    obj.ox + (-g + obj.w / 2) * c / 100 + g,
+    obj.oy + (-f + obj.h / 2) * b / 100 + f,
+    0,
+    obj.ox + (-g - obj.w / 2) * c / 100 + g,
+    obj.oy + (-h + obj.h / 2) * d / 100 + h,
+    0
 )

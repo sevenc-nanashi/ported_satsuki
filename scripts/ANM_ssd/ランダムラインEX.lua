@@ -61,45 +61,45 @@ local figure_h = obj.h
 local vertices = {}
 
 for i = 0, n - 1 do
-	local cx = obj.rand(-sw / 2, sw / 2, i + 0, rns)
-	local cy = obj.rand(-sh / 2, sh / 2, i + 1, rns)
-	local r = math.rad(obj.rand(0, 180, i + 2, rns))
-	local dr = obj.rand(d, d + habar, i + 3, rns)
-	local cos_r = math.cos(r)
-	local sin_r = math.sin(r)
-	local half_dr = dr / 2
+    local cx = obj.rand(-sw / 2, sw / 2, i + 0, rns)
+    local cy = obj.rand(-sh / 2, sh / 2, i + 1, rns)
+    local r = math.rad(obj.rand(0, 180, i + 2, rns))
+    local dr = obj.rand(d, d + habar, i + 3, rns)
+    local cos_r = math.cos(r)
+    local sin_r = math.sin(r)
+    local half_dr = dr / 2
 
-	local x0 = cx + cos_r * ln - sin_r * half_dr
-	local x1 = cx + cos_r * ln + sin_r * half_dr
-	local x2 = cx - cos_r * ln + sin_r * half_dr
-	local x3 = cx - cos_r * ln - sin_r * half_dr
-	local y0 = cy + sin_r * ln + cos_r * half_dr
-	local y1 = cy + sin_r * ln - cos_r * half_dr
-	local y2 = cy - sin_r * ln - cos_r * half_dr
-	local y3 = cy - sin_r * ln + cos_r * half_dr
+    local x0 = cx + cos_r * ln - sin_r * half_dr
+    local x1 = cx + cos_r * ln + sin_r * half_dr
+    local x2 = cx - cos_r * ln + sin_r * half_dr
+    local x3 = cx - cos_r * ln - sin_r * half_dr
+    local y0 = cy + sin_r * ln + cos_r * half_dr
+    local y1 = cy + sin_r * ln - cos_r * half_dr
+    local y2 = cy - sin_r * ln - cos_r * half_dr
+    local y3 = cy - sin_r * ln + cos_r * half_dr
 
-	vertices[#vertices + 1] = {
-		x0,
-		y0,
-		0,
-		x1,
-		y1,
-		0,
-		x2,
-		y2,
-		0,
-		x3,
-		y3,
-		0,
-		0,
-		0,
-		figure_w,
-		0,
-		figure_w,
-		figure_h,
-		0,
-		figure_h,
-	}
+    vertices[#vertices + 1] = {
+        x0,
+        y0,
+        0,
+        x1,
+        y1,
+        0,
+        x2,
+        y2,
+        0,
+        x3,
+        y3,
+        0,
+        0,
+        0,
+        figure_w,
+        0,
+        figure_w,
+        figure_h,
+        0,
+        figure_h,
+    }
 end
 obj.drawpoly(vertices)
 

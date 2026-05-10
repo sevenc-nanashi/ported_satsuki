@@ -33,13 +33,13 @@ obj.drawpoly(-x0, -y0, length / 2, x0, -y0, length / 2, x0, y0, length / 2, -x0,
 obj.drawpoly(-x0, -y0, -length / 2, x0, -y0, -length / 2, x0, y0, -length / 2, -x0, y0, -length / 2)
 
 for k = 0, 1 do
-	size = size - 2 * h * k
-	obj.load("figure", "四角形", color, size / 2)
-	obj.effect()
-	x0 = size / 2 * (1 - asx / 100)
-	y0 = -size / 2 * (1 - asy / 100)
-	obj.drawpoly(x0, y0, -length / 2, x0, y0, length / 2, x0, -y0, length / 2, x0, -y0, -length / 2)
-	obj.drawpoly(-x0, y0, -length / 2, -x0, y0, length / 2, -x0, -y0, length / 2, -x0, -y0, -length / 2)
-	obj.drawpoly(-x0, y0, -length / 2, -x0, y0, length / 2, x0, y0, length / 2, x0, y0, -length / 2)
-	obj.drawpoly(-x0, -y0, -length / 2, -x0, -y0, length / 2, x0, -y0, length / 2, x0, -y0, -length / 2)
+    size = size - 2 * h * k
+    obj.load("figure", "四角形", color, size / 2)
+    obj.effect()
+    x0 = size / 2 * (1 - asx / 100)
+    y0 = -size / 2 * (1 - asy / 100)
+    obj.drawpoly(x0, y0, -length / 2, x0, y0, length / 2, x0, -y0, length / 2, x0, -y0, -length / 2)
+    obj.drawpoly(-x0, y0, -length / 2, -x0, y0, length / 2, -x0, -y0, length / 2, -x0, -y0, -length / 2)
+    obj.drawpoly(-x0, y0, -length / 2, -x0, y0, length / 2, x0, y0, length / 2, x0, y0, -length / 2)
+    obj.drawpoly(-x0, -y0, -length / 2, -x0, -y0, length / 2, x0, -y0, length / 2, x0, -y0, -length / 2)
 end

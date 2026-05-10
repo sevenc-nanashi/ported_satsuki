@@ -20,6 +20,6 @@ obj.effect("斜めクリッピング", "中心Y", -track0, "角度", 180 - track
 obj.effect("斜めクリッピング", "角度", 270)
 n = math.floor(track2 / 2) * 2
 for i = 0, n - 1 do
-	obj.draw(0, 0, 0, 1, 1, 0, 0, 360 / n * i)
+    obj.draw(0, 0, 0, 1, 1, 0, 0, 360 / n * i)
 end
 obj.load("tempbuffer")

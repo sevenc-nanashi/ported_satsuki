@@ -22,12 +22,12 @@ local track3 = 0
 --file:
 local t = track0 - 1
 for i = 0, obj.frame do
-	t = t + obj.getvalue(1, i / 30) / 100
+    t = t + obj.getvalue(1, i / 30) / 100
 end
 if track2 == 0 then
-	ksd = t / obj.framerate
+    ksd = t / obj.framerate
 else
-	ksd = (t / obj.framerate) % obj.load("movie", file)
+    ksd = (t / obj.framerate) % obj.load("movie", file)
 end
 
 obj.load("movie", file, ksd, track3)

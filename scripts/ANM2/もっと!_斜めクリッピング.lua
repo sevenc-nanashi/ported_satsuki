@@ -21,17 +21,17 @@ local y = 0
 
 n = math.floor(track0 / 2)
 if track1 > 0 then
-	for i = 0, n - 1 do
-		obj.effect(
-			"斜めクリッピング",
-			"中心X",
-			x,
-			"中心Y",
-			y,
-			"角度",
-			180 / n * i + track2,
-			"幅",
-			-track1
-		)
-	end
+    for i = 0, n - 1 do
+        obj.effect(
+            "斜めクリッピング",
+            "中心X",
+            x,
+            "中心Y",
+            y,
+            "角度",
+            180 / n * i + track2,
+            "幅",
+            -track1
+        )
+    end
 end

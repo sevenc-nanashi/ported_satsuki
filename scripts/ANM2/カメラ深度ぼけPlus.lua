@@ -20,9 +20,9 @@ local oku = 1
 local mae = 1
 
 if obj.z > track1 then
-	l = (obj.z - track1) / 10000 * oku
+    l = (obj.z - track1) / 10000 * oku
 else
-	l = (track1 - obj.z) / 10000 * mae
+    l = (track1 - obj.z) / 10000 * mae
 end
 l = math.min(l * track0, track2)
 obj.effect("ぼかし", "範囲", l)
