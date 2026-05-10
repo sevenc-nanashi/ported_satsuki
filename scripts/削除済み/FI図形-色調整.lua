@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\色調整
+--label:${ROOT_CATEGORY}\色調整\削除済み
 ---$track:サイズ
 ---min=0
 ---max=2000

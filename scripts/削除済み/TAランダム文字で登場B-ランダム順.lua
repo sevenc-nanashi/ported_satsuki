@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\@TA
+--label:${ROOT_CATEGORY}\切り替え効果\削除済み
 if ta < 0 then
 	i = (ta - obj.num * tb - obj.time + obj.totaltime + rand(0, 100 * (obj.num - 1), -(obj.index + 1), 0) / 100 * tb)
 		/ ta

@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\@TA
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:間隔[s]
 ---min=-5
 ---max=5

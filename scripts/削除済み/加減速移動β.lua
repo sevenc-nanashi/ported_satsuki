@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\アニメーション効果
+--label:${ROOT_CATEGORY}\アニメーション効果\削除済み
 ---$track:加減速
 ---min=1
 ---max=5

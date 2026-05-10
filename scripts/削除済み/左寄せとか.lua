@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\削除済み
 ---$track:X軸[%]
 ---min=-100
 ---max=100

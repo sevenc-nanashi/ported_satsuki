@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\@TA
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 if obj.index == 0 then
 	if pp == null then
 		pp = {}

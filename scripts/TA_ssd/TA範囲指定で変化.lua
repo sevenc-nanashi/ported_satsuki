@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\@TA
+--label:${ROOT_CATEGORY}\切り替え効果\TA
 ---$track:X
 ---min=-2000
 ---max=2000

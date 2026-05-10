@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\アニメーション効果
+--label:${ROOT_CATEGORY}\アニメーション効果\削除済み
 ---$track:間隔[ms]
 ---min=0
 ---max=5000

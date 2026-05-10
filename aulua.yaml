@@ -14,26 +14,14 @@ scripts:
         label: 2次ベジェ曲線@ANM2
       - path: "./scripts/ANM2/3次ベジェ曲線.lua"
         label: 3次ベジェ曲線@ANM2
-      - path: "./scripts/削除済み/MAGI_text.lua"
-        label: MAGI_text@削除済みANM@削除済み
       - path: "./scripts/ANM2/TVオンオフ.lua"
         label: TVオンオフ@ANM2
-      - path: "./scripts/削除済み/magicB_テキスト4.lua"
-        label: magicB_テキスト4@削除済みANM@削除済み
-      - path: "./scripts/削除済み/magicC_テキスト大.lua"
-        label: magicC_テキスト大@削除済みANM@削除済み
-      - path: "./scripts/削除済み/magicD_テキスト小.lua"
-        label: magicD_テキスト小@削除済みANM@削除済み
       - path: "./scripts/ANM1/twitchっぽいもの.lua"
         label: twitchっぽいもの@ANM1
-      - path: "./scripts/削除済み/ものまね.lua"
-        label: ものまね@削除済みANM@削除済み
       - path: "./scripts/ANM2/ハチの巣.lua"
         label: ハチの巣@ANM2
       - path: "./scripts/ANM2/ハーフトーン風.lua"
         label: ハーフトーン風@ANM2
-      - path: "./scripts/削除済み/左寄せとか.lua"
-        label: 左寄せとか@削除済みANM@削除済み
       - path: "./scripts/音声/立体音声波形Plus.lua"
         label: 立体音声波形Plus@音声
       - path: "./scripts/ANM_ssd/範囲指定で変化（親）.lua"
@@ -46,6 +34,18 @@ scripts:
         label: 音声波形Plus3@音声
       - path: "./scripts/音声/音声波形Plus4.lua"
         label: 音声波形Plus4@音声
+      - path: "./scripts/削除済み/MAGI_text.lua"
+        label: MAGI_text@削除済みANM
+      - path: "./scripts/削除済み/magicB_テキスト4.lua"
+        label: magicB_テキスト4@削除済みANM
+      - path: "./scripts/削除済み/magicC_テキスト大.lua"
+        label: magicC_テキスト大@削除済みANM
+      - path: "./scripts/削除済み/magicD_テキスト小.lua"
+        label: magicD_テキスト小@削除済みANM
+      - path: "./scripts/削除済み/ものまね.lua"
+        label: ものまね@削除済みANM
+      - path: "./scripts/削除済み/左寄せとか.lua"
+        label: 左寄せとか@削除済みANM
       - path: "./scripts/ANM1/RGB色調補正(加減算).lua"
         label: RGB色調補正(加減算)@ANM1
       - path: "./scripts/ANM1/塗りつぶし.lua"
@@ -194,8 +194,6 @@ scripts:
         label: 連番画像ループ[A]@連番
       - path: "./scripts/連番/連番画像ループ[B].lua"
         label: 連番画像ループ[B]@連番
-      - path: "./scripts/加減速/ADC_標準登場.lua"
-        label: ADC_標準登場@加減速
       - path: "./scripts/TA/TAぼかし登場.lua"
         label: TAぼかし登場@TA
       - path: "./scripts/TA/TAぼかし登場2.lua"
@@ -208,8 +206,6 @@ scripts:
         label: TAタイピングA@TA
       - path: "./scripts/TA/TAタイピングB.lua"
         label: TAタイピングB@TA
-      - path: "./scripts/削除済み/TAテキスト枠.lua"
-        label: TAテキスト枠@削除済みANM@削除済み
       - path: "./scripts/TA_ssd/TAテキスト配置(A).lua"
         label: TAテキスト配置(A)@TAテキスト配置@TA_ssd
       - path: "./scripts/TA/TAバラバラ.lua"
@@ -218,20 +214,10 @@ scripts:
         label: TAバラバラ2@TA
       - path: "./scripts/TA/TAランダム.lua"
         label: TAランダム@TA
-      - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
-        label: TAランダム位置から拡大@削除済みANM@削除済み
       - path: "./scripts/TA/TAランダム拡大.lua"
         label: TAランダム拡大@TA
       - path: "./scripts/TA/TAランダム文字で登場.lua"
         label: TAランダム文字で登場@TA
-      - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
-        label: TAランダム文字で登場A@削除済みANM@削除済み
-      - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
-        label: TAランダム文字で登場A-ランダム順@削除済みANM@削除済み
-      - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
-        label: TAランダム文字で登場B@削除済みANM@削除済み
-      - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
-        label: TAランダム文字で登場B-ランダム順@削除済みANM@削除済み
       - path: "./scripts/TA/TAランダム配置(行).lua"
         label: TAランダム配置(行)@TA
       - path: "./scripts/TA/TA位置(pos)関数.lua"
@@ -286,6 +272,8 @@ scripts:
         label: TA起き上がって登場@TA_ssd
       - path: "./scripts/TA/TA陰陽玉登場.lua"
         label: TA陰陽玉登場@TA
+      - path: "./scripts/加減速/ADC_標準登場.lua"
+        label: ADC_標準登場@加減速
       - path: "./scripts/ANM1/ぽよよーんと登場.lua"
         label: ぽよよーんと登場@ANM1
       - path: "./scripts/ANM1/伸縮登場.lua"
@@ -300,6 +288,18 @@ scripts:
         label: 斜めブラインド@ANM1
       - path: "./scripts/ANM1/明滅登場.lua"
         label: 明滅登場@ANM1
+      - path: "./scripts/削除済み/TAテキスト枠.lua"
+        label: TAテキスト枠@削除済みANM
+      - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
+        label: TAランダム位置から拡大@削除済みANM
+      - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
+        label: TAランダム文字で登場A@削除済みANM
+      - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
+        label: TAランダム文字で登場A-ランダム順@削除済みANM
+      - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
+        label: TAランダム文字で登場B@削除済みANM
+      - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
+        label: TAランダム文字で登場B-ランダム順@削除済みANM
       - path: "./scripts/ANM2/カクカクさん.lua"
         label: カクカクさん@ANM2
       - path: "./scripts/ANM2/ランダム明滅.lua"
@@ -320,12 +320,8 @@ scripts:
         label: 加減速エディタ_回転@加減速
       - path: "./scripts/加減速/加減速エディタ_座標.lua"
         label: 加減速エディタ_座標@加減速
-      - path: "./scripts/削除済み/加減速移動β.lua"
-        label: 加減速移動β@削除済みANM@削除済み
       - path: "./scripts/ANM1/振動Plus.lua"
         label: 振動Plus@ANM1
-      - path: "./scripts/削除済み/明滅.lua"
-        label: 明滅@削除済みANM@削除済み
       - path: "./scripts/ANM1/砕け散る2.lua"
         label: 砕け散る2@ANM1
       - path: "./scripts/ANM1/砕け散る3.lua"
@@ -336,6 +332,10 @@ scripts:
         label: 透明度ランダム変化@ANM2
       - path: "./scripts/ANM_ssd/震える_連動.lua"
         label: 震える_連動@ANM_ssd
+      - path: "./scripts/削除済み/加減速移動β.lua"
+        label: 加減速移動β@削除済みANM
+      - path: "./scripts/削除済み/明滅.lua"
+        label: 明滅@削除済みANM
   - name: "@satsuki.obj2.obj2"
     sources:
       - path: "./scripts/FIGURE/走査線2.lua"
@@ -346,24 +346,6 @@ scripts:
         label: ADC_扇状@加減速
       - path: "./scripts/FIGURE/AviUtlアイコン.lua"
         label: AviUtlアイコン@FIGURE
-      - path: "./scripts/削除済み/FIメーター2.lua"
-        label: FIメーター2@削除済みFIG@削除済み
-      - path: "./scripts/削除済み/FIランダムに大文字が出現.lua"
-        label: FIランダムに大文字が出現@削除済みFIG@削除済み
-      - path: "./scripts/削除済み/FIランダムに小文字が出現.lua"
-        label: FIランダムに小文字が出現@削除済みFIG@削除済み
-      - path: "./scripts/削除済み/FIランダムに輪が出現2.lua"
-        label: FIランダムに輪が出現2@削除済みFIG@削除済み
-      - path: "./scripts/削除済み/FI軽い図形(四角形).lua"
-        label: FI軽い図形(四角形)@削除済みFIG@削除済み
-      - path: "./scripts/削除済み/MAGI_A_object.lua"
-        label: MAGI_A_object@削除済みANM@削除済み
-      - path: "./scripts/削除済み/MAGI_B_object.lua"
-        label: MAGI_B_object@削除済みANM@削除済み
-      - path: "./scripts/削除済み/MAGI_C_object.lua"
-        label: MAGI_C_object@削除済みANM@削除済み
-      - path: "./scripts/削除済み/magicA_大円.lua"
-        label: magicA_大円@削除済みANM@削除済み
       - path: "./scripts/FIGURE/きらり.lua"
         label: きらり@FIGURE
       - path: "./scripts/FIGURE/グリッド.lua"
@@ -416,14 +398,32 @@ scripts:
         label: 虹輪2@FIGURE
       - path: "./scripts/ANM_ssd/集中線plus.lua"
         label: 集中線plus@ANM_ssd
-      - path: "./scripts/削除済み/FI図形-色調整.lua"
-        label: FI図形-色調整@削除済みFIG@削除済み
+      - path: "./scripts/削除済み/FIメーター2.lua"
+        label: FIメーター2@削除済みFIG
+      - path: "./scripts/削除済み/FIランダムに大文字が出現.lua"
+        label: FIランダムに大文字が出現@削除済みFIG
+      - path: "./scripts/削除済み/FIランダムに小文字が出現.lua"
+        label: FIランダムに小文字が出現@削除済みFIG
+      - path: "./scripts/削除済み/FIランダムに輪が出現2.lua"
+        label: FIランダムに輪が出現2@削除済みFIG
+      - path: "./scripts/削除済み/FI軽い図形(四角形).lua"
+        label: FI軽い図形(四角形)@削除済みFIG
+      - path: "./scripts/削除済み/MAGI_A_object.lua"
+        label: MAGI_A_object@削除済みANM
+      - path: "./scripts/削除済み/MAGI_B_object.lua"
+        label: MAGI_B_object@削除済みANM
+      - path: "./scripts/削除済み/MAGI_C_object.lua"
+        label: MAGI_C_object@削除済みANM
+      - path: "./scripts/削除済み/magicA_大円.lua"
+        label: magicA_大円@削除済みANM
       - path: "./scripts/FIGURE/セピアノイズ.lua"
         label: セピアノイズ@FIGURE
       - path: "./scripts/ANM_ssd/ホログラム.lua"
         label: ホログラム@ANM_ssd
       - path: "./scripts/FIGURE/色変換(RGB-16進数).lua"
         label: 色変換(RGB-16進数)@FIGURE
+      - path: "./scripts/削除済み/FI図形-色調整.lua"
+        label: FI図形-色調整@削除済みFIG
       - path: "./scripts/FIGURE/縁つき立方体-カメラ.lua"
         label: 縁つき立方体-カメラ@FIGURE
       - path: "./scripts/ANM_ssd/タータンチェック_ISTN.lua"
