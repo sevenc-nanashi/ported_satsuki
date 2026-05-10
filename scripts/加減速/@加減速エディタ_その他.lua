@@ -52,7 +52,6 @@ local line = 5
 ---$value:G分割数
 local BN = 20
 
-
 l = math.floor(line) / 2
 NN = obj.track3 + 1
 

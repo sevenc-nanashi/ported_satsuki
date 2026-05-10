@@ -27,7 +27,6 @@ local zscale = 0.5
 ---$value:拡大
 local sa = 0
 
-
 x = obj.ox
 y = obj.oy
 z = obj.oz

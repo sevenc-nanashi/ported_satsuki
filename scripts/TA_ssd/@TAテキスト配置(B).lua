@@ -23,7 +23,6 @@ local rzz = {}
 ---$value:縦横比
 local as = {}
 
-
 for i = 0, leng - 1 do
     if fontn[i + 1] == null then
         fontn[i + 1] = f
