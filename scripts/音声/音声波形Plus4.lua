@@ -38,7 +38,7 @@ obj.getaudio(buf, "audiobuffer", "pcm", 1024)
 obj.setoption("dst", "tmp", W, W)
 
 --ラインの描画
-obj.setoption("blend", "alpha_mix")
+-- obj.setoption("blend", "alpha_mix")
 obj.load("figure", "四角形", color, 1)
 y0 = 0
 y1 = 0
