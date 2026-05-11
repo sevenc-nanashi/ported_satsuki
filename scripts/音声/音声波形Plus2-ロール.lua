@@ -25,8 +25,8 @@ local ch = 2
 
 ---$track:横隙間
 ---min=0
----max=100
----step=0.01
+---max=1000
+---step=1
 local cw = 2
 
 obj.effect()
