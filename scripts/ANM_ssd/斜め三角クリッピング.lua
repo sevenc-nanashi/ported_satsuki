@@ -16,20 +16,30 @@ local cr = 0
 ---min=-500
 ---max=500
 local track3 = 0
----$value:中心
-local pos = {}
+---$track:中心X
+---min=-4000
+---max=4000
+---step=0.01
+local cx = 0
 
-lw = track0 * 2
-offs = obj.time * track3 % lw
-obj.setanchor("pos", 1)
-cx = pos[1]
-cy = pos[2]
+---$track:中心Y
+---min=-4000
+---max=4000
+---step=0.01
+local cy = 0
 
-w, h = obj.getpixel()
-r1 = math.atan2(-lh, lw / 2) + math.rad(cr)
-r2 = math.rad(cr)
-l1 = math.sqrt((lw / 2) ^ 2 + lh ^ 2)
-lmax = math.sqrt(w ^ 2 + h ^ 2)
+--trackgroup@cx,cy:中心
+
+
+local lw = track0 * 2
+local offs = obj.time * track3 % lw
+obj.setanchor("cx,cy", 1)
+
+local w, h = obj.getpixel()
+local r1 = math.atan2(-lh, lw / 2) + math.rad(cr)
+local r2 = math.rad(cr)
+local l1 = math.sqrt((lw / 2) ^ 2 + lh ^ 2)
+local lmax = math.sqrt(w ^ 2 + h ^ 2)
 
 obj.setoption("drawtarget", "tempbuffer", w, h)
 obj.draw()
@@ -49,14 +59,16 @@ Y3 = cy + lmax * math.sqrt(5) * math.sin(r2 + math.atan2(lmax, -lmax / 2))
 obj.drawpoly(X0, Y0, 0, X1, Y1, 0, X2, Y2, 0, X3, Y3, 0)
 
 --三角クリッピング
-n = math.floor(lmax / lw) + 1
+local n = math.floor(lmax / lw) + 1
+local polygons = {}
 for i = -n, n do
-    x0 = cx + math.cos(r2) * lw * i + offs * math.cos(r2)
-    y0 = cy + math.sin(r2) * lw * i + offs * math.sin(r2)
-    x1 = cx + math.cos(r1) * l1 + math.cos(r2) * lw * i + offs * math.cos(r2)
-    y1 = cy + math.sin(r1) * l1 + math.sin(r2) * lw * i + offs * math.sin(r2)
-    x2 = cx + math.cos(r2) * lw + math.cos(r2) * lw * i + offs * math.cos(r2)
-    y2 = cy + math.sin(r2) * lw + math.sin(r2) * lw * i + offs * math.sin(r2)
-    obj.drawpoly(x0, y0, 0, x1, y1, 0, x2, y2, 0, x0, y0, 0)
+    local x0 = cx + math.cos(r2) * lw * i + offs * math.cos(r2)
+    local y0 = cy + math.sin(r2) * lw * i + offs * math.sin(r2)
+    local x1 = cx + math.cos(r1) * l1 + math.cos(r2) * lw * i + offs * math.cos(r2)
+    local y1 = cy + math.sin(r1) * l1 + math.sin(r2) * lw * i + offs * math.sin(r2)
+    local x2 = cx + math.cos(r2) * lw + math.cos(r2) * lw * i + offs * math.cos(r2)
+    local y2 = cy + math.sin(r2) * lw + math.sin(r2) * lw * i + offs * math.sin(r2)
+    table.insert(polygons, { x0, y0, 0, x1, y1, 0, x2, y2, 0, x0, y0, 0, 0, 0, 1, 0, 1, 1, 0, 1 })
 end
+obj.drawpoly(polygons)
 obj.load("tempbuffer")
