@@ -27,8 +27,8 @@ float4 quantized_gradation(float4 pos : SV_Position, float2 uv : TEXCOORD0)
   float2 direction = float2(cos(constants.angle), sin(constants.angle));
   float2 vecToPixel = pos.xy - centerPos;
   float distance = direction.x * vecToPixel.y - direction.y * vecToPixel.x;
-  float centeredPhase = clamp(distance / constants.width, -1.0, 1.0);
-  float phase = centeredPhase * 2 + 0.5;
+  float centeredPhase = clamp(distance / (constants.width / 2), -1.0, 1.0);
+  float phase = centeredPhase / 2.0 + 0.5;
   float quantizedPhase = round(phase * constants.nDivs) / constants.nDivs;
 
   float4 col1 = float4(constants.col1R, constants.col1G, constants.col1B, 1.0);

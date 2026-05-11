@@ -48,7 +48,7 @@ local n_div = 4
 obj.setanchor("cx,cy", 0)
 
 local col1_r, col1_g, col1_b = RGB(col1)
-local col2_r, col2_g, col2_b = RGB(col2 or 0)
+local col2_r, col2_g, col2_b = RGB(col2 or col1)
 
 obj.pixelshader("quantized_gradation", "object", "object", {
     strength / 100,
