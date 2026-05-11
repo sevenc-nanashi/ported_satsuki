@@ -5,23 +5,24 @@ version = "0.8.2"
 backend = "cargo:aviutl2-cli"
 
 [[tools."github:karoterra/aviutl2-aulua"]]
-version = "0.8.0"
+version = "0.9.1"
 backend = "github:karoterra/aviutl2-aulua"
 
 [tools."github:karoterra/aviutl2-aulua"."platforms.linux-x64"]
-checksum = "sha256:16079ba98bfb3edd947acbcc610aeb0a56472e7d370f13ca77a716e8d8d2101f"
-url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.8.0/aulua-v0.8.0-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/399796715"
+checksum = "sha256:6aece3fd7cd9a1dd5eaf86b165e8f95c8d9f314a8a233c7865f380515122cc86"
+url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.9.1/aulua-v0.9.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/416615761"
 
 [tools."github:karoterra/aviutl2-aulua"."platforms.linux-x64-musl"]
-checksum = "sha256:16079ba98bfb3edd947acbcc610aeb0a56472e7d370f13ca77a716e8d8d2101f"
-url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.8.0/aulua-v0.8.0-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/399796715"
+checksum = "sha256:6aece3fd7cd9a1dd5eaf86b165e8f95c8d9f314a8a233c7865f380515122cc86"
+url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.9.1/aulua-v0.9.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/416615761"
 
 [tools."github:karoterra/aviutl2-aulua"."platforms.windows-x64"]
-checksum = "sha256:04c6305a3e7d3757b2c1315d6cdc08eff818d3374291960d4416fa692cad7021"
-url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.8.0/aulua-v0.8.0-windows-x64.zip"
-url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/399796714"
+checksum = "sha256:dcfcb25f11434598400975fc0ebda27ed0dfc8658636b7b86ff7bde758497f63"
+url = "https://github.com/karoterra/aviutl2-aulua/releases/download/v0.9.1/aulua-v0.9.1-windows-x64.zip"
+url_api = "https://api.github.com/repos/karoterra/aviutl2-aulua/releases/assets/416615760"
+provenance = "github-attestations"
 
 [[tools."npm:rulesync"]]
 version = "8.14.0"

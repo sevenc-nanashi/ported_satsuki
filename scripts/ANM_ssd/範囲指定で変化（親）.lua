@@ -14,42 +14,80 @@ local track1 = 4000
 ---max=1
 ---step=1
 local track2 = 1
----$track:範囲表示
----min=0
----max=1
----step=1
-local track3 = 1
----$value:X
+---$check:範囲表示
+local show_range = true
+---$track:X
+---min=-100000
+---max=100000
+---step=0.01
+---scale=0.02
 local x = 0
 
----$value:Y
+---$track:Y
+---min=-100000
+---max=100000
+---step=0.01
+---scale=0.02
 local y = 0
 
----$value:Z
+---$track:Z
+---min=-100000
+---max=100000
+---step=0.01
+---scale=0.02
 local z = 0
 
----$value:拡大率
+---$track:拡大率
+---min=0
+---max=10000
+---step=0.001
+---scale=0.1
 local s = 50
 
----$value:透明度
+---$track:透明度
+---min=0
+---max=100
+---step=0.01
 local alp = 0
 
----$value:X回転
+---$track:X回転
+---min=-3600
+---max=3600
+---step=0.01
+---scale=0.1
 local rx = 0
 
----$value:Y回転
+---$track:Y回転
+---min=-3600
+---max=3600
+---step=0.01
+---scale=0.1
 local ry = 0
 
----$value:Z回転
+---$track:Z回転
+---min=-3600
+---max=3600
+---step=0.01
+---scale=0.1
 local rz = 0
 
----$value:減
-local adc = 2
+--separator:加減速
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local adc = 0
 
----$value:加減速[1-5]
+---$track:加減速
+---min=1
+---max=5
+---step=1
 local beki = 2
 
----$value:自動移動[0-2]
+---$select:自動移動
+---なし=0
+---離れる方向=1
+---近づく方向=2
 local jido = 0
 
 ---$check:自動時回転あり
@@ -57,14 +95,27 @@ local jdk = 1
 
 obj.effect()
 
-h_sz = track0 / 2
-h_hb = math.min(h_sz, track1)
-px = obj.x
-py = obj.y
+S_CHANGE_h_sz = track0 / 2
+S_CHANGE_h_hb = math.min(S_CHANGE_h_sz, track1)
+S_CHANGE_px = obj.x
+S_CHANGE_py = obj.y
+S_CHANGE_x = x
+S_CHANGE_y = y
+S_CHANGE_z = z
+S_CHANGE_s = s
+S_CHANGE_alp = alp
+S_CHANGE_rx = rx
+S_CHANGE_ry = ry
+S_CHANGE_rz = rz
+S_CHANGE_adc = adc
+S_CHANGE_beki = beki
+S_CHANGE_jido = jido
+S_CHANGE_jdk = jdk
+
 obj.draw(0, 0, 0, 1, track2)
 
 --範囲表示
-if track3 == 1 then
-    obj.load("figure", "円", 0xff0000, h_sz * 2, h_hb)
+if show_range then
+    obj.load("figure", "円", 0xff0000, S_CHANGE_h_sz * 2, S_CHANGE_h_hb)
     obj.draw(0, 0, 0, 100 / obj.getvalue("zoom"), 0.5)
 end
