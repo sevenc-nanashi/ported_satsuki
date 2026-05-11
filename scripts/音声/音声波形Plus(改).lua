@@ -66,7 +66,7 @@ if mode < 2 then
                 end
             end
             if alp > 0 then
-                table.insert(polygons, {x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, v0, u1, v0, u1, v2, u0, v2})
+                table.insert(polygons, { x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, v0, u1, v0, u1, v2, u0, v2 })
             end
         end
     end
@@ -100,11 +100,14 @@ else
                 end
             end
             if alp > 0 then
-                table.insert(polygons, {x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, v0, u1, v0, u1, v2, u0, v2})
+                table.insert(polygons, { x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, v0, u1, v0, u1, v2, u0, v2 })
             end
         end
     end
 end
-obj.drawpoly(polygons)
+obj.setoption("draw_state", true)
+if #polygons > 0 then
+    obj.drawpoly(polygons)
+end
 
 obj.load("tempbuffer")
