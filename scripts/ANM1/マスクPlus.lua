@@ -19,21 +19,37 @@ local track3 = 0
 ---$figure:マスクの種類
 local fig = "円"
 
----$value:ライン幅
+---$track:ライン幅
+---min=0
+---max=4000
+---step=1
 local line = 4000
 
----$value:Xスケール[%]
+---$track:Xスケール[%]
+---min=-10000
+---max=10000
+---step=0.001
 local asx = 100
 
----$value:Yスケール[%]
+---$track:Yスケール[%]
+---min=-10000
+---max=10000
+---step=0.001
 local asy = 100
 
----$value:透明度[%]
+---$track:透明度[%]
+---min=0
+---max=100
+---step=0.01
 local alp = 0
 
----$value:ぼかし
+---$track:ぼかし
+---min=0
+---max=100
+---step=1
 local br = 0
 
+obj.setanchor("cx,cy", 0)
 obj.copybuffer("tempbuffer", "object")
 obj.alpha = 0
 
