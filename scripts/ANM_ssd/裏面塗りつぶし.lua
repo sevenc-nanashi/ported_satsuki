@@ -7,11 +7,11 @@ local track0 = 100
 local coln = 0xffffff
 
 ---$check:輝度保持
-local kid = 0
+local keep = 0
 
 obj.setoption("culling", 1)
 obj.effect()
 obj.draw()
 obj.effect("反転", "左右反転", 1)
-obj.effect("単色化", "強さ", track0, "輝度を保持する", kid, "color", coln)
+obj.effect("単色化", "強さ", track0, "輝度を保持する", keep, "color", coln)
 obj.draw(0, 0, 0, 1, 1, 0, 180)
