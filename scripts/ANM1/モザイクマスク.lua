@@ -19,7 +19,7 @@ local ransu = 0
 ---$include "./shaders/mosaic_mask.hlsl"
 ]]
 
-obj.pixelshader("mosaic_mask", "object", {"object", "random"}, {
+obj.pixelshader("mosaic_mask", "object", { "object", "random" }, {
     s,
     siki / 100,
     ransu

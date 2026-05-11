@@ -7,78 +7,34 @@ local lw = 50
 ---min=0
 ---max=1000
 local lh = 50
----$track:offset
+---$track:オフセット
 ---min=-500
 ---max=500
 local set = 0
 ---$check:上
-local dir1 = 1
+local dir1 = true
 
 ---$check:下
-local dir2 = 1
+local dir2 = true
 
 ---$check:左
-local dir3 = 0
+local dir3 = false
 
 ---$check:右
-local dir4 = 0
+local dir4 = false
 
-w, h = obj.getpixel()
-offs = set % lw * 2
-n = math.floor(w / lw / 2) + 1
+local offs = set % lw * 2
 
-obj.setoption("drawtarget", "tempbuffer", w, h)
-obj.draw()
+--[[pixelshader@triangle_clipping:
+---$include "./shaders/triangle_clipping.hlsl"
+]]
 
-obj.setoption("blend", "alpha_sub")
-obj.load("figure", "四角形", 0xffffff, 2)
-
---上
-if dir1 == 1 then
-    for i = -1, n do
-        x0 = -w / 2 + lw * 2 * i + offs
-        y0 = -h / 2
-        x1 = -w / 2 + lw * 2 * i + lw * 2 + offs
-        x2 = -w / 2 + lw * 2 * i + lw + offs
-        y2 = -h / 2 + lh
-        obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
-    end
-end
-
---下
-if dir2 == 1 then
-    for i = -1, n do
-        x0 = w / 2 - lw * 2 * i - offs
-        y0 = h / 2
-        x1 = w / 2 - lw * 2 * i - lw * 2 - offs
-        x2 = w / 2 - lw * 2 * i - lw - offs
-        y2 = h / 2 - lh
-        obj.drawpoly(x0, y0, 0, x1, y0, 0, x2, y2, 0, x0, y0, 0)
-    end
-end
-
---左
-if dir3 == 1 then
-    for i = -1, n do
-        x0 = -w / 2
-        y0 = -h / 2 + lw * 2 * i - offs
-        y1 = -h / 2 + lw * 2 + lw * 2 * i - offs
-        x2 = -w / 2 + lh
-        y2 = -h / 2 + lw + lw * 2 * i - offs
-        obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
-    end
-end
-
---右
-if dir4 == 1 then
-    for i = -1, n do
-        x0 = w / 2
-        y0 = h / 2 - lw * 2 * i + offs
-        y1 = h / 2 - lw * 2 - lw * 2 * i + offs
-        x2 = w / 2 - lh
-        y2 = h / 2 - lw - lw * 2 * i + offs
-        obj.drawpoly(x0, y0, 0, x0, y1, 0, x2, y2, 0, x0, y0, 0)
-    end
-end
-
-obj.load("tempbuffer")
+obj.pixelshader("triangle_clipping", "object", "object", {
+    lw,
+    lh,
+    offs,
+    dir1 and 1 or 0,
+    dir2 and 1 or 0,
+    dir3 and 1 or 0,
+    dir4 and 1 or 0,
+})
