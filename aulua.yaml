@@ -128,10 +128,8 @@ scripts:
         label: パーティクル表裏@ANM2
       - path: "./scripts/ANM1/ランダムラスター.lua"
         label: ランダムラスター@ANM1
-      - path: "./scripts/ANM2/ランダム配置表裏(A).lua"
-        label: ランダム配置表裏(A)@ANM2
-      - path: "./scripts/ANM2/ランダム配置表裏(B).lua"
-        label: ランダム配置表裏(B)@ANM2
+      - path: "./scripts/ANM2/ランダム配置表裏.lua"
+        label: ランダム配置表裏@ANM2
       - path: "./scripts/ANM1/ロール-カメラ.lua"
         label: ロール-カメラ@ANM1
       - path: "./scripts/ANM1/各辺を伸縮させる.lua"
