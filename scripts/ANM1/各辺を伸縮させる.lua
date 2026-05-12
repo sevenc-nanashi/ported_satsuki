@@ -15,16 +15,24 @@ local c = 100
 ---min=-800
 ---max=800
 local d = 100
----$value:上辺中心[%]
+---$track:上辺中心[%]
+---min=-800
+---max=800
 local e = 0
 
----$value:右辺中心[%]
+---$track:右辺中心[%]
+---min=-800
+---max=800
 local f = 0
 
----$value:下辺中心[%]
+---$track:下辺中心[%]
+---min=-800
+---max=800
 local g = 0
 
----$value:左辺中心[%]
+---$track:左辺中心[%]
+---min=-800
+---max=800
 local h = 0
 
 e = e / 100 * obj.w / 2
