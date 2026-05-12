@@ -47,6 +47,8 @@ local param_y = 0
 --           ^スライダーの変数名
 ```
 
+ほかスクリプトのサポート状況を考慮し、回転X-Y-Zや座標X-Y-Zなどの回転・座標系のスライダーのみtrackgroupを指定してください。
+
 ### `check`
 
 チェックボックスとして指定できるパラメーター。
@@ -285,3 +287,68 @@ local param2 = 0
 
 -- A・Bの処理をここにまとめる
 ```
+
+## 順序の変更
+
+AviUtl1では、パラメーターの順序は`track`x0..4 -> その他という順序でしか指定できませんでしたが、AviUtl2ではパラメーターの順序を自由に指定できるようになりました。
+そのため、AviUtl1で`track`x0..4の順序で指定されていたパラメーターを、AviUtl2では適切な順序で指定することができます。
+
+例えば、以下のようなコードがあったとします。
+
+```lua
+---$track:X
+---min=0
+---max=1000
+---step=1
+local param1 = 0
+---$track:Y
+---min=0
+---max=1000
+---step=1
+local param2 = 0
+---$track:幅
+---min=0
+---max=1000
+---step=1
+local param3 = 0
+---$track:高さ
+---min=0
+---max=1000
+---step=1
+local param4 = 0
+---$value:Z
+local param5 = 0
+```
+
+これはX-Y-幅-高さ-Zの順序でパラメーターが指定されていましたが、AviUtl2では適切な順序で指定することができるようになったため、以下のように書き換えます。
+
+```lua
+---$track:X
+---min=0
+---max=1000
+---step=1
+local param1 = 0
+
+---$track:Y
+---min=0
+---max=1000
+---step=1
+local param2 = 0
+
+---$value:Z
+local param5 = 0
+
+---$track:幅
+---min=0
+---max=1000
+---step=1
+local param3 = 0
+
+---$track:高さ
+---min=0
+---max=1000
+---step=1
+local param4 = 0
+```
+
+また、これに加え、前述のtrackgroupの追加やvalue->trackの書き換えなども行うことができます。
