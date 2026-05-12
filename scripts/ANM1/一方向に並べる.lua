@@ -11,32 +11,34 @@ local l = 50
 ---$track:角度
 ---min=-720
 ---max=720
-local track2 = 0
----$track:回転軸
----min=0
----max=2
----step=1
-local track3 = 0
+local angle = 0
+---$select:回転軸
+---X軸=0
+---Y軸=1
+---Z軸=2
+local rotation_axis = 0
 ---$check:双方向
-local __rename_me_check0 = false
+local dual_side = false
 
 obj.effect()
-r = track2 + 90
-w, h = obj.w, obj.h
-aa = 0
-bb = n - 1
-if __rename_me_check0 then
+local r = angle + 90
+local w, h = obj.w, obj.h
+local aa = 0
+local bb = n - 1
+if dual_side then
     aa = -n + 1
     bb = n - 1
 end
+local polygons = {}
 for i = aa, bb do
-    sin = math.sin(r * math.pi / 180) * l * i
-    cos = -math.cos(r * math.pi / 180) * l * i
-    if track3 < 1 then
+    local sin = math.sin(r * math.pi / 180) * l * i
+    local cos = -math.cos(r * math.pi / 180) * l * i
+    local cx, cy, z
+    if rotation_axis < 1 then
         cx = sin
         cy = cos
         z = 0
-    elseif track3 < 2 then
+    elseif rotation_axis < 2 then
         cx = sin
         cy = 0
         z = cos
@@ -45,7 +47,8 @@ for i = aa, bb do
         cy = cos
         z = sin
     end
-    x0, x1 = cx - w / 2, cx + w / 2
-    y0, y2 = cy - h / 2, cy + h / 2
-    obj.drawpoly(x0, y0, z, x1, y0, z, x1, y2, z, x0, y2, z)
+    local x0, x1 = cx - w / 2, cx + w / 2
+    local y0, y2 = cy - h / 2, cy + h / 2
+    table.insert(polygons, {x0, y0, z, x1, y0, z, x1, y2, z, x0, y2, z, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h})
 end
+obj.drawpoly(polygons)
