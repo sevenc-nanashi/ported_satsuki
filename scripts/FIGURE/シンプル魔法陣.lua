@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
 ---$color:色
 local col = 0xffffff
 --group:外円

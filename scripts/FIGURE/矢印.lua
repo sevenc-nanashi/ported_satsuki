@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
 ---$track:長さ
 ---min=0
 ---max=5000

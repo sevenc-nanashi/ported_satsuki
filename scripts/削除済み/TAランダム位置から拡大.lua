@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\削除済み
+--label:${ROOT_CATEGORY}\切り替え効果\@TA\削除済み
 ---$track:時間[s]
 ---min=0
 ---max=10

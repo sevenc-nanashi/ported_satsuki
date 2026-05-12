@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:最大値
 ---min=100
 ---max=800

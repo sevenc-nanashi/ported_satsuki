@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\加工
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\模様
 ---$track:サイズ
 ---min=10
 ---max=200

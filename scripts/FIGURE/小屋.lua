@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\立体図形
 ---$track:サイズ
 ---min=0
 ---max=1000
@@ -31,10 +31,10 @@ local lp2 = 1.2
 ---$value:屋根隙間
 local d = 5
 
-h = obj.track0
-as = obj.track1 / 100
-l = h * obj.track2 / 100 / 2
-r = obj.track3
+h = track0
+as = track1 / 100
+l = h * track2 / 100 / 2
+r = track3
 w = h * (1 - as) / 2
 
 --正面、背面

@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\色調整
+--label:${ROOT_CATEGORY}\画面効果
 ---$track:ゴミ閾値
 ---min=0
 ---max=100

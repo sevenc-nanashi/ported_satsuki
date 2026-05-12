@@ -14,11 +14,12 @@ local f = 5
 ---$color:縁色
 local wcolor = 0x555555
 
+local a, bb
 for i = 0, 2 do
     if i == 0 then
         obj.load("figure", "背景", wcolor, 100)
-        local a = (obj.screen_h - h) / 2
-        local bb = (obj.screen_w - w) / 2
+        a = (obj.screen_h - h) / 2
+        bb = (obj.screen_w - w) / 2
         obj.effect("クリッピング", "上", a - f, "下", a - f, "右", bb - f, "左", bb - f)
         obj.effect("凸エッジ")
     elseif i == 1 then

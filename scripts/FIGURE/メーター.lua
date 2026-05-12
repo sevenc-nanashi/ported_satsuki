@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
 ---$track:高さ
 ---min=0
 ---max=900

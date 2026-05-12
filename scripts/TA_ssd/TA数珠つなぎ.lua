@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\TA
+--label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$track:角度範囲
 ---min=-360
 ---max=360

@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト\削除済み
+--label:${ROOT_CATEGORY}\画面効果\削除済み
 ---$track:時間[s]
 ---min=0
 ---max=10

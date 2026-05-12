@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\アニメーション効果
+--label:${ROOT_CATEGORY}\パーティクル出力
 ---$track:個数
 ---min=1
 ---max=50

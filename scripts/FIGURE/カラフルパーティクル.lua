@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\配置
+--label:${ROOT_CATEGORY}\パーティクル出力
 ---$track:頻度
 ---min=0.1
 ---max=500

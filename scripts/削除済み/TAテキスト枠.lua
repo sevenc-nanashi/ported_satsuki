@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\切り替え効果\削除済み
+--label:${ROOT_CATEGORY}\切り替え効果\@TA\削除済み
 ---$track:文字数
 ---min=1
 ---max=100

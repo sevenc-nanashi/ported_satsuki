@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\配置
+--label:${ROOT_CATEGORY}\動画ファイル
 ---$track:連番桁
 ---min=1
 ---max=8

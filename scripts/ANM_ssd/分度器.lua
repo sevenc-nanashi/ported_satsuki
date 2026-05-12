@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト
+--label:${ROOT_CATEGORY}\ツール
 ---$track:サイズ
 ---min=1
 ---max=256
