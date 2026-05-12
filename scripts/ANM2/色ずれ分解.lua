@@ -1,18 +1,22 @@
 --label:${ROOT_CATEGORY}\光効果
----$track:RGB
----min=0
----max=2
----step=1
-local track0 = 0
+---$select:RGB
+---赤=0
+---緑=1
+---青=2
+local channel = 0
 ---$track:濃さ[%]
 ---min=0
 ---max=300
-local track1 = 300
-zoom = obj.getvalue("zoom") / 100
-w = obj.w / zoom
-h = obj.h / zoom
-obj.setoption("dst", "tmp", w * 3, h)
-obj.effect("色ずれ", "ずれ幅", w, "角度", -90, "type", 1)
-obj.draw()
-obj.load("tempbuffer", w * track0, 0, w, h)
-obj.alpha = obj.alpha * track1 / 100
+local blend = 100
+---$check:飽和する
+local saturate = false
+
+--[[pixelshader@channel_extraction:
+---$include "./shaders/channel_extraction.hlsl"
+]]
+
+obj.pixelshader("channel_extraction", "object", "object", {
+    channel,
+    blend / 100,
+    saturate and 1 or 0,
+})
