@@ -7,40 +7,49 @@ local n = 10
 ---$track:距離
 ---min=0
 ---max=2000
-local l = 200
+---step=1
+local distance = 200
 ---$track:拡大率
 ---min=0
 ---max=800
-local track2 = 100
+local scale = 100
 ---$track:回転
 ---min=-360
 ---max=360
-local rz = 0
+local rotation = 0
 ---$check:回転なし
-local dir = 0
+local no_rotation = false
 
 ---$check:個別基準
-local mode = 0
+local individual_origin = false
 
-s = track2 / 100
+local scale_rate = scale / 100
 
-if mode == 0 then
-    zoom = obj.getvalue("zoom") / 100 / s
-    s_buf = l * 2 + math.sqrt((obj.w / zoom) ^ 2 + (obj.h / zoom) ^ 2)
-    obj.setoption("dst", "tmp", s_buf, s_buf)
+if not individual_origin then
+    local zoom = obj.getvalue("zoom") / 100 / scale_rate
+    local buffer_size = distance * 2 + math.sqrt((obj.w / zoom) ^ 2 + (obj.h / zoom) ^ 2)
+    obj.setoption("drawtarget", "tempbuffer", buffer_size, buffer_size)
     for i = 0, n - 1 do
-        r = 360 * i / n
-        x = math.sin(r * math.pi / 180) * l
-        y = -math.cos(r * math.pi / 180) * l
-        obj.draw(x, y, 0, s, 1, 0, 0, r * (1 - dir) + rz)
+        local angle = 360 * i / n
+        local x = math.sin(angle * math.pi / 180) * distance
+        local y = -math.cos(angle * math.pi / 180) * distance
+        local draw_rotation = rotation
+        if not no_rotation then
+            draw_rotation = draw_rotation + angle
+        end
+        obj.draw(x, y, 0, scale_rate, 1, 0, 0, draw_rotation)
     end
     obj.load("tempbuffer")
 else
     obj.effect()
     for i = 0, n - 1 do
-        r = 360 * i / n + rz
-        x = math.sin(r * math.pi / 180) * l
-        y = -math.cos(r * math.pi / 180) * l
-        obj.draw(x, y, 0, s, 1, 0, 0, r * (1 - dir))
+        local angle = 360 * i / n + rotation
+        local x = math.sin(angle * math.pi / 180) * distance
+        local y = -math.cos(angle * math.pi / 180) * distance
+        local draw_rotation = 0
+        if not no_rotation then
+            draw_rotation = angle
+        end
+        obj.draw(x, y, 0, scale_rate, 1, 0, 0, draw_rotation)
     end
 end
