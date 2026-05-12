@@ -17,25 +17,41 @@ local s = 10
 ---min=-360
 ---max=360
 local r = 90
----$value:分割数
+---$track:分割数
+---min=1
+---max=50
+---step=1
 local div = 5
 
----$value:色ずれ幅[%]
+---$track:色ずれ幅[%]
+---min=0
+---max=200
+---step=0.1
 local iro = 0
 
----$value:色ずれ種類[0-2]
+---$select:色ずれ種類
+---赤緑A=0
+---赤青A=1
+---緑青A=2
+---赤緑B=3
+---赤青B=4
+---緑青B=5
 local iro_ty = 0
 
 ---$check:補助線表示
-local hojo = 1
+local hojo = true
 
----$value:補助線高さ[%]
+---$track:補助線高さ[%]
+---min=0
+---max=200
+---step=1
 local hh = 100
 
 obj.effect()
-i = math.min(track1, div)
-buf = {}
-n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
+local i = math.min(track1, div)
+local buf = {}
+local n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
+local l
 if buf[i] > siki then
     l = s * buf[i] / 1000
 else
@@ -45,28 +61,30 @@ obj.effect("色ずれ", "ずれ幅", l * iro / 100, "角度", r, "type", iro_ty)
 obj.effect("方向ブラー", "範囲", l, "角度", r)
 obj.draw()
 
-if hojo == 1 then
-    h = obj.screen_h / 2
-    w = obj.screen_w / n
+if hojo then
+    local h = obj.screen_h / 2
+    local w = obj.screen_w / n
     --波形表示(縦棒)
     obj.load("figure", "四角形", 0x00ff00, 2)
     obj.alpha = 0.5
+    local polygons = {}
     for j = 1, n do
-        x = j * w - obj.screen_w / 2 - w / 2
-        y = -buf[j] / 10 * hh / 100 + obj.screen_h / 2
+        local x = j * w - obj.screen_w / 2 - w / 2
+        local y = -buf[j] / 10 * hh / 100 + obj.screen_h / 2
+        table.insert(polygons, {x - w / 2, y, 0})
         obj.drawpoly(x - w / 2, y, 0, x + w / 2, y, 0, x + w / 2, h, 0, x - w / 2, h, 0)
     end
 
     --選択した音域表示(縦棒)
     obj.load("figure", "四角形", 0xff0000, 2)
-    x = i * w - obj.screen_w / 2 - w / 2
-    y = -buf[i] / 10 * hh / 100 + obj.screen_h / 2
+    local x = i * w - obj.screen_w / 2 - w / 2
+    local y = -buf[i] / 10 * hh / 100 + obj.screen_h / 2
     obj.drawpoly(x - w / 2, y, 0, x + w / 2, y, 0, x + w / 2, h, 0, x - w / 2, h, 0)
 
     --閾値表示(横線)
     obj.load("figure", "四角形", 0xffffff, 2)
-    sw = obj.screen_w / 2
-    sy = -siki / 10 * hh / 100 + obj.screen_h / 2
+    local sw = obj.screen_w / 2
+    local sy = -siki / 10 * hh / 100 + obj.screen_h / 2
     obj.drawpoly(-sw, sy - 1, 0, sw, sy - 1, 0, sw, sy + 1, 0, -sw, sy + 1, 0)
 
     --テキスト表示
