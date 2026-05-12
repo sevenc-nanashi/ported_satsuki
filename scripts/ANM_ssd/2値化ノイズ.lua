@@ -13,10 +13,13 @@ local syk = 5
 ---min=0
 ---max=50
 local hks = 0
----$track:種類
----min=0
----max=5
----step=1
+---$select:ノイズの種類
+---Type1=0
+---Type2=1
+---Type3=2
+---Type4=3
+---Type5=4
+---Type6=5
 local nizs = 0
 ---$color:色
 local col = 0xffffff
@@ -30,13 +33,13 @@ http://www.nicovideo.jp/watch/sm21178949
 からダウンロードし、当スクリプトファイルと同じフォルダに入れてください。
 ]]
 
+--[[pixelshader@binary_noise
+---$include "./shaders/binary_noise.hlsl"
+]]
+
 obj.effect("単色化", "color", 0xffffff, "輝度を保持する", kdhj)
 obj.effect("ノイズ", "変化速度", hks, "周期X", syk, "周期Y", syk, "mode", 1, "type", nizs)
-
-require("T_Color_Module")
-local userdata, w, h = obj.getpixeldata()
-T_Color_Module.binarization(userdata, w, h, sikii, 1)
-obj.putpixeldata(userdata)
-
-obj.effect("カラーキー", "color_yc", 0, "status", 1)
-obj.effect("単色化", "color", col, "輝度を保持する", 0)
+obj.pixelshader("binary_noise", "object", "object", {
+    sikii / 255,
+    RGB(col)
+})
