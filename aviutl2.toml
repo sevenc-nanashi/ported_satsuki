@@ -1,5 +1,6 @@
 #:schema ./.aviutl2-cli/aviutl2.schema.json
 # 設定ファイルについては https://github.com/sevenc-nanashi/aviutl2-cli を参照してください。
+
 [project]
 id = "sevenc-nanashi.ported_satsuki"
 name = "ported_satsuki"
@@ -25,4 +26,8 @@ build.group = "aulua"
 
 [development]
 aviutl2_version = "latest"
-catalog_dependencies = ["sevenc-nanashi.aviutl2-rs.rusty_scripts_search", "sevenc-nanashi.aviutl2-rs.rusty_ffmpeg"]
+catalog_dependencies = [
+  "sevenc-nanashi.aviutl2-rs.rusty_scripts_search",
+  "sevenc-nanashi.aviutl2-rs.rusty_ffmpeg",
+  "Mr-Ojii.L-SMASH-Works"
+]
