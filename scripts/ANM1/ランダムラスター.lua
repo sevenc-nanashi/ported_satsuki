@@ -2,42 +2,55 @@
 ---$track:横幅(小)
 ---min=0
 ---max=1000
-local track0 = 50
+local amplitude_low = 50
 ---$track:横幅(大)
 ---min=0
 ---max=1000
-local track1 = 500
+local amplitude_high = 500
 ---$track:閾値(小)
 ---min=0
 ---max=100
-local track2 = 50
+local threshold_low = 50
 ---$track:閾値(大)
 ---min=0
 ---max=100
-local track3 = 90
+local threshold_high = 90
 ---$check:横方向のみ
 local dir0 = 1
 
 ---$check:縦方向のみ
 local dir1 = 0
 
----$value:高さ
+---$track:高さ
+---min=0
+---max=1000
 local h = 5
 
----$value:色ずれ幅[%]
+---$track:色ずれ幅[%]
+---min=0
+---max=400
+---step=0.1
 local iro = 0
 
----$value:色ずれ種類[0〜2]
+---$select:色ずれ種類
+---赤緑A=0
+---赤青A=1
+---緑青A=2
+---赤緑B=3
+---赤青B=4
+---緑青B=5
 local ty = 0
 
-l = rand(0, 100)
-if l > track3 then
-    w = obj.rand(0, track1)
-elseif l > track2 then
-    w = obj.rand(0, track0)
+local l = rand(0, 100)
+local w
+if l > threshold_high then
+    w = obj.rand(0, amplitude_high)
+elseif l > threshold_low then
+    w = obj.rand(0, amplitude_low)
 else
     w = 0
 end
+local dir
 if dir0 == 1 and dir1 == 0 then
     dir = 0
 elseif dir0 == 0 and dir1 == 1 then
