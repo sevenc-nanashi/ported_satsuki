@@ -25,4 +25,4 @@ build.group = "aulua"
 
 [development]
 aviutl2_version = "latest"
-catalog_dependencies = ["sevenc-nanashi.aviutl2-rs.rusty_scripts_search"]
+catalog_dependencies = ["sevenc-nanashi.aviutl2-rs.rusty_scripts_search", "sevenc-nanashi.aviutl2-rs.rusty_ffmpeg"]
