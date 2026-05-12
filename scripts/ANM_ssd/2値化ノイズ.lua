@@ -27,12 +27,6 @@ local col = 0xffffff
 ---$check:輝度保持
 local kdhj = 0
 
---[[
-ティム氏の色調補正セットにある「T_Color_Module.dll」が必要です。
-http://www.nicovideo.jp/watch/sm21178949
-からダウンロードし、当スクリプトファイルと同じフォルダに入れてください。
-]]
-
 --[[pixelshader@binary_noise
 ---$include "./shaders/binary_noise.hlsl"
 ]]
