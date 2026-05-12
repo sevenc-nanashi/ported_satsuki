@@ -48,26 +48,55 @@ if not individual_origin then
     local y_rate = y_interval / 100
     local width = obj.w
     local height = obj.h
+    local base_x = -(x_count + (x_count - 1) * (x_rate - 1)) * width / 2
+    local base_y = -(y_count + (y_count - 1) * (y_rate - 1)) * height / 2
+    local shift_x = width / 2 * x_rate
+    local shift_y = width / 2 * y_rate
+    local vertices = {}
+
     for k = 0, z_count - 1 do
         local z = -z_interval * (z_count - 1) / 2 + k * z_interval
         for j = 0, y_count - 1 do
-            local y0 = -(y_count + (y_count - 1) * (y_rate - 1)) * height / 2 + height * j * y_rate
-            local y2 = -(y_count + (y_count - 1) * (y_rate - 1)) * height / 2 + height * (j * y_rate + 1)
+            local y0 = base_y + height * j * y_rate
+            local y2 = y0 + height
             if stagger_zy and k % 2 == 1 then
-                y0 = y0 + width / 2 * y_rate
-                y2 = y2 + width / 2 * y_rate
+                y0 = y0 + shift_y
+                y2 = y2 + shift_y
             end
             for i = 0, x_count - 1 do
-                local x0 = -(x_count + (x_count - 1) * (x_rate - 1)) * width / 2 + width * i * x_rate
-                local x1 = -(x_count + (x_count - 1) * (x_rate - 1)) * width / 2 + width * (i * x_rate + 1)
+                local x0 = base_x + width * i * x_rate
+                local x1 = x0 + width
                 if stagger_xy and j % 2 == 0 then
-                    x0 = x0 + width / 2 * x_rate
-                    x1 = x1 + width / 2 * x_rate
+                    x0 = x0 + shift_x
+                    x1 = x1 + shift_x
                 end
-                obj.drawpoly(x0, y0, z, x1, y0, z, x1, y2, z, x0, y2, z, 0, 0, width, 0, width, height, 0, height)
+                vertices[#vertices + 1] = {
+                    x0,
+                    y0,
+                    z,
+                    x1,
+                    y0,
+                    z,
+                    x1,
+                    y2,
+                    z,
+                    x0,
+                    y2,
+                    z,
+                    0,
+                    0,
+                    width,
+                    0,
+                    width,
+                    height,
+                    0,
+                    height,
+                }
             end
         end
     end
+
+    obj.drawpoly(vertices)
 else
     for k = 0, z_count - 1 do
         local z = -z_interval * (z_count - 1) / 2 + k * z_interval
