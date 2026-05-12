@@ -81,8 +81,8 @@ local random_rotation_speed = 0
 local random_xy_rotation = 0
 
 ---$track:Z軸ランダム方向
----min=-3600
----max=3600
+---min=0
+---max=1000
 local random_z_direction = 0
 
 local interval = 1 / frequency
