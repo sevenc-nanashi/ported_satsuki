@@ -1,37 +1,42 @@
 --label:${ROOT_CATEGORY}\配置
 ---$track:個数
----min=0
+---min=1
 ---max=100
 ---step=1
-local n = 6
+local count = 6
 ---$track:距離
 ---min=0
 ---max=2000
-local l = 200
+---step=1
+local distance = 200
 ---$track:拡大率
 ---min=0
 ---max=800
-local track2 = 100
+local scale = 100
 ---$track:回転
 ---min=-720
 ---max=720
-local k = 0
+local rotation = 0
 ---$check:外向き
-local __rename_me_check0 = false
+local outward = false
 
-s = track2 / 100
-lay = obj.layer
-soto = 0
-r = 360 * (obj.layer - lay) / n + k
-obj.ox = math.sin(r * math.pi / 180) * l * s
-obj.oy = -math.cos(r * math.pi / 180) * l * s
-obj.zoom = obj.zoom * s
-obj.rz = r
-if __rename_me_check0 then
+S_circle_arrange_layer_count = count
+S_circle_arrange_layer_distance = distance
+S_circle_arrange_layer_scale = scale / 100
+S_circle_arrange_layer_rotation = rotation
+S_circle_arrange_layer_base_layer = obj.layer
+S_circle_arrange_layer_outward = outward
+
+local angle = 360 * (obj.layer - S_circle_arrange_layer_base_layer) / S_circle_arrange_layer_count
+    + S_circle_arrange_layer_rotation
+obj.ox = math.sin(angle * math.pi / 180) * S_circle_arrange_layer_distance * S_circle_arrange_layer_scale
+obj.oy = -math.cos(angle * math.pi / 180) * S_circle_arrange_layer_distance * S_circle_arrange_layer_scale
+obj.zoom = obj.zoom * S_circle_arrange_layer_scale
+obj.rz = angle
+if S_circle_arrange_layer_outward then
     obj.ox = -obj.ox
     obj.rz = -obj.rz - 180
-    soto = 1
 end
-x = obj.x
-y = obj.y
-z = obj.z
+S_circle_arrange_layer_base_x = obj.x
+S_circle_arrange_layer_base_y = obj.y
+S_circle_arrange_layer_base_z = obj.z
