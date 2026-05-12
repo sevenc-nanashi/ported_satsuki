@@ -2,11 +2,11 @@
 ---$track:拡大率
 ---min=0
 ---max=800
-local track0 = 110
+local scale = 110
 ---$track:濃さ
 ---min=0
 ---max=100
-local track1 = 100
+local alpha = 100
 ---$track:拡散
 ---min=0
 ---max=300
@@ -15,22 +15,18 @@ local track2 = 0
 ---$color:色
 local color = 0x000000
 
---http://www.nicovideo.jp/watch/sm16334110
---こちらで公開されている「extbuffer.lua」と「extbuffer_core.dll」が必須です。
-
-s = track0 / 100
-zoom = obj.getvalue("zoom") / 100 / s
-w = obj.w / zoom
-h = obj.h / zoom
+local s = scale / 100
+local zoom = obj.getvalue("zoom") / 100 / s
+local w = obj.w / zoom
+local h = obj.h / zoom
 
 --元画像の保存
-require("extbuffer")
-extbuffer.write(1)
+obj.copybuffer("cache:framing_plus_original", "object")
 --描画
 obj.setoption("drawtarget", "tempbuffer", w, h)
 obj.effect("ぼかし", "範囲", track2)
 obj.effect("グラデーション", "color", color, "color2", color)
-obj.draw(0, 0, 0, s, track1 / 100)
-extbuffer.read(1)
+obj.draw(0, 0, 0, s, alpha / 100)
+obj.copybuffer("object", "cache:framing_plus_original")
 obj.draw()
 obj.load("tempbuffer")
