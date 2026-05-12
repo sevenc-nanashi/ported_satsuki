@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
+--label:${ROOT_CATEGORY}\図形
 ---$track:ライン幅
 ---min=2
 ---max=100

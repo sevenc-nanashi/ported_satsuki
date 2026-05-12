@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
+--label:${ROOT_CATEGORY}\図形
 ---$track:半径
 ---min=1
 ---max=2000

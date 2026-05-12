@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト\図形
+--label:${ROOT_CATEGORY}\図形
 ---$track:分割数
 ---min=4
 ---max=50
