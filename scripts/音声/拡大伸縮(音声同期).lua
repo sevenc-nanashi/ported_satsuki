@@ -17,26 +17,39 @@ local s = 200
 ---min=0
 ---max=100
 local track3 = 4
----$value:Xスケール[%]
+---$track:Xスケール[%]
+---min=0
+---max=1000
 local xs = 100
 
----$value:Yスケール[%]
+---$track:Yスケール[%]
+---min=0
+---max=1000
 local ys = 100
 
----$value:分割数
+---$track:分割数
+---min=1
+---max=50
+---step=1
 local div = 5
 
 ---$check:補助線表示
 local hojo = 1
 
----$value:補助線高さ[%]
+---$track:補助線高さ[%]
+---min=0
+---max=200
+---step=1
 local hh = 100
 
 obj.effect()
-i = math.min(track1, div)
-sd = track3 / 100
-buf = {}
-n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
+local i = math.min(track1, div)
+local sd = track3 / 100
+local buf = {}
+local n = obj.getaudio(buf, "audiobuffer", "spectrum", div)
+local zoom = 1
+local xscale = 1
+local yscale = 1
 if buf[i] > siki then
     zoom = s / 100
     xscale = xs / 100
@@ -51,13 +64,13 @@ end
 if yscale > 1 then
     yscale = yscale - sd
 end
-x = obj.w / 2 * zoom * xscale
-y = obj.h / 2 * zoom * yscale
+local x = obj.w / 2 * zoom * xscale
+local y = obj.h / 2 * zoom * yscale
 obj.drawpoly(-x, -y, 0, x, -y, 0, x, y, 0, -x, y, 0)
 
 if hojo == 1 then
-    h = obj.screen_h / 2
-    w = obj.screen_w / n
+    local h = obj.screen_h / 2
+    local w = obj.screen_w / n
     --波形表示(縦棒)
     obj.load("figure", "四角形", 0x00ff00, 2)
     obj.alpha = 0.5
@@ -75,8 +88,8 @@ if hojo == 1 then
 
     --閾値表示(横線)
     obj.load("figure", "四角形", 0xffffff, 2)
-    sw = obj.screen_w / 2
-    sy = -siki / 10 * hh / 100 + obj.screen_h / 2
+    local sw = obj.screen_w / 2
+    local sy = -siki / 10 * hh / 100 + obj.screen_h / 2
     obj.drawpoly(-sw, sy - 1, 0, sw, sy - 1, 0, sw, sy + 1, 0, -sw, sy + 1, 0)
 
     --テキスト表示
