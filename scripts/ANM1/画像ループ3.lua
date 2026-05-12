@@ -2,22 +2,43 @@
 ---$track:X軸[%]
 ---min=-2000
 ---max=2000
+---step=1
 local track0 = 0
 ---$track:Y軸[%]
 ---min=-2000
 ---max=2000
+---step=1
 local track1 = 0
----$value:初速X
+
+--trackgroup@track0,track1:軸
+
+---$track:初速X
+---min=-10000
+---max=10000
+---step=1
 local vx = 0
 
----$value:初速Y
+---$track:初速Y
+---min=-10000
+---max=10000
+---step=1
 local vy = 0
 
----$value:加速度X
+--trackgroup@vx,vy:初速
+
+---$track:加速度X
+---min=-10000
+---max=10000
+---step=1
 local vxa = 0
 
----$value:加速度Y
+---$track:加速度Y
+---min=-10000
+---max=10000
+---step=1
 local vya = 0
+
+--trackgroup@vxa,vya:加速度
 
 obj.effect()
 
