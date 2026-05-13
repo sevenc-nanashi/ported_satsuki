@@ -1,90 +1,97 @@
 --label:${ROOT_CATEGORY}\切り替え効果
----$track:方向
----min=-360
----max=360
----step=0.01
-local track1 = 0
----$track:距離
----min=0
----max=20000
-local l = 300
----$track:拡大率
----min=0
----max=800
-local s = 100
----$track:縦横比[%]
----min=-100
----max=100
-local as = 0
-
----$track:Z軸
----min=-20000
----max=20000
----step=1
-local z = 0
-
----$track:X回転
----min=-720
----max=720
-local rx = 0
-
----$track:Y回転
----min=-720
----max=720
-local ry = 0
-
----$track:Z回転
----min=-720
----max=720
-local rz = 0
-
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local mode = 0
 
+---$track:方向
+---min=-360
+---max=360
+---step=0.01
+local direction_angle = 0
+---$track:距離
+---min=0
+---max=20000
+---step=1
+local distance = 300
+---$track:拡大率
+---min=0
+---max=800
+---step=1
+local zoom = 100
+---$track:縦横比[%]
+---min=-100
+---max=100
+---step=1
+local aspect_ratio = 0
+
+---$track:Z軸
+---min=-20000
+---max=20000
+---step=1
+local z_distance = 0
+
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
+---$track:X回転
+---min=-720
+---max=720
+---step=1
+local rotation_x = 0
+
+---$track:Y回転
+---min=-720
+---max=720
+---step=1
+local rotation_y = 0
+
+---$track:Z回転
+---min=-720
+---max=720
+---step=1
+local rotation_z = 0
+
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local r = track1 + 90
-obj.ox = obj.ox + l * math.cos(r * math.pi / 180) * t
-obj.oy = obj.oy + l * math.sin(r * math.pi / 180) * t
-obj.oz = obj.oz + z * t
-obj.zoom = obj.zoom + (s / 100 - 1) * t
-obj.aspect = obj.aspect + as / 100 * t
-obj.rz = obj.rz + rz * t
-obj.rx = obj.rx + rx * t
-obj.ry = obj.ry + ry * t
+local movement_angle = direction_angle + 90
+obj.ox = obj.ox + distance * math.cos(movement_angle * math.pi / 180) * progress
+obj.oy = obj.oy + distance * math.sin(movement_angle * math.pi / 180) * progress
+obj.oz = obj.oz + z_distance * progress
+obj.zoom = obj.zoom + (zoom / 100 - 1) * progress
+obj.aspect = obj.aspect + aspect_ratio / 100 * progress
+obj.rz = obj.rz + rotation_z * progress
+obj.rx = obj.rx + rotation_x * progress
+obj.ry = obj.ry + rotation_y * progress
