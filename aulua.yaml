@@ -3,491 +3,491 @@ project:
   variables:
     ROOT_CATEGORY: satsuki
 scripts:
-  - name: "@satsuki.anm2.anm2"
-    sources:
-      - path: "./scripts/ANM2/グループ制御もどき(親).lua"
-        label: グループ制御もどき(親)@ANM2
-      - path: "./scripts/ANM2/グループ制御もどき(子).lua"
-        label: グループ制御もどき(子)@ANM2
-      - path: "./scripts/ANM2/2次ベジェ曲線.lua"
-        label: 2次ベジェ曲線@ANM2
-      - path: "./scripts/ANM2/3次ベジェ曲線.lua"
-        label: 3次ベジェ曲線@ANM2
-      - path: "./scripts/ANM2/TVオンオフ.lua"
-        label: TVオンオフ@ANM2
-      - path: "./scripts/ANM1/twitchっぽいもの.lua"
-        label: twitchっぽいもの@ANM1
-      - path: "./scripts/ANM2/ハチの巣.lua"
-        label: ハチの巣@ANM2
-      - path: "./scripts/ANM2/ハーフトーン風.lua"
-        label: ハーフトーン風@ANM2
-      - path: "./scripts/音声/立体音声波形Plus.lua"
-        label: 立体音声波形Plus@音声
-      - path: "./scripts/ANM_ssd/範囲指定で変化（親）.lua"
-        label: 範囲指定で変化（親）@範囲指定で変化@ANM_ssd
-      - path: "./scripts/ANM_ssd/範囲指定で変化（子）.lua"
-        label: 範囲指定で変化（子）@範囲指定で変化@ANM_ssd
-      - path: "./scripts/ANM2/蝶.lua"
-        label: 蝶@ANM2
-      - path: "./scripts/音声/音声波形Plus(改).lua"
-        label: 音声波形Plus(改)@音声
-      - path: "./scripts/音声/音声波形Plus2-ロール.lua"
-        label: 音声波形Plus2-ロール@音声
-      - path: "./scripts/音声/音声波形Plus3.lua"
-        label: 音声波形Plus3@音声
-      - path: "./scripts/音声/音声波形Plus4.lua"
-        label: 音声波形Plus4@音声
-      - path: "./scripts/削除済み/MAGI_text.lua"
-        label: MAGI_text@削除済みANM
-      - path: "./scripts/削除済み/magicB_テキスト4.lua"
-        label: magicB_テキスト4@削除済みANM
-      - path: "./scripts/削除済み/magicC_テキスト大.lua"
-        label: magicC_テキスト大@削除済みANM
-      - path: "./scripts/削除済み/magicD_テキスト小.lua"
-        label: magicD_テキスト小@削除済みANM
-      - path: "./scripts/削除済み/ものまね.lua"
-        label: ものまね@削除済みANM
-      - path: "./scripts/削除済み/左寄せとか.lua"
-        label: 左寄せとか@削除済みANM
-      - path: "./scripts/ANM1/RGB色調補正(オーバーレイ).lua"
-        label: RGB色調補正(オーバーレイ)@ANM1
-      - path: "./scripts/ANM1/RGB色調補正(加減算).lua"
-        label: RGB色調補正(加減算)@ANM1
-      - path: "./scripts/ANM1/塗りつぶし.lua"
-        label: 塗りつぶし@ANM1
-      - path: "./scripts/ANM1/段階グラデーション.lua"
-        label: 段階グラデーション@ANM1
-      - path: "./scripts/ANM_ssd/裏面塗りつぶし.lua"
-        label: 裏面塗りつぶし@ANM_ssd
-      - path: "./scripts/加減速/ADC_クリッピング.lua"
-        label: ADC_クリッピング@加減速
-      - path: "./scripts/加減速/ADC_マスク.lua"
-        label: ADC_マスク@加減速
-      - path: "./scripts/加減速/ADC_斜めクリッピング.lua"
-        label: ADC_斜めクリッピング@加減速
-      - path: "./scripts/ANM2/もっと!_斜めクリッピング.lua"
-        label: もっと!?斜めクリッピング@ANM2
-      - path: "./scripts/ANM1/ギザ円クリッピング.lua"
-        label: ギザ円クリッピング@ANM1
-      - path: "./scripts/ANM1/マスクPlus.lua"
-        label: マスクPlus@ANM1
-      - path: "./scripts/ANM1/モザイクマスク.lua"
-        label: モザイクマスク@ANM1
-      - path: "./scripts/ANM_ssd/三角クリッピング.lua"
-        label: 三角クリッピング@ANM_ssd
-      - path: "./scripts/ANM2/切れ込み.lua"
-        label: 切れ込み@ANM2
-      - path: "./scripts/ANM2/斜めクリッピングEX.lua"
-        label: 斜めクリッピングEX@ANM2
-      - path: "./scripts/ANM_ssd/斜め三角クリッピング.lua"
-        label: 斜め三角クリッピング@ANM_ssd
-      - path: "./scripts/ANM1/格子状マスク.lua"
-        label: 格子状マスク@ANM1
-      - path: "./scripts/ANM_ssd/簡易変形マスク.lua"
-        label: 簡易変形マスク@ANM_ssd
-      - path: "./scripts/削除済み/格子クリッピング(旧ver).lua"
-        label: 格子クリッピング(旧ver)@削除済みANM
-      - path: "./scripts/加減速/ADC_ぼかし.lua"
-        label: ADC_ぼかし@加減速
-      - path: "./scripts/加減速/ADC_放射ブラー.lua"
-        label: ADC_放射ブラー@加減速
-      - path: "./scripts/ANM2/カメラ深度ぼけPlus.lua"
-        label: カメラ深度ぼけPlus@ANM2
-      - path: "./scripts/音声/方向ブラー(音声同期).lua"
-        label: 方向ブラー(音声同期)@音声
-      - path: "./scripts/ANM1/片側ぼかし.lua"
-        label: 片側ぼかし@ANM1
-      - path: "./scripts/ANM1/自動方向ブラー.lua"
-        label: 自動方向ブラー@ANM1
-      - path: "./scripts/加減速/ADC_色ずれ.lua"
-        label: ADC_色ずれ@加減速
-      - path: "./scripts/ANM1/キラキラ.lua"
-        label: キラキラ@ANM1
-      - path: "./scripts/ANM1/ランダム色ずれ.lua"
-        label: ランダム色ずれ@ANM1
-      - path: "./scripts/ANM2/色ずれ分解.lua"
-        label: 色ずれ分解@ANM2
-      - path: "./scripts/ANM1/内側シャドー.lua"
-        label: 内側シャドー@ANM1
-      - path: "./scripts/ANM1/縁取りPlus.lua"
-        label: 縁取りPlus@ANM1
-      - path: "./scripts/ANM_ssd/2値化ノイズ.lua"
-        label: 2値化ノイズ@ANM_ssd
-      - path: "./scripts/ANM1/しきい値フィルタ.lua"
-        label: しきい値フィルタ@ANM1
-      - path: "./scripts/ANM1/XYスケール.lua"
-        label: XYスケール@ANM1
-      - path: "./scripts/ANM2/n分の1拡大.lua"
-        label: n分の1拡大@ANM2
-      - path: "./scripts/ANM2/カード表裏.lua"
-        label: カード表裏@ANM2
-      - path: "./scripts/ANM2/ドット絵立体化.lua"
-        label: ドット絵立体化@ANM2
-      - path: "./scripts/ANM2/パーティクル表裏.lua"
-        label: パーティクル表裏@ANM2
-      - path: "./scripts/ANM1/ランダムラスター.lua"
-        label: ランダムラスター@ANM1
-      - path: "./scripts/ANM2/ランダム配置表裏.lua"
-        label: ランダム配置表裏@ANM2
-      - path: "./scripts/ANM1/ロール-カメラ.lua"
-        label: ロール-カメラ@ANM1
-      - path: "./scripts/ANM1/各辺を伸縮させる.lua"
-        label: 各辺を伸縮させる@ANM1
-      - path: "./scripts/ANM_ssd/回転万華鏡.lua"
-        label: 回転万華鏡@ANM_ssd
-      - path: "./scripts/ANM2/引き伸ばし.lua"
-        label: 引き伸ばし@ANM2
-      - path: "./scripts/音声/拡大伸縮(音声同期).lua"
-        label: 拡大伸縮(音声同期)@音声
-      - path: "./scripts/ANM1/歪曲-カメラ.lua"
-        label: 歪曲-カメラ@ANM1
-      - path: "./scripts/ANM1/球体分解-カメラ.lua"
-        label: 球体分解-カメラ@ANM1
-      - path: "./scripts/ANM1/パーティクル再現.lua"
-        label: パーティクル再現@ANM1
-      - path: "./scripts/ANM1/ランダム配置.lua"
-        label: ランダム配置@ANM1
-      - path: "./scripts/ANM2/ループANM.lua"
-        label: ループANM@ANM2
-      - path: "./scripts/ANM1/一方向に並べる.lua"
-        label: 一方向に並べる@ANM1
-      - path: "./scripts/ANM2/円形-カメラ_レイヤーA.lua"
-        label: 円形-カメラ_レイヤーA@ANM2
-      - path: "./scripts/ANM2/円形-カメラ_レイヤーB.lua"
-        label: 円形-カメラ_レイヤーB@ANM2
-      - path: "./scripts/ANM1/円形に並べる(順).lua"
-        label: 円形に並べる(順)@ANM1
-      - path: "./scripts/ANM1/円形並べ.lua"
-        label: 円形並べ@ANM1
-      - path: "./scripts/ANM1/円形並べ-カメラ.lua"
-        label: 円形並べ-カメラ@ANM1
-      - path: "./scripts/ANM2/円形並べ_レイヤーA.lua"
-        label: 円形並べ_レイヤーA@ANM2
-      - path: "./scripts/ANM2/円形並べ_レイヤーB.lua"
-        label: 円形並べ_レイヤーB@ANM2
-      - path: "./scripts/ANM1/画像ループ2.lua"
-        label: 画像ループ2@ANM1
-      - path: "./scripts/ANM1/画像ループ3.lua"
-        label: 画像ループ3@ANM1
-      - path: "./scripts/ANM_ssd/透過判定図形並べ.lua"
-        label: 透過判定図形並べ@ANM_ssd
-      - path: "./scripts/連番/連番らせん[A].lua"
-        label: 連番らせん[A]@連番
-      - path: "./scripts/連番/連番らせん[B].lua"
-        label: 連番らせん[B]@連番
-      - path: "./scripts/連番/連番パーティクル[A].lua"
-        label: 連番パーティクル[A]@連番
-      - path: "./scripts/連番/連番パーティクル[B].lua"
-        label: 連番パーティクル[B]@連番
-      - path: "./scripts/連番/連番ランダム配置[A].lua"
-        label: 連番ランダム配置[A]@連番
-      - path: "./scripts/連番/連番ランダム配置[B].lua"
-        label: 連番ランダム配置[B]@連番
-      - path: "./scripts/連番/連番円形-カメラ[A].lua"
-        label: 連番円形-カメラ[A]@連番
-      - path: "./scripts/連番/連番円形-カメラ[B].lua"
-        label: 連番円形-カメラ[B]@連番
-      - path: "./scripts/連番/連番円形並べ[A].lua"
-        label: 連番円形並べ[A]@連番
-      - path: "./scripts/連番/連番円形並べ[B].lua"
-        label: 連番円形並べ[B]@連番
-      - path: "./scripts/連番/連番球状配置[A].lua"
-        label: 連番球状配置[A]@連番
-      - path: "./scripts/連番/連番球状配置[B].lua"
-        label: 連番球状配置[B]@連番
-      - path: "./scripts/連番/連番画像ループ[A].lua"
-        label: 連番画像ループ[A]@連番
-      - path: "./scripts/連番/連番画像ループ[B].lua"
-        label: 連番画像ループ[B]@連番
-      - path: "./scripts/TA/TAぼかし登場.lua"
-        label: TAぼかし登場@TA
-      - path: "./scripts/TA/TAぼかし登場2.lua"
-        label: TAぼかし登場2@TA
-      - path: "./scripts/TA/TAぼかし登場3.lua"
-        label: TAぼかし登場3@TA
-      - path: "./scripts/TA_ssd/TAぽよよーんと登場.lua"
-        label: TAぽよよーんと登場@TA_ssd
-      - path: "./scripts/TA/TAタイピングA.lua"
-        label: TAタイピングA@TA
-      - path: "./scripts/TA/TAタイピングB.lua"
-        label: TAタイピングB@TA
-      - path: "./scripts/TA_ssd/TAテキスト配置(A).lua"
-        label: TAテキスト配置(A)@TAテキスト配置@TA_ssd
-      - path: "./scripts/TA_ssd/TAテキスト配置(B).lua"
-        label: TAテキスト配置(B)@TAテキスト配置@TA_ssd
-      - path: "./scripts/TA/TAバラバラ.lua"
-        label: TAバラバラ@TA
-      - path: "./scripts/TA/TAバラバラ2.lua"
-        label: TAバラバラ2@TA
-      - path: "./scripts/TA/TAランダム.lua"
-        label: TAランダム@TA
-      - path: "./scripts/TA/TAランダム-カメラ.lua"
-        label: TAランダム-カメラ@TA
-      - path: "./scripts/TA/TAランダム拡大.lua"
-        label: TAランダム拡大@TA
-      - path: "./scripts/TA/TAランダム文字で登場.lua"
-        label: TAランダム文字で登場@TA
-      - path: "./scripts/TA/TAランダム配置(行).lua"
-        label: TAランダム配置(行)@TA
-      - path: "./scripts/TA/TA位置(pos)関数.lua"
-        label: TA位置(pos)関数@TA
-      - path: "./scripts/TA/TA位置調整.lua"
-        label: TA位置調整@TA
-      - path: "./scripts/TA_ssd/TA位置調整で移動.lua"
-        label: TA位置調整で移動@TA_ssd
-      - path: "./scripts/TA/TA個別用の拡大回転.lua"
-        label: TA個別用の拡大回転@TA
-      - path: "./scripts/TA/TA円形.lua"
-        label: TA円形@TA
-      - path: "./scripts/TA/TA円形-カメラ.lua"
-        label: TA円形-カメラ@TA
-      - path: "./scripts/TA/TA分裂して登場.lua"
-        label: TA分裂して登場@TA
-      - path: "./scripts/TA_ssd/TA回転停止で登場.lua"
-        label: TA回転停止で登場@TA_ssd
-      - path: "./scripts/TA_ssd/TA字間XY.lua"
-        label: TA字間XY@TA_ssd
-      - path: "./scripts/TA/TA字間移動で登場.lua"
-        label: TA字間移動で登場@TA
-      - path: "./scripts/TA/TA拡大縮小で登場.lua"
-        label: TA拡大縮小で登場@TA
-      - path: "./scripts/TA/TA拡大縮小で登場2.lua"
-        label: TA拡大縮小で登場2@TA
-      - path: "./scripts/TA/TA指定順で登場.lua"
-        label: TA指定順で登場@TA
-      - path: "./scripts/TA_ssd/TA操作SP.lua"
-        label: TA操作SP@TA_ssd
-      - path: "./scripts/TA_ssd/TA数珠つなぎ.lua"
-        label: TA数珠つなぎ@TA_ssd
-      - path: "./scripts/TA/TA標準登場.lua"
-        label: TA標準登場@TA
-      - path: "./scripts/TA/TA標準登場(行).lua"
-        label: TA標準登場(行)@TA
-      - path: "./scripts/TA_ssd/TA標準登場2.lua"
-        label: TA標準登場2@TA_ssd
-      - path: "./scripts/TA_ssd/TA標準移動.lua"
-        label: TA標準移動@TA_ssd
-      - path: "./scripts/TA/TA横スクロール(行).lua"
-        label: TA横スクロール(行)@TA
-      - path: "./scripts/TA/TA画面外登場.lua"
-        label: TA画面外登場@TA
-      - path: "./scripts/TA/TA登場(pos2)関数.lua"
-        label: TA登場(pos2)関数@TA
-      - path: "./scripts/TA_ssd/TA移動軌跡.lua"
-        label: TA移動軌跡@TA_ssd
-      - path: "./scripts/TA_ssd/TA範囲指定で変化.lua"
-        label: TA範囲指定で変化@TA_ssd
-      - path: "./scripts/TA_ssd/TA起き上がって登場.lua"
-        label: TA起き上がって登場@TA_ssd
-      - path: "./scripts/TA/TA陰陽玉登場.lua"
-        label: TA陰陽玉登場@TA
-      - path: "./scripts/加減速/ADC_標準登場.lua"
-        label: ADC_標準登場@加減速
-      - path: "./scripts/ANM1/ぽよよーんと登場.lua"
-        label: ぽよよーんと登場@ANM1
-      - path: "./scripts/ANM1/伸縮登場.lua"
-        label: 伸縮登場@ANM1
-      - path: "./scripts/ANM1/分割登場-スライス.lua"
-        label: 分割登場-スライス@ANM1
-      - path: "./scripts/ANM1/分割登場-四角.lua"
-        label: 分割登場-四角@ANM1
-      - path: "./scripts/ANM1/分割登場-回転.lua"
-        label: 分割登場-回転@ANM1
-      - path: "./scripts/ANM1/斜めブラインド.lua"
-        label: 斜めブラインド@ANM1
-      - path: "./scripts/ANM1/明滅登場.lua"
-        label: 明滅登場@ANM1
-      - path: "./scripts/削除済み/TAテキスト枠.lua"
-        label: TAテキスト枠@削除済みANM
-      - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
-        label: TAランダム位置から拡大@削除済みANM
-      - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
-        label: TAランダム文字で登場A@削除済みANM
-      - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
-        label: TAランダム文字で登場A-ランダム順@削除済みANM
-      - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
-        label: TAランダム文字で登場B@削除済みANM
-      - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
-        label: TAランダム文字で登場B-ランダム順@削除済みANM
-      - path: "./scripts/ANM2/カクカクさん.lua"
-        label: カクカクさん@ANM2
-      - path: "./scripts/ANM2/ランダム明滅.lua"
-        label: ランダム明滅@ANM2
-      - path: "./scripts/ANM2/ランダム明滅2.lua"
-        label: ランダム明滅2@ANM2
-      - path: "./scripts/ANM1/ランダム点滅.lua"
-        label: ランダム点滅@ANM1
-      - path: "./scripts/ANM2/ランダム複数回転.lua"
-        label: ランダム複数回転@ANM2
-      - path: "./scripts/ANM_ssd/ランダム軌道.lua"
-        label: ランダム軌道@ANM_ssd
-      - path: "./scripts/ANM_ssd/ランダム軌道_方向.lua"
-        label: ランダム軌道_方向@ANM_ssd
-      - path: "./scripts/ANM1/円移動.lua"
-        label: 円移動@ANM1
-      - path: "./scripts/加減速/加減速エディタ_その他.lua"
-        label: 加減速エディタ_その他@加減速
-      - path: "./scripts/加減速/加減速エディタ_回転.lua"
-        label: 加減速エディタ_回転@加減速
-      - path: "./scripts/加減速/加減速エディタ_座標.lua"
-        label: 加減速エディタ_座標@加減速
-      - path: "./scripts/ANM1/振動Plus.lua"
-        label: 振動Plus@ANM1
-      - path: "./scripts/ANM1/砕け散る2.lua"
-        label: 砕け散る2@ANM1
-      - path: "./scripts/ANM1/砕け散る3.lua"
-        label: 砕け散る3@ANM1
-      - path: "./scripts/ANM2/移動トレース.lua"
-        label: 移動トレース@ANM2
-      - path: "./scripts/ANM2/透明度ランダム変化.lua"
-        label: 透明度ランダム変化@ANM2
-      - path: "./scripts/ANM_ssd/震える_連動.lua"
-        label: 震える_連動@ANM_ssd
-      - path: "./scripts/削除済み/加減速移動β.lua"
-        label: 加減速移動β@削除済みANM
-      - path: "./scripts/削除済み/明滅.lua"
-        label: 明滅@削除済みANM
-  - name: "@satsuki.obj2.obj2"
-    sources:
-      - path: "./scripts/LOAD/ランダム配置MOV.lua"
-        label: ランダム配置MOV@LOAD
-      - path: "./scripts/LOAD/動画再生オプション.lua"
-        label: 動画再生オプション@LOAD
-      - path: "./scripts/LOAD/動画再生オプション(連番入力).lua"
-        label: 動画再生オプション(連番入力)@LOAD
-      - path: "./scripts/ANM_ssd/可変速度動画読込.lua"
-        label: 可変速度動画読込@ANM_ssd
-      - path: "./scripts/ANM2/画像ループMOV.lua"
-        label: 画像ループMOV@ANM2
-      - path: "./scripts/ANM_ssd/連番画像読込_改変.lua"
-        label: 連番画像読込_改変@ANM_ssd
-      - path: "./scripts/FIGURE/小屋.lua"
-        label: 小屋@FIGURE
-      - path: "./scripts/FIGURE/立体図形(円)-カメラ.lua"
-        label: 立体図形(円)-カメラ@FIGURE
-      - path: "./scripts/FIGURE/立体図形(星)-カメラ.lua"
-        label: 立体図形(星)-カメラ@FIGURE
-      - path: "./scripts/FIGURE/立体図形(正多角形)-カメラ.lua"
-        label: 立体図形(正多角形)-カメラ@FIGURE
-      - path: "./scripts/FIGURE/立体図形(長方形)-カメラ.lua"
-        label: 立体図形(長方形)-カメラ@FIGURE
-      - path: "./scripts/ANM_ssd/紙飛行機.lua"
-        label: 紙飛行機@ANM_ssd
-      - path: "./scripts/FIGURE/縁つき立方体-カメラ.lua"
-        label: 縁つき立方体-カメラ@FIGURE
-      - path: "./scripts/FIGURE/AviUtlアイコン.lua"
-        label: AviUtlアイコン@FIGURE
-      - path: "./scripts/FIGURE/きらり.lua"
-        label: きらり@FIGURE
-      - path: "./scripts/FIGURE/グリッド.lua"
-        label: グリッド@FIGURE
-      - path: "./scripts/FIGURE/シンプル魔法陣.lua"
-        label: シンプル魔法陣@FIGURE
-      - path: "./scripts/FIGURE/メーター.lua"
-        label: メーター@FIGURE
-      - path: "./scripts/FIGURE/ランダムライン.lua"
-        label: ランダムライン@FIGURE
-      - path: "./scripts/ANM_ssd/三角括弧.lua"
-        label: 三角括弧@ANM_ssd
-      - path: "./scripts/ANM_ssd/円矢印.lua"
-        label: 円矢印@ANM_ssd
-      - path: "./scripts/ANM_ssd/多角形_震える.lua"
-        label: 多角形_震える@ANM_ssd
-      - path: "./scripts/FIGURE/多角形ライン.lua"
-        label: 多角形ライン@FIGURE
-      - path: "./scripts/ANM_ssd/日の出.lua"
-        label: 日の出@ANM_ssd
-      - path: "./scripts/FIGURE/星型図形Plus.lua"
-        label: 星型図形Plus@FIGURE
-      - path: "./scripts/FIGURE/曲線矢印.lua"
-        label: 曲線矢印@FIGURE
-      - path: "./scripts/FIGURE/木漏れ日.lua"
-        label: 木漏れ日@FIGURE
-      - path: "./scripts/FIGURE/矢印.lua"
-        label: 矢印@FIGURE
-      - path: "./scripts/FIGURE/矢印2.lua"
-        label: 矢印2@FIGURE
-      - path: "./scripts/FIGURE/虹輪.lua"
-        label: 虹輪@FIGURE
-      - path: "./scripts/FIGURE/虹輪2.lua"
-        label: 虹輪2@FIGURE
-      - path: "./scripts/FIGURE/カラフルパーティクル.lua"
-        label: カラフルパーティクル@FIGURE
-      - path: "./scripts/FIGURE/カラフルランダム配置.lua"
-        label: カラフルランダム配置@FIGURE
-      - path: "./scripts/FIGURE/ランダム歩行.lua"
-        label: ランダム歩行@FIGURE
-      - path: "./scripts/FIGURE/セピアノイズ.lua"
-        label: セピアノイズ@FIGURE
-      - path: "./scripts/FIGURE/ランダムに輪が出現.lua"
-        label: ランダムに輪が出現@FIGURE
-      - path: "./scripts/ANM_ssd/ランダムラインEX.lua"
-        label: ランダムラインEX@ANM_ssd
-      - path: "./scripts/FIGURE/走査線2.lua"
-        label: 走査線2@FIGURE
-      - path: "./scripts/削除済み/FIランダムに大文字が出現.lua"
-        label: FIランダムに大文字が出現@削除済みFIG
-      - path: "./scripts/削除済み/FIランダムに小文字が出現.lua"
-        label: FIランダムに小文字が出現@削除済みFIG
-      - path: "./scripts/削除済み/FIランダムに輪が出現2.lua"
-        label: FIランダムに輪が出現2@削除済みFIG
-      - path: "./scripts/ANM_ssd/タータンチェック_ISTN.lua"
-        label: タータンチェック_ISTN@ANM_ssd
-      - path: "./scripts/FIGURE/チェック柄.lua"
-        label: チェック柄@FIGURE
-      - path: "./scripts/ANM_ssd/ホログラム.lua"
-        label: ホログラム@ANM_ssd
-      - path: "./scripts/ANM_ssd/千鳥格子.lua"
-        label: 千鳥格子@ANM_ssd
-      - path: "./scripts/FIGURE/市松模様N.lua"
-        label: 市松模様N@FIGURE
-      - path: "./scripts/FIGURE/波状の粒.lua"
-        label: 波状の粒@FIGURE
-      - path: "./scripts/ANM_ssd/矢がすり.lua"
-        label: 矢がすり@ANM_ssd
-      - path: "./scripts/ANM_ssd/麻の葉模様.lua"
-        label: 麻の葉模様@ANM_ssd
-      - path: "./scripts/加減速/ADC_図形.lua"
-        label: ADC_図形@加減速
-      - path: "./scripts/加減速/ADC_扇状.lua"
-        label: ADC_扇状@加減速
-      - path: "./scripts/ANM_ssd/集中線plus.lua"
-        label: 集中線plus@ANM_ssd
-      - path: "./scripts/削除済み/FIメーター2.lua"
-        label: FIメーター2@削除済みFIG
-      - path: "./scripts/削除済み/FI図形-色調整.lua"
-        label: FI図形-色調整@削除済みFIG
-      - path: "./scripts/削除済み/FI軽い図形(四角形).lua"
-        label: FI軽い図形(四角形)@削除済みFIG
-      - path: "./scripts/削除済み/MAGI_A_object.lua"
-        label: MAGI_A_object@削除済みANM
-      - path: "./scripts/削除済み/MAGI_B_object.lua"
-        label: MAGI_B_object@削除済みANM
-      - path: "./scripts/削除済み/MAGI_C_object.lua"
-        label: MAGI_C_object@削除済みANM
-      - path: "./scripts/削除済み/magicA_大円.lua"
-        label: magicA_大円@削除済みANM
-      - path: "./scripts/削除済み/マウスポインタ.lua"
-        label: マウスポインタ@削除済みFIG
-      - path: "./scripts/FIGURE/単色フェード.lua"
-        label: 単色フェード@FIGURE
-      - path: "./scripts/FIGURE/カメラ補助線.lua"
-        label: カメラ補助線@FIGURE
-      - path: "./scripts/ANM_ssd/分度器.lua"
-        label: 分度器@ANM_ssd
-      - path: "./scripts/FIGURE/色変換(RGB-16進数).lua"
-        label: 色変換(RGB-16進数)@FIGURE
-  - name: "@satsuki.tra2.tra2"
-    sources:
-      - path: "./scripts/ANM_ssd/しきい値ランダム移動.lua"
-        label: しきい値ランダム移動@ANM_ssd
-      - path: "./scripts/ANM_ssd/ふらふら.lua"
-        label: ふらふら@ANM_ssd
-      - path: "./scripts/ANM_ssd/カクカク.lua"
-        label: カクカク@ANM_ssd
-      - path: "./scripts/ANM_ssd/加減速S.lua"
-        label: 加減速S@加減速TRA@ANM_ssd
-      - path: "./scripts/ANM_ssd/加速.lua"
-        label: 加速@加減速TRA@ANM_ssd
-      - path: "./scripts/ANM_ssd/減速.lua"
-        label: 減速@加減速TRA@ANM_ssd
+- name: "@satsuki.anm2.anm2"
+  sources:
+  - path: "./scripts/ANM2/グループ制御もどき(親).lua"
+    label: グループ制御もどき(親)@ANM2
+  - path: "./scripts/ANM2/グループ制御もどき(子).lua"
+    label: グループ制御もどき(子)@ANM2
+  - path: "./scripts/ANM2/2次ベジェ曲線.lua"
+    label: 2次ベジェ曲線@ANM2
+  - path: "./scripts/ANM2/3次ベジェ曲線.lua"
+    label: 3次ベジェ曲線@ANM2
+  - path: "./scripts/ANM2/TVオンオフ.lua"
+    label: TVオンオフ@ANM2
+  - path: "./scripts/ANM1/twitchっぽいもの.lua"
+    label: twitchっぽいもの@ANM1
+  - path: "./scripts/ANM2/ハチの巣.lua"
+    label: ハチの巣@ANM2
+  - path: "./scripts/ANM2/ハーフトーン風.lua"
+    label: ハーフトーン風@ANM2
+  - path: "./scripts/音声/立体音声波形Plus.lua"
+    label: 立体音声波形Plus@音声
+  - path: "./scripts/ANM_ssd/範囲指定で変化（親）.lua"
+    label: 範囲指定で変化（親）@範囲指定で変化@ANM_ssd
+  - path: "./scripts/ANM_ssd/範囲指定で変化（子）.lua"
+    label: 範囲指定で変化（子）@範囲指定で変化@ANM_ssd
+  - path: "./scripts/ANM2/蝶.lua"
+    label: 蝶@ANM2
+  - path: "./scripts/音声/音声波形Plus(改).lua"
+    label: 音声波形Plus(改)@音声
+  - path: "./scripts/音声/音声波形Plus2-ロール.lua"
+    label: 音声波形Plus2-ロール@音声
+  - path: "./scripts/音声/音声波形Plus3.lua"
+    label: 音声波形Plus3@音声
+  - path: "./scripts/音声/音声波形Plus4.lua"
+    label: 音声波形Plus4@音声
+  - path: "./scripts/削除済み/MAGI_text.lua"
+    label: MAGI_text@削除済みANM
+  - path: "./scripts/削除済み/magicB_テキスト4.lua"
+    label: magicB_テキスト4@削除済みANM
+  - path: "./scripts/削除済み/magicC_テキスト大.lua"
+    label: magicC_テキスト大@削除済みANM
+  - path: "./scripts/削除済み/magicD_テキスト小.lua"
+    label: magicD_テキスト小@削除済みANM
+  - path: "./scripts/削除済み/ものまね.lua"
+    label: ものまね@削除済みANM
+  - path: "./scripts/削除済み/左寄せとか.lua"
+    label: 左寄せとか@削除済みANM
+  - path: "./scripts/ANM1/RGB色調補正(オーバーレイ).lua"
+    label: RGB色調補正(オーバーレイ)@ANM1
+  - path: "./scripts/ANM1/RGB色調補正(加減算).lua"
+    label: RGB色調補正(加減算)@ANM1
+  - path: "./scripts/ANM1/塗りつぶし.lua"
+    label: 塗りつぶし@ANM1
+  - path: "./scripts/ANM1/段階グラデーション.lua"
+    label: 段階グラデーション@ANM1
+  - path: "./scripts/ANM_ssd/裏面塗りつぶし.lua"
+    label: 裏面塗りつぶし@ANM_ssd
+  - path: "./scripts/加減速/ADC_クリッピング.lua"
+    label: ADC_クリッピング@加減速
+  - path: "./scripts/加減速/ADC_マスク.lua"
+    label: ADC_マスク@加減速
+  - path: "./scripts/加減速/ADC_斜めクリッピング.lua"
+    label: ADC_斜めクリッピング@加減速
+  - path: "./scripts/ANM2/もっと!_斜めクリッピング.lua"
+    label: もっと!?斜めクリッピング@ANM2
+  - path: "./scripts/ANM1/ギザ円クリッピング.lua"
+    label: ギザ円クリッピング@ANM1
+  - path: "./scripts/ANM1/マスクPlus.lua"
+    label: マスクPlus@ANM1
+  - path: "./scripts/ANM1/モザイクマスク.lua"
+    label: モザイクマスク@ANM1
+  - path: "./scripts/ANM_ssd/三角クリッピング.lua"
+    label: 三角クリッピング@ANM_ssd
+  - path: "./scripts/ANM2/切れ込み.lua"
+    label: 切れ込み@ANM2
+  - path: "./scripts/ANM2/斜めクリッピングEX.lua"
+    label: 斜めクリッピングEX@ANM2
+  - path: "./scripts/ANM_ssd/斜め三角クリッピング.lua"
+    label: 斜め三角クリッピング@ANM_ssd
+  - path: "./scripts/ANM1/格子状マスク.lua"
+    label: 格子状マスク@ANM1
+  - path: "./scripts/ANM_ssd/簡易変形マスク.lua"
+    label: 簡易変形マスク@ANM_ssd
+  - path: "./scripts/削除済み/格子クリッピング(旧ver).lua"
+    label: 格子クリッピング(旧ver)@削除済みANM
+  - path: "./scripts/加減速/ADC_ぼかし.lua"
+    label: ADC_ぼかし@加減速
+  - path: "./scripts/加減速/ADC_放射ブラー.lua"
+    label: ADC_放射ブラー@加減速
+  - path: "./scripts/ANM2/カメラ深度ぼけPlus.lua"
+    label: カメラ深度ぼけPlus@ANM2
+  - path: "./scripts/音声/方向ブラー(音声同期).lua"
+    label: 方向ブラー(音声同期)@音声
+  - path: "./scripts/ANM1/片側ぼかし.lua"
+    label: 片側ぼかし@ANM1
+  - path: "./scripts/ANM1/自動方向ブラー.lua"
+    label: 自動方向ブラー@ANM1
+  - path: "./scripts/加減速/ADC_色ずれ.lua"
+    label: ADC_色ずれ@加減速
+  - path: "./scripts/ANM1/キラキラ.lua"
+    label: キラキラ@ANM1
+  - path: "./scripts/ANM1/ランダム色ずれ.lua"
+    label: ランダム色ずれ@ANM1
+  - path: "./scripts/ANM2/色ずれ分解.lua"
+    label: 色ずれ分解@ANM2
+  - path: "./scripts/ANM1/内側シャドー.lua"
+    label: 内側シャドー@ANM1
+  - path: "./scripts/ANM1/縁取りPlus.lua"
+    label: 縁取りPlus@ANM1
+  - path: "./scripts/ANM_ssd/2値化ノイズ.lua"
+    label: 2値化ノイズ@ANM_ssd
+  - path: "./scripts/ANM1/しきい値フィルタ.lua"
+    label: しきい値フィルタ@ANM1
+  - path: "./scripts/ANM1/XYスケール.lua"
+    label: XYスケール@ANM1
+  - path: "./scripts/ANM2/n分の1拡大.lua"
+    label: n分の1拡大@ANM2
+  - path: "./scripts/ANM2/カード表裏.lua"
+    label: カード表裏@ANM2
+  - path: "./scripts/ANM2/ドット絵立体化.lua"
+    label: ドット絵立体化@ANM2
+  - path: "./scripts/ANM2/パーティクル表裏.lua"
+    label: パーティクル表裏@ANM2
+  - path: "./scripts/ANM1/ランダムラスター.lua"
+    label: ランダムラスター@ANM1
+  - path: "./scripts/ANM2/ランダム配置表裏.lua"
+    label: ランダム配置表裏@ANM2
+  - path: "./scripts/ANM1/ロール-カメラ.lua"
+    label: ロール-カメラ@ANM1
+  - path: "./scripts/ANM1/各辺を伸縮させる.lua"
+    label: 各辺を伸縮させる@ANM1
+  - path: "./scripts/ANM_ssd/回転万華鏡.lua"
+    label: 回転万華鏡@ANM_ssd
+  - path: "./scripts/ANM2/引き伸ばし.lua"
+    label: 引き伸ばし@ANM2
+  - path: "./scripts/音声/拡大伸縮(音声同期).lua"
+    label: 拡大伸縮(音声同期)@音声
+  - path: "./scripts/ANM1/歪曲-カメラ.lua"
+    label: 歪曲-カメラ@ANM1
+  - path: "./scripts/ANM1/球体分解-カメラ.lua"
+    label: 球体分解-カメラ@ANM1
+  - path: "./scripts/ANM1/パーティクル再現.lua"
+    label: パーティクル再現@ANM1
+  - path: "./scripts/ANM1/ランダム配置.lua"
+    label: ランダム配置@ANM1
+  - path: "./scripts/ANM2/ループANM.lua"
+    label: ループANM@ANM2
+  - path: "./scripts/ANM1/一方向に並べる.lua"
+    label: 一方向に並べる@ANM1
+  - path: "./scripts/ANM2/円形-カメラ_レイヤーA.lua"
+    label: 円形-カメラ_レイヤーA@ANM2
+  - path: "./scripts/ANM2/円形-カメラ_レイヤーB.lua"
+    label: 円形-カメラ_レイヤーB@ANM2
+  - path: "./scripts/ANM1/円形に並べる(順).lua"
+    label: 円形に並べる(順)@ANM1
+  - path: "./scripts/ANM1/円形並べ.lua"
+    label: 円形並べ@ANM1
+  - path: "./scripts/ANM1/円形並べ-カメラ.lua"
+    label: 円形並べ-カメラ@ANM1
+  - path: "./scripts/ANM2/円形並べ_レイヤーA.lua"
+    label: 円形並べ_レイヤーA@ANM2
+  - path: "./scripts/ANM2/円形並べ_レイヤーB.lua"
+    label: 円形並べ_レイヤーB@ANM2
+  - path: "./scripts/ANM1/画像ループ2.lua"
+    label: 画像ループ2@ANM1
+  - path: "./scripts/ANM1/画像ループ3.lua"
+    label: 画像ループ3@ANM1
+  - path: "./scripts/ANM_ssd/透過判定図形並べ.lua"
+    label: 透過判定図形並べ@ANM_ssd
+  - path: "./scripts/連番/連番らせん[A].lua"
+    label: 連番らせん[A]@連番
+  - path: "./scripts/連番/連番らせん[B].lua"
+    label: 連番らせん[B]@連番
+  - path: "./scripts/連番/連番パーティクル[A].lua"
+    label: 連番パーティクル[A]@連番
+  - path: "./scripts/連番/連番パーティクル[B].lua"
+    label: 連番パーティクル[B]@連番
+  - path: "./scripts/連番/連番ランダム配置[A].lua"
+    label: 連番ランダム配置[A]@連番
+  - path: "./scripts/連番/連番ランダム配置[B].lua"
+    label: 連番ランダム配置[B]@連番
+  - path: "./scripts/連番/連番円形-カメラ[A].lua"
+    label: 連番円形-カメラ[A]@連番
+  - path: "./scripts/連番/連番円形-カメラ[B].lua"
+    label: 連番円形-カメラ[B]@連番
+  - path: "./scripts/連番/連番円形並べ[A].lua"
+    label: 連番円形並べ[A]@連番
+  - path: "./scripts/連番/連番円形並べ[B].lua"
+    label: 連番円形並べ[B]@連番
+  - path: "./scripts/連番/連番球状配置[A].lua"
+    label: 連番球状配置[A]@連番
+  - path: "./scripts/連番/連番球状配置[B].lua"
+    label: 連番球状配置[B]@連番
+  - path: "./scripts/連番/連番画像ループ[A].lua"
+    label: 連番画像ループ[A]@連番
+  - path: "./scripts/連番/連番画像ループ[B].lua"
+    label: 連番画像ループ[B]@連番
+  - path: "./scripts/TA/TAぼかし登場.lua"
+    label: TAぼかし登場@TA
+  - path: "./scripts/TA/TAぼかし登場2.lua"
+    label: TAぼかし登場2@TA
+  - path: "./scripts/TA/TAぼかし登場3.lua"
+    label: TAぼかし登場3@TA
+  - path: "./scripts/TA_ssd/TAぽよよーんと登場.lua"
+    label: TAぽよよーんと登場@TA_ssd
+  - path: "./scripts/TA/TAタイピングA.lua"
+    label: TAタイピングA@TA
+  - path: "./scripts/TA/TAタイピングB.lua"
+    label: TAタイピングB@TA
+  - path: "./scripts/TA_ssd/TAテキスト配置(A).lua"
+    label: TAテキスト配置(A)@TAテキスト配置@TA_ssd
+  - path: "./scripts/TA_ssd/TAテキスト配置(B).lua"
+    label: TAテキスト配置(B)@TAテキスト配置@TA_ssd
+  - path: "./scripts/TA/TAバラバラ.lua"
+    label: TAバラバラ@TA
+  - path: "./scripts/TA/TAバラバラ2.lua"
+    label: TAバラバラ2@TA
+  - path: "./scripts/TA/TAランダム.lua"
+    label: TAランダム@TA
+  - path: "./scripts/TA/TAランダム-カメラ.lua"
+    label: TAランダム-カメラ@TA
+  - path: "./scripts/TA/TAランダム拡大.lua"
+    label: TAランダム拡大@TA
+  - path: "./scripts/TA/TAランダム文字で登場.lua"
+    label: TAランダム文字で登場@TA
+  - path: "./scripts/TA/TAランダム配置(行).lua"
+    label: TAランダム配置(行)@TA
+  - path: "./scripts/TA/TA位置(pos)関数.lua"
+    label: TA位置(pos)関数@TA
+  - path: "./scripts/TA/TA位置調整.lua"
+    label: TA位置調整@TA
+  - path: "./scripts/TA_ssd/TA位置調整で移動.lua"
+    label: TA位置調整で移動@TA_ssd
+  - path: "./scripts/TA/TA個別用の拡大回転.lua"
+    label: TA個別用の拡大回転@TA
+  - path: "./scripts/TA/TA円形.lua"
+    label: TA円形@TA
+  - path: "./scripts/TA/TA円形-カメラ.lua"
+    label: TA円形-カメラ@TA
+  - path: "./scripts/TA/TA分裂して登場.lua"
+    label: TA分裂して登場@TA
+  - path: "./scripts/TA_ssd/TA回転停止で登場.lua"
+    label: TA回転停止で登場@TA_ssd
+  - path: "./scripts/TA_ssd/TA字間XY.lua"
+    label: TA字間XY@TA_ssd
+  - path: "./scripts/TA/TA字間移動で登場.lua"
+    label: TA字間移動で登場@TA
+  - path: "./scripts/TA/TA拡大縮小で登場.lua"
+    label: TA拡大縮小で登場@TA
+  - path: "./scripts/TA/TA拡大縮小で登場2.lua"
+    label: TA拡大縮小で登場2@TA
+  - path: "./scripts/TA/TA指定順で登場.lua"
+    label: TA指定順で登場@TA
+  - path: "./scripts/TA_ssd/TA操作SP.lua"
+    label: TA操作SP@TA_ssd
+  - path: "./scripts/TA_ssd/TA数珠つなぎ.lua"
+    label: TA数珠つなぎ@TA_ssd
+  - path: "./scripts/TA/TA標準登場.lua"
+    label: TA標準登場@TA
+  - path: "./scripts/TA/TA標準登場(行).lua"
+    label: TA標準登場(行)@TA
+  - path: "./scripts/TA_ssd/TA標準登場2.lua"
+    label: TA標準登場2@TA_ssd
+  - path: "./scripts/TA_ssd/TA標準移動.lua"
+    label: TA標準移動@TA_ssd
+  - path: "./scripts/TA/TA横スクロール(行).lua"
+    label: TA横スクロール(行)@TA
+  - path: "./scripts/TA/TA画面外登場.lua"
+    label: TA画面外登場@TA
+  - path: "./scripts/TA/TA登場(pos2)関数.lua"
+    label: TA登場(pos2)関数@TA
+  - path: "./scripts/TA_ssd/TA移動軌跡.lua"
+    label: TA移動軌跡@TA_ssd
+  - path: "./scripts/TA_ssd/TA範囲指定で変化.lua"
+    label: TA範囲指定で変化@TA_ssd
+  - path: "./scripts/TA_ssd/TA起き上がって登場.lua"
+    label: TA起き上がって登場@TA_ssd
+  - path: "./scripts/TA/TA陰陽玉登場.lua"
+    label: TA陰陽玉登場@TA
+  - path: "./scripts/加減速/ADC_標準登場.lua"
+    label: ADC_標準登場@加減速
+  - path: "./scripts/ANM1/ぽよよーんと登場.lua"
+    label: ぽよよーんと登場@ANM1
+  - path: "./scripts/ANM1/伸縮登場.lua"
+    label: 伸縮登場@ANM1
+  - path: "./scripts/ANM1/分割登場-スライス.lua"
+    label: 分割登場-スライス@ANM1
+  - path: "./scripts/ANM1/分割登場-四角.lua"
+    label: 分割登場-四角@ANM1
+  - path: "./scripts/ANM1/分割登場-回転.lua"
+    label: 分割登場-回転@ANM1
+  - path: "./scripts/ANM1/斜めブラインド.lua"
+    label: 斜めブラインド@ANM1
+  - path: "./scripts/ANM1/明滅登場.lua"
+    label: 明滅登場@ANM1
+  - path: "./scripts/削除済み/TAテキスト枠.lua"
+    label: TAテキスト枠@削除済みANM
+  - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
+    label: TAランダム位置から拡大@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
+    label: TAランダム文字で登場A@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
+    label: TAランダム文字で登場A-ランダム順@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
+    label: TAランダム文字で登場B@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
+    label: TAランダム文字で登場B-ランダム順@削除済みANM
+  - path: "./scripts/ANM2/カクカクさん.lua"
+    label: カクカクさん@ANM2
+  - path: "./scripts/ANM2/ランダム明滅.lua"
+    label: ランダム明滅@ANM2
+  - path: "./scripts/ANM2/ランダム明滅2.lua"
+    label: ランダム明滅2@ANM2
+  - path: "./scripts/ANM1/ランダム点滅.lua"
+    label: ランダム点滅@ANM1
+  - path: "./scripts/ANM2/ランダム複数回転.lua"
+    label: ランダム複数回転@ANM2
+  - path: "./scripts/ANM_ssd/ランダム軌道.lua"
+    label: ランダム軌道@ANM_ssd
+  - path: "./scripts/ANM_ssd/ランダム軌道_方向.lua"
+    label: ランダム軌道_方向@ANM_ssd
+  - path: "./scripts/ANM1/円移動.lua"
+    label: 円移動@ANM1
+  - path: "./scripts/加減速/加減速エディタ_その他.lua"
+    label: 加減速エディタ_その他@加減速
+  - path: "./scripts/加減速/加減速エディタ_回転.lua"
+    label: 加減速エディタ_回転@加減速
+  - path: "./scripts/加減速/加減速エディタ_座標.lua"
+    label: 加減速エディタ_座標@加減速
+  - path: "./scripts/ANM1/振動Plus.lua"
+    label: 振動Plus@ANM1
+  - path: "./scripts/ANM1/砕け散る2.lua"
+    label: 砕け散る2@ANM1
+  - path: "./scripts/ANM1/砕け散る3.lua"
+    label: 砕け散る3@ANM1
+  - path: "./scripts/ANM2/移動トレース.lua"
+    label: 移動トレース@ANM2
+  - path: "./scripts/ANM2/透明度ランダム変化.lua"
+    label: 透明度ランダム変化@ANM2
+  - path: "./scripts/ANM_ssd/震える_連動.lua"
+    label: 震える_連動@ANM_ssd
+  - path: "./scripts/削除済み/加減速移動β.lua"
+    label: 加減速移動β@削除済みANM
+  - path: "./scripts/削除済み/明滅.lua"
+    label: 明滅@削除済みANM
+- name: "@satsuki.obj2.obj2"
+  sources:
+  - path: "./scripts/LOAD/ランダム配置MOV.lua"
+    label: ランダム配置MOV@LOAD
+  - path: "./scripts/LOAD/動画再生オプション.lua"
+    label: 動画再生オプション@LOAD
+  - path: "./scripts/LOAD/動画再生オプション(連番入力).lua"
+    label: 動画再生オプション(連番入力)@LOAD
+  - path: "./scripts/ANM_ssd/可変速度動画読込.lua"
+    label: 可変速度動画読込@ANM_ssd
+  - path: "./scripts/ANM2/画像ループMOV.lua"
+    label: 画像ループMOV@ANM2
+  - path: "./scripts/ANM_ssd/連番画像読込_改変.lua"
+    label: 連番画像読込_改変@ANM_ssd
+  - path: "./scripts/FIGURE/小屋.lua"
+    label: 小屋@FIGURE
+  - path: "./scripts/FIGURE/立体図形(円)-カメラ.lua"
+    label: 立体図形(円)-カメラ@FIGURE
+  - path: "./scripts/FIGURE/立体図形(星)-カメラ.lua"
+    label: 立体図形(星)-カメラ@FIGURE
+  - path: "./scripts/FIGURE/立体図形(正多角形)-カメラ.lua"
+    label: 立体図形(正多角形)-カメラ@FIGURE
+  - path: "./scripts/FIGURE/立体図形(長方形)-カメラ.lua"
+    label: 立体図形(長方形)-カメラ@FIGURE
+  - path: "./scripts/ANM_ssd/紙飛行機.lua"
+    label: 紙飛行機@ANM_ssd
+  - path: "./scripts/FIGURE/縁つき立方体-カメラ.lua"
+    label: 縁つき立方体-カメラ@FIGURE
+  - path: "./scripts/FIGURE/AviUtlアイコン.lua"
+    label: AviUtlアイコン@FIGURE
+  - path: "./scripts/FIGURE/きらり.lua"
+    label: きらり@FIGURE
+  - path: "./scripts/FIGURE/グリッド.lua"
+    label: グリッド@FIGURE
+  - path: "./scripts/FIGURE/シンプル魔法陣.lua"
+    label: シンプル魔法陣@FIGURE
+  - path: "./scripts/FIGURE/メーター.lua"
+    label: メーター@FIGURE
+  - path: "./scripts/FIGURE/ランダムライン.lua"
+    label: ランダムライン@FIGURE
+  - path: "./scripts/ANM_ssd/三角括弧.lua"
+    label: 三角括弧@ANM_ssd
+  - path: "./scripts/ANM_ssd/円矢印.lua"
+    label: 円矢印@ANM_ssd
+  - path: "./scripts/ANM_ssd/多角形_震える.lua"
+    label: 多角形_震える@ANM_ssd
+  - path: "./scripts/FIGURE/多角形ライン.lua"
+    label: 多角形ライン@FIGURE
+  - path: "./scripts/ANM_ssd/日の出.lua"
+    label: 日の出@ANM_ssd
+  - path: "./scripts/FIGURE/星型図形Plus.lua"
+    label: 星型図形Plus@FIGURE
+  - path: "./scripts/FIGURE/曲線矢印.lua"
+    label: 曲線矢印@FIGURE
+  - path: "./scripts/FIGURE/木漏れ日.lua"
+    label: 木漏れ日@FIGURE
+  - path: "./scripts/FIGURE/矢印.lua"
+    label: 矢印@FIGURE
+  - path: "./scripts/FIGURE/矢印2.lua"
+    label: 矢印2@FIGURE
+  - path: "./scripts/FIGURE/虹輪.lua"
+    label: 虹輪@FIGURE
+  - path: "./scripts/FIGURE/虹輪2.lua"
+    label: 虹輪2@FIGURE
+  - path: "./scripts/FIGURE/カラフルパーティクル.lua"
+    label: カラフルパーティクル@FIGURE
+  - path: "./scripts/FIGURE/カラフルランダム配置.lua"
+    label: カラフルランダム配置@FIGURE
+  - path: "./scripts/FIGURE/ランダム歩行.lua"
+    label: ランダム歩行@FIGURE
+  - path: "./scripts/FIGURE/セピアノイズ.lua"
+    label: セピアノイズ@FIGURE
+  - path: "./scripts/FIGURE/ランダムに輪が出現.lua"
+    label: ランダムに輪が出現@FIGURE
+  - path: "./scripts/ANM_ssd/ランダムラインEX.lua"
+    label: ランダムラインEX@ANM_ssd
+  - path: "./scripts/FIGURE/走査線2.lua"
+    label: 走査線2@FIGURE
+  - path: "./scripts/削除済み/FIランダムに大文字が出現.lua"
+    label: FIランダムに大文字が出現@削除済みFIG
+  - path: "./scripts/削除済み/FIランダムに小文字が出現.lua"
+    label: FIランダムに小文字が出現@削除済みFIG
+  - path: "./scripts/削除済み/FIランダムに輪が出現2.lua"
+    label: FIランダムに輪が出現2@削除済みFIG
+  - path: "./scripts/ANM_ssd/タータンチェック_ISTN.lua"
+    label: タータンチェック_ISTN@ANM_ssd
+  - path: "./scripts/FIGURE/チェック柄.lua"
+    label: チェック柄@FIGURE
+  - path: "./scripts/ANM_ssd/ホログラム.lua"
+    label: ホログラム@ANM_ssd
+  - path: "./scripts/ANM_ssd/千鳥格子.lua"
+    label: 千鳥格子@ANM_ssd
+  - path: "./scripts/FIGURE/市松模様N.lua"
+    label: 市松模様N@FIGURE
+  - path: "./scripts/FIGURE/波状の粒.lua"
+    label: 波状の粒@FIGURE
+  - path: "./scripts/ANM_ssd/矢がすり.lua"
+    label: 矢がすり@ANM_ssd
+  - path: "./scripts/ANM_ssd/麻の葉模様.lua"
+    label: 麻の葉模様@ANM_ssd
+  - path: "./scripts/加減速/ADC_図形.lua"
+    label: ADC_図形@加減速
+  - path: "./scripts/加減速/ADC_扇状.lua"
+    label: ADC_扇状@加減速
+  - path: "./scripts/ANM_ssd/集中線plus.lua"
+    label: 集中線plus@ANM_ssd
+  - path: "./scripts/削除済み/FIメーター2.lua"
+    label: FIメーター2@削除済みFIG
+  - path: "./scripts/削除済み/FI図形-色調整.lua"
+    label: FI図形-色調整@削除済みFIG
+  - path: "./scripts/削除済み/FI軽い図形(四角形).lua"
+    label: FI軽い図形(四角形)@削除済みFIG
+  - path: "./scripts/削除済み/MAGI_A_object.lua"
+    label: MAGI_A_object@削除済みANM
+  - path: "./scripts/削除済み/MAGI_B_object.lua"
+    label: MAGI_B_object@削除済みANM
+  - path: "./scripts/削除済み/MAGI_C_object.lua"
+    label: MAGI_C_object@削除済みANM
+  - path: "./scripts/削除済み/magicA_大円.lua"
+    label: magicA_大円@削除済みANM
+  - path: "./scripts/削除済み/マウスポインタ.lua"
+    label: マウスポインタ@削除済みFIG
+  - path: "./scripts/FIGURE/単色フェード.lua"
+    label: 単色フェード@FIGURE
+  - path: "./scripts/FIGURE/カメラ補助線.lua"
+    label: カメラ補助線@FIGURE
+  - path: "./scripts/ANM_ssd/分度器.lua"
+    label: 分度器@ANM_ssd
+  - path: "./scripts/FIGURE/色変換(RGB-16進数).lua"
+    label: 色変換(RGB-16進数)@FIGURE
+- name: "@satsuki.tra2.tra2"
+  sources:
+  - path: "./scripts/ANM_ssd/しきい値ランダム移動.lua"
+    label: しきい値ランダム移動@ANM_ssd
+  - path: "./scripts/ANM_ssd/ふらふら.lua"
+    label: ふらふら@ANM_ssd
+  - path: "./scripts/ANM_ssd/カクカク.lua"
+    label: カクカク@ANM_ssd
+  - path: "./scripts/ANM_ssd/加減速S.lua"
+    label: 加減速S@加減速TRA@ANM_ssd
+  - path: "./scripts/ANM_ssd/加速.lua"
+    label: 加速@加減速TRA@ANM_ssd
+  - path: "./scripts/ANM_ssd/減速.lua"
+    label: 減速@加減速TRA@ANM_ssd
