@@ -1,59 +1,64 @@
 --label:${ROOT_CATEGORY}\クリッピング
+--trackgroup@base_center_x,base_center_y:中心座標1
 ---$track:中心X1
 ---min=-2000
 ---max=2000
 ---step=1
-local track0 = 0
----$track:中心X2
----min=-2000
----max=2000
----step=1
-local x2 = 0
+local base_center_x = 0
 ---$track:中心Y1
 ---min=-2000
 ---max=2000
 ---step=1
-local track1 = 0
----$track:中心Y2
----min=-2000
----max=2000
----step=1
-local y2 = 0
+local base_center_y = 0
 ---$track:角度1
 ---min=-720
 ---max=720
-local track2 = 0
----$track:角度2
----min=-720
----max=720
-local r2 = 0
+---step=1
+local base_angle = 0
 ---$track:幅1
 ---min=-2000
 ---max=2000
 ---step=1
-local track3 = 0
----$track:幅2
----min=-2000
----max=2000
----step=1
-local w2 = 0
+local base_width = 0
 ---$track:ぼかし
 ---min=0
 ---max=200
 ---step=1
-local bk = 0
+local blur = 0
+
+--trackgroup@center_x_delta,center_y_delta:中心座標2
+---$track:中心X2
+---min=-2000
+---max=2000
+---step=1
+local center_x_delta = 0
+---$track:中心Y2
+---min=-2000
+---max=2000
+---step=1
+local center_y_delta = 0
+---$track:角度2
+---min=-720
+---max=720
+---step=1
+local angle_delta = 0
+---$track:幅2
+---min=-2000
+---max=2000
+---step=1
+local width_delta = 0
 
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
@@ -61,31 +66,43 @@ local beki = 2
 local mode = 0
 
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local x = track0 + x2 * t
-local y = track1 + y2 * t
-local r = track2 + r2 * t
-local w = track3 + w2 * t
-obj.effect("斜めクリッピング", "中心X", x, "中心Y", y, "角度", r, "ぼかし", bk, "幅", w)
+local center_x = base_center_x + center_x_delta * progress
+local center_y = base_center_y + center_y_delta * progress
+local angle = base_angle + angle_delta * progress
+local width = base_width + width_delta * progress
+obj.effect(
+    "斜めクリッピング",
+    "中心X",
+    center_x,
+    "中心Y",
+    center_y,
+    "角度",
+    angle,
+    "ぼかし",
+    blur,
+    "幅",
+    width
+)
