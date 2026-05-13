@@ -21,3 +21,15 @@ ref: .rulesync/rules/lua.md
 
 AviUtl1のスクリプトでは、パラメーターは`track0`や`check0`などの形式で定義されており、どのパラメーターが何を意味するのかがわかりづらいです。
 これを改善するために、パラメーターの変数名を意味のある名前に変更するようにしてください。
+
+## 引数の変更
+
+### `obj.setoption`、`obj.copybuffer`
+
+以前は3文字の略称でバッファを指定していましたが、AviUtl2ではより可読性の高い文字列に変更されました。
+AviUtl2での指定は以下のようになります：
+
+- `dst` -> `drawtarget`
+- `obj` -> `object`
+- `frm` -> `frame`
+- `tmp` -> `tempbuffer`
