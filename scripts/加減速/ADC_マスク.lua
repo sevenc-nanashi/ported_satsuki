@@ -2,67 +2,88 @@
 ---$track:回転1
 ---min=-720
 ---max=720
-local track0 = 0
----$track:回転2
----min=-720
----max=720
-local r2 = 0
+---step=1
+local base_rotation = 0
 ---$track:サイズ1
 ---min=0
 ---max=2000
-local track1 = 100
----$track:サイズ2
----min=-2000
----max=2000
 ---step=1
-local s2 = 0
+local base_size = 100
 ---$track:縦横比1
 ---min=-100
 ---max=100
-local track2 = 0
----$track:縦横比2[%]
----min=-100
----max=100
-local as2 = 0
+---step=1
+local base_aspect_ratio = 0
 ---$track:ぼかし1
 ---min=0
 ---max=200
 ---step=1
-local track3 = 0
----$track:ぼかし2
----min=-200
----max=200
----step=1
-local bk2 = 0
----$value:マスクの種類
-local ty = 2
+local base_blur = 0
+
+--group:マスクの種類
+---$select:マスクの種類::マスクの種類
+---図形=0
+---シーン=1
+---仮想バッファ=2
+local mask_type = 0
+
+---$figure:マスク図形
+local mask_figure = "円"
+
+---$string:マスクシーン
+local mask_scene = ""
+
+--group:
 
 ---$track:X
 ---min=-2000
 ---max=2000
 ---step=1
-local x = 0
+local center_x = 0
 
 ---$track:Y
 ---min=-2000
 ---max=2000
 ---step=1
-local y = 0
+local center_y = 0
+
+--trackgroup@center_x,center_y:中心座標
 
 ---$check:反転
-local ht = 0
+local invert_mask = false
+
+---$track:回転2
+---min=-720
+---max=720
+---step=1
+local rotation_delta = 0
+---$track:サイズ2
+---min=-2000
+---max=2000
+---step=1
+local size_delta = 0
+---$track:縦横比2[%]
+---min=-100
+---max=100
+---step=1
+local aspect_ratio_delta = 0
+---$track:ぼかし2
+---min=-200
+---max=200
+---step=1
+local blur_delta = 0
 
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
@@ -70,49 +91,59 @@ local beki = 2
 local mode = 0
 
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local r = track0 + r2 * t
-local s = track1 + s2 * t
-local as = track2 + as2 * t
-local bk = track3 + bk2 * t
+local rotation = base_rotation + rotation_delta * progress
+local size = base_size + size_delta * progress
+local aspect_ratio = base_aspect_ratio + aspect_ratio_delta * progress
+local blur = base_blur + blur_delta * progress
+
+local mask_type_evaluated
+if mask_type == 0 then
+    mask_type_evaluated = mask_figure
+elseif mask_type == 1 then
+    mask_type_evaluated = mask_scene
+else
+    mask_type_evaluated = "*tempbuffer"
+end
+
 obj.effect(
     "マスク",
     "X",
-    x,
+    center_x,
     "Y",
-    y,
+    center_y,
     "回転",
-    r,
+    rotation,
     "サイズ",
-    s,
+    size,
     "縦横比",
-    as,
+    aspect_ratio,
     "ぼかし",
-    bk,
+    blur,
     "マスクの反転",
-    ht,
-    "type",
-    ty
+    invert_mask and 1 or 0,
+    "マスクの種類",
+    mask_type_evaluated
 )
