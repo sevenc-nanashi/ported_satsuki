@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\動画ファイル
+--label:${ROOT_CATEGORY}\画像ファイル
 ---$track:File数
 ---min=0
 ---max=500

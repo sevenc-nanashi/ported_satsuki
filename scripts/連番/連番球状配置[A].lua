@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\配置
+--label:${ROOT_CATEGORY}\画像ファイル
 ---$track:半径
 ---min=1
 ---max=1000

@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\配置
+--label:${ROOT_CATEGORY}\画像ファイル
 ---$track:X間隔%
 ---min=-1000
 ---max=1000

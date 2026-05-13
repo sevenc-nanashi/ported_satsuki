@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\配置
+--label:${ROOT_CATEGORY}\画像ファイル
 ---$track:個数
 ---min=0
 ---max=100
