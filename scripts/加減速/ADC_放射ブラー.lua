@@ -4,11 +4,6 @@
 ---max=300
 ---step=1
 local track1 = 0
----$track:範囲2
----min=-300
----max=300
----step=1
-local track2 = 0
 ---$track:X
 ---min=-2000
 ---max=2000
@@ -40,6 +35,12 @@ local beki = 2
 ---加速=1
 ---S字=2
 local mode = 0
+
+---$track:範囲2
+---min=-300
+---max=300
+---step=1
+local track2 = 0
 
 --共通部分
 local t

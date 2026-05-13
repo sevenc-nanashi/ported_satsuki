@@ -4,19 +4,10 @@
 ---max=500
 ---step=1
 local track0 = 5
----$track:幅2
----min=-500
----max=500
----step=1
-local track1 = 0
 ---$track:角度1
 ---min=-720
 ---max=720
 local track2 = 0
----$track:角度2
----min=-720
----max=720
-local track3 = 0
 ---$value:色ずれの種類[0-2]
 local ty = 0
 
@@ -36,6 +27,16 @@ local beki = 2
 ---加速=1
 ---S字=2
 local mode = 0
+
+---$track:幅2
+---min=-500
+---max=500
+---step=1
+local track1 = 0
+---$track:角度2
+---min=-720
+---max=720
+local track3 = 0
 
 --共通部分
 local t

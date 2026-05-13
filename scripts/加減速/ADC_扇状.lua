@@ -4,31 +4,16 @@
 ---max=360
 ---step=1
 local base_center_angle = 360
----$track:中心角2
----min=-360
----max=360
----step=1
-local center_angle_delta = 0
 ---$track:サイズ1
 ---min=0
 ---max=4000
 ---step=1
 local base_size = 100
----$track:サイズ2
----min=-4000
----max=4000
----step=1
-local size_delta = 0
 ---$track:ライン幅1
 ---min=0
 ---max=4000
 ---step=1
 local base_line_width = 4000
----$track:ライン幅2
----min=-4000
----max=4000
----step=1
-local line_width_delta = 0
 ---$color:色
 local color = 0xffffff
 
@@ -48,6 +33,22 @@ local easing_power = 2
 ---加速=1
 ---S字=2
 local mode = 0
+
+---$track:中心角2
+---min=-360
+---max=360
+---step=1
+local center_angle_delta = 0
+---$track:サイズ2
+---min=-4000
+---max=4000
+---step=1
+local size_delta = 0
+---$track:ライン幅2
+---min=-4000
+---max=4000
+---step=1
+local line_width_delta = 0
 
 --共通部分
 local progress

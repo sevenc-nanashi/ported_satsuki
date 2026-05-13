@@ -4,21 +4,11 @@
 ---max=4000
 ---step=1
 local base_size = 100
----$track:サイズ2
----min=-4000
----max=4000
----step=1
-local size_delta = 0
 ---$track:ライン幅1
 ---min=0
 ---max=4000
 ---step=1
 local base_line_width = 4000
----$track:ライン幅2
----min=-4000
----max=4000
----step=1
-local line_width_delta = 0
 ---$figure:種類
 local figure_name = "円"
 
@@ -41,6 +31,17 @@ local easing_power = 2
 ---加速=1
 ---S字=2
 local mode = 0
+
+---$track:サイズ2
+---min=-4000
+---max=4000
+---step=1
+local size_delta = 0
+---$track:ライン幅2
+---min=-4000
+---max=4000
+---step=1
+local line_width_delta = 0
 
 --共通部分
 local progress

@@ -4,11 +4,6 @@
 ---max=300
 ---step=1
 local base_range = 0
----$track:範囲2
----min=-300
----max=300
----step=1
-local range_delta = 0
 ---$track:縦横比
 ---min=-100
 ---max=100
@@ -39,6 +34,12 @@ local easing_power = 2
 ---加速=1
 ---S字=2
 local mode = 0
+
+---$track:範囲2
+---min=-300
+---max=300
+---step=1
+local range_delta = 0
 
 --共通部分
 local progress

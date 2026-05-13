@@ -26,6 +26,23 @@ local base_width = 0
 ---step=1
 local blur = 0
 
+--separator:加減速
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local duration = 1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local mode = 0
+
 --trackgroup@center_x_delta,center_y_delta:中心座標2
 ---$track:中心X2
 ---min=-2000
@@ -47,23 +64,6 @@ local angle_delta = 0
 ---max=2000
 ---step=1
 local width_delta = 0
-
---separator:加減速
----$track:時間[s]
----min=-5
----max=5
----step=0.01
-local duration = 1
----$track:加減速
----min=1
----max=5
----step=1
-local easing_power = 2
----$select:モード
----減速=0
----加速=1
----S字=2
-local mode = 0
 
 --共通部分
 local progress
