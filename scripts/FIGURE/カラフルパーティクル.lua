@@ -2,89 +2,140 @@
 ---$track:頻度
 ---min=0.1
 ---max=500
-local track0 = 10
+---step=0.1
+local frequency = 10
 ---$track:距離
 ---min=1
 ---max=10000
-local l = 500
+---step=1
+local distance = 500
 ---$track:速度
 ---min=1
 ---max=2000
-local track2 = 400
+---step=1
+local speed = 400
 ---$track:方向
 ---min=-360
 ---max=360
-local track3 = 0
+---step=1
+local direction = 0
 ---$figure:種類
-local name = "円"
+local figure_name = "円"
 
----$value:サイズ
-local f_size = 100
+---$track:サイズ
+---min=0
+---max=2000
+---step=1
+local figure_size = 100
 
----$value:ライン幅
-local f_line = 4000
+---$track:ライン幅
+---min=0
+---max=10000
+---step=1
+local line_width = 4000
 
----$value:ランダム方向
-local dir_ran = 30
+---$track:ランダム方向
+---min=0
+---max=360
+---step=1
+local random_direction = 30
 
----$value:ランダム速度[-%]
-local v_ran = 0
+---$track:ランダム速度[-%]
+---min=0
+---max=100
+---step=1
+local random_speed = 0
 
----$value:透過速度[%]
-local av = 100
+---$track:ランダム拡大[-%]
+---min=0
+---max=100
+---step=1
+local random_scale = 0
 
----$value:拡大速度[%]
-local sv = 0
+---$track:透過速度[%]
+---min=0
+---max=200
+---step=1
+local alpha_speed = 100
 
----$value:ランダムZ角度
-local rz_ran = 0
+---$track:拡大速度[%]
+---min=-100
+---max=1000
+---step=1
+local scale_speed = 0
 
----$value:X軸ランダム
-local x_ran = 0
+---$track:ランダムZ角度
+---min=0
+---max=360
+---step=1
+local random_z_rotation = 0
 
----$value:Y軸ランダム
-local y_ran = 0
+---$track:X軸ランダム
+---min=0
+---max=10000
+---step=1
+local random_x = 0
 
----$value:ランダムZ回転
-local rzv_ran = 0
+---$track:Y軸ランダム
+---min=0
+---max=10000
+---step=1
+local random_y = 0
 
----$value:ランダム拡大[-%]
-local s_ran = 0
+---$track:ランダムZ回転
+---min=0
+---max=360
+---step=1
+local random_z_rotation_speed = 0
 
-b = 1 / track0 --出力間隔(秒)
-v = l / track2 --距離を進むのにかかる時間
-dir = -track3 + 90 --出力方向
-rxy_ran = 0 --ランダムXY角度[未使用]
-z_ran = 0 --Z軸ランダム[未使用]
-rxyv_ran = 0 --ランダムXY回転[未使用]
-zi_ran = 0 --Z軸ランダム移動[未使用]
+local spawn_interval = 1 / frequency
+local travel_time = distance / speed
+local base_direction = -direction + 90
+local random_xy_rotation = 0
+local random_z = 0
+local random_xy_rotation_speed = 0
+local random_z_move = 0
 
-n = obj.totaltime / b
-for i = 0, n - 1 do
-    c = (obj.rand(0, 100, i, 100) - 50) / 100
-    if c < 0 then
-        c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * -c) * 255)
+local count = obj.totaltime / spawn_interval
+for i = 0, count - 1 do
+    local color_phase = (obj.rand(0, 100, i, 100) - 50) / 100
+    local color
+    if color_phase < 0 then
+        color = math.floor(math.cos(math.pi * color_phase) * 255) * 256
+            + math.floor(math.sin(math.pi * -color_phase) * 255)
     else
-        c = math.floor(math.cos(math.pi * c) * 255) * 256 + math.floor(math.sin(math.pi * c) * 255) * 65536
+        color = math.floor(math.cos(math.pi * color_phase) * 255) * 256
+            + math.floor(math.sin(math.pi * color_phase) * 255) * 65536
     end
-    obj.load("figure", name, c, f_size, f_line)
+
+    obj.load("figure", figure_name, color, figure_size, line_width)
     obj.effect()
-    t = (v - obj.time + i * b) / v
-    t = math.min(1, math.max(t, 0))
-    direct = obj.rand(dir - dir_ran / 2, dir + dir_ran / 2, i, 0)
-    x = l * math.cos(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-        + obj.rand(-x_ran / 2, x_ran / 2, i, 1)
-    y = l * math.sin(direct * math.pi / 180) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-        + obj.rand(-y_ran / 2, y_ran / 2, i, 2)
-    z = obj.rand(-zi_ran / 2, zi_ran / 2, i, 11) * (1 - t) * obj.rand(100 - v_ran, 100, i, 12) / 100
-        + obj.rand(-z_ran / 2, z_ran / 2, i, 3)
-    zoom = 1 + sv / 100 * (1 - t) - obj.rand(0, s_ran, i, 10) / 100
-    alpha = 1 - av / 100 * (1 - t)
-    rx = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 4) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 7) * obj.time
-    ry = obj.rand(-rxy_ran / 2, rxy_ran / 2, i, 5) + obj.rand(-rxyv_ran / 2, rxyv_ran / 2, i, 8) * obj.time
-    rz = obj.rand(-rz_ran / 2, rz_ran / 2, i, 6) + obj.rand(-rzv_ran / 2, rzv_ran / 2, i, 9) * obj.time
-    if t == 0 or t == 1 then
+
+    local progress = (travel_time - obj.time + i * spawn_interval) / travel_time
+    progress = math.min(1, math.max(progress, 0))
+
+    local particle_direction =
+        obj.rand(base_direction - random_direction / 2, base_direction + random_direction / 2, i, 0)
+    local speed_rate = obj.rand(100 - random_speed, 100, i, 12) / 100
+    local progress_rate = (1 - progress) * speed_rate
+    local x = distance * math.cos(particle_direction * math.pi / 180) * progress_rate
+        + obj.rand(-random_x / 2, random_x / 2, i, 1)
+    local y = distance * math.sin(particle_direction * math.pi / 180) * progress_rate
+        + obj.rand(-random_y / 2, random_y / 2, i, 2)
+    local z = obj.rand(-random_z_move / 2, random_z_move / 2, i, 11) * progress_rate
+        + obj.rand(-random_z / 2, random_z / 2, i, 3)
+    local zoom = 1 + scale_speed / 100 * (1 - progress) - obj.rand(0, random_scale, i, 10) / 100
+    local alpha = 1 - alpha_speed / 100 * (1 - progress)
+    local rx = obj.rand(-random_xy_rotation / 2, random_xy_rotation / 2, i, 4)
+        + obj.rand(-random_xy_rotation_speed / 2, random_xy_rotation_speed / 2, i, 7) * obj.time
+    local ry = obj.rand(-random_xy_rotation / 2, random_xy_rotation / 2, i, 5)
+        + obj.rand(-random_xy_rotation_speed / 2, random_xy_rotation_speed / 2, i, 8) * obj.time
+    local rz = obj.rand(-random_z_rotation / 2, random_z_rotation / 2, i, 6)
+        + obj.rand(-random_z_rotation_speed / 2, random_z_rotation_speed / 2, i, 9) * obj.time
+
+    if progress == 0 or progress == 1 then
         alpha = 0
     end
+
     obj.draw(x, y, z, zoom, alpha, rx, ry, rz)
 end
