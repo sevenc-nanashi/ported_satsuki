@@ -171,34 +171,6 @@ scripts:
     label: 画像ループ3@ANM1
   - path: "./scripts/ANM_ssd/透過判定図形並べ.lua"
     label: 透過判定図形並べ@ANM_ssd
-  - path: "./scripts/連番/連番らせん[A].lua"
-    label: 連番らせん[A]@連番
-  - path: "./scripts/連番/連番らせん[B].lua"
-    label: 連番らせん[B]@連番
-  - path: "./scripts/連番/連番パーティクル[A].lua"
-    label: 連番パーティクル[A]@連番
-  - path: "./scripts/連番/連番パーティクル[B].lua"
-    label: 連番パーティクル[B]@連番
-  - path: "./scripts/連番/連番ランダム配置[A].lua"
-    label: 連番ランダム配置[A]@連番
-  - path: "./scripts/連番/連番ランダム配置[B].lua"
-    label: 連番ランダム配置[B]@連番
-  - path: "./scripts/連番/連番円形-カメラ[A].lua"
-    label: 連番円形-カメラ[A]@連番
-  - path: "./scripts/連番/連番円形-カメラ[B].lua"
-    label: 連番円形-カメラ[B]@連番
-  - path: "./scripts/連番/連番円形並べ[A].lua"
-    label: 連番円形並べ[A]@連番
-  - path: "./scripts/連番/連番円形並べ[B].lua"
-    label: 連番円形並べ[B]@連番
-  - path: "./scripts/連番/連番球状配置[A].lua"
-    label: 連番球状配置[A]@連番
-  - path: "./scripts/連番/連番球状配置[B].lua"
-    label: 連番球状配置[B]@連番
-  - path: "./scripts/連番/連番画像ループ[A].lua"
-    label: 連番画像ループ[A]@連番
-  - path: "./scripts/連番/連番画像ループ[B].lua"
-    label: 連番画像ループ[B]@連番
   - path: "./scripts/TA/TAぼかし登場.lua"
     label: TAぼかし登場@TA
   - path: "./scripts/TA/TAぼかし登場2.lua"
@@ -361,6 +333,8 @@ scripts:
     label: 画像ループMOV@ANM2
   - path: "./scripts/ANM_ssd/連番画像読込_改変.lua"
     label: 連番画像読込_改変@ANM_ssd
+  - path: "./scripts/連番/連番らせん.lua"
+    label: 連番らせん@連番
   - path: "./scripts/FIGURE/小屋.lua"
     label: 小屋@FIGURE
   - path: "./scripts/FIGURE/立体図形(円)-カメラ.lua"
@@ -469,6 +443,30 @@ scripts:
     label: magicA_大円@削除済みANM
   - path: "./scripts/削除済み/マウスポインタ.lua"
     label: マウスポインタ@削除済みFIG
+  - path: "./scripts/連番/連番パーティクル[A].lua"
+    label: 連番パーティクル[A]@連番
+  - path: "./scripts/連番/連番パーティクル[B].lua"
+    label: 連番パーティクル[B]@連番
+  - path: "./scripts/連番/連番ランダム配置[A].lua"
+    label: 連番ランダム配置[A]@連番
+  - path: "./scripts/連番/連番ランダム配置[B].lua"
+    label: 連番ランダム配置[B]@連番
+  - path: "./scripts/連番/連番円形-カメラ[A].lua"
+    label: 連番円形-カメラ[A]@連番
+  - path: "./scripts/連番/連番円形-カメラ[B].lua"
+    label: 連番円形-カメラ[B]@連番
+  - path: "./scripts/連番/連番円形並べ[A].lua"
+    label: 連番円形並べ[A]@連番
+  - path: "./scripts/連番/連番円形並べ[B].lua"
+    label: 連番円形並べ[B]@連番
+  - path: "./scripts/連番/連番球状配置[A].lua"
+    label: 連番球状配置[A]@連番
+  - path: "./scripts/連番/連番球状配置[B].lua"
+    label: 連番球状配置[B]@連番
+  - path: "./scripts/連番/連番画像ループ[A].lua"
+    label: 連番画像ループ[A]@連番
+  - path: "./scripts/連番/連番画像ループ[B].lua"
+    label: 連番画像ループ[B]@連番
   - path: "./scripts/FIGURE/単色フェード.lua"
     label: 単色フェード@FIGURE
   - path: "./scripts/FIGURE/カメラ補助線.lua"

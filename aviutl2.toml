@@ -28,6 +28,7 @@ build.group = "aulua"
 aviutl2_version = "latest"
 catalog_dependencies = [
   "sevenc-nanashi.aviutl2-rs.rusty_scripts_search",
+  "sevenc-nanashi.aviutl2-rs.rusty_image_rs_input",
   "sevenc-nanashi.aviutl2-rs.rusty_ffmpeg",
   "Mr-Ojii.L-SMASH-Works"
 ]
