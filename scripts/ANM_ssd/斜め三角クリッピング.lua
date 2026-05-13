@@ -30,7 +30,6 @@ local cy = 0
 
 --trackgroup@cx,cy:中心
 
-
 local lw = track0 * 2
 local offs = obj.time * track3 % lw
 obj.setanchor("cx,cy", 1)

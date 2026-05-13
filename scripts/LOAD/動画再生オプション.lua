@@ -17,7 +17,8 @@ local track2 = 0
 ---max=5
 ---step=0.01
 local n = 0.01
---file:
+---$file:ファイル
+local file = ""
 v = track1 / 100
 a = track2 / 100
 c = 0

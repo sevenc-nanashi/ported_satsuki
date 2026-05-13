@@ -61,21 +61,21 @@ local r = rotation_speed / 100 --回転速度
 for i = 0, n - 1 do
     local seed = (i + 1 + ran) * (1 - 2 * fugo)
     local x = (
-            obj.rand(-obj.screen_w - obj.w, obj.screen_w + obj.w, seed, 0) / 2 * w
-            + obj.rand(-100, 100, seed, 3) * obj.time * v
-        )
+        obj.rand(-obj.screen_w - obj.w, obj.screen_w + obj.w, seed, 0) / 2 * w
+        + obj.rand(-100, 100, seed, 3) * obj.time * v
+    )
         * wx
         / 100
     local y = (
-            obj.rand(-obj.screen_h - obj.h, obj.screen_h + obj.h, seed, 1) / 2 * w
-            + obj.rand(-100, 100, seed, 4) * obj.time * v
-        )
+        obj.rand(-obj.screen_h - obj.h, obj.screen_h + obj.h, seed, 1) / 2 * w
+        + obj.rand(-100, 100, seed, 4) * obj.time * v
+    )
         * wy
         / 100
     local z = (
-            obj.rand(-obj.screen_w - obj.w, obj.screen_w + obj.w, seed, 2) / 2 * w
-            + obj.rand(-100, 100, seed, 5) * obj.time * v
-        )
+        obj.rand(-obj.screen_w - obj.w, obj.screen_w + obj.w, seed, 2) / 2 * w
+        + obj.rand(-100, 100, seed, 5) * obj.time * v
+    )
         * wz
         / 100
     local s = obj.rand(100 - s_min, 100, seed, 6) / 100

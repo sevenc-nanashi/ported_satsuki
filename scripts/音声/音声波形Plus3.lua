@@ -37,8 +37,28 @@ for i = 1, n - 1 do
     local y1 = -buf[i + 1] / 100 * height_ratio - line_weight / 2
     local y2 = -buf[i + 1] / 100 * height_ratio + line_weight / 2
     local y3 = -buf[i] / 100 * height_ratio + line_weight / 2
-    table.insert(polygons, { x0, y0, 0, x1, y1, 0, x1, y2, 0, x0, y3, 0,
-        0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h })
+    table.insert(polygons, {
+        x0,
+        y0,
+        0,
+        x1,
+        y1,
+        0,
+        x1,
+        y2,
+        0,
+        x0,
+        y3,
+        0,
+        0,
+        0,
+        obj.w,
+        0,
+        obj.w,
+        obj.h,
+        0,
+        obj.h,
+    })
 end
 obj.drawpoly(polygons)
 obj.load("tempbuffer")

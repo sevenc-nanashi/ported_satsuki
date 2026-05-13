@@ -9,7 +9,8 @@ local totalfile = 10
 ---max=8
 ---step=1
 local kt = 4
---file:
+---$file:ファイル
+local file = ""
 n = obj.totaltime / b
 for i = 0, n - 1 do
     --連番画像読み込み(from hksy.obj)を改変

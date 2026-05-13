@@ -9,7 +9,8 @@ local totalfile = 10
 ---max=8
 ---step=1
 local kt = 4
---file:
+---$file:ファイル
+local file = ""
 for k = 0, nz - 1 do
     z = -gz * (nz - 1) / 2 + k * gz
     for j = 0, ny - 1 do

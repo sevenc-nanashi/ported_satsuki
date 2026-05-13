@@ -22,5 +22,5 @@ local ransu = 0
 obj.pixelshader("mosaic_mask", "object", { "object", "random" }, {
     s,
     siki / 100,
-    ransu
+    ransu,
 })

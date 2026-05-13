@@ -53,7 +53,7 @@ local line = 5
 local BN = 20
 
 l = math.floor(line) / 2
-NN = obj.track3 + 1
+NN = track3 + 1
 
 --アンカーポイントの設置
 obj.setanchor("pos", NN - 1, "line")

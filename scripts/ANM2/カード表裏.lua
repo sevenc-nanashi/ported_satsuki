@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\変形
---file:
+---$file:ファイル
+local file = ""
 obj.effect()
 obj.draw()
 obj.setoption("culling", 1)

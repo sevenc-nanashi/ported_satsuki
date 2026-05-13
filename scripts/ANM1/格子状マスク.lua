@@ -18,5 +18,5 @@ local hanten = 0
 obj.pixelshader("grid_mask", "object", "object", {
     size,
     gap / 100,
-    hanten
+    hanten,
 })

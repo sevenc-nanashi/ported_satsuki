@@ -10,7 +10,7 @@ local col0 = 0xffffff
 ---$color:縁色
 local col1 = 0x000000
 
-s = obj.track0
+s = track0
 X, Y = 12, 21
 function fdot(x, y, col)
     obj.load("figure", "四角形", col, 1)

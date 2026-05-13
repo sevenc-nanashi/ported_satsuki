@@ -35,5 +35,5 @@ obj.effect("単色化", "color", 0xffffff, "輝度を保持する", kdhj)
 obj.effect("ノイズ", "変化速度", hks, "周期X", syk, "周期Y", syk, "mode", 1, "type", nizs)
 obj.pixelshader("binary_noise", "object", "object", {
     sikii / 255,
-    RGB(col)
+    RGB(col),
 })

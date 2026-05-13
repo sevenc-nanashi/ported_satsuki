@@ -49,7 +49,7 @@ for y = -h / 2 + cy, h / 2 + cy - 1 do
         local u0 = obj.w * (x + w / 2 - cx) / w
         local u1 = obj.w * (x + w / 2 - cx + 1) / w
 
-        table.insert(polygons, {x0, y0, z0, x1, y0, z1, x2, y1, z2, x3, y1, z3, u0, v0, u1, v0, u1, v1, u0, v1})
+        table.insert(polygons, { x0, y0, z0, x1, y0, z1, x2, y1, z2, x3, y1, z3, u0, v0, u1, v0, u1, v1, u0, v1 })
     end
 end
 obj.drawpoly(polygons)

@@ -13,7 +13,7 @@ local polygons = {}
 local userdata, w, h = obj.getpixeldata("object")
 local ffi = require("ffi")
 local userdata_ptr = ffi.cast("uint8_t*", userdata)
-            local lz = s / 2 * z_length / 100
+local lz = s / 2 * z_length / 100
 for y = 0, h - 1 do
     for x = 0, w - 1 do
         local a = userdata_ptr[(y * w + x) * 4 + 3] / 255
@@ -96,7 +96,7 @@ for y = 0, h - 1 do
                     ux,
                     uy,
                     ux,
-                    uy
+                    uy,
                 })
             end
 
@@ -121,7 +121,7 @@ for y = 0, h - 1 do
                     ux,
                     uy,
                     ux,
-                    uy
+                    uy,
                 })
             end
 
@@ -146,7 +146,7 @@ for y = 0, h - 1 do
                     ux,
                     uy,
                     ux,
-                    uy
+                    uy,
                 })
             end
 
@@ -171,7 +171,7 @@ for y = 0, h - 1 do
                     ux,
                     uy,
                     ux,
-                    uy
+                    uy,
                 })
             end
         end
@@ -198,7 +198,7 @@ table.insert(polygons, {
     w,
     h,
     0,
-    h
+    h,
 })
 table.insert(polygons, {
     w / 2 * s,
@@ -220,9 +220,8 @@ table.insert(polygons, {
     0,
     h,
     w,
-    h
+    h,
 })
-
 
 if #polygons > 0 then
     obj.drawpoly(polygons)

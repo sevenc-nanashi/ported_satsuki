@@ -43,7 +43,7 @@ if tate == 0 then
         local z1 = -r * math.cos(math.pi * 2 * (x + 1) / nd) + r * (1 - m)
         local u0 = obj.w * (x + n / 2 - c) / n
         local u1 = obj.w * (x + n / 2 + 1 - c) / n
-        table.insert(polygons, {x0, y0, z0, x1, y0, z1, x1, y1, z1, x0, y1, z0, u0, v0, u1, v0, u1, v1, u0, v1})
+        table.insert(polygons, { x0, y0, z0, x1, y0, z1, x1, y1, z1, x0, y1, z0, u0, v0, u1, v0, u1, v1, u0, v1 })
     end
 else
     local r = obj.h / n / math.sin(math.pi * 2 / nd)
@@ -62,7 +62,7 @@ else
         local z1 = r * math.sin(math.pi * (2 * (y + 1) / nd - 0.5)) + r * (1 - m)
         local v0 = obj.h * (y + n / 2 - c) / n
         local v1 = obj.h * (y + n / 2 - c + 1) / n
-        table.insert(polygons, {x0, y0, z0, x1, y0, z0, x1, y1, z1, x0, y1, z1, u0, v0, u1, v0, u1, v1, u0, v1})
+        table.insert(polygons, { x0, y0, z0, x1, y0, z0, x1, y1, z1, x0, y1, z1, u0, v0, u1, v0, u1, v1, u0, v1 })
     end
 end
 obj.drawpoly(polygons)

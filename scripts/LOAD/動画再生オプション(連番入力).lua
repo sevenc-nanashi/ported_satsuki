@@ -17,11 +17,12 @@ local track2 = 100
 ---min=0
 ---max=100
 local track3 = 0
---file:
-f = obj.track0 / obj.framerate
-kt = obj.track1
-v = obj.track2 / 100 / obj.framerate
-a = obj.track3 / 100 / obj.framerate
+---$file:ファイル
+local file = ""
+f = track0 / obj.framerate
+kt = track1
+v = track2 / 100 / obj.framerate
+a = track3 / 100 / obj.framerate
 lp = string.len(file) - (kt + 4)
 path = string.sub(file, 1, lp)
 ext = string.sub(file, -3)

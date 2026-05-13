@@ -18,7 +18,8 @@ local track2 = 0
 ---max=10000
 ---step=1
 local track3 = 10000
---file:
+---$file:ファイル
+local file = ""
 
 --連番画像読み込み(hksy.obj)を改変したものです。
 --ファイル名は(0001.png)などの連番数字が前提

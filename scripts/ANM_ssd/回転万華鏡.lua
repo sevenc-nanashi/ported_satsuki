@@ -48,7 +48,7 @@ if n > 0 then
     obj.setoption("drawtarget", "tempbuffer", l * 2, l * 2)
     obj.setoption("blend", "alpha_add")
 
-    local polygons= {}
+    local polygons = {}
 
     --右回転部分
     for i = 0, n - 1 do
@@ -70,7 +70,7 @@ if n > 0 then
         local u3 = l
         local v3 = l
 
-        table.insert(polygons, {x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v1, u2, v2, u3, v3})
+        table.insert(polygons, { x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v1, u2, v2, u3, v3 })
     end
 
     --反転部分
@@ -93,7 +93,7 @@ if n > 0 then
         local u3 = l
         local v3 = l
 
-        table.insert(polygons, {x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v1, u2, v2, u3, v3})
+        table.insert(polygons, { x0, y0, 0, x1, y1, 0, x2, y2, 0, x3, y3, 0, u0, v0, u1, v1, u2, v2, u3, v3 })
     end
     obj.drawpoly(polygons)
 

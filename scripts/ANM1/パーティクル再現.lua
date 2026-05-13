@@ -74,8 +74,8 @@ local rxy_ran = 0
 local zi_ran = 0
 
 obj.effect()
-local b = 1 / track0     --出力間隔(秒)
-local v = l / track2     --距離を進むのにかかる時間
+local b = 1 / track0 --出力間隔(秒)
+local v = l / track2 --距離を進むのにかかる時間
 local dir = -track3 + 90 --出力方向
 local n = obj.totaltime / b
 for i = 0, n - 1 do

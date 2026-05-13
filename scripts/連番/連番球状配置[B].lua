@@ -9,7 +9,8 @@ local totalfile = 10
 ---max=8
 ---step=1
 local kt = 4
---file:
+---$file:ファイル
+local file = ""
 for i = 0, keisen - 1 do
     if pdraw then
         ry = 90 - 180 / (keisen + 1) * (i + 1) -- 極を考えて均等配置

@@ -19,7 +19,8 @@ local track2 = 1
 ---max=1
 ---step=1
 local track3 = 0
---file:
+---$file:ファイル
+local file = ""
 local t = track0 - 1
 for i = 0, obj.frame do
     t = t + obj.getvalue(1, i / 30) / 100

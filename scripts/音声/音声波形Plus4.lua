@@ -66,8 +66,31 @@ for i = 1, n_divisions - 1 do
     local r = math.atan2(y0 - y1, x1 - x0)
     local dx = math.sin(r) * l
     local dy = math.cos(r) * l
-    table.insert(polygons, { x0 - dx, y0 - dy, 0, x1 - dx, y1 - dy, 0, x1 + dx, y1 + dy, 0, x0 + dx, y0 + dy, 0,
-        0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h })
+    table.insert(
+        polygons,
+        {
+            x0 - dx,
+            y0 - dy,
+            0,
+            x1 - dx,
+            y1 - dy,
+            0,
+            x1 + dx,
+            y1 + dy,
+            0,
+            x0 + dx,
+            y0 + dy,
+            0,
+            0,
+            0,
+            obj.w,
+            0,
+            obj.w,
+            obj.h,
+            0,
+            obj.h,
+        }
+    )
     y0 = y1
 end
 obj.drawpoly(polygons)
@@ -88,7 +111,31 @@ for i = 1, n_divisions - 1 do
     if kaku == 1 and i % 2 == 1 then
         y0 = 0
     end
-    table.insert(polygons2, { x0 - l, y0 - l, 0, x0 + l, y0 - l, 0, x0 + l, y0 + l, 0, x0 - l, y0 + l, 0, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h })
+    table.insert(
+        polygons2,
+        {
+            x0 - l,
+            y0 - l,
+            0,
+            x0 + l,
+            y0 - l,
+            0,
+            x0 + l,
+            y0 + l,
+            0,
+            x0 - l,
+            y0 + l,
+            0,
+            0,
+            0,
+            obj.w,
+            0,
+            obj.w,
+            obj.h,
+            0,
+            obj.h,
+        }
+    )
 end
 obj.drawpoly(polygons2)
 

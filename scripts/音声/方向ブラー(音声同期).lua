@@ -71,7 +71,7 @@ if hojo then
     for j = 1, n do
         local x = j * w - obj.screen_w / 2 - w / 2
         local y = -buf[j] / 10 * hh / 100 + obj.screen_h / 2
-        table.insert(polygons, {x - w / 2, y, 0})
+        table.insert(polygons, { x - w / 2, y, 0 })
         obj.drawpoly(x - w / 2, y, 0, x + w / 2, y, 0, x + w / 2, h, 0, x - w / 2, h, 0)
     end
 

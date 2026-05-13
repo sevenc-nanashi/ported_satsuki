@@ -9,7 +9,8 @@ local totalfile = 10
 ---max=8
 ---step=1
 local kt = 4
---file:
+---$file:ファイル
+local file = ""
 for i = 0, n - 1 do
     --連番画像読み込み(from hksy.obj)を改変
     lp = string.len(file) - (kt + 4) -- パスの長さ ( 8 = 桁数 + 拡張子 )

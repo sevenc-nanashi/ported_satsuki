@@ -50,7 +50,11 @@ for j = 0, y_count - 1 do
         if stagger_xy and j % 2 == 0 then
             x = x + x_interval / 2
         end
-        obj.load("movie", file, (playback_position + duration * obj.rand(0, 100, i, j) / 100 + obj.time * speed) % duration)
+        obj.load(
+            "movie",
+            file,
+            (playback_position + duration * obj.rand(0, 100, i, j) / 100 + obj.time * speed) % duration
+        )
         obj.effect()
         obj.draw(x, y)
     end

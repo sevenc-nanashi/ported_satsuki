@@ -39,11 +39,10 @@ local s
 if k < 1 then
     s = math.sqrt(W ^ 2 + H ^ 2) / math.sqrt(W ^ 2 + H ^ 2) ^ t --対角線を固定
 elseif k < 2 then
-    s = W / W ^ t                                               --横幅を固定
+    s = W / W ^ t --横幅を固定
 else
-    s = H / H ^ t                                               --縦幅を固定
+    s = H / H ^ t --縦幅を固定
 end
-
 
 local polygons = {}
 for i = 0, n - 1 do

@@ -63,5 +63,5 @@ obj.pixelshader("quantized_gradation", "object", "object", {
     col2 and 1 or 0,
     col2_r / 255,
     col2_g / 255,
-    col2_b / 255
+    col2_b / 255,
 })

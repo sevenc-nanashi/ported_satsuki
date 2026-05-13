@@ -14,10 +14,11 @@ local track1 = 4
 ---max=1
 ---step=1
 local track2 = 0
---file:
-totalfile = obj.track0
-kt = obj.track1
-ran = obj.track2
+---$file:ファイル
+local file = ""
+totalfile = track0
+kt = track1
+ran = track2
 
 function renban(ai)
     --連番画像読み込み(from hksy.obj)を改変

@@ -14,7 +14,8 @@ local kt = 4
 ---max=1
 ---step=1
 local ran = 0
---file:
+---$file:ファイル
+local file = ""
 for i = 0, n - 1 do
     --連番画像読み込み(from hksy.obj)を改変
     lp = string.len(file) - (kt + 4)

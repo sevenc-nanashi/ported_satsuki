@@ -49,6 +49,6 @@ for i = aa, bb do
     end
     local x0, x1 = cx - w / 2, cx + w / 2
     local y0, y2 = cy - h / 2, cy + h / 2
-    table.insert(polygons, {x0, y0, z, x1, y0, z, x1, y2, z, x0, y2, z, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h})
+    table.insert(polygons, { x0, y0, z, x1, y0, z, x1, y2, z, x0, y2, z, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h })
 end
 obj.drawpoly(polygons)
