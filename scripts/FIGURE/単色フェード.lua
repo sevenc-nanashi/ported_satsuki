@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\カスタムオブジェクト\切り替え効果
+--label:${ROOT_CATEGORY}\切り替え効果
 ---$track:イン
 ---min=0
 ---max=10

@@ -2,14 +2,13 @@
 project:
   variables:
     ROOT_CATEGORY: satsuki
-
 scripts:
   - name: "@satsuki.anm2.anm2"
     sources:
-      - path: "./scripts/ANM2/グループ制御もどき(子).lua"
-        label: グループ制御もどき(子)@ANM2
       - path: "./scripts/ANM2/グループ制御もどき(親).lua"
         label: グループ制御もどき(親)@ANM2
+      - path: "./scripts/ANM2/グループ制御もどき(子).lua"
+        label: グループ制御もどき(子)@ANM2
       - path: "./scripts/ANM2/2次ベジェ曲線.lua"
         label: 2次ベジェ曲線@ANM2
       - path: "./scripts/ANM2/3次ベジェ曲線.lua"
@@ -24,10 +23,10 @@ scripts:
         label: ハーフトーン風@ANM2
       - path: "./scripts/音声/立体音声波形Plus.lua"
         label: 立体音声波形Plus@音声
-      - path: "./scripts/ANM_ssd/範囲指定で変化（子）.lua"
-        label: 範囲指定で変化（子）@範囲指定で変化@ANM_ssd
       - path: "./scripts/ANM_ssd/範囲指定で変化（親）.lua"
         label: 範囲指定で変化（親）@範囲指定で変化@ANM_ssd
+      - path: "./scripts/ANM_ssd/範囲指定で変化（子）.lua"
+        label: 範囲指定で変化（子）@範囲指定で変化@ANM_ssd
       - path: "./scripts/ANM2/蝶.lua"
         label: 蝶@ANM2
       - path: "./scripts/音声/音声波形Plus(改).lua"
@@ -432,8 +431,6 @@ scripts:
         label: FIランダムに小文字が出現@削除済みFIG
       - path: "./scripts/削除済み/FIランダムに輪が出現2.lua"
         label: FIランダムに輪が出現2@削除済みFIG
-      - path: "./scripts/FIGURE/単色フェード.lua"
-        label: 単色フェード@FIGURE
       - path: "./scripts/ANM_ssd/タータンチェック_ISTN.lua"
         label: タータンチェック_ISTN@ANM_ssd
       - path: "./scripts/FIGURE/チェック柄.lua"
@@ -472,6 +469,8 @@ scripts:
         label: magicA_大円@削除済みANM
       - path: "./scripts/削除済み/マウスポインタ.lua"
         label: マウスポインタ@削除済みFIG
+      - path: "./scripts/FIGURE/単色フェード.lua"
+        label: 単色フェード@FIGURE
       - path: "./scripts/FIGURE/カメラ補助線.lua"
         label: カメラ補助線@FIGURE
       - path: "./scripts/ANM_ssd/分度器.lua"
