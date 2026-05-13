@@ -333,10 +333,8 @@ scripts:
     label: 動画再生オプション(連番入力)@LOAD
   - path: "./scripts/連番/連番らせん.lua"
     label: 連番らせん@連番
-  - path: "./scripts/連番/連番ランダム配置[A].lua"
-    label: 連番ランダム配置[A]@連番
-  - path: "./scripts/連番/連番ランダム配置[B].lua"
-    label: 連番ランダム配置[B]@連番
+  - path: "./scripts/連番/連番ランダム配置.lua"
+    label: 連番ランダム配置@連番
   - path: "./scripts/連番/連番円形-カメラ[A].lua"
     label: 連番円形-カメラ[A]@連番
   - path: "./scripts/連番/連番円形-カメラ[B].lua"
