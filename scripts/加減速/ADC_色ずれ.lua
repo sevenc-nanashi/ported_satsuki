@@ -3,25 +3,32 @@
 ---min=0
 ---max=500
 ---step=1
-local track0 = 5
+local base_shift_width = 5
 ---$track:角度1
 ---min=-720
 ---max=720
-local track2 = 0
----$value:色ずれの種類[0-2]
-local ty = 0
+---step=1
+local base_angle = 0
+---$select:色ずれの種類
+---赤緑A=0
+---赤青A=1
+---緑青A=2
+---赤緑B=3
+---赤青B=4
+---緑青B=5
+local shift_type = 0
 
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
@@ -32,36 +39,37 @@ local mode = 0
 ---min=-500
 ---max=500
 ---step=1
-local track1 = 0
+local shift_width_delta = 0
 ---$track:角度2
 ---min=-720
 ---max=720
-local track3 = 0
+---step=1
+local angle_delta = 0
 
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local h = track0 + track1 * t
-local r = track2 + track3 * t
-obj.effect("色ずれ", "ずれ幅", h, "角度", r, "type", ty)
+local shift_width = base_shift_width + shift_width_delta * progress
+local angle = base_angle + angle_delta * progress
+obj.effect("色ずれ", "ずれ幅", shift_width, "角度", angle, "type", shift_type)
