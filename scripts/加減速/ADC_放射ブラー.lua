@@ -3,33 +3,35 @@
 ---min=0
 ---max=300
 ---step=1
-local track1 = 0
+local base_range = 0
+
+--trackgroup@center_x,center_y:中心座標
 ---$track:X
 ---min=-2000
 ---max=2000
 ---step=1
-local x = 0
+local center_x = 0
 
 ---$track:Y
 ---min=-2000
 ---max=2000
 ---step=1
-local y = 0
+local center_y = 0
 
 ---$check:サイズ固定
-local fix = 0
+local fixed_size = false
 
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
@@ -40,31 +42,31 @@ local mode = 0
 ---min=-300
 ---max=300
 ---step=1
-local track2 = 0
+local range_delta = 0
 
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local h = track1 + track2 * t
-obj.effect("放射ブラー", "範囲", h, "X", x, "Y", y, "サイズ固定", fix)
+local range = base_range + range_delta * progress
+obj.effect("放射ブラー", "範囲", range, "X", center_x, "Y", center_y, "サイズ固定", fixed_size and 1 or 0)
