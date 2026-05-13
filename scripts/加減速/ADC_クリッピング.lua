@@ -2,82 +2,88 @@
 ---$track:上1
 ---min=0
 ---max=2000
-local track0 = 0
+---step=1
+local base_top = 0
+---$track:下1
+---min=0
+---max=2000
+---step=1
+local base_bottom = 0
+---$track:左1
+---min=0
+---max=2000
+---step=1
+local base_left = 0
+---$track:右1
+---min=0
+---max=2000
+---step=1
+local base_right = 0
+
 ---$track:上2
 ---min=-2000
 ---max=2000
 ---step=1
-local up2 = 0
----$track:下1
----min=0
----max=2000
-local track1 = 0
+local top_delta = 0
 ---$track:下2
 ---min=-2000
 ---max=2000
 ---step=1
-local dw2 = 0
----$track:左1
----min=0
----max=2000
-local track2 = 0
+local bottom_delta = 0
 ---$track:左2
 ---min=-2000
 ---max=2000
 ---step=1
-local lf2 = 0
----$track:右1
----min=0
----max=2000
-local track3 = 0
+local left_delta = 0
 ---$track:右2
 ---min=-2000
 ---max=2000
 ---step=1
-local rt2 = 0
+local right_delta = 0
+
 --separator:加減速
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 1
+local duration = 1
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local mode = 0
-
 --共通部分
-local t
-if ta == 0 then
+local progress
+if duration == 0 then
     return
-elseif ta < 0 then
-    t = (ta - obj.time + obj.totaltime) / ta
+elseif duration < 0 then
+    progress = (duration - obj.time + obj.totaltime) / duration
 else
-    t = (ta - obj.time) / ta
+    progress = (duration - obj.time) / duration
 end
-t = math.max(0, t)
+progress = math.max(0, progress)
 
 if mode < 1 then
-    t = t ^ beki
+    progress = progress ^ easing_power
 elseif mode < 2 then
-    t = 1 - (1 - t) ^ beki
+    progress = 1 - (1 - progress) ^ easing_power
 else
-    if t <= 0.5 then
-        t = (2 * t) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        t = (1 - (1 - (t - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 end
 
 --フィルタ効果
-local up = track0 + up2 * t
-local dw = track1 + dw2 * t
-local lf = track2 + lf2 * t
-local rt = track3 + rt2 * t
-obj.effect("クリッピング", "上", up, "下", dw, "左", lf, "右", rt)
+local top = base_top + top_delta * progress
+local bottom = base_bottom + bottom_delta * progress
+local left = base_left + left_delta * progress
+local right = base_right + right_delta * progress
+
+obj.effect("クリッピング", "上", top, "下", bottom, "左", left, "右", right)
