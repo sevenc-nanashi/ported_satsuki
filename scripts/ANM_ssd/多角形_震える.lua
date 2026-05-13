@@ -9,7 +9,7 @@ local weight = 20
 ---max=16
 ---step=1
 local n = 3
----$track:固定ｻｲｽﾞ
+---$track:固定サイズ
 ---min=0
 ---max=2000
 ---step=1
