@@ -7,17 +7,14 @@ local count = 10
 ---$track:回転差分
 ---min=-360
 ---max=360
----step=1
 local rotation_delta = 10
 ---$track:座標差分
 ---min=-1000
 ---max=1000
----step=1
 local position_delta = 10
 ---$track:回転
 ---min=-3600
 ---max=3600
----step=1
 local base_rotation = 0
 ---$select:軸
 ---X軸=0
