@@ -335,10 +335,8 @@ scripts:
     label: 連番らせん@連番
   - path: "./scripts/連番/連番ランダム配置.lua"
     label: 連番ランダム配置@連番
-  - path: "./scripts/連番/連番円形-カメラ[A].lua"
-    label: 連番円形-カメラ[A]@連番
-  - path: "./scripts/連番/連番円形-カメラ[B].lua"
-    label: 連番円形-カメラ[B]@連番
+  - path: "./scripts/連番/連番円形-カメラ.lua"
+    label: 連番円形-カメラ@連番
   - path: "./scripts/連番/連番円形並べ[A].lua"
     label: 連番円形並べ[A]@連番
   - path: "./scripts/連番/連番円形並べ[B].lua"
