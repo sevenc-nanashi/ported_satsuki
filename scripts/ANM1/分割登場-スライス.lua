@@ -3,94 +3,100 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local t = 1
+local duration = 1
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local u = 0.3
+local interval = 0.3
 ---$track:分割数
 ---min=1
 ---max=500
 ---step=1
-local n = 5
----$track:モード
----min=0
----max=3
----step=1
+local split_count = 5
+---$select:モード
+---順方向・正側=0
+---逆方向・正側=1
+---順方向・負側=2
+---逆方向・負側=3
 local mode = 0
 ---$check:縦方向
-local tated = 0
+local is_vertical_direction = false
 
 ---$check:縦分割
-local tateb = 0
+local is_vertical_split = false
 
 ---$check:交互
-local kougo = 0
+local is_alternating = false
 
----$value:加減速[1-5]
-local beki = 2
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
 
----$value:登場距離[%]
-local l = 100
+---$track:登場距離[%]
+---min=0
+---max=500
+---step=0.1
+local distance = 100
 
 obj.effect()
---a:登場座標(x,y)の符号
---d:登場順番
-for i = 0, n - 1 do
+local direction_axis = is_vertical_direction and 0 or 1
+local vertices = {}
+for i = 0, split_count - 1 do
+    local sign
+    local delay
     if mode < 1 then
-        a = 1
-        d = i * u
+        sign = 1
+        delay = i * interval
     elseif mode < 2 then
-        a = 1
-        d = (n - 1 - i) * u
+        sign = 1
+        delay = (split_count - 1 - i) * interval
     elseif mode < 3 then
-        a = -1
-        d = i * u
+        sign = -1
+        delay = i * interval
     else
-        a = -1
-        d = (n - 1 - i) * u
+        sign = -1
+        delay = (split_count - 1 - i) * interval
     end
-    if tated == 0 then
-        c = 1
-    else
-        c = 0
-    end
-    if kougo == 1 then
+
+    if is_alternating then
         if i % 2 == 1 then
-            a = -1
+            sign = -sign
         end
     end
 
-    if t == 0 then
+    local progress
+    if duration == 0 then
         return
-    elseif t < 0 then
-        r = (t - n * u - obj.time + obj.totaltime + d) / t
+    elseif duration < 0 then
+        progress = (duration - split_count * interval - obj.time + obj.totaltime + delay) / duration
     else
-        r = (t - obj.time + d) / t
+        progress = (duration - obj.time + delay) / duration
     end
-    r = math.min(1, math.max(r, 0))
-    r = r ^ beki
-    x = (obj.screen_w * l / 100) * r * c * a
-    y = (obj.screen_h * l / 100) * r * (1 - c) * a
+    progress = math.min(1, math.max(progress, 0)) ^ easing_power
+    local x = (obj.screen_w * distance / 100) * progress * direction_axis * sign
+    local y = (obj.screen_h * distance / 100) * progress * (1 - direction_axis) * sign
 
-    if tateb == 1 then
-        w = obj.w / n
-        x0 = x - obj.w / 2 + w * i
-        x1 = x - obj.w / 2 + w * (i + 1) + 1
-        y0 = y - obj.h / 2
-        y2 = y + obj.h / 2
-        u0 = w * i
-        u1 = w * (i + 1) + 1
-        obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, 0, u1, 0, u1, obj.h, u0, obj.h)
+    if is_vertical_split then
+        local w = obj.w / split_count
+        local x0 = x - obj.w / 2 + w * i
+        local x1 = x - obj.w / 2 + w * (i + 1) + 1
+        local y0 = y - obj.h / 2
+        local y2 = y + obj.h / 2
+        local u0 = w * i
+        local u1 = w * (i + 1) + 1
+        vertices[#vertices + 1] = { x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, u0, 0, u1, 0, u1, obj.h, u0, obj.h }
     else
-        h = obj.h / n
-        x0 = x - obj.w / 2
-        x1 = x + obj.w / 2
-        y0 = y - obj.h / 2 + h * i
-        y2 = y - obj.h / 2 + h * (i + 1) + 1
-        v0 = h * i
-        v1 = h * (i + 1) + 1
-        obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, 0, v0, obj.w, v0, obj.w, v1, 0, v1)
+        local h = obj.h / split_count
+        local x0 = x - obj.w / 2
+        local x1 = x + obj.w / 2
+        local y0 = y - obj.h / 2 + h * i
+        local y2 = y - obj.h / 2 + h * (i + 1) + 1
+        local v0 = h * i
+        local v1 = h * (i + 1) + 1
+        vertices[#vertices + 1] = { x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, 0, v0, obj.w, v0, obj.w, v1, 0, v1 }
     end
 end
+obj.drawpoly(vertices)
