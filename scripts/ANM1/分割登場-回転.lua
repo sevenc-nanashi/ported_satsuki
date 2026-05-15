@@ -3,70 +3,75 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local t = 1
+local duration = 1
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local u = 0.3
+local interval = 0.3
 ---$track:回転
 ---min=-720
 ---max=720
-local k = 360
+local rotation = 360
 ---$track:分割数
 ---min=1
 ---max=500
 ---step=1
-local n = 5
+local split_count = 5
 ---$check:フェード
-local f = 1
+local fade = true
 
 ---$check:縦分割
-local yjiku = 0
+local is_vertical_split = false
 
 ---$check:逆順
-local jun = 0
+local is_reverse_order = false
 
----$value:加減速[1-5]
-local beki = 2
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
 
 obj.effect()
-for i = 0, n - 1 do
-    if jun == 0 then
-        d = i * u
+for i = 0, split_count - 1 do
+    local delay
+    if is_reverse_order then
+        delay = (split_count - 1 - i) * interval
     else
-        d = (n - 1 - i) * u
+        delay = i * interval
     end
 
-    if t == 0 then
+    local progress
+    if duration == 0 then
         return
-    elseif t < 0 then
-        r = (t - n * u - obj.time + obj.totaltime + d) / t
+    elseif duration < 0 then
+        progress = (duration - split_count * interval - obj.time + obj.totaltime + delay) / duration
     else
-        r = (t - obj.time + d) / t
+        progress = (duration - obj.time + delay) / duration
     end
-    r = math.min(1, math.max(r, 0))
-    r = r ^ beki
-    if f == 1 then
-        obj.alpha = 1 - r
+    progress = math.min(1, math.max(progress, 0)) ^ easing_power
+    if fade then
+        obj.alpha = 1 - progress
     end
-    if yjiku == 0 then
-        obj.ry = k * r
-        h = obj.h / n
-        x0 = obj.w / 2
-        y0 = -obj.h / 2 + h * i
-        y2 = -obj.h / 2 + h * (i + 1) + 1
-        v0 = h * i
-        v1 = h * (i + 1) + 1
-        obj.drawpoly(-x0, y0, 0, x0, y0, 0, x0, y2, 0, -x0, y2, 0, 0, v0, x0 * 2, v0, x0 * 2, v1, 0, v1)
-    else
-        obj.rx = k * r
-        w = obj.w / n
-        x0 = -obj.w / 2 + w * i
-        x1 = -obj.w / 2 + w * (i + 1) + 1
-        y0 = obj.h / 2
-        u0 = w * i
-        u1 = w * (i + 1) + 1
+
+    if is_vertical_split then
+        obj.rx = rotation * progress
+        local w = obj.w / split_count
+        local x0 = -obj.w / 2 + w * i
+        local x1 = -obj.w / 2 + w * (i + 1) + 1
+        local y0 = obj.h / 2
+        local u0 = w * i
+        local u1 = w * (i + 1) + 1
         obj.drawpoly(x0, -y0, 0, x1, -y0, 0, x1, y0, 0, x0, y0, 0, u0, 0, u1, 0, u1, y0 * 2, u0, y0 * 2)
+    else
+        obj.ry = rotation * progress
+        local h = obj.h / split_count
+        local x0 = obj.w / 2
+        local y0 = -obj.h / 2 + h * i
+        local y2 = -obj.h / 2 + h * (i + 1) + 1
+        local v0 = h * i
+        local v1 = h * (i + 1) + 1
+        obj.drawpoly(-x0, y0, 0, x0, y0, 0, x0, y2, 0, -x0, y2, 0, 0, v0, x0 * 2, v0, x0 * 2, v1, 0, v1)
     end
 end
