@@ -401,10 +401,8 @@ scripts:
     label: カラフルランダム配置@FIGURE
   - path: "./scripts/FIGURE/ランダム歩行.lua"
     label: ランダム歩行@FIGURE
-  - path: "./scripts/連番/連番パーティクル[A].lua"
-    label: 連番パーティクル[A]@連番
-  - path: "./scripts/連番/連番パーティクル[B].lua"
-    label: 連番パーティクル[B]@連番
+  - path: "./scripts/連番/連番パーティクル.lua"
+    label: 連番パーティクル@連番
   - path: "./scripts/FIGURE/セピアノイズ.lua"
     label: セピアノイズ@FIGURE
   - path: "./scripts/FIGURE/ランダムに輪が出現.lua"
