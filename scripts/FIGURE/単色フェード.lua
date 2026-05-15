@@ -3,28 +3,24 @@
 ---min=0
 ---max=10
 ---step=0.01
-local track0 = 0.5
+local fade_in_duration = 0.5
 ---$track:アウト
 ---min=0
 ---max=10
 ---step=0.01
-local track1 = 0.5
+local fade_out_duration = 0.5
 ---$color:色
-local color = 0xffffff
+local fade_color = 0xffffff
 
-obj.load("figure", "背景", color, 100)
+obj.load("figure", "背景", fade_color, 100)
 obj.alpha = 0
-if obj.time < track0 then
-    ta = (track0 - obj.time) / track0
-    if track0 == 0 then
-        ta = 1
-    end
-    obj.alpha = ta
+
+if fade_in_duration > 0 and obj.time < fade_in_duration then
+    local fade_in_alpha = (fade_in_duration - obj.time) / fade_in_duration
+    obj.alpha = fade_in_alpha
 end
-if obj.time > obj.totaltime - track1 then
-    tb = -(-track1 - obj.time + obj.totaltime) / track1
-    if track1 == 0 then
-        tb = 1
-    end
-    obj.alpha = tb
+
+if fade_out_duration > 0 and obj.time > obj.totaltime - fade_out_duration then
+    local fade_out_alpha = (fade_out_duration + obj.time - obj.totaltime) / fade_out_duration
+    obj.alpha = fade_out_alpha
 end
