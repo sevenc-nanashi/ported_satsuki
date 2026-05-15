@@ -3,105 +3,149 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.6
+local duration = 0.6
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.1
+local interval = 0.1
 ---$track:勢い
 ---min=0
 ---max=8
 ---step=0.01
-local s = 2.0
----$track:登場順
+local momentum = 2.0
+---$select:登場順
+---順番=0
+---逆順=1
+---ランダム順=2
+---ランダム間隔=3
+---内側から=4
+---外側から=5
+local order = 0
+---$track:揺れ幅[%]
 ---min=0
----max=5
----step=1
-local jun = 0
----$value:揺れ幅
-local haba = 100
+---max=800
+local amplitude = 100
 
----$value:種類[0-4]
-local syu = 0
+---$select:種類
+---拡大縮小=0
+---縦方向=1
+---横方向=2
+---縦伸び=3
+---横伸び=4
+local pattern = 0
 
 ---$check:タイプ
-local type = 0
+local scale_timing_by_order = false
 
-if jun < 1 then
-    mode = obj.index --順番に登場
-elseif jun < 2 then
-    mode = obj.num - 1 - obj.index --後ろから登場
-elseif jun < 3 then
+local function get_random_order_index()
     local indexes = {}
     for i = 0, obj.num - 1 do
         indexes[i + 1] = i
     end
+
     for i = 0, obj.num - 1 do
-        local dest = 0
-        dest = rand(0, obj.num - 1, -obj.num, i + 1)
+        local dest = rand(0, obj.num - 1, -obj.num, i + 1)
         local swap = indexes[i + 1]
         indexes[i + 1] = indexes[dest + 1]
         indexes[dest + 1] = swap
     end
-    mode = indexes[obj.index + 1] --ランダム順に登場
-elseif jun < 4 then
-    mode = rand(0, 100 * (obj.num - 1), obj.index, 0) / 100 --ランダム間隔に登場
-elseif jun < 5 then
-    mode = math.abs((obj.num - 1) / 2 - obj.index) --内側から登場
-else
-    mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
+
+    return indexes[obj.index + 1]
 end
 
-if type < 1 then
-else
-    ta = ta * (1 - mode / obj.num)
-    tb = tb / obj.num
-end
-
-if ta < 0 then
-    i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
-else
-    i = (ta - obj.time + mode * tb) / ta
-end
-if i > 0 then
-    if i > 1 then
-        obj.alpha = 0
-        i = 1
+local function get_order_index()
+    if order == 0 then
+        return obj.index
+    elseif order == 1 then
+        return obj.num - 1 - obj.index
+    elseif order == 2 then
+        return get_random_order_index()
+    elseif order == 3 then
+        return rand(0, 100 * (obj.num - 1), obj.index, 0) / 100
+    elseif order == 4 then
+        return math.abs((obj.num - 1) / 2 - obj.index)
     end
-    if i >= 0 then
-        n = s * 2 + 1
-        if n <= 1 then
-            i = i * i
-        elseif i > 1 - 1 / n then
-            i = 1 - (1 - i) * n
-        else
-            i = i * n / (n - 1)
-            i = math.sin((i - 1) * (n - 1) * math.pi) * i * 0.4 / (1 + (1 - i) * 3)
-        end
-        if syu == 0 then
-            x = 1
-            y = 1
-        elseif syu == 1 then
-            x = 0
-            y = 1
-        elseif syu == 2 then
-            x = 1
-            y = 0
-        elseif syu == 3 then
-            x = -1
-            y = 1
-        else
-            x = 1
-            y = -1
-        end
-        xscale = math.max(0, 100 - i * x * haba)
-        yscale = math.max(0, 100 - i * y * haba)
-        obj.zoom = math.max(xscale, yscale) / 100
-        if xscale > yscale then
-            obj.aspect = yscale / xscale - 1
-        else
-            obj.aspect = 1 - xscale / yscale
-        end
+
+    return (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
+end
+
+local function calculate_progress(timing_index, current_duration, current_interval)
+    if current_duration < 0 then
+        return (
+            current_duration
+            - obj.num * current_interval
+            - obj.time
+            + obj.totaltime
+            + timing_index * current_interval
+        ) / current_duration
+    end
+
+    return (current_duration - obj.time + timing_index * current_interval) / current_duration
+end
+
+local function calculate_bounce(progress)
+    local count = momentum * 2 + 1
+
+    if count <= 1 then
+        return progress * progress
+    elseif progress > 1 - 1 / count then
+        return 1 - (1 - progress) * count
+    end
+
+    local bounce_progress = progress * count / (count - 1)
+    return math.sin((bounce_progress - 1) * (count - 1) * math.pi)
+        * bounce_progress
+        * 0.4
+        / (1 + (1 - bounce_progress) * 3)
+end
+
+local function get_pattern_axes()
+    if pattern == 0 then
+        return 1, 1
+    elseif pattern == 1 then
+        return 0, 1
+    elseif pattern == 2 then
+        return 1, 0
+    elseif pattern == 3 then
+        return -1, 1
+    end
+
+    return 1, -1
+end
+
+if duration == 0 then
+    return
+end
+
+local timing_index = get_order_index()
+local current_duration = duration
+local current_interval = interval
+
+if scale_timing_by_order then
+    current_duration = current_duration * (1 - timing_index / obj.num)
+    current_interval = current_interval / obj.num
+end
+
+local progress = calculate_progress(timing_index, current_duration, current_interval)
+if progress > 0 then
+    if progress > 1 then
+        obj.alpha = 0
+        progress = 1
+    end
+
+    local bounce = calculate_bounce(progress)
+    local x_axis, y_axis = get_pattern_axes()
+    local x_scale = math.max(0, 100 - bounce * x_axis * amplitude)
+    local y_scale = math.max(0, 100 - bounce * y_axis * amplitude)
+    local max_scale = math.max(x_scale, y_scale)
+
+    obj.zoom = max_scale / 100
+    if max_scale == 0 then
+        obj.aspect = 0
+    elseif x_scale > y_scale then
+        obj.aspect = y_scale / x_scale - 1
+    else
+        obj.aspect = 1 - x_scale / y_scale
     end
 end

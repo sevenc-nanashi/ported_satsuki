@@ -1,62 +1,84 @@
 --label:${ROOT_CATEGORY}\切り替え効果
----$track:時間
+---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
-local track0 = 0.6
+local duration = 0.6
 ---$track:勢い
 ---min=0
 ---max=8
 ---step=0.01
-local track1 = 2.0
----$track:揺れ幅
+local momentum = 2.0
+---$track:揺れ幅[%]
 ---min=0
 ---max=800
-local track2 = 100
----$track:種類
----min=0
----max=4
----step=1
-local track3 = 0
-if track0 == 0 then
-    return
-elseif track0 < 0 then
-    t = (track0 - obj.time + obj.totaltime) / track0
-else
-    t = (track0 - obj.time) / track0
+local amplitude = 100
+---$select:種類
+---拡大縮小=0
+---縦方向=1
+---横方向=2
+---縦伸び=3
+---横伸び=4
+local pattern = 0
+
+local function calculate_progress()
+    if duration < 0 then
+        return (duration - obj.time + obj.totaltime) / duration
+    end
+
+    return (duration - obj.time) / duration
 end
-if t >= 0 then
-    n = track1 * 2 + 1
-    if n <= 1 then
-        t = t * t
-    elseif t > 1 - 1 / n then
-        t = 1 - (1 - t) * n
-    else
-        t = t * n / (n - 1)
-        t = math.sin((t - 1) * (n - 1) * math.pi) * t * 0.4 / (1 + (1 - t) * 3)
+
+local function calculate_bounce(progress)
+    local count = momentum * 2 + 1
+
+    if count <= 1 then
+        return progress * progress
+    elseif progress > 1 - 1 / count then
+        return 1 - (1 - progress) * count
     end
-    if track3 == 0 then
-        x = 1
-        y = 1
-    elseif track3 == 1 then
-        x = 0
-        y = 1
-    elseif track3 == 2 then
-        x = 1
-        y = 0
-    elseif track3 == 3 then
-        x = -1
-        y = 1
-    else
-        x = 1
-        y = -1
+
+    local bounce_progress = progress * count / (count - 1)
+    return math.sin((bounce_progress - 1) * (count - 1) * math.pi)
+        * bounce_progress
+        * 0.4
+        / (1 + (1 - bounce_progress) * 3)
+end
+
+local function get_pattern_axes()
+    if pattern == 0 then
+        return 1, 1
+    elseif pattern == 1 then
+        return 0, 1
+    elseif pattern == 2 then
+        return 1, 0
+    elseif pattern == 3 then
+        return -1, 1
     end
-    xscale = math.max(0, 100 - t * x * track2)
-    yscale = math.max(0, 100 - t * y * track2)
-    obj.zoom = math.max(xscale, yscale) / 100
-    if xscale > yscale then
-        obj.aspect = yscale / xscale - 1
-    else
-        obj.aspect = 1 - xscale / yscale
-    end
+
+    return 1, -1
+end
+
+if duration == 0 then
+    return
+end
+
+local progress = calculate_progress()
+if progress < 0 then
+    return
+end
+
+local bounce = calculate_bounce(progress)
+local x_axis, y_axis = get_pattern_axes()
+local x_scale = math.max(0, 100 - bounce * x_axis * amplitude)
+local y_scale = math.max(0, 100 - bounce * y_axis * amplitude)
+local max_scale = math.max(x_scale, y_scale)
+
+obj.zoom = max_scale / 100
+if max_scale == 0 then
+    obj.aspect = 0
+elseif x_scale > y_scale then
+    obj.aspect = y_scale / x_scale - 1
+else
+    obj.aspect = 1 - x_scale / y_scale
 end
