@@ -1,44 +1,37 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$text:スクリプト
+local script = "--pos(index,X座標,Y座標[,Z座標,拡大率,不透明度,縦横比,X軸回転,Y軸回転,Z軸回転])"
+
 if obj.index == 0 then
-    if pp == null then
-        pp = {}
+    if S_position_states == nil then
+        S_position_states = {}
     end
 end
-pp[obj.index + 1] = { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.aspect, obj.rx, obj.ry, obj.rz }
+S_position_states[obj.index + 1] = { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.aspect, obj.rx, obj.ry, obj.rz }
 
-function pos(i, x, y, z, s, alp, as, rx, ry, rz)
-    if z == null then
-        z = 0
+function pos(index, x, y, z, zoom, alpha, aspect, rx, ry, rz)
+    if obj.index ~= index then
+        return
     end
-    if s == null then
-        s = 1
+
+    local position_state = S_position_states[index + 1]
+    if position_state == nil then
+        return
     end
-    if alp == null then
-        alp = 1
-    end
-    if as == null then
-        as = 0
-    end
-    if rx == null then
-        rx = 0
-    end
-    if ry == null then
-        ry = 0
-    end
-    if rz == null then
-        rz = 0
-    end
-    if obj.index == i then
-        obj.ox = pp[i + 1][1] + x
-        obj.oy = pp[i + 1][2] + y
-        obj.oz = pp[i + 1][3] + z
-        obj.zoom = pp[i + 1][4] * s
-        obj.alpha = pp[i + 1][5] * alp
-        obj.aspect = pp[i + 1][6] + as
-        obj.rx = pp[i + 1][7] + rx
-        obj.ry = pp[i + 1][8] + ry
-        obj.rz = pp[i + 1][9] + rz
-    end
+
+    obj.ox = position_state[1] + x
+    obj.oy = position_state[2] + y
+    obj.oz = position_state[3] + (z or 0)
+    obj.zoom = position_state[4] * (zoom or 1)
+    obj.alpha = position_state[5] * (alpha or 1)
+    obj.aspect = position_state[6] + (aspect or 0)
+    obj.rx = position_state[7] + (rx or 0)
+    obj.ry = position_state[8] + (ry or 0)
+    obj.rz = position_state[9] + (rz or 0)
+end
+
+if obj.index == 0 then
+    loadstring(script)()
 end
 
 --位置関数：制御文字<p>+αの機能
