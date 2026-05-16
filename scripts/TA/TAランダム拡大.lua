@@ -2,28 +2,38 @@
 ---$track:拡大(小)
 ---min=0
 ---max=800
-local track0 = 120
+---step=1
+local small_zoom = 120
+
 ---$track:拡大(大)
 ---min=0
 ---max=800
-local track1 = 500
+---step=1
+local large_zoom = 500
+
 ---$track:閾値(小)
 ---min=0
 ---max=100
 ---step=1
-local track2 = 50
+local small_threshold = 50
+
 ---$track:閾値(大)
 ---min=0
 ---max=100
 ---step=1
-local track3 = 90
----$value:切替時間[s]
-local kt = 0.01
+local large_threshold = 90
 
-t = math.floor(obj.time / kt)
-l = rand(0, 100, 0, t)
-if l > track3 then
-    obj.zoom = obj.zoom * obj.rand(100, track1, 1, t) / 100
-elseif l > track2 then
-    obj.zoom = obj.zoom * obj.rand(100, track0, 2, t) / 100
+---$track:切替時間[s]
+---min=0.01
+---max=5
+---step=0.01
+local interval = 0.01
+
+local interval_index = math.floor(obj.time / interval)
+local threshold_roll = obj.rand(0, 100, 0, interval_index)
+
+if threshold_roll > large_threshold then
+    obj.zoom = obj.zoom * obj.rand(100, large_zoom, 1, interval_index) / 100
+elseif threshold_roll > small_threshold then
+    obj.zoom = obj.zoom * obj.rand(100, small_zoom, 2, interval_index) / 100
 end
