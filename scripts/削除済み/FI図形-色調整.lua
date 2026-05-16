@@ -2,24 +2,21 @@
 ---$track:サイズ
 ---min=0
 ---max=2000
-local track0 = 100
+local size = 100
 ---$track:赤
 ---min=0
 ---max=255
-local track1 = 255
+local red = 255
 ---$track:緑
 ---min=0
 ---max=255
-local track2 = 255
+local green = 255
 ---$track:青
 ---min=0
 ---max=255
-local track3 = 255
+local blue = 255
 ---$figure:種類
-local name = "円"
+local figure_name = "円"
 
-r = math.floor(track1)
-g = math.floor(track2)
-b = math.floor(track3)
-color = string.format("0x%02x%02x%02x", r, g, b)
-obj.load("figure", name, color, track0, 1000)
+local color = RGB(math.floor(red), math.floor(green), math.floor(blue))
+obj.load("figure", figure_name, color, size, 1000)
