@@ -2,41 +2,49 @@
 ---$track:散逸度
 ---min=0
 ---max=100
-local track0 = 50
+---step=1
+local dispersion = 50
+
 ---$track:X速度
 ---min=0
 ---max=200
-local track1 = 50
+---step=1
+local x_speed = 50
+
 ---$track:Y速度
 ---min=0
 ---max=200
-local track2 = 50
+---step=1
+local y_speed = 50
+
 ---$check:拡大/透明も変化
-local __rename_me_check0 = false
+local changes_zoom_alpha = false
 
-xscale = 0.5
-yscale = 0.5
+local x_scale = 0.5
+local y_scale = 0.5
 
-x = obj.ox
-y = obj.oy
-xsign = obj.rand(0, 1, obj.index, 1) == 1 and 1 or -1
-ysign = obj.rand(0, 1, obj.index, 2) == 1 and 1 or -1
-obj.ox = obj.rand(-obj.screen_w, obj.screen_w, obj.index, track1) * xscale
-    + obj.rand(1, track1, obj.index, track1) * xsign * obj.time
-obj.oy = obj.rand(-obj.screen_h, obj.screen_h, obj.index, track2) * yscale
-    + obj.rand(1, track2, obj.index, track2) * ysign * obj.time
-obj.rz = obj.rand(0, 359, obj.index, track1) + obj.rand(8, 64, obj.index, track1) * xsign * obj.time
+local original_x = obj.ox
+local original_y = obj.oy
+local x_direction = obj.rand(0, 1, obj.index, 1) == 1 and 1 or -1
+local y_direction = obj.rand(0, 1, obj.index, 2) == 1 and 1 or -1
+local original_ratio = (100 - dispersion) / 100
+local random_ratio = dispersion / 100
 
-a = (100 - track0) / 100
-b = track0 / 100
-obj.ox = x * a + obj.ox * b
-obj.oy = y * a + obj.oy * b
-obj.rz = 0 + obj.rz * b
+local random_x = obj.rand(-obj.screen_w, obj.screen_w, obj.index, x_speed) * x_scale
+    + obj.rand(1, x_speed, obj.index, x_speed) * x_direction * obj.time
+local random_y = obj.rand(-obj.screen_h, obj.screen_h, obj.index, y_speed) * y_scale
+    + obj.rand(1, y_speed, obj.index, y_speed) * y_direction * obj.time
+local random_rotation = obj.rand(0, 359, obj.index, x_speed)
+    + obj.rand(8, 64, obj.index, x_speed) * x_direction * obj.time
 
-if __rename_me_check0 then
-    obj.zoom = obj.rand(1, 150, obj.index, track1) / 100
-    obj.alpha = obj.rand(1, 100, obj.index, track1) / 100
+obj.ox = original_x * original_ratio + random_x * random_ratio
+obj.oy = original_y * original_ratio + random_y * random_ratio
+obj.rz = random_rotation * random_ratio
 
-    obj.zoom = 1 * a + obj.zoom * b
-    obj.alpha = 1 * a + obj.alpha * b
+if changes_zoom_alpha then
+    local random_zoom = obj.rand(1, 150, obj.index, x_speed) / 100
+    local random_alpha = obj.rand(1, 100, obj.index, x_speed) / 100
+
+    obj.zoom = original_ratio + random_zoom * random_ratio
+    obj.alpha = original_ratio + random_alpha * random_ratio
 end
