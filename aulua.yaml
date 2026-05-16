@@ -183,10 +183,6 @@ scripts:
     label: TAタイピングA@TA
   - path: "./scripts/TA/TAタイピングB.lua"
     label: TAタイピングB@TA
-  - path: "./scripts/TA_ssd/TAテキスト配置(A).lua"
-    label: TAテキスト配置(A)@TAテキスト配置@TA_ssd
-  - path: "./scripts/TA_ssd/TAテキスト配置(B).lua"
-    label: TAテキスト配置(B)@TAテキスト配置@TA_ssd
   - path: "./scripts/TA/TAバラバラ.lua"
     label: TAバラバラ@TA
   - path: "./scripts/TA/TAバラバラ2.lua"
@@ -437,6 +433,8 @@ scripts:
     label: ADC_図形@加減速
   - path: "./scripts/加減速/ADC_扇状.lua"
     label: ADC_扇状@加減速
+  - path: "./scripts/TA_ssd/TAテキスト配置.lua"
+    label: TAテキスト配置@TA_ssd
   - path: "./scripts/ANM_ssd/集中線plus.lua"
     label: 集中線plus@ANM_ssd
   - path: "./scripts/削除済み/FIメーター2.lua"
