@@ -2,28 +2,28 @@
 ---$track:散逸度
 ---min=0
 ---max=100
-local track0 = 100
+---step=0.1
+local dispersion = 100
+
 ---$value:座標
-local pos = {}
+local positions = {}
 
 obj.effect()
-r = track0 / 100
-obj.setanchor("pos", obj.num, "line")
+local dispersion_rate = dispersion / 100
+obj.setanchor("positions", obj.num, "line")
 
 if obj.index == 0 then
-    if pp == null then
-        pp = {}
+    if S_position_adjust_states == nil then
+        S_position_adjust_states = {}
     end
 end
-pp[obj.index + 1] = { obj.ox, obj.oy }
+S_position_adjust_states[obj.index + 1] = { obj.ox, obj.oy }
 
 for i = 0, obj.num - 1 do
-    x = pos[i * 2 + 1] - pp[i + 1][1]
-    y = pos[i * 2 + 2] - pp[i + 1][2]
+    local position_state = S_position_adjust_states[i + 1]
+    local x = positions[i * 2 + 1] - position_state[1]
+    local y = positions[i * 2 + 2] - position_state[2]
     if i == obj.index then
-        alp = 1
-    else
-        alp = 0
+        obj.draw(x * dispersion_rate, y * dispersion_rate)
     end
-    obj.draw(x * r, y * r, 0, 1, alp)
 end
