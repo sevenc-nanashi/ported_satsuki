@@ -3,19 +3,17 @@
 ---min=0
 ---max=150
 ---step=1
-local t0 = 4
+local fade_in_frames = 4
 ---$track:退場[f]
 ---min=0
 ---max=150
 ---step=1
-local t1 = 4
-if t0 > 0 then
-    if obj.frame <= t0 and obj.frame % 2 == 1 then
-        obj.alpha = 0
-    end
+local fade_out_frames = 4
+
+if fade_in_frames > 0 and obj.frame <= fade_in_frames and obj.frame % 2 == 1 then
+    obj.alpha = 0
 end
-if t1 > 0 then
-    if obj.totalframe - obj.frame <= t1 and obj.frame % 2 == 0 then
-        obj.alpha = 0
-    end
+
+if fade_out_frames > 0 and obj.totalframe - obj.frame <= fade_out_frames and obj.frame % 2 == 0 then
+    obj.alpha = 0
 end
