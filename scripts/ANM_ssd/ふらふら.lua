@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\アニメーション効果
+--label:${ROOT_CATEGORY}
 --param:200
 local index, ratio = math.modf(obj.getpoint("index"))
 local st = obj.getpoint(index)

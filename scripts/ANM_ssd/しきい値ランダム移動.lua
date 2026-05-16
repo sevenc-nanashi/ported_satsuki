@@ -1,4 +1,4 @@
---label:${ROOT_CATEGORY}\アニメーション効果
+--label:${ROOT_CATEGORY}
 --twopoint
 --param:20
 local index, ratio = math.modf(obj.getpoint("index"))
