@@ -2,297 +2,189 @@
 ---$track:長さ
 ---min=0
 ---max=1000
-local k_l = 200
+---step=1
+local length = 200
 ---$track:幅
 ---min=0
 ---max=500
-local k_w = 80
+---step=1
+local width = 80
 ---$track:高さ
 ---min=0
 ---max=500
-local k_h = 50
+---step=1
+local height = 50
 ---$track:回転
 ---min=-3600
 ---max=3600
 ---step=0.01
-local track3 = 0
----$value:隙間
-local k_gap = 50
+local rotation = 0
+---$track:隙間
+---min=0
+---max=500
+---step=0.1
+local gap = 50
 
 ---$color:色
-local col = 0xffffff
+local color = 0xffffff
 
 ---$check:自動方向(移動時のみ)
-local j_hoko = 0
+local use_auto_direction = false
 
----$value:計算基準軸(0or1)
-local axis = 0
+---$select:計算基準軸
+---Z軸=0
+---X軸=1
+local base_axis = 0
 
-if j_hoko == 0 then
-    obj.load("figure", "四角形", col, 2)
+local function draw_static_plane()
+    obj.load("figure", "四角形", color, 2)
     obj.effect()
     obj.setoption("billboard", 0)
-    obj.drawpoly(0, -k_l / 2, 0, -k_w - k_gap / 2, k_l / 2, 0, -k_gap / 2 + 1, k_l / 2, 0, 0, -k_l / 2, 0) --左翼
-    obj.drawpoly(0, -k_l / 2, 0, k_w + k_gap / 2, k_l / 2, 0, k_gap / 2 - 1, k_l / 2, 0, 0, -k_l / 2, 0) --右翼
-    obj.drawpoly(0, -k_l / 2, 0, -k_gap / 2, k_l / 2, 0, 0, k_l / 2, k_h, 0, -k_l / 2, 0) --左胴
-    obj.drawpoly(0, -k_l / 2, 0, k_gap / 2, k_l / 2, 0, 0, k_l / 2, k_h, 0, -k_l / 2, 0) --右胴
-else
-    --3Dライン（仮）を改変
-
-    function cal_draw(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
-        -- 行列がグローバルで微妙ですが…
-        px1 = x1 * m00 + y1 * m01 + z1 * m02
-        py1 = x1 * m10 + y1 * m11 + z1 * m12
-        pz1 = x1 * m20 + y1 * m21 + z1 * m22
-        px2 = x2 * m00 + y2 * m01 + z2 * m02
-        py2 = x2 * m10 + y2 * m11 + z2 * m12
-        pz2 = x2 * m20 + y2 * m21 + z2 * m22
-        px3 = x3 * m00 + y3 * m01 + z3 * m02
-        py3 = x3 * m10 + y3 * m11 + z3 * m12
-        pz3 = x3 * m20 + y3 * m21 + z3 * m22
-        px4 = x4 * m00 + y4 * m01 + z4 * m02
-        py4 = x4 * m10 + y4 * m11 + z4 * m12
-        pz4 = x4 * m20 + y4 * m21 + z4 * m22
-        obj.drawpoly(
-            x0 + px1 * r00 + py1 * r01 + pz1 * r02,
-            y0 + px1 * r10 + py1 * r11 + pz1 * r12,
-            z0 + px1 * r20 + py1 * r21 + pz1 * r22,
-            x0 + px2 * r00 + py2 * r01 + pz2 * r02,
-            y0 + px2 * r10 + py2 * r11 + pz2 * r12,
-            z0 + px2 * r20 + py2 * r21 + pz2 * r22,
-            x0 + px3 * r00 + py3 * r01 + pz3 * r02,
-            y0 + px3 * r10 + py3 * r11 + pz3 * r12,
-            z0 + px3 * r20 + py3 * r21 + pz3 * r22,
-            x0 + px4 * r00 + py4 * r01 + pz4 * r02,
-            y0 + px4 * r10 + py4 * r11 + pz4 * r12,
-            z0 + px4 * r20 + py4 * r21 + pz4 * r22,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-        )
-    end
-
-    -- ライン部分
-    local min_step = 2
-
-    speed = 0
-    base_x = obj.getvalue("x")
-    base_y = obj.getvalue("y")
-    base_z = obj.getvalue("z")
-    --obj.load("figure","円",col,k_l)
-    --obj.effect()
-    --obj.setoption("billboard",3)
-    obj.ox = obj.ox - base_x
-    obj.oy = obj.oy - base_y
-    obj.oz = obj.oz - base_z
-    t = 0
-    f = 0
-    l = 0
-    n = 0
-    d = 0
-    s = obj.w / 2 * 10 / 50
-    if s < min_step then
-        s = min_step
-    end
-    if s < 1 then
-        s = 1
-    end
-    ex = obj.getvalue("x", 0)
-    ey = obj.getvalue("y", 0)
-    ez = obj.getvalue("z", 0)
-    x0 = ex
-    y0 = ey
-    z0 = ez
-    while t < obj.time do
-        r = s
-        while r > 0 do
-            if l <= 0 then
-                if t >= obj.time then
-                    break
-                end
-                sx = ex
-                sy = ey
-                sz = ez
-                f = f + 1
-                t = f / obj.framerate
-                ex = obj.getvalue("x", t)
-                ey = obj.getvalue("y", t)
-                ez = obj.getvalue("z", t)
-                l = math.sqrt((ex - sx) * (ex - sx) + (ey - sy) * (ey - sy) + (ez - sz) * (ez - sz))
-                n = l
-            end
-            if l > r then
-                d = d + r
-                l = l - r
-                r = 0
-                x1 = ex + (sx - ex) * l / n
-                y1 = ey + (sy - ey) * l / n
-                z1 = ez + (sz - ez) * l / n
-            else
-                d = d + l
-                r = r - l
-                l = 0
-                x1 = ex
-                y1 = ey
-                z1 = ez
-            end
-            if speed > 0 then
-                if t >= obj.totaltime then
-                    break
-                end
-                t = d / (obj.framerate * speed)
-            elseif l > 0 then
-                t = (f - l / n) / obj.framerate
-            end
-        end
-        --obj.draw(x0,y0,z0)
-        x0 = x1
-        y0 = y1
-        z0 = z1
-    end
-    if speed > 0 then
-        t = d / (obj.framerate * speed) - obj.time
-        if t < 0 then
-            t = 0
-        end
-        if l > 0 then
-            f = f - l / n
-        end
-        t = f / obj.framerate - t
-        x0 = obj.getvalue("x", t)
-        y0 = obj.getvalue("y", t)
-        z0 = obj.getvalue("z", t)
-    else
-        t = obj.time
-        x0 = base_x
-        y0 = base_y
-        z0 = base_z
-    end
-    --obj.draw(x0,y0,z0)
-    obj.ox = obj.ox + base_x
-    obj.oy = obj.oy + base_y
-    obj.oz = obj.oz + base_z
-
-    -- 先端部分
-    --if( k_w > 0 ) then
-    obj.load("figure", "四角形", col, 3)
-    obj.effect()
-    obj.setoption("billboard", 0)
-    obj.ox = obj.ox - base_x
-    obj.oy = obj.oy - base_y
-    obj.oz = obj.oz - base_z
-    l = 4 * 4
-    s = t
-    e = t
-    t = 0.5 / obj.framerate
-    vx = 0
-    vy = 0
-    vz = 0
-
-    while s > 0 or e < obj.totaltime do
-        s = s - t
-        e = e + t
-        if s < 0 then
-            s = 0
-        end
-        if e > obj.totaltime then
-            e = obj.totaltime
-        end
-        x = obj.getvalue("x", s) - obj.getvalue("x", e)
-        y = obj.getvalue("y", s) - obj.getvalue("y", e)
-        z = obj.getvalue("z", s) - obj.getvalue("z", e)
-        if math.sqrt(x * x + y * y + z * z) >= l then
-            l = math.sqrt(x * x + y * y + z * z)
-            vx = x / l
-            vy = y / l
-            vz = z / l
-            break
-        end
-    end
-
-    --	先端の回転
-    r = (track3 + 90) * math.pi / 180
-    s = math.sin(r)
-    c = math.cos(r)
-    r00 = vx * vx * (1 - c) + c
-    r01 = vx * vy * (1 - c) - vz * s
-    r02 = vz * vx * (1 - c) + vy * s
-    r10 = vx * vy * (1 - c) + vz * s
-    r11 = vy * vy * (1 - c) + c
-    r12 = vy * vz * (1 - c) - vx * s
-    r20 = vz * vx * (1 - c) - vy * s
-    r21 = vy * vz * (1 - c) + vx * s
-    r22 = vz * vz * (1 - c) + c
-
-    --	任意軸の回転
-    if axis == 1 then
-        --	X軸を基準に
-        c = vx
-        s = math.sqrt(1 - c * c)
-        l = math.sqrt(vy * vy + vz * vz)
-        y = vy / l
-        z = vz / l
-        m00 = -c
-        m01 = -y * s
-        m02 = -z * s
-        m10 = -y * s
-        m11 = z * z * (1 - c) + c
-        m12 = -y * z * (1 - c)
-        m20 = -z * s
-        m21 = -y * z * (1 - c)
-        m22 = y * y * (1 - c) + c
-
-        --		l = k_w/2
-        --		w = k_l/2
-
-        cal_draw(k_l, 0, 0, 0, 0, -k_w - k_gap, 0, 0, -k_gap + 0.5, k_l, 0, 0) --左翼
-        cal_draw(k_l, 0, 0, 0, 0, k_w + k_gap, 0, 0, k_gap - 0.5, k_l, 0, 0) --右翼
-        cal_draw(k_l, 0, 0, 0, 0, -k_gap, 0, k_h, 0, k_l, 0, 0) --左胴
-        cal_draw(k_l, 0, 0, 0, 0, k_gap, 0, k_h, 0, k_l, 0, 0) --右胴
-
-    --		cal_draw(0,-l,-w, l*2,0,-w, 0  ,l,-w, 0,-l,-w)
-    --		cal_draw(0,-l, w, l*2,0, w, 0  ,l, w, 0,-l, w)
-    --		cal_draw(0,-l,-w, l*2,0,-w, l*2,0, w, 0,-l, w)
-    --		cal_draw(0, l,-w, l*2,0,-w, l*2,0, w, 0, l, w)
-    --		cal_draw(0,-l,-w,   0,l,-w, 0  ,l, w, 0,-l, w)
-    else
-        --	Z軸を基準に
-        c = -vz
-        s = math.sqrt(1 - c * c)
-        l = math.sqrt(vx * vx + vy * vy)
-        x = vx / l
-        y = vy / l
-        m00 = y * y * (1 - c) + c
-        m01 = -x * y * (1 - c)
-        m02 = -x * s
-        m10 = -x * y * (1 - c)
-        m11 = x * x * (1 - c) + c
-        m12 = -y * s
-        m20 = x * s
-        m21 = y * s
-        m22 = c
-
-        --		l = k_w/2
-        --		w = k_l/2
-
-        cal_draw(0, 0, k_l, 0, -k_w - k_gap, 0, 0, -k_gap + 0.5, 0, 0, 0, k_l) --左翼
-        cal_draw(0, 0, k_l, 0, k_w + k_gap, 0, 0, k_gap - 0.5, 0, 0, 0, k_l) --右翼
-        cal_draw(0, 0, k_l, 0, -k_gap, 0, -k_h, 0, 0, 0, 0, k_l) --左胴
-        cal_draw(0, 0, k_l, 0, k_gap, 0, -k_h, 0, 0, 0, 0, k_l) --右胴
-
-        --cal_draw( w,-l,0,  w,0,l*2,  w,l,0  ,  w,-l,0)
-        --cal_draw(-w,-l,0, -w,0,l*2,  w,0,l*2,  w,-l,0)
-        --cal_draw(-w, l,0, -w,0,l*2,  w,0,l*2,  w, l,0)
-        --cal_draw(-w,-l,0, -w,l,  0,  w,l,0  ,  w,-l,0)
-    end
-
-    obj.ox = obj.ox + base_x
-    obj.oy = obj.oy + base_y
-    obj.oz = obj.oz + base_z
-    --end
+    obj.drawpoly(0, -length / 2, 0, -width - gap / 2, length / 2, 0, -gap / 2 + 1, length / 2, 0, 0, -length / 2, 0) --左翼
+    obj.drawpoly(0, -length / 2, 0, width + gap / 2, length / 2, 0, gap / 2 - 1, length / 2, 0, 0, -length / 2, 0) --右翼
+    obj.drawpoly(0, -length / 2, 0, -gap / 2, length / 2, 0, 0, length / 2, height, 0, -length / 2, 0) --左胴
+    obj.drawpoly(0, -length / 2, 0, gap / 2, length / 2, 0, 0, length / 2, height, 0, -length / 2, 0) --右胴
 end
+
+if not use_auto_direction then
+    draw_static_plane()
+    return
+end
+
+local base_x = obj.getvalue("x")
+local base_y = obj.getvalue("y")
+local base_z = obj.getvalue("z")
+local draw_x = base_x
+local draw_y = base_y
+local draw_z = base_z
+
+obj.load("figure", "四角形", color, 3)
+obj.effect()
+obj.setoption("billboard", 0)
+obj.ox = obj.ox - base_x
+obj.oy = obj.oy - base_y
+obj.oz = obj.oz - base_z
+
+local search_start = obj.time
+local search_end = obj.time
+local time_step = 0.5 / obj.framerate
+local vector_x = 0
+local vector_y = 0
+local vector_z = 0
+
+while search_start > 0 or search_end < obj.totaltime do
+    search_start = math.max(search_start - time_step, 0)
+    search_end = math.min(search_end + time_step, obj.totaltime)
+
+    local x = obj.getvalue("x", search_start) - obj.getvalue("x", search_end)
+    local y = obj.getvalue("y", search_start) - obj.getvalue("y", search_end)
+    local z = obj.getvalue("z", search_start) - obj.getvalue("z", search_end)
+    local distance = math.sqrt(x * x + y * y + z * z)
+    if distance >= 16 then
+        vector_x = x / distance
+        vector_y = y / distance
+        vector_z = z / distance
+        break
+    end
+end
+
+local roll_angle = math.rad(rotation + 90)
+local sin_roll = math.sin(roll_angle)
+local cos_roll = math.cos(roll_angle)
+local r00 = vector_x * vector_x * (1 - cos_roll) + cos_roll
+local r01 = vector_x * vector_y * (1 - cos_roll) - vector_z * sin_roll
+local r02 = vector_z * vector_x * (1 - cos_roll) + vector_y * sin_roll
+local r10 = vector_x * vector_y * (1 - cos_roll) + vector_z * sin_roll
+local r11 = vector_y * vector_y * (1 - cos_roll) + cos_roll
+local r12 = vector_y * vector_z * (1 - cos_roll) - vector_x * sin_roll
+local r20 = vector_z * vector_x * (1 - cos_roll) - vector_y * sin_roll
+local r21 = vector_y * vector_z * (1 - cos_roll) + vector_x * sin_roll
+local r22 = vector_z * vector_z * (1 - cos_roll) + cos_roll
+
+local m00, m01, m02, m10, m11, m12, m20, m21, m22
+if base_axis == 1 then
+    local cos_axis = vector_x
+    local sin_axis = math.sqrt(math.max(1 - cos_axis * cos_axis, 0))
+    local yz_length = math.sqrt(vector_y * vector_y + vector_z * vector_z)
+    local normalized_y = yz_length == 0 and 0 or vector_y / yz_length
+    local normalized_z = yz_length == 0 and 0 or vector_z / yz_length
+
+    m00 = -cos_axis
+    m01 = -normalized_y * sin_axis
+    m02 = -normalized_z * sin_axis
+    m10 = -normalized_y * sin_axis
+    m11 = normalized_z * normalized_z * (1 - cos_axis) + cos_axis
+    m12 = -normalized_y * normalized_z * (1 - cos_axis)
+    m20 = -normalized_z * sin_axis
+    m21 = -normalized_y * normalized_z * (1 - cos_axis)
+    m22 = normalized_y * normalized_y * (1 - cos_axis) + cos_axis
+else
+    local cos_axis = -vector_z
+    local sin_axis = math.sqrt(math.max(1 - cos_axis * cos_axis, 0))
+    local xy_length = math.sqrt(vector_x * vector_x + vector_y * vector_y)
+    local normalized_x = xy_length == 0 and 0 or vector_x / xy_length
+    local normalized_y = xy_length == 0 and 0 or vector_y / xy_length
+
+    m00 = normalized_y * normalized_y * (1 - cos_axis) + cos_axis
+    m01 = -normalized_x * normalized_y * (1 - cos_axis)
+    m02 = -normalized_x * sin_axis
+    m10 = -normalized_x * normalized_y * (1 - cos_axis)
+    m11 = normalized_x * normalized_x * (1 - cos_axis) + cos_axis
+    m12 = -normalized_y * sin_axis
+    m20 = normalized_x * sin_axis
+    m21 = normalized_y * sin_axis
+    m22 = cos_axis
+end
+
+local function draw_auto_plane(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
+    local px1 = x1 * m00 + y1 * m01 + z1 * m02
+    local py1 = x1 * m10 + y1 * m11 + z1 * m12
+    local pz1 = x1 * m20 + y1 * m21 + z1 * m22
+    local px2 = x2 * m00 + y2 * m01 + z2 * m02
+    local py2 = x2 * m10 + y2 * m11 + z2 * m12
+    local pz2 = x2 * m20 + y2 * m21 + z2 * m22
+    local px3 = x3 * m00 + y3 * m01 + z3 * m02
+    local py3 = x3 * m10 + y3 * m11 + z3 * m12
+    local pz3 = x3 * m20 + y3 * m21 + z3 * m22
+    local px4 = x4 * m00 + y4 * m01 + z4 * m02
+    local py4 = x4 * m10 + y4 * m11 + z4 * m12
+    local pz4 = x4 * m20 + y4 * m21 + z4 * m22
+    obj.drawpoly(
+        draw_x + px1 * r00 + py1 * r01 + pz1 * r02,
+        draw_y + px1 * r10 + py1 * r11 + pz1 * r12,
+        draw_z + px1 * r20 + py1 * r21 + pz1 * r22,
+        draw_x + px2 * r00 + py2 * r01 + pz2 * r02,
+        draw_y + px2 * r10 + py2 * r11 + pz2 * r12,
+        draw_z + px2 * r20 + py2 * r21 + pz2 * r22,
+        draw_x + px3 * r00 + py3 * r01 + pz3 * r02,
+        draw_y + px3 * r10 + py3 * r11 + pz3 * r12,
+        draw_z + px3 * r20 + py3 * r21 + pz3 * r22,
+        draw_x + px4 * r00 + py4 * r01 + pz4 * r02,
+        draw_y + px4 * r10 + py4 * r11 + pz4 * r12,
+        draw_z + px4 * r20 + py4 * r21 + pz4 * r22,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    )
+end
+
+if base_axis == 1 then
+    draw_auto_plane(length, 0, 0, 0, 0, -width - gap, 0, 0, -gap + 0.5, length, 0, 0) --左翼
+    draw_auto_plane(length, 0, 0, 0, 0, width + gap, 0, 0, gap - 0.5, length, 0, 0) --右翼
+    draw_auto_plane(length, 0, 0, 0, 0, -gap, 0, height, 0, length, 0, 0) --左胴
+    draw_auto_plane(length, 0, 0, 0, 0, gap, 0, height, 0, length, 0, 0) --右胴
+else
+    draw_auto_plane(0, 0, length, 0, -width - gap, 0, 0, -gap + 0.5, 0, 0, 0, length) --左翼
+    draw_auto_plane(0, 0, length, 0, width + gap, 0, 0, gap - 0.5, 0, 0, 0, length) --右翼
+    draw_auto_plane(0, 0, length, 0, -gap, 0, -height, 0, 0, 0, 0, length) --左胴
+    draw_auto_plane(0, 0, length, 0, gap, 0, -height, 0, 0, 0, 0, length) --右胴
+end
+
+obj.ox = obj.ox + base_x
+obj.oy = obj.oy + base_y
+obj.oz = obj.oz + base_z
