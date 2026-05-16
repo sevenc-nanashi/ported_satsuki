@@ -2,28 +2,42 @@
 ---$track:間隔[s]
 ---min=0
 ---max=5
-local track0 = 0.5
+---step=0.01
+local interval = 0.5
+
 ---$track:座標範囲
 ---min=0
 ---max=800
-local track1 = 50
----$track:拡大範囲
+---step=1
+local position_range = 50
+
+---$track:拡大範囲[+%]
 ---min=0
 ---max=800
-local track2 = 50
+---step=1
+local zoom_range = 50
+
 ---$track:回転範囲
 ---min=0
 ---max=180
-local track3 = 30
+---step=1
+local rotation_range = 30
+
 ---$check:Z軸方向
-local z = 0
+local moves_z_axis = false
 
----$value:乱数
-local i = 0
+---$track:乱数
+---min=0
+---max=1000
+---step=1
+local random_seed = 0
 
-a = math.floor(obj.time / track0)
-obj.ox = obj.ox + obj.rand(-obj.w, obj.w, obj.index, a + i) * track1 / 200
-obj.oy = obj.oy + obj.rand(-obj.h, obj.h, obj.index, a + i + 1) * track1 / 100
-obj.oz = obj.oz + obj.rand(-obj.h, obj.h, obj.index, a + i + 2) * track1 / 100 * z
-obj.zoom = math.max(0, obj.zoom + obj.rand(-1, 1, obj.index, a + i + 3) * track2 / 200)
-obj.rz = obj.rz + obj.rand(-track3, track3, obj.index, a + i + 4) / 2
+local interval_index = math.floor(obj.time / interval)
+local seed = interval_index + random_seed
+local z_axis_factor = moves_z_axis and 1 or 0
+
+obj.ox = obj.ox + obj.rand(-obj.w, obj.w, obj.index, seed) * position_range / 200
+obj.oy = obj.oy + obj.rand(-obj.h, obj.h, obj.index, seed + 1) * position_range / 100
+obj.oz = obj.oz + obj.rand(-obj.h, obj.h, obj.index, seed + 2) * position_range / 100 * z_axis_factor
+obj.zoom = math.max(0, obj.zoom + obj.rand(-1, 1, obj.index, seed + 3) * zoom_range / 200)
+obj.rz = obj.rz + obj.rand(-rotation_range, rotation_range, obj.index, seed + 4) / 2
