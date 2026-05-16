@@ -3,25 +3,46 @@
 ---min=1
 ---max=100
 ---step=1
-local track0 = 10
+local size = 10
 ---$color:色
-local col0 = 0xffffff
+local fill_color = 0xffffff
 
 ---$color:縁色
-local col1 = 0x000000
+local border_color = 0x000000
 
-s = track0
-X, Y = 12, 21
-function fdot(x, y, col)
-    obj.load("figure", "四角形", col, 1)
-    x0 = (-X / 2 + x) * s
-    x1 = (-X / 2 + x + 1) * s
-    y0 = (-Y / 2 + y) * s
-    y2 = (-Y / 2 + y + 1) * s
-    obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0)
+local pointer_width = 12
+local pointer_height = 21
+
+local function add_dot(vertices, x, y)
+    local x0 = (-pointer_width / 2 + x) * size
+    local x1 = (-pointer_width / 2 + x + 1) * size
+    local y0 = (-pointer_height / 2 + y) * size
+    local y1 = (-pointer_height / 2 + y + 1) * size
+    vertices[#vertices + 1] = {
+        x0,
+        y0,
+        0,
+        x1,
+        y0,
+        0,
+        x1,
+        y1,
+        0,
+        x0,
+        y1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+    }
 end
 
-pt0x = {
+local border_x = {
     0,
     0,
     0,
@@ -76,7 +97,7 @@ pt0x = {
     10,
     11,
 }
-pt0y = {
+local border_y = {
     0,
     1,
     2,
@@ -131,7 +152,7 @@ pt0y = {
     19,
     11,
 }
-pt1x = {
+local fill_x = {
     1,
     1,
     1,
@@ -206,7 +227,7 @@ pt1x = {
     9,
     9,
 }
-pt1y = {
+local fill_y = {
     2,
     3,
     4,
@@ -282,11 +303,20 @@ pt1y = {
     19,
 }
 
-obj.setoption("dst", "tmp", X * s, Y * s)
-for i = 1, #pt0x do
-    fdot(pt0x[i], pt0y[i], col1)
+obj.setoption("drawtarget", "tempbuffer", pointer_width * size, pointer_height * size)
+
+local border_vertices = {}
+for i = 1, #border_x do
+    add_dot(border_vertices, border_x[i], border_y[i])
 end
-for i = 1, #pt1x do
-    fdot(pt1x[i], pt1y[i], col0)
+obj.load("figure", "四角形", border_color, 1)
+obj.drawpoly(border_vertices)
+
+local fill_vertices = {}
+for i = 1, #fill_x do
+    add_dot(fill_vertices, fill_x[i], fill_y[i])
 end
+obj.load("figure", "四角形", fill_color, 1)
+obj.drawpoly(fill_vertices)
+
 obj.load("tempbuffer")
