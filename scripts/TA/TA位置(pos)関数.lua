@@ -1,6 +1,8 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+-- stylua: ignore start
 ---$text:スクリプト
-local script = "--pos(index,X座標,Y座標[,Z座標,拡大率,不透明度,縦横比,X軸回転,Y軸回転,Z軸回転])"
+local script = "--位置関数：制御文字<p>+αの機能\n--形式：pos(index,X座標,Y座標[,Z座標,拡大率,不透明度,縦横比,X軸回転,Y軸回転,Z軸回転])\n--説明：座標は初期位置からの座標、Z座標以降は省略可\n--　　：拡大率(1.0=等倍)、不透明度(0.0=透明/1.0=不透明)"
+-- stylua: ignore end
 
 if obj.index == 0 then
     if S_position_states == nil then

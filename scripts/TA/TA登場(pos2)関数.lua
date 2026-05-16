@@ -3,78 +3,71 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.3
+local duration = 0.3
+
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.3
+local interval = 0.3
+
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
-local beki = 2
+local easing_power = 2
+
+-- stylua: ignore start
+---$text:スクリプト
+local script = "--登場関数：一文字毎に登場パターンを設定\n--形式：pos2(index,登場順[,X座標,Y座標,Z座標,拡大率,不透明度,縦横比,X軸回転,Y軸回転,Z軸回転])\n--説明：座標は初期位置からの座標、X座標以降は省略可\n--　　：登場順(0〜)、拡大率(1.0=等倍)、不透明度(0.0=透明/1.0=不透明)"
+-- stylua: ignore end
+
 if obj.index == 0 then
-    if pp2 == null then
-        pp2 = {}
+    if S_appearance_position_states == nil then
+        S_appearance_position_states = {}
     end
 end
-pp2[obj.index + 1] = { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.aspect, obj.rx, obj.ry, obj.rz }
+S_appearance_position_states[obj.index + 1] =
+    { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.aspect, obj.rx, obj.ry, obj.rz }
 
-function pos2(j, jb, x, y, z, s, alp, as, rx, ry, rz)
-    if x == null then
-        x = 0
+function pos2(index, order_index, x, y, z, zoom, alpha, aspect, rx, ry, rz)
+    if obj.index ~= index then
+        return
     end
-    if y == null then
-        y = 0
+
+    local position_state = S_appearance_position_states[index + 1]
+    if position_state == nil or duration == 0 then
+        return
     end
-    if z == null then
-        z = 0
+
+    local progress
+    if duration < 0 then
+        progress = (duration - obj.num * interval - obj.time + obj.totaltime + order_index * interval) / duration
+    else
+        progress = (duration - obj.time + order_index * interval) / duration
     end
-    if s == null then
-        s = 1
+
+    if progress <= 0 then
+        return
     end
-    if alp == null then
-        alp = 1
+
+    if progress > 1 then
+        alpha = 0
+        progress = 1
     end
-    if as == null then
-        as = 0
-    end
-    if rx == null then
-        rx = 0
-    end
-    if ry == null then
-        ry = 0
-    end
-    if rz == null then
-        rz = 0
-    end
-    if obj.index == j then
-        if ta < 0 then
-            i = (ta - obj.num * tb - obj.time + obj.totaltime + jb * tb) / ta
-        else
-            i = (ta - obj.time + jb * tb) / ta
-        end
-        if i > 0 then
-            if i > 1 then
-                alp = 0
-                i = 1
-            end
-            i = i ^ beki
-            obj.ox = pp2[j + 1][1] + x * i
-            obj.oy = pp2[j + 1][2] + y * i
-            obj.oz = pp2[j + 1][3] + z * i
-            obj.zoom = pp2[j + 1][4] + (s - 1) * i
-            obj.alpha = pp2[j + 1][5] + (alp - 1) * i
-            obj.aspect = pp2[j + 1][6] + as * i
-            obj.rx = pp2[j + 1][7] + rx * i
-            obj.ry = pp2[j + 1][8] + ry * i
-            obj.rz = pp2[j + 1][9] + rz * i
-        end
-    end
+    progress = progress ^ easing_power
+
+    obj.ox = position_state[1] + (x or 0) * progress
+    obj.oy = position_state[2] + (y or 0) * progress
+    obj.oz = position_state[3] + (z or 0) * progress
+    obj.zoom = position_state[4] + ((zoom or 1) - 1) * progress
+    obj.alpha = position_state[5] + ((alpha or 1) - 1) * progress
+    obj.aspect = position_state[6] + (aspect or 0) * progress
+    obj.rx = position_state[7] + (rx or 0) * progress
+    obj.ry = position_state[8] + (ry or 0) * progress
+    obj.rz = position_state[9] + (rz or 0) * progress
 end
 
---登場関数：一文字毎に登場パターンを設定
---形式：pos2(index,登場順[,X座標,Y座標,Z座標,拡大率,不透明度,縦横比,X軸回転,Y軸回転,Z軸回転])
---説明：座標は初期位置からの座標、X座標以降は省略可
---　　：登場順(0〜)、拡大率(1.0=等倍)、不透明度(0.0=透明/1.0=不透明)
+if obj.index == 0 then
+    loadstring(script)()
+end
