@@ -2,174 +2,226 @@
 ---$track:X
 ---min=-5000
 ---max=5000
-local track0 = 0
+---step=0.1
+local x = 0
+
 ---$track:Y
 ---min=-5000
 ---max=5000
-local track1 = 0
+---step=0.1
+local y = 0
+
 ---$track:Z
 ---min=-5000
 ---max=5000
-local track2 = 0
+---step=0.1
+local z = 0
+
+--trackgroup@x,y,z:座標
+
 ---$track:頂点数
 ---min=1
 ---max=16
 ---step=1
-local track3 = 1
+local vertex_count = 1
+
 ---$check:Xあり
-local xx = 1
+local has_x = true
 
 ---$check:Yあり
-local yy = 1
+local has_y = true
 
 ---$check:Zあり
-local zz = 1
+local has_z = true
 
----$value:グラフ内[0-1]
-local gn = 1
+---$check:グラフ内
+local clamp_graph = true
 
 ---$value:座標
-local pos = {}
+local positions = {}
 
----$value:仮想bufサイズ[%]
-local bufsize = 100
+---$track:仮想bufサイズ[%]
+---min=1
+---max=400
+---step=0.1
+local buffer_size = 100
 
 ---$check:グラフ表示
-local hojo = 1
+local show_graph = true
 
----$value:G横サイズ
-local gwsize = 400
+--group:グラフ
+---$track:G横サイズ
+---min=1
+---max=2000
+---step=0.1
+local graph_width = 400
 
----$value:G縦サイズ
-local ghsize = 300
+---$track:G縦サイズ
+---min=1
+---max=2000
+---step=0.1
+local graph_height = 300
 
 ---$color:G色
-local col = 0xffff00
+local graph_color = 0xffff00
 
----$value:Gライン幅
-local line = 5
+---$track:Gライン幅
+---min=0
+---max=100
+---step=0.1
+local graph_line_width = 5
 
----$value:G分割数
-local BN = 20
+---$track:G分割数
+---min=1
+---max=200
+---step=1
+local graph_division_count = 20
 
-l = math.floor(line) / 2
-NN = track3 + 1
+local line_half_width = math.floor(graph_line_width) / 2
+local point_count = vertex_count + 1
 
 --アンカーポイントの設置
-obj.setanchor("pos", NN - 1, "line")
-for i = 0, NN - 2 do
-    pos[2 * i + 1] = -gwsize / 2 + gwsize / NN * (i + 1)
+obj.setanchor("positions", point_count - 1, "line")
+for i = 0, point_count - 2 do
+    positions[2 * i + 1] = -graph_width / 2 + graph_width / point_count * (i + 1)
 end
 
 --補完曲線の算定(ティム氏の簡易モーションパスより一部を改変して使用)
-XX = {}
-YY = {}
-XX[0] = -gwsize / 2
-YY[0] = ghsize / 2
-XX[NN] = gwsize / 2
-YY[NN] = -ghsize / 2
-for i = 1, NN - 1 do
-    XX[i] = pos[2 * (i - 1) + 1]
-    YY[i] = pos[2 * (i - 1) + 2]
+local points_x = {}
+local points_y = {}
+points_x[0] = -graph_width / 2
+points_y[0] = graph_height / 2
+points_x[point_count] = graph_width / 2
+points_y[point_count] = -graph_height / 2
+for i = 1, point_count - 1 do
+    points_x[i] = positions[2 * (i - 1) + 1]
+    points_y[i] = positions[2 * (i - 1) + 2]
 end
 
-function PassXYZ(s) -- s<=1
-    Ns = NN * s
-    Ns1 = math.floor(Ns)
-    Ns2 = (Ns - Ns1) / 2
-    if Ns1 <= 0 then
-        nx = Ax[1] * Ns2 * Ns2 + Bx[1] * Ns2 + Cx[1]
-        ny = Ay[1] * Ns2 * Ns2 + By[1] * Ns2 + Cy[1]
-    elseif Ns1 == NN - 1 then
-        SS1 = Ns2 + 0.5
-        nx = Ax[Ns1] * SS1 * SS1 + Bx[Ns1] * SS1 + Cx[Ns1]
-        ny = Ay[Ns1] * SS1 * SS1 + By[Ns1] * SS1 + Cy[Ns1]
-    elseif s == 1 then
-        nx = XX[NN]
-        ny = YY[NN]
+local coefficient_x_a = {}
+local coefficient_x_b = {}
+local coefficient_x_c = {}
+local coefficient_y_a = {}
+local coefficient_y_b = {}
+local coefficient_y_c = {}
+for i = 1, point_count - 1 do
+    coefficient_x_a[i] = 2 * points_x[i - 1] - 4 * points_x[i] + 2 * points_x[i + 1]
+    coefficient_x_b[i] = -3 * points_x[i - 1] + 4 * points_x[i] - points_x[i + 1]
+    coefficient_x_c[i] = points_x[i - 1]
+    coefficient_y_a[i] = 2 * points_y[i - 1] - 4 * points_y[i] + 2 * points_y[i + 1]
+    coefficient_y_b[i] = -3 * points_y[i - 1] + 4 * points_y[i] - points_y[i + 1]
+    coefficient_y_c[i] = points_y[i - 1]
+end
+
+local function interpolate_path(progress) -- progress <= 1
+    local path_position = point_count * progress
+    local path_index = math.floor(path_position)
+    local half_progress = (path_position - path_index) / 2
+    local next_x
+    local next_y
+
+    if path_index <= 0 then
+        next_x = coefficient_x_a[1] * half_progress * half_progress
+            + coefficient_x_b[1] * half_progress
+            + coefficient_x_c[1]
+        next_y = coefficient_y_a[1] * half_progress * half_progress
+            + coefficient_y_b[1] * half_progress
+            + coefficient_y_c[1]
+    elseif path_index == point_count - 1 then
+        local shifted_progress = half_progress + 0.5
+        next_x = coefficient_x_a[path_index] * shifted_progress * shifted_progress
+            + coefficient_x_b[path_index] * shifted_progress
+            + coefficient_x_c[path_index]
+        next_y = coefficient_y_a[path_index] * shifted_progress * shifted_progress
+            + coefficient_y_b[path_index] * shifted_progress
+            + coefficient_y_c[path_index]
+    elseif progress == 1 then
+        next_x = points_x[point_count]
+        next_y = points_y[point_count]
     else
-        SS1 = Ns2 + 0.5
-        SS2 = Ns2
-        RS = 2 * Ns2
-        nx = (Ax[Ns1] * SS1 * SS1 + Bx[Ns1] * SS1 + Cx[Ns1]) * (1 - RS)
-            + RS * (Ax[Ns1 + 1] * SS2 * SS2 + Bx[Ns1 + 1] * SS2 + Cx[Ns1 + 1])
-        ny = (Ay[Ns1] * SS1 * SS1 + By[Ns1] * SS1 + Cy[Ns1]) * (1 - RS)
-            + RS * (Ay[Ns1 + 1] * SS2 * SS2 + By[Ns1 + 1] * SS2 + Cy[Ns1 + 1])
+        local shifted_progress = half_progress + 0.5
+        local blend_progress = 2 * half_progress
+        next_x = (
+                coefficient_x_a[path_index] * shifted_progress * shifted_progress
+                + coefficient_x_b[path_index] * shifted_progress
+                + coefficient_x_c[path_index]
+            )
+            * (1 - blend_progress)
+            + blend_progress
+            *
+            (coefficient_x_a[path_index + 1] * half_progress * half_progress + coefficient_x_b[path_index + 1] * half_progress + coefficient_x_c[path_index + 1])
+        next_y = (
+                coefficient_y_a[path_index] * shifted_progress * shifted_progress
+                + coefficient_y_b[path_index] * shifted_progress
+                + coefficient_y_c[path_index]
+            )
+            * (1 - blend_progress)
+            + blend_progress
+            *
+            (coefficient_y_a[path_index + 1] * half_progress * half_progress + coefficient_y_b[path_index + 1] * half_progress + coefficient_y_c[path_index + 1])
     end
-    return nx, ny
+
+    return next_x, next_y
 end
 
-Ax = {}
-Bx = {}
-Cx = {}
-Ay = {}
-By = {}
-Cy = {}
-for M = 1, NN - 1 do
-    Ax[M] = 2 * XX[M - 1] - 4 * XX[M] + 2 * XX[M + 1]
-    Bx[M] = -3 * XX[M - 1] + 4 * XX[M] - XX[M + 1]
-    Cx[M] = XX[M - 1]
-    Ay[M] = 2 * YY[M - 1] - 4 * YY[M] + 2 * YY[M + 1]
-    By[M] = -3 * YY[M - 1] + 4 * YY[M] - YY[M + 1]
-    Cy[M] = YY[M - 1]
-end
-
-obj.setoption("drawtarget", "tempbuffer", obj.screen_w * bufsize / 100, obj.screen_h * bufsize / 100)
+obj.setoption("drawtarget", "tempbuffer", obj.screen_w * buffer_size / 100, obj.screen_h * buffer_size / 100)
 
 --加減速移動
-dpx, dp = PassXYZ(obj.frame / obj.totalframe)
-dp = dp / ghsize + 0.5
-if gn == 1 then
-    dp = math.min(1, math.max(dp, 0))
+local _, speed_progress = interpolate_path(obj.frame / obj.totalframe)
+speed_progress = speed_progress / graph_height + 0.5
+if clamp_graph then
+    speed_progress = math.min(1, math.max(speed_progress, 0))
 end
-function ADC(tr, jdg)
-    if jdg == 0 then
-        adc = obj.getvalue(tr)
+
+local function interpolate_track(track_name, enabled)
+    if not enabled then
+        return obj.getvalue(track_name)
     else
-        adc = obj.getvalue(tr, 0, 0) + (obj.getvalue(tr, 0, -1) - obj.getvalue(tr, 0, 0)) * (1 - dp)
+        return obj.getvalue(track_name, 0, 0)
+            + (obj.getvalue(track_name, 0, -1) - obj.getvalue(track_name, 0, 0)) * (1 - speed_progress)
     end
-    return adc
 end
-obj.draw(ADC(0, xx), ADC(1, yy), ADC(2, zz))
+
+obj.draw(interpolate_track("track.x", has_x), interpolate_track("track.y", has_y), interpolate_track("track.z", has_z))
 
 --グラフ表示
-if hojo == 1 then
-    Nmax = NN * BN
+if show_graph then
+    local graph_sample_count = point_count * graph_division_count
 
     --ライン描画
-    obj.load("figure", "四角形", col, 1)
-    obj.setoption("blend", "alpha_mix")
-    x0 = XX[0]
-    y0 = YY[0]
-    for i = 1, Nmax do
-        x1, y1 = PassXYZ(i / (NN * BN))
-        if gn == 1 then
-            y1 = math.min(ghsize / 2, math.max(y1, -ghsize / 2))
+    obj.load("figure", "四角形", graph_color, 1)
+    -- obj.setoption("blend", "alpha_mix")
+    local x0 = points_x[0]
+    local y0 = points_y[0]
+    for i = 1, graph_sample_count do
+        local x1, y1 = interpolate_path(i / (point_count * graph_division_count))
+        if clamp_graph then
+            y1 = math.min(graph_height / 2, math.max(y1, -graph_height / 2))
         end
-        r = math.atan2(y0 - y1, x1 - x0)
-        dx = math.sin(r) * l
-        dy = math.cos(r) * l
+        local angle = math.atan2(y0 - y1, x1 - x0)
+        local dx = math.sin(angle) * line_half_width
+        local dy = math.cos(angle) * line_half_width
         obj.drawpoly(x0 - dx, y0 - dy, 0, x1 - dx, y1 - dy, 0, x1 + dx, y1 + dy, 0, x0 + dx, y0 + dy, 0)
         x0 = x1
         y0 = y1
     end
 
     --斜め線の描画
-    r = math.atan2(ghsize, gwsize)
-    dx = math.sin(r) * l / 2
-    dy = math.cos(r) * l / 2
+    local angle = math.atan2(graph_height, graph_width)
+    local dx = math.sin(angle) * line_half_width / 2
+    local dy = math.cos(angle) * line_half_width / 2
     obj.drawpoly(
-        XX[0] - dx,
-        YY[0] - dy,
+        points_x[0] - dx,
+        points_y[0] - dy,
         0,
-        XX[NN] - dx,
-        YY[NN] - dy,
+        points_x[point_count] - dx,
+        points_y[point_count] - dy,
         0,
-        XX[NN] + dx,
-        YY[NN] + dy,
+        points_x[point_count] + dx,
+        points_y[point_count] + dy,
         0,
-        XX[0] + dx,
-        YY[0] + dy,
+        points_x[0] + dx,
+        points_y[0] + dy,
         0,
         0,
         0,
@@ -183,33 +235,72 @@ if hojo == 1 then
     )
 
     --頂点の描画
-    obj.load("figure", "円", col, l * 8)
-    for i = 0, Nmax do
-        x0, y0 = PassXYZ(i / (NN * BN))
-        if gn == 1 then
-            y0 = math.min(ghsize / 2, math.max(y0, -ghsize / 2))
+    obj.load("figure", "円", graph_color, line_half_width * 8)
+    for i = 0, graph_sample_count do
+        x0, y0 = interpolate_path(i / (point_count * graph_division_count))
+        if clamp_graph then
+            y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
         end
-        obj.drawpoly(x0 - l, y0 - l, 0, x0 + l, y0 - l, 0, x0 + l, y0 + l, 0, x0 - l, y0 + l, 0)
+        obj.drawpoly(
+            x0 - line_half_width,
+            y0 - line_half_width,
+            0,
+            x0 + line_half_width,
+            y0 - line_half_width,
+            0,
+            x0 + line_half_width,
+            y0 + line_half_width,
+            0,
+            x0 - line_half_width,
+            y0 + line_half_width,
+            0
+        )
     end
 
     --青い点の描画
-    l = l * 1.5
-    obj.load("figure", "円", 0x0000ff, l * 8)
-    for i = 1, NN - 1 do
-        x0, y0 = XX[i], YY[i]
-        if gn == 1 then
-            y0 = math.min(ghsize / 2, math.max(y0, -ghsize / 2))
+    local anchor_size = line_half_width * 1.5
+    obj.load("figure", "円", 0x0000ff, anchor_size * 8)
+    for i = 1, point_count - 1 do
+        x0, y0 = points_x[i], points_y[i]
+        if clamp_graph then
+            y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
         end
-        obj.drawpoly(x0 - l, y0 - l, 0, x0 + l, y0 - l, 0, x0 + l, y0 + l, 0, x0 - l, y0 + l, 0)
+        obj.drawpoly(
+            x0 - anchor_size,
+            y0 - anchor_size,
+            0,
+            x0 + anchor_size,
+            y0 - anchor_size,
+            0,
+            x0 + anchor_size,
+            y0 + anchor_size,
+            0,
+            x0 - anchor_size,
+            y0 + anchor_size,
+            0
+        )
     end
 
     --現在地の描画
-    obj.load("figure", "円", 0xff0000, l * 8)
-    x0, y0 = PassXYZ(obj.frame / obj.totalframe)
-    if gn == 1 then
-        y0 = math.min(ghsize / 2, math.max(y0, -ghsize / 2))
+    obj.load("figure", "円", 0xff0000, anchor_size * 8)
+    x0, y0 = interpolate_path(obj.frame / obj.totalframe)
+    if clamp_graph then
+        y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
     end
-    obj.drawpoly(x0 - l, y0 - l, 0, x0 + l, y0 - l, 0, x0 + l, y0 + l, 0, x0 - l, y0 + l, 0)
+    obj.drawpoly(
+        x0 - anchor_size,
+        y0 - anchor_size,
+        0,
+        x0 + anchor_size,
+        y0 - anchor_size,
+        0,
+        x0 + anchor_size,
+        y0 + anchor_size,
+        0,
+        x0 - anchor_size,
+        y0 + anchor_size,
+        0
+    )
 
     obj.setoption("blend", 0)
 end
