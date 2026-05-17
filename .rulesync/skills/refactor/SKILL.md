@@ -31,5 +31,5 @@ AviUtl2での指定は以下のようになります：
 
 - `dst` -> `drawtarget`
 - `obj` -> `object`
-- `frm` -> `frame`
+- `frm` -> `framebuffer`
 - `tmp` -> `tempbuffer`
