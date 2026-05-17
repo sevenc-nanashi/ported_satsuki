@@ -3,80 +3,116 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.3
+local duration = 0.3
+
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.3
+local interval = 0.3
+
 ---$track:拡大率
 ---min=0
 ---max=1000
-local s = 100
----$value:順番(0-9文字目)
-local num0 = "00010203040506070809"
+---step=0.1
+local zoom_rate = 100
 
----$value:順番(10-19文字目)
-local num1 = "10111213141516171819"
+---$string:順番(0-9文字目)
+local order_0_9 = "00010203040506070809"
 
----$value:順番(20-29文字目)
-local num2 = "20212223242526272829"
+---$string:順番(10-19文字目)
+local order_10_19 = "10111213141516171819"
+
+---$string:順番(20-29文字目)
+local order_20_29 = "20212223242526272829"
 
 ---$check:フェード
-local fade = 0
+local fades = false
 
----$value:X距離
-local x = 0
+---$track:X距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_x = 0
 
----$value:Y距離
-local y = 0
+---$track:Y距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_y = 0
 
----$value:Z距離
-local z = 0
+---$track:Z距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_z = 0
 
----$value:X軸回転
-local rx = 0
+--trackgroup@distance_x,distance_y,distance_z:距離
 
----$value:Y軸回転
-local ry = 0
+---$track:X軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_x = 0
 
----$value:Z軸回転
-local rz = 0
+---$track:Y軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_y = 0
 
----$value:加減速[1-5]
-local beki = 2
+---$track:Z軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
 
-number = num0 .. num1 .. num2
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
+
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
+
+local order_text = order_0_9 .. order_10_19 .. order_20_29
 
 if obj.index == 0 then
-    if pp == null then
-        pp = {}
+    if S_ordered_appearance_states == nil then
+        S_ordered_appearance_states = {}
     end
 end
-pp[obj.index + 1] = { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.rx, obj.ry, obj.rz }
+S_ordered_appearance_states[obj.index + 1] = { obj.ox, obj.oy, obj.oz, obj.zoom, obj.alpha, obj.rx, obj.ry, obj.rz }
+
+if duration == 0 then
+    return
+end
 
 for j = 0, obj.num - 1 do
-    jb = string.sub(number, j * 2 + 1, j * 2 + 1 + 1)
+    local order_index = tonumber(string.sub(order_text, j * 2 + 1, j * 2 + 2)) or 0
     if obj.index == j then
-        if ta < 0 then
-            i = (ta - obj.num * tb - obj.time + obj.totaltime + jb * tb) / ta
+        local progress
+        if duration < 0 then
+            progress = (duration - obj.num * interval - obj.time + obj.totaltime + order_index * interval) / duration
         else
-            i = (ta - obj.time + jb * tb) / ta
+            progress = (duration - obj.time + order_index * interval) / duration
         end
-        if i > 0 then
-            if i > 1 then
-                fade = 1
-                i = 1
+        if progress > 0 then
+            local fade_rate = fades and 1 or 0
+            if progress > 1 then
+                fade_rate = 1
+                progress = 1
             end
-            i = i ^ beki
-            obj.ox = pp[j + 1][1] + x * i
-            obj.oy = pp[j + 1][2] + y * i
-            obj.oz = pp[j + 1][3] + z * i
-            obj.zoom = pp[j + 1][4] + i * (s - 100) / 100
-            obj.alpha = pp[j + 1][5] * (1 - i * fade)
-            obj.rx = pp[j + 1][6] + rx * i
-            obj.ry = pp[j + 1][7] + ry * i
-            obj.rz = pp[j + 1][8] + rz * i
+            progress = progress ^ easing_power
+            local appearance_state = S_ordered_appearance_states[j + 1]
+            obj.ox = appearance_state[1] + distance_x * progress
+            obj.oy = appearance_state[2] + distance_y * progress
+            obj.oz = appearance_state[3] + distance_z * progress
+            obj.zoom = appearance_state[4] + progress * (zoom_rate - 100) / 100
+            obj.alpha = appearance_state[5] * (1 - progress * fade_rate)
+            obj.rx = appearance_state[6] + rotation_x * progress
+            obj.ry = appearance_state[7] + rotation_y * progress
+            obj.rz = appearance_state[8] + rotation_z * progress
         end
     end
 end
