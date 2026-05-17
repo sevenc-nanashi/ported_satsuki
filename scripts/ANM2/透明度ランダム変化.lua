@@ -2,43 +2,59 @@
 ---$track:X間隔
 ---min=-1000
 ---max=1000
-local track0 = 100
+---step=0.1
+local x_interval = 100
+
 ---$track:Y間隔
 ---min=-1000
 ---max=1000
-local track1 = 100
+---step=0.1
+local y_interval = 100
+
+--trackgroup@x_interval,y_interval:間隔
+
 ---$track:X個数
 ---min=1
 ---max=100
 ---step=1
-local nx = 5
+local x_count = 5
+
 ---$track:Y個数
 ---min=1
 ---max=100
 ---step=1
-local ny = 3
----$value:間隔[s]
-local f = 0.5
+local y_count = 3
 
----$value:透明最小値[%]
-local m = 0
+---$track:間隔[s]
+---min=0.01
+---max=10
+---step=0.01
+local interval = 0.5
 
-gx = track0 / 100
-gy = track1 / 100
-w = obj.w
-h = obj.h
-w_size = (nx + (nx - 1) * (gx - 1)) * w
-h_size = (ny + (ny - 1) * (gy - 1)) * h
-obj.setoption("dst", "tmp", w_size, h_size)
-for j = 0, ny - 1 do
-    y0 = -h_size / 2 + h * j * gy
-    y2 = -h_size / 2 + h * (j * gy + 1)
-    for i = 0, nx - 1 do
-        x0 = -w_size / 2 + w * i * gx
-        x1 = -w_size / 2 + w * (i * gx + 1)
-        ran = obj.rand(0, 100, j, i)
-        alp = obj.rand(m, 100, ran, ran + math.floor(obj.time / f)) / 100
-        obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h, alp)
+---$track:透明最小値[%]
+---min=0
+---max=100
+---step=0.1
+local min_alpha_percent = 0
+
+local x_scale = x_interval / 100
+local y_scale = y_interval / 100
+local width = obj.w
+local height = obj.h
+local buffer_width = (x_count + (x_count - 1) * (x_scale - 1)) * width
+local buffer_height = (y_count + (y_count - 1) * (y_scale - 1)) * height
+local time_index = math.floor(obj.time / interval)
+
+obj.setoption("drawtarget", "tempbuffer", buffer_width, buffer_height)
+for j = 0, y_count - 1 do
+    local y0 = -buffer_height / 2 + height * j * y_scale
+    local y2 = -buffer_height / 2 + height * (j * y_scale + 1)
+    for i = 0, x_count - 1 do
+        local x0 = -buffer_width / 2 + width * i * x_scale
+        local x1 = -buffer_width / 2 + width * (i * x_scale + 1)
+        local random_seed = obj.rand(0, 100, j, i)
+        local alpha = obj.rand(min_alpha_percent, 100, random_seed, random_seed + time_index) / 100
+        obj.drawpoly(x0, y0, 0, x1, y0, 0, x1, y2, 0, x0, y2, 0, 0, 0, obj.w, 0, obj.w, obj.h, 0, obj.h, alpha)
     end
 end
 obj.load("tempbuffer")
