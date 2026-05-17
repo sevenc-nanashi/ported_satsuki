@@ -3,51 +3,63 @@
 ---min=1
 ---max=100
 ---step=1
-local col = 15
+local column_count = 15
+
 ---$track:行数
 ---min=1
 ---max=100
 ---step=1
-local row = 5
+local row_count = 5
+
 ---$track:文字間隔
 ---min=0
 ---max=256
-local s_col = 34
+---step=0.1
+local column_spacing = 34
+
 ---$track:行間隔
 ---min=0
 ---max=256
-local s_row = 34
----$value:横位置[0〜2]
-local col_mode = 0
+---step=0.1
+local row_spacing = 34
 
----$value:縦位置[0〜2]
-local row_mode = 0
+---$select:横位置
+---左=0
+---中央=1
+---右=2
+local horizontal_alignment = 0
 
-for i = 0, row do
-    if obj.index >= i * col then
-        if obj.index < (i + 1) * col then
-            obj.oy = s_row * i
-        end
+---$select:縦位置
+---上=0
+---中央=1
+---下=2
+local vertical_alignment = 0
+
+for i = 0, row_count do
+    if obj.index >= i * column_count and obj.index < (i + 1) * column_count then
+        obj.oy = row_spacing * i
     end
 end
-if obj.index >= col * row then
+
+if obj.index >= column_count * row_count then
     obj.alpha = 0
 end
-obj.index = obj.index % col
-obj.ox = obj.index * s_col
 
-if col_mode < 1 then
-    obj.ox = obj.ox + s_col / 2
-elseif col_mode < 2 then
-    obj.ox = obj.ox - (col - 1) * s_col / 2
+obj.index = obj.index % column_count
+obj.ox = obj.index * column_spacing
+
+if horizontal_alignment == 0 then
+    obj.ox = obj.ox + column_spacing / 2
+elseif horizontal_alignment == 1 then
+    obj.ox = obj.ox - (column_count - 1) * column_spacing / 2
 else
-    obj.ox = obj.ox - s_col / 2 - (col - 1) * s_col
+    obj.ox = obj.ox - column_spacing / 2 - (column_count - 1) * column_spacing
 end
 
-if row_mode < 1 then
-    obj.oy = obj.oy + s_row / 2
-elseif row_mode < 2 then
-    obj.oy = obj.oy - (row - 1) * s_row / 2
+if vertical_alignment == 0 then
+    obj.oy = obj.oy + row_spacing / 2
+elseif vertical_alignment == 1 then
+    obj.oy = obj.oy - (row_count - 1) * row_spacing / 2
 else
-    obj.oy = obj.oy - s_row / 2 - (row - 1) * s_row
+    obj.oy = obj.oy - row_spacing / 2 - (row_count - 1) * row_spacing
 end
