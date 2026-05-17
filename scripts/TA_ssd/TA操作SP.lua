@@ -2,57 +2,56 @@
 ---$track:最大値
 ---min=100
 ---max=800
-local track0 = 200
+---step=0.1
+local max_zoom_rate = 200
+
 ---$track:拡大率
 ---min=0
 ---max=800
-local track1 = 100
+---step=0.1
+local zoom_rate = 100
+
 ---$check:一体化
-local itk = 0
+local unifies_objects = false
 
 ---$value:座標
-local pos = {}
+local positions = {}
 
-n = obj.num
-W = obj.screen_w / 2
-H = obj.screen_h / 2 * 2 / 3
-ss = track1 / 100
+local object_count = obj.num
+local half_screen_width = obj.screen_w / 2
+local active_height = obj.screen_h / 2 * 2 / 3
+local zoom_scale = zoom_rate / 100
 
-obj.setanchor("pos", n * 2, "line", "inout")
+obj.setanchor("positions", object_count * 2, "line", "inout")
 
 --仮想バッファ用
-if itk == 1 then
-    ww = obj.w
-    ksw = 0
-    ksh = 0
-    for i = 0, n - 1 do
-        dx = math.ceil(math.abs(pos[i * 2 + 1]) + ww + 1)
-        dy = math.ceil(math.abs(pos[i * 2 + 2]) + ww + 1)
-        if ksw < dx then
-            ksw = dx
-        end
-        if ksh < dy then
-            ksh = dy
-        end
+if unifies_objects then
+    local object_width = obj.w
+    local buffer_width = 0
+    local buffer_height = 0
+    for i = 0, object_count - 1 do
+        local dx = math.ceil(math.abs(positions[i * 2 + 1]) + object_width + 1)
+        local dy = math.ceil(math.abs(positions[i * 2 + 2]) + object_width + 1)
+        buffer_width = math.max(buffer_width, dx)
+        buffer_height = math.max(buffer_height, dy)
     end
-    obj.setoption("drawtarget", "tempbuffer", ksw * 2 * ss, ksh * 2 * ss)
+    obj.setoption("drawtarget", "tempbuffer", buffer_width * 2 * zoom_scale, buffer_height * 2 * zoom_scale)
 end
 
 --ここまで
 
-for i = 0, (n - 1) * 2 do
+for i = 0, (object_count - 1) * 2 do
     if obj.index == i then
-        x = pos[i * 2 + 1] * ss
-        y = pos[i * 2 + 2] * ss
-        zzx = pos[i * 2 + 1 + n * 2]
-        zzy = pos[i * 2 + 2 + n * 2]
+        local x = positions[i * 2 + 1] * zoom_scale
+        local y = positions[i * 2 + 2] * zoom_scale
+        local zoom_x = positions[i * 2 + 1 + object_count * 2]
+        local zoom_y = positions[i * 2 + 2 + object_count * 2]
 
-        if math.abs(zzx) > W or math.abs(zzy) > H then
-            zoom = 1 * ss
-        else
-            zoom = (zzx + W) / W / 2 * track0 / 100 * ss
+        local zoom = zoom_scale
+        if math.abs(zoom_x) <= half_screen_width and math.abs(zoom_y) <= active_height then
+            zoom = (zoom_x + half_screen_width) / half_screen_width / 2 * max_zoom_rate / 100 * zoom_scale
         end
-        if itk == 1 then
+        if unifies_objects then
             obj.draw(x, y, 0, zoom)
         else
             obj.ox = x
@@ -62,7 +61,7 @@ for i = 0, (n - 1) * 2 do
     end
 end
 
-if itk == 1 then
+if unifies_objects then
     obj.load("tempbuffer")
 end
 
