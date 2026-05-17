@@ -1,13 +1,14 @@
 --label:${ROOT_CATEGORY}
 --twopoint
---param:20
-local index, ratio = math.modf(obj.getpoint("index"))
-local st = obj.getpoint(index)
-local ed = obj.getpoint(index + 1)
-local ra = math.random(100)
-if ra >= obj.getpoint("param") then
-    val_r = st
+--param:しきい値,20
+local index = math.modf(obj.getpoint("index"))
+local val_start = obj.getpoint(index)
+local val_end = obj.getpoint(index + 1)
+local random = math.random(100)
+local value
+if random >= obj.getpoint("param") then
+    value = val_start
 else
-    val_r = st + (ed - st) * math.random(100) / 100
+    value = val_start + (val_end - val_start) * math.random(100) / 100
 end
-return val_r
+return value
