@@ -3,33 +3,43 @@
 ---min=1
 ---max=500
 ---step=1
-local n = 10
+local count = 10
+
 ---$track:時間差[s]
 ---min=0
 ---max=3
 ---step=0.01
-local t = 0.1
+local interval = 0.1
+
 ---$track:終時間[s]
 ---min=0
 ---max=30
 ---step=0.01
-local f = 0
+local end_duration = 0
+
 obj.effect()
-for i = 0, n - 1 do
-    if obj.time <= t * i then
-        x = 0
-        y = 0
-        z = 0
+local time = obj.time
+local total_time = obj.totaltime
+local base_x = obj.getvalue("x")
+local base_y = obj.getvalue("y")
+local base_z = obj.getvalue("z")
+
+for i = 0, count - 1 do
+    local delay = interval * i
+    local x = 0
+    local y = 0
+    local z = 0
+    local alpha = 0
+
+    if time <= delay then
         alpha = 0
-    elseif obj.time >= obj.totaltime - f + t * i then
-        x = 0
-        y = 0
-        z = 0
+    elseif time >= total_time - end_duration + delay then
         alpha = 0
     else
-        x = obj.getvalue("x", obj.time - t * i) - obj.getvalue("x")
-        y = obj.getvalue("y", obj.time - t * i) - obj.getvalue("y")
-        z = obj.getvalue("z", obj.time - t * i) - obj.getvalue("z")
+        local trace_time = time - delay
+        x = obj.getvalue("x", trace_time) - base_x
+        y = obj.getvalue("y", trace_time) - base_y
+        z = obj.getvalue("z", trace_time) - base_z
         alpha = 1
     end
     obj.draw(x, y, z, 1, alpha)

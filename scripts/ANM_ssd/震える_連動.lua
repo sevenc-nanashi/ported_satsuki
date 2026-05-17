@@ -2,44 +2,51 @@
 ---$track:振幅
 ---min=0
 ---max=500
-local track0 = 5
+---step=0.1
+local amplitude = 5
+
 ---$track:角度
 ---min=0
 ---max=180
-local track1 = 10
+---step=0.1
+local angle_range = 10
+
 ---$track:間隔
 ---min=0
 ---max=100
-local track2 = 0
+---step=0.1
+local interval = 0
+
 ---$track:seed
 ---min=1
 ---max=100
 ---step=1
-local track3 = 1
-seed = -track3 - 2
-if track2 == 0 then
-    obj.ox = obj.ox + rand(-track0, track0, seed + 0)
-    obj.oy = obj.oy + rand(-track0, track0, seed + 1)
-    obj.rz = obj.rz + rand(-track1, track1, seed + 2)
+local random_seed = 1
+
+local seed = -random_seed - 2
+if interval == 0 then
+    obj.ox = obj.ox + obj.rand(-amplitude, amplitude, seed)
+    obj.oy = obj.oy + obj.rand(-amplitude, amplitude, seed + 1)
+    obj.rz = obj.rz + obj.rand(-angle_range, angle_range, seed + 2)
 else
-    t = obj.time * 100 / track2
-    p = math.floor(t)
-    t = t - p
-    x0 = obj.rand(-1000, 1000, seed + 0, p + 0) / 1000 * track0
-    x1 = obj.rand(-1000, 1000, seed + 0, p + 1) / 1000 * track0
-    x2 = obj.rand(-1000, 1000, seed + 0, p + 2) / 1000 * track0
-    x3 = obj.rand(-1000, 1000, seed + 0, p + 3) / 1000 * track0
-    y0 = obj.rand(-1000, 1000, seed + 1, p + 0) / 1000 * track0
-    y1 = obj.rand(-1000, 1000, seed + 1, p + 1) / 1000 * track0
-    y2 = obj.rand(-1000, 1000, seed + 1, p + 2) / 1000 * track0
-    y3 = obj.rand(-1000, 1000, seed + 1, p + 3) / 1000 * track0
-    r0 = obj.rand(-1000, 1000, seed + 2, p + 0) / 1000 * track1
-    r1 = obj.rand(-1000, 1000, seed + 2, p + 1) / 1000 * track1
-    r2 = obj.rand(-1000, 1000, seed + 2, p + 2) / 1000 * track1
-    r3 = obj.rand(-1000, 1000, seed + 2, p + 3) / 1000 * track1
-    x, y = obj.interpolation(t, x0, y0, x1, y1, x2, y2, x3, y3)
+    local time = obj.time * 100 / interval
+    local point_index = math.floor(time)
+    local progress = time - point_index
+    local x0 = obj.rand(-1000, 1000, seed, point_index) / 1000 * amplitude
+    local x1 = obj.rand(-1000, 1000, seed, point_index + 1) / 1000 * amplitude
+    local x2 = obj.rand(-1000, 1000, seed, point_index + 2) / 1000 * amplitude
+    local x3 = obj.rand(-1000, 1000, seed, point_index + 3) / 1000 * amplitude
+    local y0 = obj.rand(-1000, 1000, seed + 1, point_index) / 1000 * amplitude
+    local y1 = obj.rand(-1000, 1000, seed + 1, point_index + 1) / 1000 * amplitude
+    local y2 = obj.rand(-1000, 1000, seed + 1, point_index + 2) / 1000 * amplitude
+    local y3 = obj.rand(-1000, 1000, seed + 1, point_index + 3) / 1000 * amplitude
+    local r0 = obj.rand(-1000, 1000, seed + 2, point_index) / 1000 * angle_range
+    local r1 = obj.rand(-1000, 1000, seed + 2, point_index + 1) / 1000 * angle_range
+    local r2 = obj.rand(-1000, 1000, seed + 2, point_index + 2) / 1000 * angle_range
+    local r3 = obj.rand(-1000, 1000, seed + 2, point_index + 3) / 1000 * angle_range
+    local x, y = obj.interpolation(progress, x0, y0, x1, y1, x2, y2, x3, y3)
     obj.ox = obj.ox + x
     obj.oy = obj.oy + y
-    r = obj.interpolation(t, r0, r1, r2, r3)
-    obj.rz = obj.rz + r
+    local rotation = obj.interpolation(progress, r0, r1, r2, r3)
+    obj.rz = obj.rz + rotation
 end
