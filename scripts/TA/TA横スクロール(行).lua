@@ -3,47 +3,91 @@
 ---min=1
 ---max=256
 ---step=1
-local n = 5
+local line_count = 5
+
 ---$track:移動速度
 ---min=-1000
 ---max=1000
-local track1 = 100
+---step=0.1
+local scroll_speed = 100
+
 ---$track:X軸範囲
 ---min=0
 ---max=1000
-local track2 = 100
+---step=0.1
+local range_x = 100
+
 ---$track:Y軸範囲
 ---min=0
 ---max=1000
-local track3 = 100
----$value:Z軸範囲[%]
-local wz = 0
+---step=0.1
+local range_y = 100
 
----$value:拡大最小[-%]
-local s_min = 0
+---$track:Z軸範囲[%]
+---min=0
+---max=1000
+---step=0.1
+local range_z = 0
 
----$value:速度最小[-%]
-local vx_min = 0
+--trackgroup@range_x,range_y,range_z:範囲
+
+---$track:拡大最小[-%]
+---min=0
+---max=100
+---step=0.1
+local min_zoom_reduction = 0
+
+---$track:速度最小[-%]
+---min=0
+---max=100
+---step=0.1
+local min_speed_reduction = 0
 
 obj.effect()
-w = obj.w / 2
-h = obj.h / 2 / n
-W = obj.screen_w / 2
-H = obj.screen_h / 2
-wx = track2 / 100 --X軸範囲
-wy = track3 / 100 --Y軸範囲
-v = -track1 / 100 --移動速度
+local half_width = obj.w / 2
+local half_line_height = obj.h / 2 / line_count
+local half_screen_width = obj.screen_w / 2
+local half_screen_height = obj.screen_h / 2
+local range_scale_x = range_x / 100
+local range_scale_y = range_y / 100
+local velocity = -scroll_speed / 100
 
-for i = 0, n - 1 do
-    cx = obj.rand(-W - w, W + w, i, 0) * wx + obj.rand(100 - vx_min, 100, i, 4) * obj.time * v
-    cy = obj.rand(-H - h, H + h, i, 1) * wy - obj.h / 2 + h + h * 2 * i
-    cz = obj.rand(-W - w, W + w, i, 2) * wz / 100
-    s = obj.rand(100 - s_min, 100, i, 3) / 100
-    x0 = cx - w * s
-    x1 = cx + w * s
-    y0 = cy - h * s
-    y2 = cy + h * s
-    v0 = h * 2 * i
-    v1 = h * 2 * (i + 1)
-    obj.drawpoly(x0, y0, cz, x1, y0, cz, x1, y2, cz, x0, y2, cz, 0, v0, w * 2, v0, w * 2, v1, 0, v1)
+for i = 0, line_count - 1 do
+    local center_x = obj.rand(-half_screen_width - half_width, half_screen_width + half_width, i, 0) * range_scale_x
+        + obj.rand(100 - min_speed_reduction, 100, i, 4) * obj.time * velocity
+    local center_y = obj.rand(-half_screen_height - half_line_height, half_screen_height + half_line_height, i, 1)
+            * range_scale_y
+        - obj.h / 2
+        + half_line_height
+        + half_line_height * 2 * i
+    local center_z = obj.rand(-half_screen_width - half_width, half_screen_width + half_width, i, 2) * range_z / 100
+    local zoom = obj.rand(100 - min_zoom_reduction, 100, i, 3) / 100
+    local x0 = center_x - half_width * zoom
+    local x1 = center_x + half_width * zoom
+    local y0 = center_y - half_line_height * zoom
+    local y2 = center_y + half_line_height * zoom
+    local v0 = half_line_height * 2 * i
+    local v1 = half_line_height * 2 * (i + 1)
+    obj.drawpoly(
+        x0,
+        y0,
+        center_z,
+        x1,
+        y0,
+        center_z,
+        x1,
+        y2,
+        center_z,
+        x0,
+        y2,
+        center_z,
+        0,
+        v0,
+        half_width * 2,
+        v0,
+        half_width * 2,
+        v1,
+        0,
+        v1
+    )
 end
