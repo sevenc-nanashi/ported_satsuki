@@ -1,23 +1,24 @@
 --label:${ROOT_CATEGORY}
---param:200
+--param:振動量,200
 local index, ratio = math.modf(obj.getpoint("index"))
-local st = obj.getpoint(index)
-local ed = obj.getpoint(index + 1)
+local val_start = obj.getpoint(index)
+local val_end = obj.getpoint(index + 1)
 
+local value
 if obj.getpoint("index") < 1 then
     local n = obj.getpoint("param") / 100 * 2 + 1
-    local t = 1 - ratio
+    local time = 1 - ratio
     if n <= 1 then
-        t = t * t
-    elseif t > 1 - 1 / n then
-        t = 1 - (1 - t) * n
+        time = time * time
+    elseif time > 1 - 1 / n then
+        time = 1 - (1 - time) * n
     else
-        t = t * n / (n - 1)
-        t = math.sin((t - 1) * (n - 1) * math.pi) * t * 0.4 / (1 + (1 - t) * 3)
+        time = time * n / (n - 1)
+        time = math.sin((time - 1) * (n - 1) * math.pi) * time * 0.4 / (1 + (1 - time) * 3)
     end
-    yure = st + (ed - st) * (1 - t)
+    value = val_start + (val_end - val_start) * (1 - time)
 else
-    yure = st + (ed - st) * ratio
+    value = val_start + (val_end - val_start) * ratio
 end
 
-return yure
+return value
