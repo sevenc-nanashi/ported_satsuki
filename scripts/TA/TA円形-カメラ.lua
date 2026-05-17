@@ -2,21 +2,32 @@
 ---$track:距離
 ---min=0
 ---max=2000
-local track0 = 200
+---step=0.1
+local radius = 200
+
 ---$track:拡大率
 ---min=0
 ---max=800
-local track1 = 100
+---step=0.1
+local zoom_rate = 100
+
 ---$track:回転
 ---min=-360
 ---max=360
-local track2 = 0
+---step=0.1
+local rotation = 0
+
 ---$track:文字数
 ---min=-200
 ---max=200
-local track3 = 0
-r = 360 * obj.index / (obj.num + track3) + track2
-obj.ox = math.sin(r * math.pi / 180) * track0 * track1 / 100
-obj.oz = -math.cos(r * math.pi / 180) * track0 * track1 / 100
-obj.zoom = obj.zoom * track1 / 100
-obj.ry = -360 * obj.index / (obj.num + track3) - track2
+---step=0.1
+local character_count_adjustment = 0
+
+local zoom_scale = zoom_rate / 100
+local angle = 360 * obj.index / (obj.num + character_count_adjustment) + rotation
+local angle_rad = math.rad(angle)
+
+obj.ox = math.sin(angle_rad) * radius * zoom_scale
+obj.oz = -math.cos(angle_rad) * radius * zoom_scale
+obj.zoom = obj.zoom * zoom_scale
+obj.ry = -angle
