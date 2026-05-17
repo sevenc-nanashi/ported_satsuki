@@ -3,77 +3,99 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.6
+local duration = 0.6
+
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.1
+local interval = 0.1
+
 ---$track:勢い
 ---min=0
 ---max=8
 ---step=0.01
-local s = 2.0
----$track:登場順
----min=0
----max=5
----step=1
-local jun = 0
----$check:タイプ
-local __rename_me_check0 = false
+local momentum = 2.0
 
-if jun < 1 then
-    mode = obj.index --順番に登場
-elseif jun < 2 then
-    mode = obj.num - 1 - obj.index --後ろから登場
-elseif jun < 3 then
+---$select:登場順
+---順番=0
+---後ろから=1
+---ランダム順=2
+---ランダム間隔=3
+---内側から=4
+---外側から=5
+local order_mode = 0
+
+---$check:タイプ
+local overall_appearance = false
+
+local function get_random_order_index()
     local indexes = {}
     for i = 0, obj.num - 1 do
         indexes[i + 1] = i
     end
     for i = 0, obj.num - 1 do
-        local dest = 0
-        dest = rand(0, obj.num - 1, -obj.num, i + 1)
+        local dest = obj.rand(0, obj.num - 1, -obj.num, i + 1)
         local swap = indexes[i + 1]
         indexes[i + 1] = indexes[dest + 1]
         indexes[dest + 1] = swap
     end
-    mode = indexes[obj.index + 1] --ランダム順に登場
-elseif jun < 4 then
-    mode = rand(0, 100 * (obj.num - 1), obj.index, 0) / 100 --ランダム間隔に登場
-elseif jun < 5 then
-    mode = math.abs((obj.num - 1) / 2 - obj.index) --内側から登場
-else
-    mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
+
+    return indexes[obj.index + 1]
 end
 
-if __rename_me_check0 then
-    ta = ta * (1 - mode / obj.num)
-    tb = tb / obj.num
+local function get_order_index()
+    if order_mode == 0 then
+        return obj.index --順番に登場
+    elseif order_mode == 1 then
+        return obj.num - 1 - obj.index --後ろから登場
+    elseif order_mode == 2 then
+        return get_random_order_index() --ランダム順に登場
+    elseif order_mode == 3 then
+        return obj.rand(0, 100 * (obj.num - 1), obj.index, 0) / 100 --ランダム間隔に登場
+    elseif order_mode == 4 then
+        return math.abs((obj.num - 1) / 2 - obj.index) --内側から登場
+    end
+
+    return (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if ta < 0 then
-    i = (ta - obj.num * tb - obj.time + obj.totaltime + mode * tb) / ta
-else
-    i = (ta - obj.time + mode * tb) / ta
+local function apply_rising_easing(progress)
+    local bounce_count = momentum * 2 + 1
+    if bounce_count <= 1 then
+        return progress * progress
+    elseif progress > 1 - 1 / bounce_count then
+        return 1 - (1 - progress) * bounce_count
+    end
+
+    progress = progress * bounce_count / (bounce_count - 1)
+    return math.sin((progress - 1) * (bounce_count - 1) * math.pi) * progress * 0.4 / (1 + (1 - progress) * 3)
 end
-if i > 0 then
-    if i > 1 then
+
+local order_index = get_order_index()
+if overall_appearance then
+    duration = duration * (1 - order_index / obj.num)
+    interval = interval / obj.num
+end
+
+if duration == 0 then
+    return
+end
+
+local progress
+if duration < 0 then
+    progress = (duration - obj.num * interval - obj.time + obj.totaltime + order_index * interval) / duration
+else
+    progress = (duration - obj.time + order_index * interval) / duration
+end
+
+if progress > 0 then
+    if progress > 1 then
         obj.alpha = 0
-        i = 1
+        progress = 1
     end
-    if i >= 0 then
-        n = s * 2 + 1
-        if n <= 1 then
-            i = i * i
-        elseif i > 1 - 1 / n then
-            i = 1 - (1 - i) * n
-        else
-            i = i * n / (n - 1)
-            i = math.sin((i - 1) * (n - 1) * math.pi) * i * 0.4 / (1 + (1 - i) * 3)
-        end
-        obj.rx = obj.rx - 90 * i
-        obj.oy = obj.oy + obj.h * (1 - math.cos(i * math.pi / 2)) / 2
-        obj.oz = obj.oz + obj.h * math.sin(i * math.pi / 2) / 2
-    end
+    progress = apply_rising_easing(progress)
+    obj.rx = obj.rx - 90 * progress
+    obj.oy = obj.oy + obj.h * (1 - math.cos(progress * math.pi / 2)) / 2
+    obj.oz = obj.oz + obj.h * math.sin(progress * math.pi / 2) / 2
 end
