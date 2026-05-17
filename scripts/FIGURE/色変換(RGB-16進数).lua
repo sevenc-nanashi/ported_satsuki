@@ -3,20 +3,23 @@
 ---min=1
 ---max=256
 ---step=1
-local track0 = 34
----$track:タイプ
----min=0
----max=4
----step=1
-local track1 = 3
+local size = 34
+---$select:タイプ
+---標準文字=0
+---影付き文字=1
+---影付き文字（薄）=2
+---縁取り文字=3
+---縁取り文字（細）=4
+---縁取り文字（太）=5
+---縁取り文字（角）=6
+local text_type = 3
 ---$color:色
 local color = 0xffffff
 
-r = math.floor(color / 16 ^ 4)
-g = math.floor((color - r * 16 ^ 4) / 256)
-b = color - r * 16 ^ 4 - g * 16 ^ 2
+local r, g, b = RGB(color)
 
-function ST(n)
+local function dec_to_hex(n)
+    local st
     if n < 10 then
         st = n
     elseif n == 10 then
@@ -35,9 +38,9 @@ function ST(n)
     return st
 end
 
-rr = ST(math.floor(r / 16)) .. ST(r - math.floor(r / 16) * 16)
-gg = ST(math.floor(g / 16)) .. ST(g - math.floor(g / 16) * 16)
-bb = ST(math.floor(b / 16)) .. ST(b - math.floor(b / 16) * 16)
-obj.setfont("MS UI Cothic", track0, track1, 0xffffff, 0x000000)
-col = "0x" .. rr .. gg .. bb
+local r_hex = dec_to_hex(math.floor(r / 16)) .. dec_to_hex(r - math.floor(r / 16) * 16)
+local g_hex = dec_to_hex(math.floor(g / 16)) .. dec_to_hex(g - math.floor(g / 16) * 16)
+local b_hex = dec_to_hex(math.floor(b / 16)) .. dec_to_hex(b - math.floor(b / 16) * 16)
+obj.setfont("MS UI Cothic", size, text_type, 0xffffff, 0x000000)
+local col = "0x" .. r_hex .. g_hex .. b_hex
 obj.load("text", col)
