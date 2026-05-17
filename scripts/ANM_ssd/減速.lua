@@ -1,6 +1,6 @@
 --label:${ROOT_CATEGORY}
---param:2
+--param:次数,2
 local index, ratio = math.modf(obj.getpoint("index"))
-local st = obj.getpoint(index)
-local ed = obj.getpoint(index + 1)
-return st + (ed - st) * (1 - (1 - ratio) ^ obj.getpoint("param"))
+local val_start = obj.getpoint(index)
+local val_end = obj.getpoint(index + 1)
+return val_start + (val_end - val_start) * (1 - (1 - ratio) ^ obj.getpoint("param"))
