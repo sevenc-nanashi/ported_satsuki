@@ -32,3 +32,8 @@ catalog_dependencies = [
   "sevenc-nanashi.aviutl2-rs.rusty_ffmpeg",
   "Mr-Ojii.L-SMASH-Works"
 ]
+
+[catalog]
+id = "sevenc-nanashi.ported_satsuki"
+license_path = "./LICENSE"
+download_repo = { owner = "sevenc-nanashi", repo = "ported_satsuki" }

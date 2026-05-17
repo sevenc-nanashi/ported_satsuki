@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release"
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    environment: publish
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          submodules: "recursive"
+
+      - name: Set up cargo-binstall
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-binstall
+
+      - name: Set up mise
+        uses: jdx/mise-action@v4
+        with:
+          install: true
+          experimental: true
+
+      - name: Prepare release
+        shell: bash
+        run: |
+          mkdir release
+          au2 release --set-version "${{ github.event.inputs.version }}"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          body: |
+            `sevenc-nanashi.ported_satsuki-v${{ github.event.inputs.version }}.au2pkg.zip`をダウンロードし、AviUtl2のプレビューにドラッグ&ドロップしてください。
+          files: |
+            ./release/sevenc-nanashi.ported_satsuki-v*.au2pkg.zip
+            ./release/catalog.json
