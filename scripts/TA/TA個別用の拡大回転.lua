@@ -2,41 +2,51 @@
 ---$track:拡大率
 ---min=0
 ---max=800
-local track0 = 100
+---step=0.001
+local zoom_rate = 100
+
 ---$track:X軸回転
 ---min=-720
 ---max=720
-local track1 = 0
+---step=0.01
+local rotation_x = 0
+
 ---$track:Y軸回転
 ---min=-720
 ---max=720
-local track2 = 0
+---step=0.01
+local rotation_y = 0
+
 ---$track:Z軸回転
 ---min=-720
 ---max=720
-local track3 = 0
+---step=0.01
+local rotation_z = 0
 
-x = obj.ox
-y = obj.oy
-rz = track3 * math.pi / 180
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
+
+local x = obj.ox
+local y = obj.oy
+local rz = math.rad(rotation_z)
 obj.ox = x * math.cos(rz) - y * math.sin(rz)
 obj.oy = x * math.sin(rz) + y * math.cos(rz)
-obj.rz = obj.rz + track3
+obj.rz = obj.rz + rotation_z
 
 y = obj.oy
-z = obj.oz
-rx = track1 * math.pi / 180
+local z = obj.oz
+local rx = math.rad(rotation_x)
 obj.oy = y * math.cos(rx) - z * math.sin(rx)
 obj.oz = y * math.sin(rx) + z * math.cos(rx)
-obj.rx = obj.rx + track1
+obj.rx = obj.rx + rotation_x
 
 x = obj.ox
 z = obj.oz
-ry = track2 * math.pi / 180
+local ry = math.rad(rotation_y)
 obj.oz = z * math.cos(ry) - x * math.sin(ry)
 obj.ox = z * math.sin(ry) + x * math.cos(ry)
-obj.ry = obj.ry + track2
+obj.ry = obj.ry + rotation_y
 
-obj.ox = obj.ox * track0 / 100
-obj.oy = obj.oy * track0 / 100
-obj.zoom = obj.zoom * track0 / 100
+local zoom_scale = zoom_rate / 100
+obj.ox = obj.ox * zoom_scale
+obj.oy = obj.oy * zoom_scale
+obj.zoom = obj.zoom * zoom_scale
