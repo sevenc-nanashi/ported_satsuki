@@ -20,7 +20,6 @@ local duration = 0.5
 ---$check:時間指定で登場
 local use_timed_transition = false
 
-
 --[[pixelshader@diagonal_blind:
 ---$include "./shaders/diagonal_blind.hlsl"
 ]]
