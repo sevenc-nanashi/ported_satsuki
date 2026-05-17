@@ -2,28 +2,35 @@
 ---$track:X拡大率
 ---min=0
 ---max=1000
-local track0 = 100
+---step=0.1
+local x_zoom_rate = 100
+
 ---$track:中心X
 ---min=-1000
 ---max=1000
-local track1 = 0
+---step=0.1
+local center_x = 0
+
 ---$track:Y拡大率
 ---min=0
 ---max=1000
-local track2 = 100
+---step=0.1
+local y_zoom_rate = 100
+
 ---$track:中心Y
 ---min=-1000
 ---max=1000
-local track3 = 0
----$check:自動調節
-local __rename_me_check0 = false
+---step=0.1
+local center_y = 0
 
-if __rename_me_check0 then
-    s = obj.getvalue("zoom") / 100
-else
-    s = 1
+---$check:自動調節
+local auto_adjusts_zoom = false
+
+local zoom_scale = 1
+if auto_adjusts_zoom then
+    zoom_scale = obj.getvalue("zoom") / 100
 end
-obj.ox = track1 + (obj.ox - track1) * track0 / 100 * s
-obj.oy = track3 + (obj.oy - track3) * track2 / 100 * s
+obj.ox = center_x + (obj.ox - center_x) * x_zoom_rate / 100 * zoom_scale
+obj.oy = center_y + (obj.oy - center_y) * y_zoom_rate / 100 * zoom_scale
 
 --自動調節は、「文字毎に個別オブジェクト」にチェックした状態で拡大率を変化させても、字間が自動で調節されるようにします。
