@@ -3,108 +3,167 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.3
+local duration = 0.3
+
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.3
+local interval = 0.3
+
 ---$track:開始[s]
 ---min=0
 ---max=100
 ---step=0.01
-local st = 0
----$track:登場順
+local start_time = 0
+
+---$select:登場順
+---順番=0
+---後ろから=1
+---ランダム順=2
+---ランダム間隔=3
+---内側から=4
+---外側から=5
+local order_mode = 0
+
+---$track:拡大率
 ---min=0
+---max=1000
+---step=0.1
+local zoom_rate = 100
+
+---$track:X距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_x = 0
+
+---$track:Y距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_y = 100
+
+---$track:Z距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_z = 0
+
+--trackgroup@distance_x,distance_y,distance_z:距離
+
+---$track:X軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_x = 0
+
+---$track:Y軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_y = 0
+
+---$track:Z軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
+
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
+
+---$track:加減速
+---min=1
 ---max=5
 ---step=1
-local jun = 0
----$value:拡大率
-local s = 100
+local easing_power = 2
 
----$value:X距離
-local x = 0
-
----$value:Y距離
-local y = 100
-
----$value:Z距離
-local z = 0
-
----$value:X軸回転
-local rx = 0
-
----$value:Y軸回転
-local ry = 0
-
----$value:Z軸回転
-local rz = 0
-
----$value:加減速[1-5]
-local beki = 2
-
----$value:減
-local adc = 0
+---$select:モード
+---減速=0
+---加速=1
+---S字=2
+local easing_mode = 0
 
 ---$check:タイプ
-local typ = 0
+local overall_appearance = false
 
-if jun < 1 then
-    mode = obj.index --順番に登場
-elseif jun < 2 then
-    mode = obj.num - 1 - obj.index --後ろから登場
-elseif jun < 3 then
+local function get_random_order_index()
     local indexes = {}
     for i = 0, obj.num - 1 do
         indexes[i + 1] = i
     end
     for i = 0, obj.num - 1 do
-        local dest = 0
-        dest = rand(0, obj.num - 1, -obj.num, i + 1)
+        local dest = obj.rand(0, obj.num - 1, -obj.num, i + 1)
         local swap = indexes[i + 1]
         indexes[i + 1] = indexes[dest + 1]
         indexes[dest + 1] = swap
     end
-    mode = indexes[obj.index + 1] --ランダム順に登場
-elseif jun < 4 then
-    mode = rand(0, 100 * (obj.num - 1), obj.index, 0) / 100 --ランダム間隔に登場
-elseif jun < 5 then
-    mode = math.abs((obj.num - 1) / 2 - obj.index) --内側から登場
-else
-    mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
+
+    return indexes[obj.index + 1]
 end
 
-if typ < 1 then
-else
-    ta = ta * (1 - mode / obj.num)
-    tb = tb / obj.num
+local function get_order_index()
+    if order_mode == 0 then
+        return obj.index --順番に登場
+    elseif order_mode == 1 then
+        return obj.num - 1 - obj.index --後ろから登場
+    elseif order_mode == 2 then
+        return get_random_order_index() --ランダム順に登場
+    elseif order_mode == 3 then
+        return obj.rand(0, 100 * (obj.num - 1), obj.index, 0) / 100 --ランダム間隔に登場
+    elseif order_mode == 4 then
+        return math.abs((obj.num - 1) / 2 - obj.index) --内側から登場
+    end
+
+    return (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index) --外側から登場
 end
 
-if ta < 0 then
-    i = (ta - obj.num * tb - obj.time - st + obj.totaltime + mode * tb) / ta
-else
-    i = (ta - obj.time + st + mode * tb) / ta
+local function apply_easing(progress)
+    if easing_mode == 0 then
+        return progress ^ easing_power
+    elseif easing_mode == 1 then
+        return 1 - (1 - progress) ^ easing_power
+    end
+
+    if progress <= 0.5 then
+        return (2 * progress) ^ easing_power / 2
+    end
+    return (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
 end
-if i > 0 then
-    if i > 1 then
-        i = 1
-    end
-    if adc < 1 then
-        i = i ^ beki
-    elseif adc < 2 then
-        i = 1 - (1 - i) ^ beki
-    else
-        if i <= 0.5 then
-            i = (2 * i) ^ beki / 2
-        else
-            i = (1 - (1 - (i - 0.5) * 2) ^ beki) / 2 + 0.5
-        end
-    end
-    obj.ox = obj.ox + x * i
-    obj.oy = obj.oy + y * i
-    obj.oz = obj.oz + z * i
-    obj.rx = obj.rx + rx * i
-    obj.ry = obj.ry + ry * i
-    obj.rz = obj.rz + rz * i
-    obj.zoom = obj.zoom + i * (s - 100) / 100
+
+local order_index = get_order_index()
+local adjusted_duration = duration
+local adjusted_interval = interval
+if overall_appearance then
+    adjusted_duration = adjusted_duration * (1 - order_index / obj.num)
+    adjusted_interval = adjusted_interval / obj.num
+end
+
+if adjusted_duration == 0 then
+    return
+end
+
+local progress
+if adjusted_duration < 0 then
+    progress = (
+        adjusted_duration
+        - obj.num * adjusted_interval
+        - obj.time
+        - start_time
+        + obj.totaltime
+        + order_index * adjusted_interval
+    ) / adjusted_duration
+else
+    progress = (adjusted_duration - obj.time + start_time + order_index * adjusted_interval) / adjusted_duration
+end
+
+if progress > 0 then
+    progress = apply_easing(math.min(progress, 1))
+    obj.ox = obj.ox + distance_x * progress
+    obj.oy = obj.oy + distance_y * progress
+    obj.oz = obj.oz + distance_z * progress
+    obj.rx = obj.rx + rotation_x * progress
+    obj.ry = obj.ry + rotation_y * progress
+    obj.rz = obj.rz + rotation_z * progress
+    obj.zoom = obj.zoom + progress * (zoom_rate - 100) / 100
 end

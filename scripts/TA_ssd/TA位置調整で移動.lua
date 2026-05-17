@@ -32,10 +32,10 @@ local order_mode = 0
 ---step=1
 local easing_power = 2
 
----$select:減/加/S
+---$select:モード
 ---減速=0
 ---加速=1
----減速加速=2
+---S字=2
 local easing_mode = 0
 
 ---$check:タイプ
