@@ -1,95 +1,145 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
----$track:X
+---$track:範囲中心X
 ---min=-2000
 ---max=2000
-local track0 = 0
----$track:Y
+---step=0.1
+local area_x = 0
+
+---$track:範囲中心Y
 ---min=-2000
 ---max=2000
-local track1 = 0
+---step=0.1
+local area_y = 0
+--trackgroup@area_x,area_y:範囲中心
+
 ---$track:範囲
 ---min=0
 ---max=2000
----step=1
-local track2 = 100
----$track:範囲表示
+---step=0.1
+local range_size = 100
+
+---$check:範囲表示
+local shows_range = true
+
+---$track:X移動
+---min=-2000
+---max=2000
+---step=0.1
+local offset_x = 0
+
+---$track:Y移動
+---min=-2000
+---max=2000
+---step=0.1
+local offset_y = 0
+
+---$track:Z移動
+---min=-2000
+---max=2000
+---step=0.1
+local offset_z = 0
+
+--trackgroup@offset_x,offset_y,offset_z:移動
+
+---$track:拡大率
 ---min=0
----max=1
+---max=1000
+---step=0.1
+local zoom_rate = 50
+
+---$track:透明度
+---min=0
+---max=100
+---step=0.1
+local alpha_rate = 0
+
+---$track:X回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_x = 0
+
+---$track:Y回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_y = 0
+
+---$track:Z回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
+
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
+
+---$track:加減速
+---min=1
+---max=5
 ---step=1
-local track3 = 1
----$value:X
-local x = 0
+local easing_power = 2
 
----$value:Y
-local y = 0
+---$select:自動移動
+---なし=0
+---離れる方向=1
+---近づく方向=2
+local auto_move_mode = 0
 
----$value:Z
-local z = 0
-
----$value:拡大率
-local s = 50
-
----$value:透明度
-local alp = 0
-
----$value:X回転
-local rx = 0
-
----$value:Y回転
-local ry = 0
-
----$value:Z回転
-local rz = 0
-
----$value:加減速[1-5]
-local beki = 2
-
----$value:自動移動[0-2]
-local jido = 0
-
----$value:幅
-local h_hb0 = 2000
+---$track:幅
+---min=1
+---max=2000
+---step=0.1
+local width = 2000
 
 obj.effect()
-h_sz = track2 / 2
-h_hb = math.min(h_sz, h_hb0)
+local range_radius = range_size / 2
+local range_width = math.min(range_radius, width)
 
-obj.setanchor("track", 0, "line")
-local px = obj.getvalue(0)
-local py = obj.getvalue(1)
+obj.setanchor("area_x,area_y", 0, "line")
+local px = obj.getvalue("track.area_x")
+local py = obj.getvalue("track.area_y")
 
-local i = (h_sz - math.sqrt((px - obj.ox) ^ 2 + (py - obj.oy) ^ 2)) / h_hb
+local progress = (range_radius - math.sqrt((px - obj.ox) ^ 2 + (py - obj.oy) ^ 2)) / range_width
 
-if i > 0 then
-    if i > 1 then
-        i = 1
+if progress > 0 then
+    if progress > 1 then
+        progress = 1
     end
-    if i <= 0.5 then
-        i = (2 * i) ^ beki / 2
+    if progress <= 0.5 then
+        progress = (2 * progress) ^ easing_power / 2
     else
-        i = (1 - (1 - (i - 0.5) * 2) ^ beki) / 2 + 0.5
+        progress = (1 - (1 - (progress - 0.5) * 2) ^ easing_power) / 2 + 0.5
     end
 
-    if jido == 1 or 2 then
-        J_rz = math.atan2(py - obj.oy, px - obj.ox)
+    if auto_move_mode ~= 0 then
+        local auto_angle = math.atan2(py - obj.oy, px - obj.ox)
 
-        if jido == 1 then
-            x = -h_sz * math.cos(J_rz)
-            y = -h_sz * math.sin(J_rz)
-            rz = math.deg(J_rz)
-        elseif jido == 2 then
-            x = px - obj.ox
-            y = py - obj.oy
+        if auto_move_mode == 1 then
+            offset_x = -range_radius * math.cos(auto_angle)
+            offset_y = -range_radius * math.sin(auto_angle)
+            rotation_z = math.deg(auto_angle)
+        elseif auto_move_mode == 2 then
+            offset_x = px - obj.ox
+            offset_y = py - obj.oy
         end
     end
 
-    obj.draw(x * i, y * i, z * i, 1 + i * (s - 100) / 100, 1 - i * alp / 100, rx * i, ry * i, rz * i)
+    obj.draw(
+        offset_x * progress,
+        offset_y * progress,
+        offset_z * progress,
+        1 + progress * (zoom_rate - 100) / 100,
+        1 - progress * alpha_rate / 100,
+        rotation_x * progress,
+        rotation_y * progress,
+        rotation_z * progress
+    )
 else
     obj.draw()
 end
 
 --範囲表示
-if track3 == 1 then
-    obj.load("figure", "円", 0xff0000, h_sz * 2, h_hb)
+if shows_range then
+    obj.load("figure", "円", 0xff0000, range_radius * 2, range_width)
     obj.draw(px, py, 0, 1, 0.5 / obj.num)
 end
