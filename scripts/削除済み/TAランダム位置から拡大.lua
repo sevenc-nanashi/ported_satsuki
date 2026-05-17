@@ -3,36 +3,45 @@
 ---min=0
 ---max=10
 ---step=0.01
-local ta = 2
+local duration = 2
+
 ---$track:間隔[s]
 ---min=0
 ---max=10
 ---step=0.01
-local tb = 1
+local interval = 1
+
 ---$track:傾き範囲
 ---min=0
 ---max=360
-local rz = 30
----$check:縮小
-local __rename_me_check0 = false
+---step=0.1
+local tilt_range = 30
 
-t = (ta - obj.time + obj.index * tb) / ta
-a = t
-if t > 0 then
-    if t > 1 then
-        t = 1
-        a = a * 0
+---$check:縮小
+local shrinks = false
+
+if duration == 0 then
+    return
+end
+
+local progress = (duration - obj.time + obj.index * interval) / duration
+local alpha = progress
+if progress > 0 then
+    if progress > 1 then
+        progress = 1
+        alpha = 0
     end
 else
-    t = 0
+    progress = 0
 end
-range_w = obj.screen_w / 2 - obj.w * obj.zoom
-range_h = obj.screen_h / 2 - obj.h * obj.zoom
-obj.ox = rand(-range_w, range_w, obj.index, 0)
-obj.oy = rand(-range_h, range_h, obj.index, 0)
-obj.zoom = 1 - t
-obj.alpha = a
-obj.rz = obj.rand(-rz / 2, rz / 2, 0, obj.index)
-if __rename_me_check0 then
-    obj.zoom = t
+
+local range_width = obj.screen_w / 2 - obj.w * obj.zoom
+local range_height = obj.screen_h / 2 - obj.h * obj.zoom
+obj.ox = obj.rand(-range_width, range_width, obj.index, 0)
+obj.oy = obj.rand(-range_height, range_height, obj.index, 0)
+obj.zoom = 1 - progress
+obj.alpha = alpha
+obj.rz = obj.rand(-tilt_range / 2, tilt_range / 2, 0, obj.index)
+if shrinks then
+    obj.zoom = progress
 end
