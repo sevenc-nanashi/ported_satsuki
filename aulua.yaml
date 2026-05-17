@@ -249,6 +249,18 @@ scripts:
     label: TA起き上がって登場@TA_ssd
   - path: "./scripts/TA/TA陰陽玉登場.lua"
     label: TA陰陽玉登場@TA
+  - path: "./scripts/削除済み/TAテキスト枠.lua"
+    label: TAテキスト枠@削除済みANM
+  - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
+    label: TAランダム位置から拡大@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
+    label: TAランダム文字で登場A@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
+    label: TAランダム文字で登場A-ランダム順@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
+    label: TAランダム文字で登場B@削除済みANM
+  - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
+    label: TAランダム文字で登場B-ランダム順@削除済みANM
   - path: "./scripts/加減速/ADC_標準登場.lua"
     label: ADC_標準登場@加減速
   - path: "./scripts/ANM1/ぽよよーんと登場.lua"
@@ -265,18 +277,6 @@ scripts:
     label: 斜めブラインド@ANM1
   - path: "./scripts/ANM1/明滅登場.lua"
     label: 明滅登場@ANM1
-  - path: "./scripts/削除済み/TAテキスト枠.lua"
-    label: TAテキスト枠@削除済みANM
-  - path: "./scripts/削除済み/TAランダム位置から拡大.lua"
-    label: TAランダム位置から拡大@削除済みANM
-  - path: "./scripts/削除済み/TAランダム文字で登場A.lua"
-    label: TAランダム文字で登場A@削除済みANM
-  - path: "./scripts/削除済み/TAランダム文字で登場A-ランダム順.lua"
-    label: TAランダム文字で登場A-ランダム順@削除済みANM
-  - path: "./scripts/削除済み/TAランダム文字で登場B.lua"
-    label: TAランダム文字で登場B@削除済みANM
-  - path: "./scripts/削除済み/TAランダム文字で登場B-ランダム順.lua"
-    label: TAランダム文字で登場B-ランダム順@削除済みANM
   - path: "./scripts/ANM2/カクカクさん.lua"
     label: カクカクさん@ANM2
   - path: "./scripts/ANM2/ランダム明滅.lua"
