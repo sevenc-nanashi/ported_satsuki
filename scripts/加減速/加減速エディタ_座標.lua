@@ -142,23 +142,21 @@ local function interpolate_path(progress) -- progress <= 1
         local shifted_progress = half_progress + 0.5
         local blend_progress = 2 * half_progress
         next_x = (
-                coefficient_x_a[path_index] * shifted_progress * shifted_progress
-                + coefficient_x_b[path_index] * shifted_progress
-                + coefficient_x_c[path_index]
-            )
-            * (1 - blend_progress)
+            coefficient_x_a[path_index] * shifted_progress * shifted_progress
+            + coefficient_x_b[path_index] * shifted_progress
+            + coefficient_x_c[path_index]
+        )
+                * (1 - blend_progress)
             + blend_progress
-            *
-            (coefficient_x_a[path_index + 1] * half_progress * half_progress + coefficient_x_b[path_index + 1] * half_progress + coefficient_x_c[path_index + 1])
+                * (coefficient_x_a[path_index + 1] * half_progress * half_progress + coefficient_x_b[path_index + 1] * half_progress + coefficient_x_c[path_index + 1])
         next_y = (
-                coefficient_y_a[path_index] * shifted_progress * shifted_progress
-                + coefficient_y_b[path_index] * shifted_progress
-                + coefficient_y_c[path_index]
-            )
-            * (1 - blend_progress)
+            coefficient_y_a[path_index] * shifted_progress * shifted_progress
+            + coefficient_y_b[path_index] * shifted_progress
+            + coefficient_y_c[path_index]
+        )
+                * (1 - blend_progress)
             + blend_progress
-            *
-            (coefficient_y_a[path_index + 1] * half_progress * half_progress + coefficient_y_b[path_index + 1] * half_progress + coefficient_y_c[path_index + 1])
+                * (coefficient_y_a[path_index + 1] * half_progress * half_progress + coefficient_y_b[path_index + 1] * half_progress + coefficient_y_c[path_index + 1])
     end
 
     return next_x, next_y
@@ -187,10 +185,37 @@ obj.draw(interpolate_track("track.x", has_x), interpolate_track("track.y", has_y
 --グラフ表示
 if show_graph then
     local graph_sample_count = point_count * graph_division_count
+    local function add_quad(vertices, x0, y0, x1, y1, x2, y2, x3, y3, texture_width, texture_height)
+        vertices[#vertices + 1] = {
+            x0,
+            y0,
+            0,
+            x1,
+            y1,
+            0,
+            x2,
+            y2,
+            0,
+            x3,
+            y3,
+            0,
+            0,
+            0,
+            texture_width,
+            0,
+            texture_width,
+            texture_height,
+            0,
+            texture_height,
+        }
+    end
 
     --ライン描画
     obj.load("figure", "四角形", graph_color, 1)
+    local figure_width = obj.w
+    local figure_height = obj.h
     -- obj.setoption("blend", "alpha_mix")
+    local line_vertices = {}
     local x0 = points_x[0]
     local y0 = points_y[0]
     for i = 1, graph_sample_count do
@@ -201,10 +226,23 @@ if show_graph then
         local angle = math.atan2(y0 - y1, x1 - x0)
         local dx = math.sin(angle) * line_half_width
         local dy = math.cos(angle) * line_half_width
-        obj.drawpoly(x0 - dx, y0 - dy, 0, x1 - dx, y1 - dy, 0, x1 + dx, y1 + dy, 0, x0 + dx, y0 + dy, 0)
+        add_quad(
+            line_vertices,
+            x0 - dx,
+            y0 - dy,
+            x1 - dx,
+            y1 - dy,
+            x1 + dx,
+            y1 + dy,
+            x0 + dx,
+            y0 + dy,
+            figure_width,
+            figure_height
+        )
         x0 = x1
         y0 = y1
     end
+    obj.drawpoly(line_vertices)
 
     --斜め線の描画
     local angle = math.atan2(graph_height, graph_width)
@@ -236,53 +274,61 @@ if show_graph then
 
     --頂点の描画
     obj.load("figure", "円", graph_color, line_half_width * 8)
+    figure_width = obj.w
+    figure_height = obj.h
+    local point_vertices = {}
     for i = 0, graph_sample_count do
         x0, y0 = interpolate_path(i / (point_count * graph_division_count))
         if clamp_graph then
             y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
         end
-        obj.drawpoly(
+        add_quad(
+            point_vertices,
             x0 - line_half_width,
             y0 - line_half_width,
-            0,
             x0 + line_half_width,
             y0 - line_half_width,
-            0,
             x0 + line_half_width,
             y0 + line_half_width,
-            0,
             x0 - line_half_width,
             y0 + line_half_width,
-            0
+            figure_width,
+            figure_height
         )
     end
+    obj.drawpoly(point_vertices)
 
     --青い点の描画
     local anchor_size = line_half_width * 1.5
     obj.load("figure", "円", 0x0000ff, anchor_size * 8)
+    figure_width = obj.w
+    figure_height = obj.h
+    local anchor_vertices = {}
     for i = 1, point_count - 1 do
         x0, y0 = points_x[i], points_y[i]
         if clamp_graph then
             y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
         end
-        obj.drawpoly(
+        add_quad(
+            anchor_vertices,
             x0 - anchor_size,
             y0 - anchor_size,
-            0,
             x0 + anchor_size,
             y0 - anchor_size,
-            0,
             x0 + anchor_size,
             y0 + anchor_size,
-            0,
             x0 - anchor_size,
             y0 + anchor_size,
-            0
+            figure_width,
+            figure_height
         )
     end
+    obj.drawpoly(anchor_vertices)
 
     --現在地の描画
     obj.load("figure", "円", 0xff0000, anchor_size * 8)
+    figure_width = obj.w
+    figure_height = obj.h
     x0, y0 = interpolate_path(obj.frame / obj.totalframe)
     if clamp_graph then
         y0 = math.min(graph_height / 2, math.max(y0, -graph_height / 2))
@@ -299,7 +345,15 @@ if show_graph then
         0,
         x0 - anchor_size,
         y0 + anchor_size,
-        0
+        0,
+        0,
+        0,
+        figure_width,
+        0,
+        figure_width,
+        figure_height,
+        0,
+        figure_height
     )
 
     obj.setoption("blend", 0)
