@@ -3,77 +3,127 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local ta = 0.3
+local duration = 0.3
+
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
-local tb = 0.3
+local interval = 0.3
+
 ---$track:行数
 ---min=1
 ---max=256
 ---step=1
-local n = 5
+local line_count = 5
+
 ---$check:フェード
-local fade = 0
+local fades = false
 
----$value:拡大率[+%]
-local s = 0
+---$track:拡大率[+%]
+---min=-100
+---max=1000
+---step=0.1
+local zoom_rate = 0
 
----$value:X距離
-local x = 0
+---$track:X距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_x = 0
 
----$value:Y距離
-local y = 0
+---$track:Y距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_y = 0
 
----$value:Z距離
-local z = 0
+---$track:Z距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_z = 0
 
----$value:Z軸回転
-local rz = 0
+--trackgroup@distance_x,distance_y,distance_z:距離
 
----$value:加減速[1-5]
-local beki = 2
+---$track:Z軸回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
+
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
+
+if duration == 0 then
+    return
+end
 
 obj.effect()
-w = obj.w / 2
-h = obj.h / 2 / n
-alp = 1
+local half_width = obj.w / 2
+local half_line_height = obj.h / 2 / line_count
 
-for j = 0, n - 1 do
-    if ta < 0 then
-        i = (ta - n * tb - obj.time + obj.totaltime + j * tb) / ta
+for j = 0, line_count - 1 do
+    local progress
+    if duration < 0 then
+        progress = (duration - line_count * interval - obj.time + obj.totaltime + j * interval) / duration
     else
-        i = (ta - obj.time + j * tb) / ta
+        progress = (duration - obj.time + j * interval) / duration
     end
 
-    if i > 0 then
-        if i > 1 then
-            alp = 0
-            i = 1
+    local alpha = 1
+    if progress > 0 then
+        if progress > 1 then
+            alpha = 0
+            progress = 1
         end
     else
-        i = 0
+        progress = 0
     end
-    i = i ^ beki
+    progress = progress ^ easing_power
 
-    cx = 0 + x * i
-    cy = -obj.h / 2 + h + h * 2 * j + y * i
-    cz = z * i
-    l = math.sqrt(w ^ 2 + h ^ 2) * (1 + s / 100 * i)
-    r = math.rad(rz * i)
-    x0 = cx + math.cos(math.atan2(-h, -w) + r) * l
-    x1 = cx + math.cos(math.atan2(-h, w) + r) * l
-    x2 = cx + math.cos(math.atan2(h, w) + r) * l
-    x3 = cx + math.cos(math.atan2(h, -w) + r) * l
-    y0 = cy + math.sin(math.atan2(-h, -w) + r) * l
-    y1 = cy + math.sin(math.atan2(-h, w) + r) * l
-    y2 = cy + math.sin(math.atan2(h, w) + r) * l
-    y3 = cy + math.sin(math.atan2(h, -w) + r) * l
-    v0 = h * 2 * j
-    v1 = h * 2 * (j + 1)
-    if fade == 1 then
-        alp = 1 - i
+    local center_x = distance_x * progress
+    local center_y = -obj.h / 2 + half_line_height + half_line_height * 2 * j + distance_y * progress
+    local center_z = distance_z * progress
+    local diagonal = math.sqrt(half_width ^ 2 + half_line_height ^ 2) * (1 + zoom_rate / 100 * progress)
+    local rotation = math.rad(rotation_z * progress)
+    local x0 = center_x + math.cos(math.atan2(-half_line_height, -half_width) + rotation) * diagonal
+    local x1 = center_x + math.cos(math.atan2(-half_line_height, half_width) + rotation) * diagonal
+    local x2 = center_x + math.cos(math.atan2(half_line_height, half_width) + rotation) * diagonal
+    local x3 = center_x + math.cos(math.atan2(half_line_height, -half_width) + rotation) * diagonal
+    local y0 = center_y + math.sin(math.atan2(-half_line_height, -half_width) + rotation) * diagonal
+    local y1 = center_y + math.sin(math.atan2(-half_line_height, half_width) + rotation) * diagonal
+    local y2 = center_y + math.sin(math.atan2(half_line_height, half_width) + rotation) * diagonal
+    local y3 = center_y + math.sin(math.atan2(half_line_height, -half_width) + rotation) * diagonal
+    local v0 = half_line_height * 2 * j
+    local v1 = half_line_height * 2 * (j + 1)
+    if fades then
+        alpha = 1 - progress
     end
-    obj.drawpoly(x0, y0, cz, x1, y1, cz, x2, y2, cz, x3, y3, cz, 0, v0, w * 2, v0, w * 2, v1, 0, v1, alp)
+    obj.drawpoly(
+        x0,
+        y0,
+        center_z,
+        x1,
+        y1,
+        center_z,
+        x2,
+        y2,
+        center_z,
+        x3,
+        y3,
+        center_z,
+        0,
+        v0,
+        half_width * 2,
+        v0,
+        half_width * 2,
+        v1,
+        0,
+        v1,
+        alpha
+    )
 end
