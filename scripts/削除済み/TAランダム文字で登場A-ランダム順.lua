@@ -1,70 +1,51 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA\削除済み
----$track:時間[ms]
----min=-5000
----max=5000
-local track0 = 1000
----$track:間隔[ms]
+---$track:時間[s]
+---min=-5
+---max=5
+---step=0.01
+local duration = 1
+
+---$track:間隔[s]
 ---min=0
----max=2000
-local track1 = 300
+---max=2
+---step=0.01
+local interval = 0.3
+
 ---$track:拡大率
 ---min=0
 ---max=800
-local s = 100
----$track:y軸距離
+---step=0.1
+local zoom_rate = 100
+
+---$track:Y軸距離
 ---min=-1000
 ---max=1000
-local y = -200
+---step=0.1
+local y_distance = -200
+
 ---$check:フェード
-local __rename_me_check0 = false
+local fades = false
 
-ta = track0 / 1000
-tb = track1 / 1000
+S_random_text_duration = duration
+S_random_text_interval = interval
+S_random_text_zoom_rate = zoom_rate
+S_random_text_y_distance = y_distance
+S_random_text_fade_rate = fades and 1 or 0
 
-num = obj.num
-word = {
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-}
-if ta < 0 then
-    i = (ta - obj.num * tb - obj.time + obj.totaltime + rand(0, 100 * (obj.num - 1), -(obj.index + 1), 0) / 100 * tb)
-        / ta
+local order_index = obj.rand(0, 100 * (obj.num - 1), -(obj.index + 1), 0) / 100
+local progress
+if duration == 0 then
+    return
+elseif duration < 0 then
+    progress = (duration - obj.num * interval - obj.time + obj.totaltime + order_index * interval) / duration
 else
-    i = (ta - obj.time + rand(0, 100 * (obj.num - 1), -(obj.index + 1), 0) / 100 * tb) / ta
+    progress = (duration - obj.time + order_index * interval) / duration
 end
-if i > 0 then
-    if i > 1 then
+if progress > 0 then
+    if progress > 1 then
         obj.alpha = 0
-        i = 1
+        progress = 1
     end
-    i = i * i
+    progress = progress * progress
     obj.alpha = 0
-end
-fade = 0
-if __rename_me_check0 then
-    fade = 1
 end
