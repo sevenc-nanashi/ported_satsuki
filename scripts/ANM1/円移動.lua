@@ -2,18 +2,22 @@
 ---$track:半径
 ---min=-2000
 ---max=2000
-local track0 = 100
+---step=0.1
+local radius = 100
+
 ---$track:速さ
 ---min=-2000
 ---max=2000
-local track1 = 500
----$check:内向き
-local __rename_me_check0 = false
+---step=0.1
+local speed = 500
 
-r = track1 * obj.time / 1000
-obj.ox = math.sin(r * math.pi * 2) * track0
-obj.oy = -math.cos(r * math.pi * 2) * track0
-obj.rz = r * 360 + 180
-if __rename_me_check0 then
+---$check:内向き
+local inward = false
+
+local rotation = speed * obj.time / 1000
+obj.ox = math.sin(rotation * math.pi * 2) * radius
+obj.oy = -math.cos(rotation * math.pi * 2) * radius
+obj.rz = rotation * 360 + 180
+if inward then
     obj.rz = obj.rz - 180
 end
