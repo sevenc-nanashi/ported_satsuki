@@ -3,38 +3,60 @@
 ---min=-10
 ---max=10
 ---step=0.01
-local t = 2
+local duration = 2
+
 ---$track:間隔[s]
 ---min=0
 ---max=2
 ---step=0.01
-local tb = 0.2
+local interval = 0.2
+
 ---$track:拡大率
 ---min=0
 ---max=1000
-local track2 = 500
+---step=0.1
+local zoom_rate = 500
+
 ---$track:回数
 ---min=1
 ---max=10
 ---step=1
-local track3 = 3
----$value:X距離
-local x = 0
+local count = 3
 
----$value:Y距離
-local y = 0
+---$track:X距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_x = 0
 
----$value:Z距離
-local z = 0
+---$track:Y距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_y = 0
 
----$value:加減速[1-5]
-local beki1 = 2
+---$track:Z距離
+---min=-2000
+---max=2000
+---step=0.1
+local distance_z = 0
 
----$value:減衰[0-3]
-local beki0 = 2
+--trackgroup@distance_x,distance_y,distance_z:距離
 
-k = math.floor(track3)
-s = track2 / 100 - 1
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
+
+---$track:減衰
+---min=0
+---max=3
+---step=0.1
+local damping_power = 2
+
+local count_integer = math.floor(count)
+local zoom_scale = zoom_rate / 100 - 1
 
 local indexes = {}
 for i = 0, obj.num - 1 do
@@ -47,30 +69,33 @@ for i = 0, obj.num - 1 do
     indexes[i + 1] = indexes[dest + 1]
     indexes[dest + 1] = swap
 end
-f = indexes[obj.index + 1] * tb
+local delay = indexes[obj.index + 1] * interval
 
-if t == 0 then
+if duration == 0 then
     return
-elseif t > 0 then
-    time = math.max(obj.time - f, 0)
-else
-    t = -t
-    time = math.max(obj.totaltime - obj.time - f, 0)
 end
 
-l = t / k / 2
-if time < t then
-    r = math.sin(math.pi * time / l)
-    if r > 0 then
-        r = (r ^ beki1) * ((t - time) / t) ^ beki0
-        obj.ox = obj.ox + x * r
-        obj.oy = obj.oy + y * r
-        obj.oz = obj.oz + z * r
-        obj.zoom = obj.zoom * (1 + s * r)
+local elapsed_time
+if duration > 0 then
+    elapsed_time = math.max(obj.time - delay, 0)
+else
+    duration = -duration
+    elapsed_time = math.max(obj.totaltime - obj.time - delay, 0)
+end
+
+local phase_duration = duration / count_integer / 2
+if elapsed_time < duration then
+    local progress = math.sin(math.pi * elapsed_time / phase_duration)
+    if progress > 0 then
+        progress = (progress ^ easing_power) * ((duration - elapsed_time) / duration) ^ damping_power
+        obj.ox = obj.ox + distance_x * progress
+        obj.oy = obj.oy + distance_y * progress
+        obj.oz = obj.oz + distance_z * progress
+        obj.zoom = obj.zoom * (1 + zoom_scale * progress)
     end
-    if time < l / 4 then
+    if elapsed_time < phase_duration / 4 then
         obj.alpha = 0
-    elseif time < l / 2 then
-        obj.alpha = 1 - (l / 4 - time + l / 4) / (l / 4)
+    elseif elapsed_time < phase_duration / 2 then
+        obj.alpha = 1 - (phase_duration / 4 - elapsed_time + phase_duration / 4) / (phase_duration / 4)
     end
 end
