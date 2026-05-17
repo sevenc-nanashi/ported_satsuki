@@ -3,45 +3,58 @@
 ---min=-5
 ---max=5
 ---step=0.01
-local track0 = 0.3
+local interval = 0.3
+
 ---$track:速度
 ---min=-1000
 ---max=1000
-local rv = 270
+---step=0.1
+local rotation_speed = 270
+
 ---$track:待機[s]
 ---min=0
 ---max=10
 ---step=0.01
-local track2 = 0
----$track:登場順
----min=0
----max=5
----step=1
-local jun = 0
+local wait_time = 0
+
+---$select:登場順
+---順番=0
+---後ろから=1
+---ランダム順=2
+---ランダム間隔=3
+---内側から=4
+---外側から=5
+local order_mode = 0
+
 ---$check:X軸回転
-local rx = 0
+local rotates_x = false
 
 ---$check:Y軸回転
-local ry = 0
+local rotates_y = false
 
 ---$check:Z軸回転
-local rz = 1
+local rotates_z = true
 
----$value:移動距離
-local id_len = 0
+---$track:移動距離
+---min=0
+---max=2000
+---step=0.1
+local move_distance = 0
 
----$value:移動角度
-local id_r = 0
+---$track:移動角度
+---min=-360
+---max=360
+---step=0.1
+local move_angle = 0
 
-local ts = obj.time - track2
-local tb = math.abs(track0)
-local ta = math.abs(360 / rv)
+---$check:ランダム角度
+local random_angle = false
 
-if jun < 1 then --順番に登場
-    mode = obj.index
-elseif jun < 2 then --後ろから登場
-    mode = obj.num - 1 - obj.index
-elseif jun < 3 then --ランダム順に登場
+local elapsed_time = obj.time - wait_time
+local interval_length = math.abs(interval)
+local rotation_duration = math.abs(360 / rotation_speed)
+
+local function get_random_order_index()
     local indexes = {}
     for i = 0, obj.num - 1 do
         indexes[i + 1] = i
@@ -53,28 +66,51 @@ elseif jun < 3 then --ランダム順に登場
         indexes[i + 1] = indexes[dest + 1]
         indexes[dest + 1] = swap
     end
-    mode = indexes[obj.index + 1]
-elseif jun < 4 then --ランダム間隔に登場
-    mode = rand(0, 100 * (obj.num - 1), obj.index, 0) / 100
-elseif jun < 5 then --内側から登場
-    mode = math.abs((obj.num - 1) / 2 - obj.index)
-else --外側から登場
-    mode = (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
+    return indexes[obj.index + 1]
 end
 
-if track0 < 0 then
-    i = -(-ta - obj.num * tb - obj.time - track2 + obj.totaltime + mode * tb) / ta
-else
-    i = (ta - ts + mode * tb) / ta
-end
-
-if i > 0 then
-    if id_r == 20101118 then --隠しパラメータ
-        id_r = obj.rand(0, 360, 0, obj.index)
+local function get_order_index()
+    if order_mode == 0 then
+        return obj.index
+    elseif order_mode == 1 then
+        return obj.num - 1 - obj.index
+    elseif order_mode == 2 then
+        return get_random_order_index()
+    elseif order_mode == 3 then
+        return rand(0, 100 * (obj.num - 1), obj.index, 0) / 100
+    elseif order_mode == 4 then
+        return math.abs((obj.num - 1) / 2 - obj.index)
     end
-    obj.ox = obj.ox + math.cos(math.rad(id_r)) * i * id_len
-    obj.oy = obj.oy + math.sin(math.rad(id_r)) * i * id_len
-    obj.rx = obj.rx + rv * i * rx
-    obj.ry = obj.ry + rv * i * ry
-    obj.rz = obj.rz + rv * i * rz
+    return (obj.num - 1) / 2 - math.abs((obj.num - 1) / 2 - obj.index)
+end
+
+local order_index = get_order_index()
+local progress
+if interval < 0 then
+    progress = -(
+            -rotation_duration
+            - obj.num * interval_length
+            - obj.time
+            - wait_time
+            + obj.totaltime
+            + order_index * interval_length
+        ) / rotation_duration
+else
+    progress = (rotation_duration - elapsed_time + order_index * interval_length) / rotation_duration
+end
+
+if progress > 0 then
+    local angle = move_angle
+    if random_angle then
+        angle = obj.rand(0, 360, 0, obj.index)
+    end
+    local x_rotation_factor = rotates_x and 1 or 0
+    local y_rotation_factor = rotates_y and 1 or 0
+    local z_rotation_factor = rotates_z and 1 or 0
+
+    obj.ox = obj.ox + math.cos(math.rad(angle)) * progress * move_distance
+    obj.oy = obj.oy + math.sin(math.rad(angle)) * progress * move_distance
+    obj.rx = obj.rx + rotation_speed * progress * x_rotation_factor
+    obj.ry = obj.ry + rotation_speed * progress * y_rotation_factor
+    obj.rz = obj.rz + rotation_speed * progress * z_rotation_factor
 end
