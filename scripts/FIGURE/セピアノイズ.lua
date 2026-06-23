@@ -109,4 +109,4 @@ obj.draw()
 
 --描画
 obj.load("tempbuffer")
-obj.effect("反転", "輝度反転", invert_brightness)
+obj.effect("反転", "輝度反転", invert_brightness and 1 or 0)
