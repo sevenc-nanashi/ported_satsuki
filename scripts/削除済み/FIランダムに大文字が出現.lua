@@ -28,7 +28,7 @@ local col2 = 0x000000
 ---縁取り文字（細）=4
 ---縁取り文字（太）=5
 ---縁取り文字（角）=6
-local type = 0
+local deco_type = 0
 
 local word = {
     "A",
@@ -60,7 +60,7 @@ local word = {
 }
 local n = obj.totaltime / interval
 for i = 0, n do
-    obj.setfont(font, size, type, col1, col2)
+    obj.setfont(font, size, deco_type, col1, col2)
     obj.load("text", word[obj.rand(1, #word, i, 0)])
     local t = (duration - obj.time + i * interval) / duration
     if t > 0 then
