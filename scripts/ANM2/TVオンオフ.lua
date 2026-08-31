@@ -1,15 +1,19 @@
+---$script_tips:ブラウン管TVをつけたり、消した時のように、画像が伸縮して登場または退場します。
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$tips:登場する時間を指定します。マイナスで退場します。
 ---$track:時間
 ---min=-5
 ---max=5
 ---step=0.01
 local t = -1
 
+---$tips:走査線の幅を指定します。
 ---$track:走査幅
 ---min=1
 ---max=100
 local l = 2
 
+---$tips:登場の最初または退場の最後に表示される、白線の幅を指定します。
 ---$track:白線の幅
 ---min=0
 ---max=100
@@ -17,12 +21,16 @@ local l = 2
 local senhaba = 2
 
 --group:縁
+---$tips:チェックすると、周囲を縁取る影が表示されます。
 ---$check:縁あり
 local edg = 1
 
+---$tips:チェックしない場合は、円状の影となります。
+---:チェックした場合は、適用した画像等の縦横比にあわせた楕円状の影となります。
 ---$check:縁アス比
 local as = 1
 
+---$tips:画像の周囲を丸く囲んで表示される影の大きさを調整します。
 ---$track:縁調整%
 ---min=100
 ---max=800
@@ -30,33 +38,47 @@ local ensize = 110
 
 --group:走査線
 
+---$tips:チェックすると走査線が表示されます。
 ---$check:走査線あり
 local sou = 1
 
+---$tips:走査線の透明度を指定します。
 ---$track:走査線強さ[%]
 ---min=0
 ---max=100
 ---step=1
 local sou_alp = 50
 
+---$tips:走査線の色を指定します。
 ---$color:走査線色
 local sou_col = 0x000000
 
 --group:影
 
+---$tips:チェックすると、横線の上下に移動する黒い影が表示されます。
 ---$check:影あり
 local kage = 1
 
+---$tips:横線の上下に移動する黒い影の移動速度を指定します。
 ---$track:影速度
 ---min=-1000
 ---max=1000
 local kage_v = 100
 
+---$tips:影の幅を指定します。
 ---$track:影の幅
 ---min=0
 ---max=500
 ---step=1
 local kage_haba = 80
+
+--hide@as:edg==0
+--hide@ensize:edg==0
+--hide@l:sou==0
+--hide@sou_alp:sou==0
+--hide@sou_col:sou==0
+--hide@kage_v:kage==0
+--hide@kage_haba:kage==0
 
 --[[pixelshader@tv_on_off_scanline:
 ---$include "./shaders/tv_on_off_scanline.hlsl"

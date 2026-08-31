@@ -1,24 +1,33 @@
+---$script_tips:画像等をベジェ曲線に沿って移動させます。
+---:使用方法は「2次ベジェ曲線」と同様ですが、
+---:こちらは制御点を2つ設定することができ、より複雑な曲線を描くことが出来ます。
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$tips:始点の制御点と終点の制御点の座標を指定します。
 ---$track:始制X
 ---min=-500
 ---max=500
 local sxa = 0
+---$tips:始点の制御点と終点の制御点の座標を指定します。
 ---$track:始制Y
 ---min=-500
 ---max=500
 local sya = -100
+---$tips:制御点のZ軸座標を指定します。
 ---$track:始制Z
 ---min=-500
 ---max=500
 local sza = 0
+---$tips:始点の制御点と終点の制御点の座標を指定します。
 ---$track:終制X
 ---min=-500
 ---max=500
 local sxb = 0
+---$tips:始点の制御点と終点の制御点の座標を指定します。
 ---$track:終制Y
 ---min=-500
 ---max=500
 local syb = -100
+---$tips:制御点のZ軸座標を指定します。
 ---$track:終制Z
 ---min=-500
 ---max=500
@@ -26,11 +35,15 @@ local szb = 0
 --trackgroup@sxa,sya,sza:開始制御点
 --trackgroup@sxb,syb,szb:終了制御点
 
+---$tips:チェックすると補助線が表示されます。
 ---$check:補助線表示
 local se = 1
 
+---$tips:補助線の色を変更することが出来ます。
 ---$color:制御点色
 local color = 0xff0000
+
+--hide@color:se==0
 
 obj.effect()
 --始点

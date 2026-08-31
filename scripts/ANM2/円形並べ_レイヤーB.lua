@@ -1,3 +1,4 @@
+---$script_tips:円形並べ_レイヤーA参照
 --label:${ROOT_CATEGORY}\配置
 local angle = 360 * (obj.layer - S_circle_arrange_layer_base_layer) / S_circle_arrange_layer_count
     + S_circle_arrange_layer_rotation

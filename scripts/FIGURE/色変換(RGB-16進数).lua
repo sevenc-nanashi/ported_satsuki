@@ -1,9 +1,12 @@
 --label:${ROOT_CATEGORY}\ツール
+---$script_tips:取得した色を16進数のコードで表示します。色選択の補助に。
+---$tips:テキストのサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=256
 ---step=1
 local size = 34
+---$tips:テキストの装飾タイプを指定します。
 ---$select:タイプ
 ---標準文字=0
 ---影付き文字=1
@@ -13,6 +16,7 @@ local size = 34
 ---縁取り文字（太）=5
 ---縁取り文字（角）=6
 local text_type = 3
+---$tips:ここで16進数のコード知りたい色を取得して下さい。。
 ---$color:色
 local color = 0xffffff
 

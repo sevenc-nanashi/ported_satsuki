@@ -1,14 +1,18 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:虹の輪を作ります。赤橙黄緑水青の六色です。
+---$tips:虹輪の半径を指定します。
 ---$track:半径
 ---min=0
 ---max=2000
 ---step=1
 local s = 100
+---$tips:虹輪の幅を指定します。
 ---$track:幅
 ---min=0
 ---max=1000
 ---step=1
 local r = 50
+---$tips:各色の間のぼかしの強さを指定します。
 ---$track:ぼかし
 ---min=0
 ---max=100

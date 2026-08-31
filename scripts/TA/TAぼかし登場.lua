@@ -1,19 +1,24 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:テキストに「ぼかし」フィルタがかかりながら登場してきます。
+---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 0.3
+---$tips:文字の登場間隔を指定します。
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
 local interval = 0.3
+---$tips:登場してくるぼかしの強さ(範囲)を指定します。
 ---$track:範囲
 ---min=0
 ---max=300
 ---step=1
 local blur_range = 10
+---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
 ---逆順=1
@@ -22,15 +27,18 @@ local blur_range = 10
 ---内側から=4
 ---外側から=5
 local order = 0
+---$tips:チェックすると登場時にフェードします。
 ---$check:フェード
 local fade = false
 
+---$tips:ぼかしの方向(縦横比)を指定します。
 ---$track:縦横比
 ---min=-100
 ---max=100
 ---step=0.01
 local aspect = 0
 
+---$tips:登場してくる拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=1000

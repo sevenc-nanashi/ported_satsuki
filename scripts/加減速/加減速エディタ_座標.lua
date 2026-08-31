@@ -77,6 +77,10 @@ local graph_line_width = 5
 ---step=1
 local graph_division_count = 20
 
+--hide@graph_color:show_graph==0
+--hide@graph_line_width:show_graph==0
+--hide@graph_division_count:show_graph==0
+
 local line_half_width = math.floor(graph_line_width) / 2
 local point_count = vertex_count + 1
 

@@ -42,6 +42,10 @@ local ty = 0
 ---step=1
 local br = 0
 
+--hide@dir0:dir2==1
+--hide@dir1:dir2==1
+--hide@ty:rty==1
+
 local l = rand(0, 100)
 local w
 if l > threshold_high then

@@ -1,42 +1,53 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$script_tips:図形のサイズ等を加減速移動します。
+---:重ねがけできません。
+---$tips:図形のサイズを指定します。
 ---$track:サイズ1
 ---min=0
 ---max=4000
 ---step=1
 local base_size = 100
+---$tips:図形のライン幅をしてします。
 ---$track:ライン幅1
 ---min=0
 ---max=4000
 ---step=1
 local base_line_width = 4000
+---$tips:図形の種類を指定します。
 ---$figure:種類
 local figure_name = "円"
 
+---$tips:図形の色を指定します。
 ---$color:色
 local color = 0xffffff
 
 --separator:加減速
+---$tips:登場してくる時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 1
+---$tips:加減速の度合いを指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
+---$tips:加減速の種類を指定します。
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local mode = 0
 
+---$tips:登場してくる図形のサイズを指定します。
 ---$track:サイズ2
 ---min=-4000
 ---max=4000
 ---step=1
 local size_delta = 0
+---$tips:登場してくる図形のライン幅を指定します。
 ---$track:ライン幅2
 ---min=-4000
 ---max=4000

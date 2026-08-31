@@ -1,26 +1,35 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:縦・横・斜めのラインをランダムに描画します。
+---:ノイズ表現の一種として使うとよいかもしてません。
+---$tips:ラインの本数を指定します。
 ---$track:本数
 ---min=1
 ---max=400
 ---step=1
 local n = 10
+---$tips:ラインの幅を指定します。
 ---$track:幅
 ---min=0
 ---max=100
 local dw0 = 2
+---$tips:ラインの幅を指定します。
 ---$track:幅[+%]
 ---min=0
 ---max=200
 ---step=1
 local dwr = 50
+---$tips:斜め方向のラインの割合を指定します。
+---:斜閾値=100で、ラインの3分の1が斜めになります。
 ---$track:斜閾値
 ---min=0
 ---max=300
 ---step=1
 local k = 50
+---$tips:ラインの色を指定します。
 ---$color:色
 local col = 0xff8000
 
+---$tips:チェックすると1フレーム毎にラインがランダムに変化します。
 ---$check:ランダム変化
 local chk = 1
 

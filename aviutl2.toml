@@ -24,6 +24,11 @@ source = "./build/@satsuki.tra2.tra2"
 destination = "Script/@satsuki.tra2.tra2"
 build.group = "aulua"
 
+[artifacts.Default_satsuki_aul2]
+source = "./build/Default.ported_satsuki.aul2"
+destination = "Language/Default.ported_satsuki.aul2"
+build.group = "aulua"
+
 [development]
 aviutl2_version = "latest"
 catalog_dependencies = [

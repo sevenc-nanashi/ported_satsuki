@@ -1,19 +1,25 @@
 --label:${ROOT_CATEGORY}\ツール
+---$script_tips:カメラ制御の補助線を表示します。
+---:カメラ制御下で使用して下さい。
+---$tips:全体のサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=20000
 ---step=1
 local size_doubled = 3000
+---$tips:各ラインの幅を指定します。
 ---$track:ライン幅
 ---min=1
 ---max=100
 ---step=1
 local line_weight = 10
+---$tips:テキストのフォントサイズを指定します。
 ---$track:テキスト
 ---min=0
 ---max=256
 ---step=1
 local text_size = 80
+---$tips:XZ平面の床の色を指定します。
 ---$color:平面色
 local color = 0xffffff
 
@@ -23,11 +29,50 @@ local text_size_half = text_size / 2
 obj.load("figure", "四角形", color, 2)
 obj.drawpoly(-size, 0, size, size, 0, size, size, 0, -size, -size, 0, -size, 0, 0, 1, 0, 1, 1, 0, 1, 0.5)
 obj.load("figure", "四角形", 0xffffff, 2)
-obj.drawpoly(-line_weight_half, -size, 0, line_weight_half, -size, 0, line_weight_half, size, 0, -line_weight_half, size, 0)
+obj.drawpoly(
+    -line_weight_half,
+    -size,
+    0,
+    line_weight_half,
+    -size,
+    0,
+    line_weight_half,
+    size,
+    0,
+    -line_weight_half,
+    size,
+    0
+)
 obj.load("figure", "四角形", 0xff0000, 2)
-obj.drawpoly(-size, 0, line_weight_half, size, 0, line_weight_half, size, 0, -line_weight_half, -size, 0, -line_weight_half)
+obj.drawpoly(
+    -size,
+    0,
+    line_weight_half,
+    size,
+    0,
+    line_weight_half,
+    size,
+    0,
+    -line_weight_half,
+    -size,
+    0,
+    -line_weight_half
+)
 obj.load("figure", "四角形", 0x0000ff, 2)
-obj.drawpoly(-line_weight_half, 0, size, line_weight_half, 0, size, line_weight_half, 0, -size, -line_weight_half, 0, -size)
+obj.drawpoly(
+    -line_weight_half,
+    0,
+    size,
+    line_weight_half,
+    0,
+    size,
+    line_weight_half,
+    0,
+    -size,
+    -line_weight_half,
+    0,
+    -size
+)
 
 obj.load("figure", "円", 0x00ff00, size / 2 * 0.7, line_weight_half / 2)
 obj.draw(0, 0, 0, 4, 1, 0, 0)

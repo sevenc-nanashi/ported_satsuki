@@ -1,16 +1,21 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:「きらり」とした感じの図形オブジェクトを作ります。
+---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=2000
 local size = 300
+---$tips:十字部分の幅のサイズを調整します。
 ---$track:幅
 ---min=0
 ---max=500
 local width = 100
+---$tips:ぼやけた円のグラデーションの透明度を指定します。
 ---$track:円透明
 ---min=0
 ---max=100
 local circle_opacity = 70
+---$tips:図形の色を指定します。
 ---$color:色
 local color = 0xffffff
 

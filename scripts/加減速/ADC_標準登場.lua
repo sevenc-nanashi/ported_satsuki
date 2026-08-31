@@ -1,42 +1,52 @@
 --label:${ROOT_CATEGORY}\切り替え効果
+---$script_tips:X,Y,Z移動や拡大率、縦横比、X,Y,Z回転を滑らかに登場させます。
+---:従来の「加減速登場」を改訂したもの。
 --separator:加減速
+---$tips:登場してくる時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 1
+---$tips:加減速の度合いを指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
+---$tips:加減速の種類を指定します。
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local mode = 0
 
+---$tips:登場してくる方向を指定します。
 ---$track:方向
 ---min=-360
 ---max=360
 ---step=0.01
 local direction_angle = 0
+---$tips:登場してくる距離を指定します。
 ---$track:距離
 ---min=0
 ---max=20000
 ---step=1
 local distance = 300
+---$tips:登場してくる拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=800
 ---step=1
 local zoom = 100
+---$tips:登場してくる縦横比を指定します。
 ---$track:縦横比[%]
 ---min=-100
 ---max=100
 ---step=1
 local aspect_ratio = 0
 
+---$tips:Z軸方向の登場してくる距離を指定します。
 ---$track:Z軸
 ---min=-20000
 ---max=20000
@@ -44,18 +54,21 @@ local aspect_ratio = 0
 local z_distance = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
+---$tips:登場してくる各軸の回転角度を指定します。
 ---$track:X回転
 ---min=-720
 ---max=720
 ---step=1
 local rotation_x = 0
 
+---$tips:登場してくる各軸の回転角度を指定します。
 ---$track:Y回転
 ---min=-720
 ---max=720
 ---step=1
 local rotation_y = 0
 
+---$tips:登場してくる各軸の回転角度を指定します。
 ---$track:Z回転
 ---min=-720
 ---max=720

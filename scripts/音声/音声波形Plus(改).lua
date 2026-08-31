@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$script_tips:画像等を音声波形の形で切り取ります。
 ---$track:横分割
 ---min=1
 ---max=1024
@@ -13,6 +14,7 @@ local hdiv = 50
 ---min=0
 ---max=800
 local track2 = 100
+---$tips:音声波形の種類を指定します。0〜5の6種類。
 ---$track:種類
 ---min=0
 ---max=3

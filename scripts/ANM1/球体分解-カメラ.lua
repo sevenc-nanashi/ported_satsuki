@@ -1,17 +1,23 @@
+---$script_tips:画像を凸(凹)面上に変形させます。
+---:カメラ制御下で使用して下さい。
 --label:${ROOT_CATEGORY}\変形
+---$tips:曲げる割合を指定します。
 ---$track:屈曲率
 ---min=10
 ---max=500
 local k = 10
+---$tips:屈曲する際の中心を指定します。
 ---$track:中心X
 ---min=-100
 ---max=100
 local center_x = 0
+---$tips:屈曲する際の中心を指定します。
 ---$track:中心Y
 ---min=-100
 ---max=100
 local center_y = 0
 --trackgroup@center_x,center_y:中心
+---$tips:チェックすると屈曲する向きを反転させます。
 ---$check:反転
 local invert = false
 

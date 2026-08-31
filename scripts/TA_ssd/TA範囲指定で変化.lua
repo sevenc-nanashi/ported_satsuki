@@ -91,6 +91,10 @@ local auto_move_mode = 0
 ---step=0.1
 local width = 2000
 
+--hide@offset_x:auto_move_mode~=0
+--hide@offset_y:auto_move_mode~=0
+--hide@rotation_z:auto_move_mode==1
+
 obj.effect()
 local range_radius = range_size / 2
 local range_width = math.min(range_radius, width)

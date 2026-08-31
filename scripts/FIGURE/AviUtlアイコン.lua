@@ -1,12 +1,16 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:AviUtlのアイコン画像を描画します。
+---$tips:画像のサイズを指定します。
 ---$track:サイズ
 ---min=48
 ---max=2000
 ---step=1
 local size = 48
+---$tips:画像の色を指定します。
 ---$color:色1
 local color = 0x000000
 
+---$tips:画像の色を指定します。
 ---$color:色2
 local color1 = 0xffffff
 

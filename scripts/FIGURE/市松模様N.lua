@@ -1,22 +1,28 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト\模様
+---$script_tips:市松模様を作ります。
+---$tips:一つの四角形のサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=800
 ---step=1
 local square_size = 25
+---$tips:横または縦方向に繰り返す回数を指定します。
 ---$track:横回数
 ---min=1
 ---max=200
 ---step=1
 local horizontal_count = 2
+---$tips:横または縦方向に繰り返す回数を指定します。
 ---$track:縦回数
 ---min=1
 ---max=200
 ---step=1
 local vertical_count = 2
+---$tips:市松模様の色を指定します。
 ---$color:色1
 local color1 = 0xffffff
 
+---$tips:市松模様の色を指定します。
 ---$color:色2
 local color2 = 0x000000
 

@@ -1,25 +1,34 @@
 --label:${ROOT_CATEGORY}\変形
+---$script_tips:単体の万華鏡っぽい効果です。テキストにかけるとよいかも。
+---$tips:回転させて万華鏡っぽくします。
+---:「回転に連動」にチェックがある場合は、「連動角度」ごとに分割数が増えていきます。
 ---$track:回転
 ---min=-720
 ---max=720
 local rotates = 0
+---$tips:「回転に連動」にチェックがない場合に有効。分割数を指定します。
 ---$track:分割数
 ---min=0
 ---max=24
 ---step=1
 local n = 2
+---$tips:回転角度の最初の位置を指定します。
 ---$track:オフセット
 ---min=-720
 ---max=720
 local offset = 0
+---$tips:チェックがある場合は「連動角度」ごとに分割数が増えていきます。
 ---$check:回転に連動
 local rendo = 1
 
+---$tips:「回転に連動」にチェックがある場合に、この角度に達するごとに分割数が増えていきます。
 ---$track:連動角度
 ---min=1
 ---max=360
 ---step=1
 local rendk = 45
+--hide@n:rendo==1
+--hide@rendk:rendo==0
 
 local w = obj.w * 100 / obj.getvalue("zoom")
 local h = obj.h * 100 / obj.getvalue("zoom")

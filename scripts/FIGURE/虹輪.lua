@@ -1,9 +1,12 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:虹の輪を作ります。赤緑青の三色です。
+---$tips:虹輪の半径を指定します。
 ---$track:半径
 ---min=0
 ---max=2000
 ---step=1
 local s = 100
+---$tips:虹輪の幅を指定します。
 ---$track:幅
 ---min=0
 ---max=1000

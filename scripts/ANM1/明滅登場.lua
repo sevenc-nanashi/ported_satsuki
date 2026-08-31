@@ -1,9 +1,12 @@
+---$script_tips:透明度を明滅させて登場又は退場します。
 --label:${ROOT_CATEGORY}\切り替え効果
+---$tips:明滅する時間をフレーム数で指定します。
 ---$track:登場[f]
 ---min=0
 ---max=150
 ---step=1
 local fade_in_frames = 4
+---$tips:明滅する時間をフレーム数で指定します。
 ---$track:退場[f]
 ---min=0
 ---max=150

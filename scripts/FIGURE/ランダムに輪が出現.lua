@@ -1,36 +1,48 @@
 --label:${ROOT_CATEGORY}\画面効果
+---$script_tips:ランダムに一定間隔で図形が出現し、フェードアウトしていきます。
+---$tips:ひとつのオブジェクトが登場＆フェードしていく時間を指定します。
 ---$track:時間[s]
 ---min=0
 ---max=10
 ---step=0.01
 local duration = 2
+---$tips:次のオブジェクトが出現する時間間隔を指定します。
 ---$track:間隔[s]
 ---min=0.1
 ---max=10
 ---step=0.01
 local interval = 1
+---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=0
 ---max=1000
 ---step=1
 local size = 500
+---$tips:図形のライン幅を指定します。
 ---$track:ライン幅
 ---min=0
 ---max=500
 ---step=1
 local weight = 10
+---$tips:図形の種類を指定します。
 ---$figure:種類
 local name = "円"
 
+---$tips:図形の色を指定します。
 ---$color:色
 local color = 0xffffff
 
+---$tips:チェックするとランダムな色になります。
 ---$check:カラフル
 local colorful = 0
+--hide@color:colorful==1
 
+---$tips:チェックするとランダムな角度で出力されるようになります。
 ---$check:ランダム角度
 local rrz = 1
 
+---$tips:図形が表示される範囲を指定します。
+---:100%が画面サイズとなります。
 ---$track:仮想bufサイズ[%]
 ---min=1
 ---max=500

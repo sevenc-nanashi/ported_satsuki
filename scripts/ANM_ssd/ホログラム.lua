@@ -29,6 +29,8 @@ local width = 800
 local height = 450
 ---$color:単色
 local monochrome_color = 0xffffff
+--hide@rainbow_angle:mode~=2
+--hide@monochrome_color:mode~=1
 
 --[[
 【素材】フォトショップでプリズムもどき【メイキング】

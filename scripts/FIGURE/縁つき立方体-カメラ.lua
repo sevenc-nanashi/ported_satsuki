@@ -1,31 +1,42 @@
 --label:${ROOT_CATEGORY}\図形\立体図形
+---$script_tips:縁がついた立方体の図形を作ります。
+---:カメラ制御下で使用して下さい。
+---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=1000
 ---step=1
 local size = 100
+---$tips:縁部分の幅を指定します。
 ---$track:ライン幅
 ---min=0
 ---max=4000
 ---step=1
 local line_width = 10
+---$tips:内側部分の透明度を指定します。
 ---$track:透明度
 ---min=0
 ---max=100
 local fill_opacity = 50
+---$tips:「明滅あり」にチェックした場合に有効です。
+---:明滅させる時間間隔[s]を指定します。
 ---$track:明滅間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
 local blink_interval = 1
+---$tips:縁部分または内側部分の色をしていします。
 ---$color:縁色
 local edge_color = 0xffffff
 
+---$tips:縁部分または内側部分の色をしていします。
 ---$color:内色
 local fill_color = 0x0000ff
 
+---$tips:チェックすると、内側部分が明滅します。
 ---$check:明滅あり
 local use_blink = false
+--hide@blink_interval:use_blink==0
 
 local fill_size = size - line_width * 2
 local max_alpha = fill_opacity / 100

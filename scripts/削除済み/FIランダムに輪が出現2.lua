@@ -1,20 +1,26 @@
 --label:${ROOT_CATEGORY}\画面効果\削除済み
+---$script_tips:ランダムに一定間隔で図形が出現し、フェードアウトしていきます。
+---$tips:ひとつのオブジェクトが登場＆フェードしていく時間を指定します。
 ---$track:時間[s]
 ---min=0
 ---max=10
 local duration = 2
+---$tips:次のオブジェクトが出現する時間間隔を指定します。
 ---$track:間隔[s]
 ---min=0.1
 ---max=10
 local interval = 1
+---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=0
 ---max=1000
 local size = 500
+---$tips:図形のライン幅を指定します。
 ---$track:ライン幅
 ---min=0
 ---max=1000
 local weight = 10
+---$tips:図形の種類を指定します。
 ---$figure:種類
 local name = "円"
 

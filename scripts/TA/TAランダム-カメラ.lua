@@ -1,40 +1,50 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:テキストが3D的にランダムに配置されます。
+---:カメラ制御下で使用して下さい。
+---$tips:テキストの散らばる度合いを指定します。
+---:直線移動などでゼロに移動させると、散らばっている状態から収束するように移動させることが出来ます。
 ---$track:散逸度
 ---min=0
 ---max=100
 ---step=1
 local dispersion = 50
 
+---$tips:X,Y,Z軸方向の移動速度を指定します。
 ---$track:X速度
 ---min=0
 ---max=200
 ---step=1
 local x_speed = 50
 
+---$tips:X,Y,Z軸方向の移動速度を指定します。
 ---$track:Y速度
 ---min=0
 ---max=200
 ---step=1
 local y_speed = 45
 
+---$tips:X,Y,Z軸方向の移動速度を指定します。
 ---$track:Z速度
 ---min=0
 ---max=200
 ---step=1
 local z_speed = 55
 
+---$tips:各軸方向の散らばる範囲を指定します。
 ---$track:X軸範囲
 ---min=0
 ---max=2
 ---step=0.01
 local x_axis_range = 0.5
 
+---$tips:各軸方向の散らばる範囲を指定します。
 ---$track:Y軸範囲
 ---min=0
 ---max=2
 ---step=0.01
 local y_axis_range = 0.5
 
+---$tips:各軸方向の散らばる範囲を指定します。
 ---$track:Z軸範囲
 ---min=0
 ---max=2
@@ -43,6 +53,7 @@ local z_axis_range = 0.5
 
 --trackgroup@x_axis_range,y_axis_range,z_axis_range:軸範囲
 
+---$tips:チェックすると拡大率と透明度もランダムに変化します。
 ---$check:拡大/透明
 local changes_zoom_alpha = false
 

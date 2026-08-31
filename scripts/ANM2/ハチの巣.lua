@@ -1,17 +1,23 @@
+---$script_tips:図形の六角形に適用して、ライン幅を小さくするとハチの巣状の模様になります。
+---:画像ループ2とほぼ同じです。
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$tips:各軸方向の間隔を指定します。
 ---$track:X間隔
 ---min=-1000
 ---max=1000
 local track0 = 100
+---$tips:各軸方向の間隔を指定します。
 ---$track:Y間隔
 ---min=-1000
 ---max=1000
 local track1 = 100
+---$tips:各軸方向の個数を指定します。
 ---$track:X個数
 ---min=1
 ---max=100
 ---step=1
 local nx = 5
+---$tips:各軸方向の個数を指定します。
 ---$track:Y個数
 ---min=1
 ---max=100

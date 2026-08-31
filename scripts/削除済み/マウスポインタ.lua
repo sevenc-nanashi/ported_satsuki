@@ -1,12 +1,16 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト\削除済み
+---$script_tips:マウスポインタ(矢印)の画像を描画します。誰得。
+---$tips:画像のサイズを指定します。
 ---$track:サイズ
 ---min=1
 ---max=100
 ---step=1
 local size = 10
+---$tips:画像の色や縁部分の色を指定します。
 ---$color:色
 local fill_color = 0xffffff
 
+---$tips:画像の色や縁部分の色を指定します。
 ---$color:縁色
 local border_color = 0x000000
 

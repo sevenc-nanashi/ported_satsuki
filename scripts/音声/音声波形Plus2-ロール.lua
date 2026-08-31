@@ -1,28 +1,36 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$script_tips:ロール状に変形した立体的な波形を作ります。
+---:カメラ制御下で使用して下さい。
+---$tips:円の半径の指定します。
 ---$track:半径
 ---min=0
 ---max=1000
 local radius = 100
+---$tips:波形の高さを調整します。
 ---$track:高さ
 ---min=0
 ---max=800
 local height = 100
+---$tips:横方向の分割数を指定します。
 ---$track:横分割
 ---min=1
 ---max=1024
 ---step=1
 local n_divs_h = 15
+---$tips:縦方向の分割数を指定します。
 ---$track:縦分割
 ---min=1
 ---max=100
 ---step=1
 local n_divs_v = 25
+---$tips:縦方向の隙間の大きさを指定します。
 ---$track:縦隙間(%)
 ---min=0
 ---max=100
 ---step=0.01
 local ch = 2
 
+---$tips:横方向の隙間の大きさを指定します。
 ---$track:横隙間
 ---min=0
 ---max=1000

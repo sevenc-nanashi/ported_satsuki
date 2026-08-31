@@ -92,6 +92,11 @@ local jido = 0
 
 ---$check:自動時回転あり
 local jdk = 1
+--hide@x:jido~=0
+--hide@y:jido~=0
+--hide@rz:jido==1
+--hide@jdk:jido==0
+--hide@jdk:jido==2
 
 obj.effect()
 

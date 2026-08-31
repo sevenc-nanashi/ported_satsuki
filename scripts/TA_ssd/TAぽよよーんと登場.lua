@@ -1,4 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:画像等がぽよよーんと伸縮して登場してきます。
+---$tips:登場する時間を指定します。マイナスの値で退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
@@ -9,6 +11,8 @@ local duration = 0.6
 ---max=5
 ---step=0.01
 local interval = 0.1
+---$tips:登場する勢いを指定します。
+---:値が大きいほど勢いよく登場し、複数回伸縮を繰り返します。
 ---$track:勢い
 ---min=0
 ---max=8
@@ -22,11 +26,13 @@ local momentum = 2.0
 ---内側から=4
 ---外側から=5
 local order = 0
+---$tips:登場した時の伸縮する揺れ幅を指定します。
 ---$track:揺れ幅[%]
 ---min=0
 ---max=800
 local amplitude = 100
 
+---$tips:登場するパターンをしていします。
 ---$select:種類
 ---拡大縮小=0
 ---縦方向=1

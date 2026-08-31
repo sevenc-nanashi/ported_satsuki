@@ -1,28 +1,37 @@
+---$script_tips:複数の振動フィルタを重ねることで複雑な振動をさせます。
 --label:${ROOT_CATEGORY}\アニメーション効果
+---$tips:基準となる振幅の大きさを指定します。
+---:大きくするとオブジェクトがどこかへ消えやすくなってしまいます。
 ---$track:振幅
 ---min=0
 ---max=1000
 ---step=0.1
 local amplitude = 50
 
+---$tips:基準となる振動の周期を指定します。
 ---$track:周期[s]
 ---min=0.01
 ---max=2
 ---step=0.01
 local period = 0.2
 
+---$tips:重ねがけする振動の数を指定します。
+---:数を多くすると振動が相殺されて緩やかになります。
 ---$track:個数
 ---min=0
 ---max=100
 ---step=1
 local count = 10
 
+---$tips:ゼロのときは常に振動します。通常はゼロのままが推奨。
+---:ゼロ以外の値に設定した場合は、ランダムに静止状態になります。
 ---$track:閾値
 ---min=0
 ---max=100
 ---step=0.1
 local threshold = 0
 
+---$tips:Z軸方向にも振動するかどうかを選択します。
 ---$check:z軸振動の有無
 local enable_z_axis = true
 

@@ -119,7 +119,7 @@ local param1 = 0
 ---$check:パラメーター2
 local param2 = false
 
---group:
+--group
 --^グループの終端
 ```
 

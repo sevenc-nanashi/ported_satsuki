@@ -1,18 +1,24 @@
 --label:${ROOT_CATEGORY}\図形
+---$script_tips:シンプルな魔法陣を作ります。
+---$tips:魔法陣の色を指定します。
 ---$color:色
 local col = 0xffffff
 --group:外円
+---$tips:魔法陣の半径を指定します。
+---:魔法陣内側の多角形部分のサイズとなります。
 ---$track:半径
 ---min=1
 ---max=2000
 ---step=1
 local l = 200
+---$tips:円の幅を指定します。
 ---$track:円幅
 ---min=0
 ---max=2000
 ---step=1
 local cw = 5
 
+---$tips:一番外側の円の半径を調整します。
 ---$track:外円調整[%]
 ---min=0
 ---max=500
@@ -20,6 +26,7 @@ local cw = 5
 local soto = 100
 
 --group:内部
+---$tips:多角形部分をいくつかの種類から選択します。
 ---$select:種類
 ---三角形=1
 ---四角形=2
@@ -29,41 +36,53 @@ local soto = 100
 ---八芒星=6
 ---九芒星=7
 local j = 2
+---$tips:魔法陣の多角形部分の幅を指定します。
 ---$track:角幅
 ---min=0
 ---max=2000
 ---step=1
 local circle_weight = 5
 
+---$tips:魔法陣の回転速度を指定します。
+---:回転速度=1だと10秒間で1回転します。マイナスにすると反対方向に回転します。
+---:ゼロにすると回転しません。
 ---$track:回転速度
 ---min=-100
 ---max=100
 ---step=0.01
 local v = 1
 
+---$tips:多角形部分の図形を2つ描画します。
+---:各図形は反対方向に回転します。
 ---$check:図形2つ
 local fig_num = true
 
 --group:テキスト
 
+---$tips:円に描画するテキスト文字を入力して下さい。
+---:英数字のみ限定です。
 ---$string:テキスト内容
 local text = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+---$tips:テキストのフォントサイズを指定します。
 ---$track:テキストサイズ
 ---min=1
 ---max=500
 ---step=1
 local tsize = 34
 
+---$tips:テキストのフォントを指定します。
 ---$font:テキストフォント
 local font = "MS UI Gothic"
 
+---$tips:テキストを配置する半径を調整します。
 ---$track:テキスト半径調整[%]
 ---min=0
 ---max=500
 ---step=1
 local tll = 100
 
+---$tips:テキストのフォントサイズのみを調整します。
 ---$track:テキストサイズ調整[%]
 ---min=0
 ---max=500

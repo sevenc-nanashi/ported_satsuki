@@ -1,22 +1,28 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:陰陽玉のようなイメージで回って登場してきます。
+---:中央揃え[中]で使用して下さい。
+---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-10
 ---max=10
 ---step=0.01
 local duration = 3
 
+---$tips:回転する角度を指定します。
 ---$track:角度
 ---min=-720
 ---max=720
 ---step=0.1
 local rotation_angle = 360
 
+---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
 
+---$tips:チェックすると、一文字毎に回転するようになります。
 ---$check:文字回転
 local rotates_character = true
 

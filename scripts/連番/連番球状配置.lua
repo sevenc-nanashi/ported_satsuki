@@ -1,13 +1,19 @@
 --label:${ROOT_CATEGORY}\画像ファイル
+---$script_tips:こちらの球状配置スクリプトを連番画像にも対応させて改変したものです。
+---:http://www.nicovideo.jp/watch/sm13588483
+---:カメラ制御下で使用して下さい。
+---$tips:球の半径を指定します。
 ---$track:半径
 ---min=1
 ---max=1000
 ---step=1
 local radius = 100
+---$tips:球を自転して回転させます。
 ---$track:自転
 ---min=-3600
 ---max=3600
 local spin_rotation = 0
+---$tips:画像の方向を指定します。
 ---$select:方向
 ---指定なし=-1
 ---正面=0
@@ -16,56 +22,67 @@ local spin_rotation = 0
 ---球の外側=3
 ---球の中心=4
 local direction = 3
+---$tips:極(北極・南極)部分の画像のサイズを指定します。
+---:ゼロにすると、極に近づくほど画像のサイズが小さくなります。
 ---$track:極スケール%
 ---min=0
 ---max=1000
 ---step=1
 local pole_scale = 100
 
+---$tips:各軸方向のサイズを指定し、楕円形に伸縮させます。
 ---$track:Xスケール%
 ---min=0
 ---max=1000
 ---step=1
 local x_scale = 100
 
+---$tips:各軸方向のサイズを指定し、楕円形に伸縮させます。
 ---$track:Yスケール%
 ---min=0
 ---max=1000
 ---step=1
 local y_scale = 100
 
+---$tips:各軸方向のサイズを指定し、楕円形に伸縮させます。
 ---$track:Zスケール%
 ---min=0
 ---max=1000
 ---step=1
 local z_scale = 100
 
+---$tips:経線方向の画像の数を指定します。
 ---$track:経線頂点
 ---min=1
 ---max=100
 ---step=1
 local meridian_vertices = 10
 
+---$tips:緯線方向の画像の数を指定します。
 ---$track:緯線頂点
 ---min=1
 ---max=100
 ---step=1
 local parallel_vertices = 10
 
+---$tips:チェックすると両極にある画像も描画します。
 ---$check:両極を描画
 local draw_poles = false
 
 --separator:連番
+---$tips:読み込むファイルの範囲を指定します。
 ---$track:File数
 ---min=0
 ---max=500
 ---step=1
 local file_count = 10
+---$tips:連番部分の桁数を指定します。
 ---$track:連番桁
 ---min=1
 ---max=8
 ---step=1
 local serial_digits = 4
+---$tips:読み込む連番ファイルを指定します。
 ---$file:ファイル
 local file = ""
 

@@ -1,24 +1,33 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$script_tips:テキストを一文字ずつドラッグして配置します。
+---:テキストオブジェクトの制御文字でも同様のことができますが、それを柔軟?にしたイメージ
+---:図形などの適当なオブジェクトに、(A)→(B)の順に適用して下さい。
+---$tips:テキストを一文字毎に、ランダムにZ軸方向にずらします。
 ---$track:Zランダム
 ---min=0
 ---max=500
 ---step=1
 local z_random = 0
+---$tips:テキストを一文字毎に、ランダムにZ軸回転します。
 ---$track:回転ランダム
 ---min=0
 ---max=500
 local rotation_random = 0
+---$tips:テキストをランダム方向(X,Y,Z)に移動させます。
 ---$track:移動速度
 ---min=0
 ---max=100
 local move_speed = 0
 
+---$tips:表示したいテキストを入力します。最大16文字程度まで。
 ---$string:テキスト
 local text = "さんぷる"
 
+---$tips:XY座標を数値で指定することも出来ます。通常は設定する必要はありません。
 ---$value:(XY座標)
 local positions = {}
 
+---$tips:テキストの基準となるサイズを指定します。
 ---$track:基準サイズ
 ---min=0
 ---max=512
@@ -26,30 +35,46 @@ local positions = {}
 local base_size = 50
 local s = base_size
 
+---$tips:任意の文字のサイズを指定します。
+---:{1文字目のサイズ,2文字目のサイズ,…}というリストになってます。
+---:設定した基準サイズと同じ場合は、具体的な数値ではなく"s"でもOKです。
+---:【例】3文字目と5文字目のサイズを変える場合
+---:{s,s,100,s,120}
 ---$value:サイズ(基準:s)
 local sizes = {}
 
+---$tips:基準となるフォントを指定します。
 ---$font:基準フォント
 local base_font = "Yu Gothic UI"
 local f = base_font
 
+---$tips:任意の文字のフォントを指定します。
+---:【例】3文字目のフォントを指定する場合
+---:{f,f,"HGP明朝B"}
 ---$value:フォント(基準:f)
 local fonts = {}
 
+---$tips:基準となるテキストの色を指定します。
 ---$color:基準色
 local base_color = 0xffffff
 
 local c = base_color
 
+---$tips:任意の文字の色を指定します。
+---:【例】3文字目の色を指定する場合
+---:{c,c,0x00ffff}
 ---$value:色(基準:c)
 local colors = {}
 
+---$tips:任意の文字のZ座標を指定します。
 ---$value:Z座標
 local z_positions = {}
 
+---$tips:任意の文字のZ回転を指定します。
 ---$value:Z回転
 local z_rotations = {}
 
+---$tips:任意の文字の縦横比を指定します(-100〜100)。
 ---$value:縦横比
 local aspects = {}
 

@@ -1,42 +1,54 @@
 --label:${ROOT_CATEGORY}\図形\立体図形
+---$script_tips:Aviutlで家が建ちます。
+---:(カメラ制御下で使用して下さい。)
+---$tips:家の大きさを指定します。
 ---$track:サイズ
 ---min=0
 ---max=1000
 ---step=1
 local size = 100
+---$tips:家の横幅の広さを指定します。
 ---$track:横幅比
 ---min=0
 ---max=100
 ---step=0.1
 local width_ratio = 20
+---$tips:家の奥行きを指定します。
 ---$track:奥行き
 ---min=0
 ---max=1000
 ---step=1
 local depth = 150
+---$tips:屋根部分の角度を指定します。
 ---$track:角度
 ---min=0
 ---max=180
 ---step=0.1
 local roof_angle = 90
+---$tips:壁部分および屋根部分の色を指定します。
 ---$color:壁色
 local wall_color = 0xffffff
 
+---$tips:壁部分および屋根部分の色を指定します。
 ---$color:屋根色
 local roof_color = 0xff0000
 
+---$tips:屋根の正面部分のひさしの大きさを指定します。
 ---$track:ひさし1
 ---min=0
 ---max=5
 ---step=0.01
 local front_eaves = 1.1
 
+---$tips:屋根の側面部分のひさしの大きさを指定します。
 ---$track:ひさし2
 ---min=0
 ---max=5
 ---step=0.01
 local side_eaves = 1.2
 
+---$tips:壁と屋根の間に隙間を作ります。
+---:隙間=ゼロだと、壁が屋根を貫通してしまう場合があるので注意。
 ---$track:屋根隙間
 ---min=0
 ---max=100

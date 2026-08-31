@@ -1,22 +1,30 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+---$script_tips:別パターンの音声波形オブジェクトを作ります。
+---:適当な図形等のオブジェクトに適用して下さい。
+---$tips:横幅のサイズを指定します。
 ---$track:横幅
 ---min=0
 ---max=2000
 local width = 640
+---$tips:縦幅のサイズを調整します。
 ---$track:縦幅%
 ---min=0
 ---max=800
 local height = 100
+---$tips:ライン幅をしていします。
 ---$track:ライン幅
 ---min=0
 ---max=500
 ---step=1
 local line_weight = 10
+---$tips:音声データの分割数を指定します。
+---:数値が大きいほど細かい波形となります。
 ---$track:分割数
 ---min=1
 ---max=1024
 ---step=1
 local n_divisions = 50
+---$tips:波形の色を指定します。
 ---$color:色
 local color = 0xffffff
 

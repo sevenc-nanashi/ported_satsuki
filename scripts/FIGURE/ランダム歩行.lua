@@ -27,6 +27,7 @@ local color = 0xffffff
 
 ---$check:カラフル
 local colorful = true
+--hide@color:colorful==1
 
 ---$track:ランダムサイズ[-%]
 ---min=0

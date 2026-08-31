@@ -1,17 +1,22 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト\模様
+---$script_tips:チェック柄を作ります。
+---$tips:横または縦方向に繰り返す回数を指定します。
 ---$track:横回数
 ---min=1
 ---max=100
 ---step=1
 local horizontal_count = 1
+---$tips:横または縦方向に繰り返す回数を指定します。
 ---$track:縦回数
 ---min=1
 ---max=100
 ---step=1
 local vertical_count = 1
+---$tips:背景部分の色を指定します。
 ---$color:背景色
 local background_color = 0x8080ff
 
+---$tips:チェック部分の色を指定します。
 ---$color:チェック色
 local check_color = 0xffffff
 

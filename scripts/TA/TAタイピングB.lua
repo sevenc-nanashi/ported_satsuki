@@ -1,12 +1,16 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:テキストオブジェクトに適用して下さい。
+---$tips:カーソルの横幅を指定した値だけ短くします、
 ---$track:-横幅
 ---min=0
 ---max=256
 local cursor_width_reduction = 0
+---$tips:カーソルの太さを指定します。
 ---$track:太さ
 ---min=0
 ---max=256
 local cursor_thickness = 1
+---$tips:カーソルの色を指定します。
 ---$color:色
 local cursor_color = 0xffffff
 

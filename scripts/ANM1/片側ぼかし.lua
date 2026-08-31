@@ -1,16 +1,21 @@
+---$script_tips:上下左右の境界から透明度をぼかします。
 --label:${ROOT_CATEGORY}\ぼかし
+---$tips:各方向からの範囲(ピクセル)を指定します。
 ---$track:上
 ---min=0
 ---max=2000
 local up_blur = 0
+---$tips:各方向からの範囲(ピクセル)を指定します。
 ---$track:下
 ---min=0
 ---max=2000
 local down_blur = 0
+---$tips:各方向からの範囲(ピクセル)を指定します。
 ---$track:左
 ---min=0
 ---max=2000
 local left_blur = 0
+---$tips:各方向からの範囲(ピクセル)を指定します。
 ---$track:右
 ---min=0
 ---max=2000

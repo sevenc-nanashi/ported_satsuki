@@ -50,6 +50,8 @@ local move_angle = 0
 ---$check:ランダム角度
 local random_angle = false
 
+--hide@move_angle:random_angle==1
+
 local elapsed_time = obj.time - wait_time
 local interval_length = math.abs(interval)
 local rotation_duration = math.abs(360 / rotation_speed)

@@ -1,40 +1,50 @@
 --label:${ROOT_CATEGORY}\画像ファイル
+---$script_tips:「円形並べ」を連番画像で適用します。
+---$tips:画像の数を指定します。
 ---$track:個数
 ---min=0
 ---max=100
 ---step=1
 local count = 10
+---$tips:円の半径を指定します。
 ---$track:距離
 ---min=0
 ---max=2000
 ---step=1
 local distance = 200
+---$tips:画像の拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=800
 local scale = 100
+---$tips:画像の回転角度を指定します。
 ---$track:回転
 ---min=-360
 ---max=360
 local rotation = 0
+---$tips:チェックすると画像は、円の配置し応じて角度が変化しなくなり、同じ角度になります。
 ---$check:回転なし
 local no_rotation = false
 
 --separator:連番
+---$tips:読み込むファイルの範囲を指定します。
 ---$track:File数
 ---min=0
 ---max=500
 ---step=1
 local file_count = 10
+---$tips:連番部分の桁数を指定します。
 ---$track:連番桁
 ---min=1
 ---max=8
 ---step=1
 local serial_digits = 4
+---$tips:配置するファイルの順番を指定します。
 ---$select:読み込み順
 ---ランダム=0
 ---連番=1
 local order_mode = 0
+---$tips:読み込む連番ファイルを指定します。
 ---$file:ファイル
 local file = ""
 

@@ -1,19 +1,25 @@
 --label:${ROOT_CATEGORY}\クリッピング
+---$script_tips:「マスク」フィルタのサイズ等を加減速移動します。
+---:重ねがけできません。
+---$tips:「マスク」フィルタと同じ
 ---$track:回転1
 ---min=-720
 ---max=720
 ---step=1
 local base_rotation = 0
+---$tips:「マスク」フィルタと同じ
 ---$track:サイズ1
 ---min=0
 ---max=2000
 ---step=1
 local base_size = 100
+---$tips:「マスク」フィルタと同じ
 ---$track:縦横比1
 ---min=-100
 ---max=100
 ---step=1
 local base_aspect_ratio = 0
+---$tips:「マスク」フィルタと同じ
 ---$track:ぼかし1
 ---min=0
 ---max=200
@@ -21,6 +27,7 @@ local base_aspect_ratio = 0
 local base_blur = 0
 
 --group:マスクの種類
+---$tips:マスクの種類を数値で指定します。
 ---$select:マスクの種類::マスクの種類
 ---図形=0
 ---シーン=1
@@ -33,14 +40,19 @@ local mask_figure = "円"
 ---$string:マスクシーン
 local mask_scene = ""
 
---group:
+--group
 
+--hide@mask_figure:mask_type~=0
+--hide@mask_scene:mask_type~=1
+
+---$tips:「マスク」フィルタと同じ
 ---$track:X
 ---min=-2000
 ---max=2000
 ---step=1
 local center_x = 0
 
+---$tips:「マスク」フィルタと同じ
 ---$track:Y
 ---min=-2000
 ---max=2000
@@ -49,41 +61,49 @@ local center_y = 0
 
 --trackgroup@center_x,center_y:中心座標
 
+---$tips:「マスク」フィルタと同じ
 ---$check:反転
 local invert_mask = false
 
 --separator:加減速
+---$tips:登場してくる時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 1
+---$tips:加減速の度合いを指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
+---$tips:加減速の種類を指定します。
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local mode = 0
 
+---$tips:登場してくる回転角度を指定します。
 ---$track:回転2
 ---min=-720
 ---max=720
 ---step=1
 local rotation_delta = 0
+---$tips:登場してくるサイズを指定します。
 ---$track:サイズ2
 ---min=-2000
 ---max=2000
 ---step=1
 local size_delta = 0
+---$tips:登場してくる縦横比を指定します。
 ---$track:縦横比2[%]
 ---min=-100
 ---max=100
 ---step=1
 local aspect_ratio_delta = 0
+---$tips:登場してくるぼかしの範囲を指定します。
 ---$track:ぼかし2
 ---min=-200
 ---max=200

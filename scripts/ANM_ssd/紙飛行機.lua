@@ -35,6 +35,7 @@ local use_auto_direction = false
 ---Z軸=0
 ---X軸=1
 local base_axis = 0
+--hide@base_axis:use_auto_direction==0
 
 local function draw_static_plane()
     obj.load("figure", "四角形", color, 2)

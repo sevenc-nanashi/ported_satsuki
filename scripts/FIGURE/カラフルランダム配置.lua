@@ -1,45 +1,59 @@
 --label:${ROOT_CATEGORY}\パーティクル出力
+---$script_tips:ランダムな色の図形をランダムに配置します。
+---$tips:配置する図形の数を指定します。
 ---$track:個数
 ---min=0
 ---max=1000
 ---step=1
 local count = 5
+---$tips:図形を配置する範囲をしていします。
+---:100%が画面サイズとなります。
 ---$track:X幅[%]
 ---min=0
 ---max=5000
 ---step=1
 local width_x = 100
+---$tips:図形を配置する範囲をしていします。
+---:100%が画面サイズとなります。
 ---$track:Y幅[%]
 ---min=0
 ---max=5000
 ---step=1
 local width_y = 100
+---$tips:図形を配置する範囲をしていします。
+---:100%が画面サイズとなります。
 ---$track:Z幅[%]
 ---min=0
 ---max=5000
 ---step=1
 local width_z = 0
+---$tips:図形の種類を指定します。
 ---$figure:種類
 local figure_name = "円"
 
+---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=0
 ---max=2000
 ---step=1
 local figure_size = 100
 
+---$tips:図形のライン幅を指定します。
 ---$track:ライン幅
 ---min=0
 ---max=10000
 ---step=1
 local line_width = 4000
 
+---$tips:ランダムに回転する速さを指定します。
 ---$track:ランダムZ回転
 ---min=0
 ---max=360
 ---step=1
 local random_z_rotation_speed = 0
 
+---$tips:図形一つひとつの拡大率をランダムにします。
+---:数値は、例えば、ランダム拡大=80で設定すると、100-80=20%→20%〜100%の範囲でランダムとなります。
 ---$track:ランダム拡大[-%]
 ---min=0
 ---max=100

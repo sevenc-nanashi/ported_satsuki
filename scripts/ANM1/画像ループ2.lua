@@ -1,14 +1,20 @@
+---$script_tips:同じ画像を複数並べて表示します。
+---:本家の「画像ループ」フィルタと異なり、画像間に隙間を空けること等ができます。
+---:ただし、本家のように一定の速度でループ移動させることはできません。
 --label:${ROOT_CATEGORY}\配置
+---$tips:各画像間の間隔を、XY方向にそれぞれ指定します。
 ---$track:X間隔
 ---min=-1000
 ---max=1000
 ---step=1
 local x_interval = 100
+---$tips:各画像間の間隔を、XY方向にそれぞれ指定します。
 ---$track:Y間隔
 ---min=-1000
 ---max=1000
 ---step=1
 local y_interval = 100
+---$tips:Z軸方向にループした場合に、Z軸方向の間隔を指定します。
 ---$track:Z間隔
 ---min=-2000
 ---max=2000
@@ -17,28 +23,38 @@ local z_interval = 300
 
 --trackgroup@x_interval,y_interval,z_interval:間隔
 
+---$tips:各軸方向にループする回数を指定します。
 ---$track:X個数
 ---min=1
 ---max=100
 ---step=1
 local x_count = 3
+---$tips:各軸方向にループする回数を指定します。
 ---$track:Y個数
 ---min=1
 ---max=100
 ---step=1
 local y_count = 3
+---$tips:Z軸方向にループする回数を指定します。
 ---$track:Z個数
 ---min=1
 ---max=100
 ---step=1
 local z_count = 1
 
+---$tips:XY軸平面上で段違いにループします。
 ---$check:XY軸段違い
 local stagger_xy = false
 
+---$tips:ZY軸平面上で段違いにループします。
 ---$check:ZY軸段違い
 local stagger_zy = false
 
+---$tips:チェックすると、設定ダイアログの拡大や回転などが、個別の画像基準になります。
+---:チェックなし：設定ダイアログの拡大回転→全体の拡大回転
+---:　　　　　　　X,Y間隔の項目が画像基準となります(単位:％)。
+---:チェックあり：設定ダイアログの拡大回転→個別画像の拡大回転
+---:　　　　　　　X,Y間隔の項目が距離基準となります(単位:ピクセル)。
 ---$check:個別基準
 local individual_origin = false
 

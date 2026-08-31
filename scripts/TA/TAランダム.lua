@@ -1,22 +1,28 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:テキストがランダムに配置されます。
+---$tips:テキストの散らばる度合いを指定します。
+---:直線移動などでゼロに移動させると、散らばっている状態から収束するように移動させることが出来ます。
 ---$track:散逸度
 ---min=0
 ---max=100
 ---step=1
 local dispersion = 50
 
+---$tips:X,Y軸方向の移動速度を指定します。
 ---$track:X速度
 ---min=0
 ---max=200
 ---step=1
 local x_speed = 50
 
+---$tips:X,Y軸方向の移動速度を指定します。
 ---$track:Y速度
 ---min=0
 ---max=200
 ---step=1
 local y_speed = 50
 
+---$tips:チェックすると拡大率および透明度も変化するようになります。
 ---$check:拡大/透明も変化
 local changes_zoom_alpha = false
 

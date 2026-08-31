@@ -1,4 +1,6 @@
+---$script_tips:図形の円に適用すると、切れ込みが入ったようにします。歯車のイメージ。
 --label:${ROOT_CATEGORY}\クリッピング
+---$tips:切れ込みの深さを指定します。
 ---$track:深さ
 ---min=1
 ---max=500
@@ -7,10 +9,12 @@ local depth = 60
 ---min=-360
 ---max=360
 local open_angle = 10
+---$tips:切れ込みの斜め方向の角度を指定します。
 ---$track:角度調整
 ---min=-360
 ---max=360
 local angle = 10
+---$tips:切れ込みの数を指定します。2の倍数で設定させます。
 ---$track:切込数
 ---min=2
 ---max=50
@@ -33,6 +37,10 @@ local cy = 0
 
 ---$check:新方式を使用
 local use_new = true
+
+--hide@angle:use_new==0
+--hide@cx:use_new==0
+--hide@cy:use_new==0
 
 --[[pixelshader@notch:
 ---$include "./shaders/notch.hlsl"

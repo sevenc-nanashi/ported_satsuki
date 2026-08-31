@@ -1,22 +1,28 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:一文字毎に文字が移動します。
+---:TA標準登場と似ていて、登場前の文字も表示されます。
+---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 0.3
 
+---$tips:文字の登場間隔を指定します。
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
 local interval = 0.3
 
+---$tips:最初の文字が移動し始めるまでの待機時間を指定します。
 ---$track:開始[s]
 ---min=0
 ---max=100
 ---step=0.01
 local start_time = 0
 
+---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
 ---後ろから=1
@@ -26,24 +32,28 @@ local start_time = 0
 ---外側から=5
 local order_mode = 0
 
+---$tips:登場する拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=1000
 ---step=0.1
 local zoom_rate = 100
 
+---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
 ---max=2000
 ---step=0.1
 local distance_x = 0
 
+---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:Y距離
 ---min=-2000
 ---max=2000
 ---step=0.1
 local distance_y = 100
 
+---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:Z距離
 ---min=-2000
 ---max=2000
@@ -52,18 +62,21 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+---$tips:登場してくる回転角を指定します。
 ---$track:X軸回転
 ---min=-720
 ---max=720
 ---step=0.1
 local rotation_x = 0
 
+---$tips:登場してくる回転角を指定します。
 ---$track:Y軸回転
 ---min=-720
 ---max=720
 ---step=0.1
 local rotation_y = 0
 
+---$tips:登場してくる回転角を指定します。
 ---$track:Z軸回転
 ---min=-720
 ---max=720
@@ -72,18 +85,22 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
 
+---$tips:加減速の種類を指定します(詳細は「加減速」の「共通項目の説明」を参照)。
 ---$select:モード
 ---減速=0
 ---加速=1
 ---S字=2
 local easing_mode = 0
 
+---$tips:チェックすると、全体的に登場してくるようになります。
+---:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
 ---$check:タイプ
 local overall_appearance = false
 

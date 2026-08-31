@@ -1,22 +1,28 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:「文字毎に個別オブジェクト」にチェックした場合でも、全体を拡大・回転させることが出来ます。
+---:ただし、複数の軸回転を組み合わせた場合は、正確な回転にならない場合があります。
+---$tips:全体の拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=800
 ---step=0.001
 local zoom_rate = 100
 
+---$tips:各軸に沿って回転させます。
 ---$track:X軸回転
 ---min=-720
 ---max=720
 ---step=0.01
 local rotation_x = 0
 
+---$tips:各軸に沿って回転させます。
 ---$track:Y軸回転
 ---min=-720
 ---max=720
 ---step=0.01
 local rotation_y = 0
 
+---$tips:各軸に沿って回転させます。
 ---$track:Z軸回転
 ---min=-720
 ---max=720

@@ -1,3 +1,4 @@
+---$script_tips:グループ制御もどき(親)参照
 --label:${ROOT_CATEGORY}\オブジェクト制御
 
 local x = S_GRP_x

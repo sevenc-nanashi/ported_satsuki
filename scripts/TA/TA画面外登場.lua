@@ -1,22 +1,27 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+---$script_tips:テキストが画面外から登場してきます。
+---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 0.3
 
+---$tips:文字の登場間隔を指定します。
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
 local interval = 0.3
 
+---$tips:登場してくる方向を指定します。
 ---$track:角度
 ---min=-360
 ---max=360
 ---step=0.1
 local direction_angle = 0
 
+---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
 ---後ろから=1
@@ -26,6 +31,7 @@ local direction_angle = 0
 ---外側から=5
 local order_mode = 0
 
+---$tips:登場してくる拡大率を指定します。
 ---$track:拡大率
 ---min=0
 ---max=1000

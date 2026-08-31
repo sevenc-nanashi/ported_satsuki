@@ -1,3 +1,4 @@
+---$script_tips:任意の2色を指定し、段階的なグラデーションをかけます。
 --label:${ROOT_CATEGORY}\色調整
 
 ---$track:強さ
@@ -6,33 +7,40 @@
 ---step=0.1
 local strength = 100
 
+---$tips:グラデーションの中心座標を指定します。
 ---$track:中心X
 ---min=-5000
 ---max=5000
 ---step=0.1
 local cx = 0
 
+---$tips:グラデーションの中心座標を指定します。
 ---$track:中心Y
 ---min=-5000
 ---max=5000
 ---step=0.1
 local cy = 0
+---$tips:グラデーション部分の幅を指定します。
 ---$track:幅
 ---min=0
 ---max=2000
 local h = 200
 
+---$tips:グラデーションの角度を指定します。
 ---$track:角度
 ---min=-360
 ---max=360
 local r = 0
 
+---$tips:グラデーションにする任意の色2色を指定します。
 ---$color:開始色
 local col1 = 0xffff00
 
+---$tips:グラデーションにする任意の色2色を指定します。
 ---$color:終了色
 local col2 = nil
 
+---$tips:グラデーション部分を何段階にするか、分割数を指定します。
 ---$track:分割数
 ---min=1
 ---max=50

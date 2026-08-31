@@ -1,24 +1,31 @@
+---$script_tips:同じ画像をXY平面上に円形に並べます。
+---:順番に登場または退場するように設定することが出来ます。
 --label:${ROOT_CATEGORY}\配置
+---$tips:画像の数を指定します。
 ---$track:個数
 ---min=1
 ---max=100
 ---step=1
 local count = 10
+---$tips:円の半径を指定します。
 ---$track:距離
 ---min=0
 ---max=2000
 ---step=1
 local distance = 200
+---$tips:ひとつの画像が登場する時間(秒)を指定します。
 ---$track:時間[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local duration = 0.3
+---$tips:次の画像が登場してくるまでの間隔(秒)を指定します。
 ---$track:間隔[s]
 ---min=0
 ---max=5
 ---step=0.01
 local interval = 0.3
+---$tips:チェックすると、円形の並びが外向きになります。
 ---$check:外向き
 local outward = false
 
