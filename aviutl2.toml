@@ -27,7 +27,7 @@ build.group = "aulua"
 [artifacts.Default_satsuki_aul2]
 source = "./build/Default.ported_satsuki.aul2"
 destination = "Language/Default.ported_satsuki.aul2"
-build.group = "aulua"
+build = "aulua language update"
 
 [development]
 aviutl2_version = "latest"
