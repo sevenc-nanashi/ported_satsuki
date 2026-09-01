@@ -9,17 +9,21 @@ local depth = 60
 ---min=-360
 ---max=360
 local open_angle = 10
----$tips:切れ込みの斜め方向の角度を指定します。
----$track:角度調整
----min=-360
----max=360
-local angle = 10
 ---$tips:切れ込みの数を指定します。2の倍数で設定させます。
 ---$track:切込数
 ---min=2
 ---max=50
 ---step=1
 local num_notches = 8
+
+---$check:新方式を使用
+local use_new = true
+
+---$tips:切れ込みの斜め方向の角度を指定します。
+---$track:角度調整
+---min=-360
+---max=360
+local angle = 10
 
 ---$track:中心X
 ---min=-4000
@@ -34,9 +38,6 @@ local cx = 0
 local cy = 0
 
 --trackgroup@cx,cy:中心
-
----$check:新方式を使用
-local use_new = true
 
 --hide@angle:use_new==0
 --hide@cx:use_new==0

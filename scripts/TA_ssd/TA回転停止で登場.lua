@@ -41,14 +41,14 @@ local rotates_z = true
 ---step=0.1
 local move_distance = 0
 
+---$check:ランダム角度
+local random_angle = false
+
 ---$track:移動角度
 ---min=-360
 ---max=360
 ---step=0.1
 local move_angle = 0
-
----$check:ランダム角度
-local random_angle = false
 
 --hide@move_angle:random_angle==1
 

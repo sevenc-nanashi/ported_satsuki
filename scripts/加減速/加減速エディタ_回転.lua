@@ -50,18 +50,6 @@ local buffer_size = 100
 local show_graph = true
 
 --group:グラフ
----$track:G横サイズ
----min=1
----max=2000
----step=0.1
-local graph_width = 400
-
----$track:G縦サイズ
----min=1
----max=2000
----step=0.1
-local graph_height = 300
-
 ---$color:G色
 local graph_color = 0xffff00
 
@@ -76,6 +64,18 @@ local graph_line_width = 5
 ---max=200
 ---step=1
 local graph_division_count = 20
+
+---$track:G横サイズ
+---min=1
+---max=2000
+---step=0.1
+local graph_width = 400
+
+---$track:G縦サイズ
+---min=1
+---max=2000
+---step=0.1
+local graph_height = 300
 
 --hide@graph_color:show_graph==0
 --hide@graph_line_width:show_graph==0

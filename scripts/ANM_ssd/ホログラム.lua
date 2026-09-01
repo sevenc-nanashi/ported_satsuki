@@ -8,15 +8,6 @@ local size = 80
 ---min=-720
 ---max=720
 local rotation = 0
----$track:虹角度
----min=-720
----max=720
-local rainbow_angle = -60
----$select:タイプ
----赤緑=0
----単色=1
----虹=2
-local mode = 1
 ---$track:横サイズ
 ---min=1
 ---max=5000
@@ -27,6 +18,15 @@ local width = 800
 ---max=5000
 ---step=1
 local height = 450
+---$select:タイプ
+---赤緑=0
+---単色=1
+---虹=2
+local mode = 1
+---$track:虹角度
+---min=-720
+---max=720
+local rainbow_angle = -60
 ---$color:単色
 local monochrome_color = 0xffffff
 --hide@rainbow_angle:mode~=2

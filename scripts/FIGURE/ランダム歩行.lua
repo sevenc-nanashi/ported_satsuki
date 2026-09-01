@@ -22,11 +22,11 @@ local figure_size = 30
 ---$figure:図形
 local figure_name = "円"
 
----$color:色
-local color = 0xffffff
-
 ---$check:カラフル
 local colorful = true
+
+---$color:色
+local color = 0xffffff
 --hide@color:colorful==1
 
 ---$track:ランダムサイズ[-%]

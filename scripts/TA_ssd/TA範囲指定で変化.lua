@@ -20,6 +20,11 @@ local range_size = 100
 
 ---$check:範囲表示
 local shows_range = true
+---$select:自動移動
+---なし=0
+---離れる方向=1
+---近づく方向=2
+local auto_move_mode = 0
 
 ---$track:X移動
 ---min=-2000
@@ -32,6 +37,12 @@ local offset_x = 0
 ---max=2000
 ---step=0.1
 local offset_y = 0
+
+---$track:Z回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
 
 ---$track:Z移動
 ---min=-2000
@@ -65,12 +76,6 @@ local rotation_x = 0
 ---step=0.1
 local rotation_y = 0
 
----$track:Z回転
----min=-720
----max=720
----step=0.1
-local rotation_z = 0
-
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
 ---$track:加減速
@@ -78,12 +83,6 @@ local rotation_z = 0
 ---max=5
 ---step=1
 local easing_power = 2
-
----$select:自動移動
----なし=0
----離れる方向=1
----近づく方向=2
-local auto_move_mode = 0
 
 ---$track:幅
 ---min=1

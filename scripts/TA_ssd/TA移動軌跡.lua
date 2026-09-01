@@ -1,5 +1,10 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:XY座標を直線移動などで移動させた場合に、その移動軌跡にそってテキストが移動します。
+---$tips:オブジェクトの現在時間に応じて、テキストが始点から終点に移動します。
+---:チェックしている時は「位置基準」の項目が無効となります。
+---$check:時間基準
+local uses_time_basis = false
+
 ---$tips:テキストの位置を割合(%)で指定します。0：始点、100：終点
 ---$track:位置基準
 ---min=0
@@ -17,11 +22,6 @@ local spacing = 34
 ---$tips:開始点または終了点にある文字が透明になります。
 ---$check:始終透明
 local hides_ends = false
-
----$tips:オブジェクトの現在時間に応じて、テキストが始点から終点に移動します。
----:チェックしている時は「位置基準」の項目が無効となります。
----$check:時間基準
-local uses_time_basis = false
 
 --hide@position_rate:uses_time_basis==1
 

@@ -28,13 +28,13 @@ local weight = 10
 ---$figure:種類
 local name = "円"
 
----$tips:図形の色を指定します。
----$color:色
-local color = 0xffffff
-
 ---$tips:チェックするとランダムな色になります。
 ---$check:カラフル
 local colorful = 0
+
+---$tips:図形の色を指定します。
+---$color:色
+local color = 0xffffff
 --hide@color:colorful==1
 
 ---$tips:チェックするとランダムな角度で出力されるようになります。

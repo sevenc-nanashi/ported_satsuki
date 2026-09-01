@@ -16,6 +16,12 @@ local track1 = 4000
 local track2 = 1
 ---$check:範囲表示
 local show_range = true
+---$select:自動移動
+---なし=0
+---離れる方向=1
+---近づく方向=2
+local jido = 0
+
 ---$track:X
 ---min=-100000
 ---max=100000
@@ -29,6 +35,16 @@ local x = 0
 ---step=0.01
 ---scale=0.02
 local y = 0
+
+---$track:Z回転
+---min=-3600
+---max=3600
+---step=0.01
+---scale=0.1
+local rz = 0
+
+---$check:自動時回転あり
+local jdk = 1
 
 ---$track:Z
 ---min=-100000
@@ -64,13 +80,6 @@ local rx = 0
 ---scale=0.1
 local ry = 0
 
----$track:Z回転
----min=-3600
----max=3600
----step=0.01
----scale=0.1
-local rz = 0
-
 --separator:加減速
 ---$select:モード
 ---減速=0
@@ -83,15 +92,6 @@ local adc = 0
 ---max=5
 ---step=1
 local beki = 2
-
----$select:自動移動
----なし=0
----離れる方向=1
----近づく方向=2
-local jido = 0
-
----$check:自動時回転あり
-local jdk = 1
 --hide@x:jido~=0
 --hide@y:jido~=0
 --hide@rz:jido==1

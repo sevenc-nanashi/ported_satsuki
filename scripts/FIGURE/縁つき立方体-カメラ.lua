@@ -18,6 +18,10 @@ local line_width = 10
 ---min=0
 ---max=100
 local fill_opacity = 50
+---$tips:チェックすると、内側部分が明滅します。
+---$check:明滅あり
+local use_blink = false
+
 ---$tips:「明滅あり」にチェックした場合に有効です。
 ---:明滅させる時間間隔[s]を指定します。
 ---$track:明滅間隔[s]
@@ -32,10 +36,6 @@ local edge_color = 0xffffff
 ---$tips:縁部分または内側部分の色をしていします。
 ---$color:内色
 local fill_color = 0x0000ff
-
----$tips:チェックすると、内側部分が明滅します。
----$check:明滅あり
-local use_blink = false
 --hide@blink_interval:use_blink==0
 
 local fill_size = size - line_width * 2
