@@ -15,7 +15,7 @@ local threshold = 50
 ---step=0.01
 local interval = 0.01
 
-s = rand(0, 99, 0, math.floor(obj.time / interval))
+local s = rand(0, 99, 0, math.floor(obj.time / interval))
 if s >= threshold then
     obj.effect()
 end

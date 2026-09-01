@@ -57,7 +57,7 @@ local inverted = 0
 ---step=1
 local ss = 100
 
---group:文字
+--group:図形
 ---$tips:チェックすると図形ではなく文字を配置します。
 ---$check:val::文字
 local tex = 0

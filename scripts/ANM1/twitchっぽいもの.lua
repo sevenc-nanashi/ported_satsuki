@@ -17,6 +17,9 @@ local t = 25
 ---min=0
 ---max=100
 local h = 50
+
+--group:振動
+
 ---$tips:振動フィルタの周期を指定します。
 ---$track:振動周期
 ---min=0
@@ -54,6 +57,8 @@ local z = 50
 ---max=10
 ---step=0.1
 local haba = 3
+
+--group:色ずれ
 
 ---$tips:色ずれ幅の大きさを％で指定します。
 ---$track:色ずれ幅
