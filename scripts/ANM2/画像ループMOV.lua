@@ -51,7 +51,7 @@ local playback_speed = 100
 ---step=0.01
 local playback_position = 0
 
---group:
+--group
 --separator:ファイル
 ---$tips:動画ファイルを読み込みます。
 ---$file:動画
