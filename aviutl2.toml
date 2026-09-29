@@ -29,6 +29,18 @@ source = "./build/Default.ported_satsuki.aul2"
 destination = "Language/Default.ported_satsuki.aul2"
 build = "aulua language update"
 
+
+[artifacts.ported_satsuki_exploder_aux2]
+destination = "Plugin/ported_satsuki_exploder.aux2"
+
+[artifacts.ported_satsuki_exploder_aux2.profiles.debug]
+source = "./exploder/target/debug/ported_satsuki_exploder_aux2.dll"
+build = "cd ./exploder && cargo build"
+
+[artifacts.ported_satsuki_exploder_aux2.profiles.release]
+source = "./exploder/target/release/ported_satsuki_exploder_aux2.dll"
+build = "cd ./exploder && cargo build --release"
+
 [development]
 aviutl2_version = "latest"
 catalog_dependencies = [
