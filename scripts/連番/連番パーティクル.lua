@@ -13,21 +13,17 @@ local frequency = 10
 ---min=1
 ---max=10000
 local distance = 500
----$tips:パーティクルの出力される速度を指定します。
----$track:速度
----min=1
----max=2000
-local speed = 400
 ---$tips:パーティクルの出力される方向を指定します。下方向がゼロ度です。
 ---$track:方向
 ---min=-360
 ---max=360
 local direction = 0
----$tips:指定した角度の範囲でランダム方向に出力されます。360度で全方向です。
----$track:ランダム方向[度]
----min=0
----max=360
-local random_direction = 30
+
+---$tips:パーティクルの出力される速度を指定します。
+---$track:速度
+---min=1
+---max=2000
+local speed = 400
 
 ---$tips:透明になる速度を指定します。
 ---:透過速度=100で、ちょうどパーティクルの終点で透明度がゼロになるようにフェードします。
@@ -41,6 +37,25 @@ local alpha_speed = 100
 ---min=-400
 ---max=400
 local zoom_speed = 0
+
+---$tips:回転する速度を指定します。
+---:数値は、ひとつのパーティクルが発生してから消えるまで回転する角度を表します。
+---:例えば、回転速度=360とすると、発生してから消えるまでに1回転します。
+---$track:回転速度[度]
+---min=-3600
+---max=3600
+local random_rotation_speed = 0
+
+---$tips:チェックするとX軸方向、Y軸方向にも回転し、3D的に回転するようになります。
+---$check:XY回転あり
+local enable_xy_rotation = false
+
+--group:ランダム
+---$tips:指定した角度の範囲でランダム方向に出力されます。360度で全方向です。
+---$track:ランダム方向[度]
+---min=0
+---max=360
+local random_direction = 30
 
 ---$tips:パーティクルの出力される速度をランダムにします。
 ---:数値は、例えば、ランダム速度=80で設定すると、100-80=20%→20%〜100%の範囲でランダムとなります。
@@ -62,7 +77,6 @@ local random_zoom = 0
 ---max=360
 local random_rotation_z = 0
 
---trackgroup@random_x,random_y,random_z:軸ランダム
 ---$tips:各座標から一定の範囲からランダムに出力されるようになります。
 ---:例えば、X軸ランダム=800と設定すると、現在のX座標の位置から-400〜400の範囲からランダムに出力されます。
 ---$track:X軸ランダム
@@ -84,17 +98,7 @@ local random_y = 0
 ---max=1000
 local random_z = 0
 
----$tips:回転する速度を指定します。
----:数値は、ひとつのパーティクルが発生してから消えるまで回転する角度を表します。
----:例えば、回転速度=360とすると、発生してから消えるまでに1回転します。
----$track:回転速度[度]
----min=-3600
----max=3600
-local random_rotation_speed = 0
-
----$tips:チェックするとX軸方向、Y軸方向にも回転し、3D的に回転するようになります。
----$check:XY回転あり
-local enable_xy_rotation = false
+--trackgroup@random_x,random_y,random_z:軸ランダム
 
 ---$tips:Z軸方向にも、ランダムな方向・距離で移動するようになります。
 ---:数値は、ひとつのパーティクルが発生してから消えるまでに移動する距離の最大値です。

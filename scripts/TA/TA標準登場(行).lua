@@ -3,6 +3,7 @@
 ---:※このスクリプトは「文字毎に個別オブジェクト」にチェックは不要です。
 ---:なお、オブジェクトを横に切り取って個別に動かしているので、
 ---:縁取り等のフィルタを太めにかけた場合は、上下の行と隣接する部分が横に切り取られる可能性があります。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -24,6 +25,7 @@ local interval = 0.3
 ---step=1
 local line_count = 5
 
+--group:描画
 ---$tips:チェックすると登場時にフェードします。
 ---$check:フェード
 local fades = false
@@ -35,6 +37,7 @@ local fades = false
 ---step=0.1
 local zoom_rate = 0
 
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -58,6 +61,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--group:回転
 ---$tips:登場してくる回転角を指定します。
 ---$track:Z軸回転
 ---min=-720
@@ -65,6 +69,7 @@ local distance_z = 0
 ---step=0.1
 local rotation_z = 0
 
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1

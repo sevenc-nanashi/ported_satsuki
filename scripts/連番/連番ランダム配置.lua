@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\画像ファイル
 ---$script_tips:「ランダム配置」を連番画像で適用します。
+--group:配置
 ---$tips:配置する画像の数を指定します。
 ---$track:個数
 ---min=0
@@ -18,13 +19,7 @@ local spread = 100
 ---min=0
 ---max=1000
 local movement_speed = 0
----$tips:回転速度を設定すると、各画像がランダムな方向・速度で回転します。
----$track:回転速度
----min=0
----max=1000
-local rotation_speed = 0
 
---trackgroup@x_range,y_range,z_range:軸範囲
 ---$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
 ---:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
 ---$track:X軸範囲%
@@ -47,6 +42,15 @@ local y_range = 100
 ---step=1
 local z_range = 0
 
+--trackgroup@x_range,y_range,z_range:軸範囲
+
+--group:回転
+---$tips:回転速度を設定すると、各画像がランダムな方向・速度で回転します。
+---$track:回転速度
+---min=0
+---max=1000
+local rotation_speed = 0
+
 ---$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
 ---$check:X回転
 local enable_rotation_x = false
@@ -59,6 +63,7 @@ local enable_rotation_y = false
 ---$check:Z回転
 local enable_rotation_z = true
 
+--group:ランダム
 ---$tips:画像の拡大率をランダムにします。
 ---:数値は、最小の拡大率をマイナスで指定し、その範囲でランダムな拡大率になります。
 ---:例えば、拡大最小=80(-%)と設定すると100-80=20%→20%〜100%の間でランダムな拡大率となります。

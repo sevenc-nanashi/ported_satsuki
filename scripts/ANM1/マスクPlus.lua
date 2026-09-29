@@ -1,6 +1,7 @@
 ---$script_tips:画像にマスクの形で穴を空けます。
 ---:重ねがけすることで複数の穴を空けることができます。
 --label:${ROOT_CATEGORY}\クリッピング
+--group:位置
 ---$tips:マスクの中心座標を指定します。
 ---$track:X
 ---min=-4000
@@ -16,6 +17,7 @@ local center_y = 0
 
 --trackgroup@center_x,center_y:中心座標
 
+--group:形状
 ---$tips:マスクのサイズを指定します。
 ---$track:サイズ
 ---min=0
@@ -39,6 +41,7 @@ local mask_figure = "円"
 ---step=1
 local line_width = 4000
 
+--group:変形
 ---$tips:マスクの縦横比を、XY軸ごとのサイズ(%)で指定します。
 ---$track:Xスケール[%]
 ---min=-10000
@@ -53,6 +56,7 @@ local scale_x = 100
 ---step=0.001
 local scale_y = 100
 
+--group:境界
 ---$tips:マスク部分の透明度を指定します。
 ---$track:透明度[%]
 ---min=0

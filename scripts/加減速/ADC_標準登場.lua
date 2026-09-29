@@ -21,6 +21,7 @@ local easing_power = 2
 ---S字=2
 local mode = 0
 
+--group:移動
 ---$tips:登場してくる方向を指定します。
 ---$track:方向
 ---min=-360
@@ -33,6 +34,15 @@ local direction_angle = 0
 ---max=20000
 ---step=1
 local distance = 300
+
+---$tips:Z軸方向の登場してくる距離を指定します。
+---$track:Z軸
+---min=-20000
+---max=20000
+---step=1
+local z_distance = 0
+
+--group:描画
 ---$tips:登場してくる拡大率を指定します。
 ---$track:拡大率
 ---min=0
@@ -46,14 +56,7 @@ local zoom = 100
 ---step=1
 local aspect_ratio = 0
 
----$tips:Z軸方向の登場してくる距離を指定します。
----$track:Z軸
----min=-20000
----max=20000
----step=1
-local z_distance = 0
-
---trackgroup@rotation_x,rotation_y,rotation_z:回転
+--group:回転
 ---$tips:登場してくる各軸の回転角度を指定します。
 ---$track:X回転
 ---min=-720
@@ -74,6 +77,8 @@ local rotation_y = 0
 ---max=720
 ---step=1
 local rotation_z = 0
+
+--trackgroup@rotation_x,rotation_y,rotation_z:回転
 
 --共通部分
 local progress

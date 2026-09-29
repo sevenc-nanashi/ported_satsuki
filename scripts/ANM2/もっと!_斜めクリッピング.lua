@@ -1,5 +1,6 @@
 ---$script_tips:複数の斜めクリッピングを適用します。
 --label:${ROOT_CATEGORY}\クリッピング
+--group:クリッピング
 ---$tips:斜めクリッピングの数を指定します。
 ---$track:個数
 ---min=0
@@ -17,6 +18,7 @@ local width = 10
 ---min=-720
 ---max=720
 local angle = 0
+--group:中心
 ---$tips:斜めクリッピングの中心座標を指定します。
 ---$track:中心X
 ---min=-1000

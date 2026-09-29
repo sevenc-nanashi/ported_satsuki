@@ -40,7 +40,7 @@ local mask_figure = "円"
 ---$string:マスクシーン
 local mask_scene = ""
 
---group
+--group:
 
 --hide@mask_figure:mask_type~=0
 --hide@mask_scene:mask_type~=1

@@ -2,6 +2,7 @@
 ---:本家の「画像ループ」フィルタと異なり、画像間に隙間を空けること等ができます。
 ---:ただし、本家のように一定の速度でループ移動させることはできません。
 --label:${ROOT_CATEGORY}\配置
+--group:間隔
 ---$tips:各画像間の間隔を、XY方向にそれぞれ指定します。
 ---$track:X間隔
 ---min=-1000
@@ -21,8 +22,7 @@ local y_interval = 100
 ---step=1
 local z_interval = 300
 
---trackgroup@x_interval,y_interval,z_interval:間隔
-
+--group:個数
 ---$tips:各軸方向にループする回数を指定します。
 ---$track:X個数
 ---min=1
@@ -42,6 +42,7 @@ local y_count = 3
 ---step=1
 local z_count = 1
 
+--group:配置
 ---$tips:XY軸平面上で段違いにループします。
 ---$check:XY軸段違い
 local stagger_xy = false

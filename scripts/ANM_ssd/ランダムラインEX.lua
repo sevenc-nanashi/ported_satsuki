@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\画面効果
+--group:ライン
 ---$track:個数
 ---min=1
 ---max=100
@@ -9,16 +10,7 @@ local n = 3
 ---max=2000
 ---step=1
 local d = 6
----$track:しきい値
----min=0
----max=255
----step=1
-local sikii = 128
----$track:細かさ
----min=0
----max=50
----step=0.01
-local koma = 12
+
 ---$track:横サイズ
 ---min=0
 ---max=4000
@@ -37,12 +29,27 @@ local sh = 450
 ---step=1
 local habar = 0
 
+--group:ランダム
 ---$track:乱数
 ---min=0
 ---max=10000
 ---step=1
 local rns = 0
 
+--group:ノイズ
+---$track:しきい値
+---min=0
+---max=255
+---step=1
+local sikii = 128
+
+---$track:細かさ
+---min=0
+---max=50
+---step=0.01
+local koma = 12
+
+--group:色
 ---$color:色
 local col = 0xffffff
 

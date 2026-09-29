@@ -9,8 +9,8 @@ local easing_power = 2
 ---加速=1
 ---S字=2
 local mode = 0
----$check:非表示
-local hidden = false
+
+--group:対象
 
 ---$check:X軸
 local include_x = 1
@@ -23,6 +23,11 @@ local include_z = 1
 
 ---$check:拡大率
 local include_scale = 1
+
+--group:補助線
+
+---$check:非表示
+local hidden = false
 
 ---$color:色
 local color = 0xff0000

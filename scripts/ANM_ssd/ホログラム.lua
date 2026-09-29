@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト\模様
+--group:模様
 ---$track:サイズ
 ---min=10
 ---max=1000
@@ -18,6 +19,8 @@ local width = 800
 ---max=5000
 ---step=1
 local height = 450
+
+--group:色
 ---$select:タイプ
 ---赤緑=0
 ---単色=1

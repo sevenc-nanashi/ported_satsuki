@@ -2,6 +2,7 @@
 ---$script_tips:テキストを一文字ずつドラッグして配置します。
 ---:テキストオブジェクトの制御文字でも同様のことができますが、それを柔軟?にしたイメージ
 ---:図形などの適当なオブジェクトに、(A)→(B)の順に適用して下さい。
+--group:動き
 ---$tips:テキストを一文字毎に、ランダムにZ軸方向にずらします。
 ---$track:Zランダム
 ---min=0
@@ -19,14 +20,17 @@ local rotation_random = 0
 ---max=100
 local move_speed = 0
 
+--group:テキスト
 ---$tips:表示したいテキストを入力します。最大16文字程度まで。
 ---$string:テキスト
 local text = "さんぷる"
 
+--group:配置
 ---$tips:XY座標を数値で指定することも出来ます。通常は設定する必要はありません。
 ---$value:(XY座標)
 local positions = {}
 
+--group:サイズ
 ---$tips:テキストの基準となるサイズを指定します。
 ---$track:基準サイズ
 ---min=0
@@ -43,6 +47,7 @@ local s = base_size
 ---$value:サイズ(基準:s)
 local sizes = {}
 
+--group:フォント
 ---$tips:基準となるフォントを指定します。
 ---$font:基準フォント
 local base_font = "Yu Gothic UI"
@@ -54,6 +59,7 @@ local f = base_font
 ---$value:フォント(基準:f)
 local fonts = {}
 
+--group:色
 ---$tips:基準となるテキストの色を指定します。
 ---$color:基準色
 local base_color = 0xffffff
@@ -66,6 +72,7 @@ local c = base_color
 ---$value:色(基準:c)
 local colors = {}
 
+--group:個別調整
 ---$tips:任意の文字のZ座標を指定します。
 ---$value:Z座標
 local z_positions = {}

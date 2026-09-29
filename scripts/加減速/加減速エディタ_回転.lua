@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:回転
 ---$track:X回転
 ---min=-720
 ---max=720
@@ -19,6 +20,7 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--group:補間
 ---$track:頂点数
 ---min=1
 ---max=16

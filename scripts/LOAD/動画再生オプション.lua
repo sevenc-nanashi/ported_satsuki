@@ -24,6 +24,8 @@ local acceleration = 0
 ---max=5
 ---step=0.01
 local frame_drop_interval = 0.01
+
+--separator:ファイル
 ---$tips:動画ファイルを読み込みます。
 ---$file:ファイル
 local video_file = ""

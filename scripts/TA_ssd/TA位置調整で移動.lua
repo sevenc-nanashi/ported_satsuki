@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:一文字毎に文字の位置をドラッグして指定し、その位置から文字が移動します。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -31,6 +32,12 @@ local start_time = 0
 ---外側から=5
 local order_mode = 0
 
+---$tips:チェックすると、全体的に登場してくるようになります。
+---:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
+---$check:タイプ
+local overall_appearance = false
+
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
@@ -45,11 +52,7 @@ local easing_power = 2
 ---S字=2
 local easing_mode = 0
 
----$tips:チェックすると、全体的に登場してくるようになります。
----:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
----$check:タイプ
-local overall_appearance = false
-
+--group:位置
 ---$tips:ドラッグしたテキストの位置を、座標数値で指定することもできます。
 ---$value:座標
 local positions = {}

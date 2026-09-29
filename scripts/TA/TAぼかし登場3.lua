@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:テキストが、横方向から小さくなって登場してきます。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -12,12 +13,7 @@ local duration = 0.3
 ---max=5
 ---step=0.01
 local interval = 0.3
----$tips:ぼかしの強さ(範囲)を指定します。
----$track:範囲
----min=0
----max=300
----step=1
-local blur_range = 10
+
 ---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
@@ -27,6 +23,15 @@ local blur_range = 10
 ---内側から=4
 ---外側から=5
 local order = 0
+
+--group:描画・移動
+---$tips:ぼかしの強さ(範囲)を指定します。
+---$track:範囲
+---min=0
+---max=300
+---step=1
+local blur_range = 10
+
 ---$tips:チェックすると左方向から登場してくるようになります。
 ---$check:左から
 local from_left = false

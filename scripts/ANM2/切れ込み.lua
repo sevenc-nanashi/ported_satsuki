@@ -1,5 +1,6 @@
 ---$script_tips:図形の円に適用すると、切れ込みが入ったようにします。歯車のイメージ。
 --label:${ROOT_CATEGORY}\クリッピング
+--group:基本
 ---$tips:切れ込みの深さを指定します。
 ---$track:深さ
 ---min=1
@@ -16,6 +17,7 @@ local open_angle = 10
 ---step=1
 local num_notches = 8
 
+--group:新方式
 ---$check:新方式を使用
 local use_new = true
 

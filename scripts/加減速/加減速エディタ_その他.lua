@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:変化
 ---$track:拡大
 ---min=0
 ---max=800
@@ -17,6 +18,7 @@ local transparency = 0
 ---step=0.1
 local aspect_ratio = 0
 
+--group:補間
 ---$track:頂点数
 ---min=1
 ---max=16

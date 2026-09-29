@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\光効果
+--group:変化幅
 ---$track:横幅(小)
 ---min=0
 ---max=1000
@@ -15,6 +16,8 @@ local threshold_low = 50
 ---min=0
 ---max=100
 local threshold_high = 90
+
+--group:方向
 ---$check:全方向
 local dir2 = 1
 
@@ -24,6 +27,7 @@ local dir0 = 0
 ---$check:縦方向のみ
 local dir1 = 0
 
+--group:色ずれ
 ---$check:色種類ランダム
 local rty = 1
 
@@ -36,6 +40,7 @@ local rty = 1
 ---緑青B=5
 local ty = 0
 
+--group:方向ブラー
 ---$track:方向ブラー[%]
 ---min=0
 ---max=400

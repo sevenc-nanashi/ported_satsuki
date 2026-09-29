@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+--group:時間
 ---$track:時間[s]
 ---min=0
 ---max=5
@@ -26,9 +27,20 @@ local out_duration = 1
 ---外側から=5
 local order_mode = 2
 
+---$check:アウトは逆方向
+local reverses_out = true
+
+--group:描画
 ---$check:フェード
 local fades = true
 
+---$track:拡大
+---min=0
+---max=1000
+---step=0.1
+local zoom_rate = 100
+
+--group:移動
 ---$track:X距離
 ---min=-2000
 ---max=2000
@@ -49,12 +61,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
----$track:拡大
----min=0
----max=1000
----step=0.1
-local zoom_rate = 100
-
+--group:回転
 ---$track:X軸回転
 ---min=-720
 ---max=720
@@ -75,14 +82,12 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--separator:加減速
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
-
----$check:アウトは逆方向
-local reverses_out = true
 
 --インアウトがマイナスの時は最初or最後の中間点でフェードインアウト。数値の時は指定した秒数でフェードインアウト。ゼロのときはフェードインアウトなし。
 

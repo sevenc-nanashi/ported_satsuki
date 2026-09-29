@@ -1,6 +1,7 @@
 --label:${ROOT_CATEGORY}\図形\立体図形
 ---$script_tips:Aviutlで家が建ちます。
 ---:(カメラ制御下で使用して下さい。)
+--group:壁
 ---$tips:家の大きさを指定します。
 ---$track:サイズ
 ---min=0
@@ -19,19 +20,22 @@ local width_ratio = 20
 ---max=1000
 ---step=1
 local depth = 150
+
+---$tips:壁部分および屋根部分の色を指定します。
+---$color:壁色
+local wall_color = 0xffffff
+
+--group:屋根
+---$tips:壁部分および屋根部分の色を指定します。
+---$color:屋根色
+local roof_color = 0xff0000
+
 ---$tips:屋根部分の角度を指定します。
 ---$track:角度
 ---min=0
 ---max=180
 ---step=0.1
 local roof_angle = 90
----$tips:壁部分および屋根部分の色を指定します。
----$color:壁色
-local wall_color = 0xffffff
-
----$tips:壁部分および屋根部分の色を指定します。
----$color:屋根色
-local roof_color = 0xff0000
 
 ---$tips:屋根の正面部分のひさしの大きさを指定します。
 ---$track:ひさし1

@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+--group:範囲
 ---$track:範囲
 ---min=0
 ---max=4000
@@ -16,6 +17,8 @@ local track1 = 4000
 local track2 = 1
 ---$check:範囲表示
 local show_range = true
+
+--group:移動
 ---$select:自動移動
 ---なし=0
 ---離れる方向=1
@@ -36,16 +39,6 @@ local x = 0
 ---scale=0.02
 local y = 0
 
----$track:Z回転
----min=-3600
----max=3600
----step=0.01
----scale=0.1
-local rz = 0
-
----$check:自動時回転あり
-local jdk = 1
-
 ---$track:Z
 ---min=-100000
 ---max=100000
@@ -53,6 +46,9 @@ local jdk = 1
 ---scale=0.02
 local z = 0
 
+--trackgroup@x,y,z:座標
+
+--group:描画
 ---$track:拡大率
 ---min=0
 ---max=10000
@@ -66,6 +62,7 @@ local s = 50
 ---step=0.01
 local alp = 0
 
+--group:回転
 ---$track:X回転
 ---min=-3600
 ---max=3600
@@ -79,6 +76,18 @@ local rx = 0
 ---step=0.01
 ---scale=0.1
 local ry = 0
+
+---$track:Z回転
+---min=-3600
+---max=3600
+---step=0.01
+---scale=0.1
+local rz = 0
+
+--trackgroup@rx,ry,rz:回転
+
+---$check:自動時回転あり
+local jdk = 1
 
 --separator:加減速
 ---$select:モード

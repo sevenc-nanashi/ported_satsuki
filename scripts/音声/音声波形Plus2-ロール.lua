@@ -23,12 +23,6 @@ local n_divs_h = 15
 ---max=100
 ---step=1
 local n_divs_v = 25
----$tips:縦方向の隙間の大きさを指定します。
----$track:縦隙間(%)
----min=0
----max=100
----step=0.01
-local ch = 2
 
 ---$tips:横方向の隙間の大きさを指定します。
 ---$track:横隙間
@@ -36,6 +30,13 @@ local ch = 2
 ---max=1000
 ---step=1
 local cw = 2
+
+---$tips:縦方向の隙間の大きさを指定します。
+---$track:縦隙間(%)
+---min=0
+---max=100
+---step=0.01
+local ch = 2
 
 obj.effect()
 local hh = height / 100

@@ -1,5 +1,6 @@
 ---$script_tips:画像を横または縦にスライスして登場させます。
 --label:${ROOT_CATEGORY}\切り替え効果
+--group:時間
 ---$tips:登場する時間(秒)を指定します。マイナスの値で退場します。
 ---$track:時間[s]
 ---min=-5
@@ -12,6 +13,8 @@ local duration = 1
 ---max=5
 ---step=0.01
 local interval = 0.3
+
+--group:スライス
 ---$tips:スライスする分割数を指定します。
 ---$track:分割数
 ---min=1
@@ -37,6 +40,7 @@ local is_vertical_split = false
 ---$check:交互
 local is_alternating = false
 
+--group:動き
 ---$tips:減速して滑らかに登場(加速して滑らかに退場)させるようにします。
 ---:減速度=1のときは減速移動なしで、数値が大きいほど減速度合いが強くなります。
 ---$track:加減速

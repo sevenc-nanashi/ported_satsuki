@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:一文字毎に登場する順番を指定します。
+--group:時間・順番
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -13,13 +14,6 @@ local duration = 0.3
 ---max=5
 ---step=0.01
 local interval = 0.3
-
----$tips:登場する拡大率を指定します。
----$track:拡大率
----min=0
----max=1000
----step=0.1
-local zoom_rate = 100
 
 ---$tips:登場する順番を指定します。
 ---:数値は、最初の2ケタが0文字目の順番、次の2ケタが1文字目の順番…という形になります。
@@ -51,10 +45,19 @@ local order_10_19 = "10111213141516171819"
 ---$string:順番(20-29文字目)
 local order_20_29 = "20212223242526272829"
 
+--group:描画
+---$tips:登場する拡大率を指定します。
+---$track:拡大率
+---min=0
+---max=1000
+---step=0.1
+local zoom_rate = 100
+
 ---$tips:チェックすると登場時にフェードします。
 ---$check:フェード
 local fades = false
 
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -78,6 +81,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--group:回転
 ---$tips:登場してくる回転角を指定します。
 ---$track:X軸回転
 ---min=-720
@@ -101,6 +105,7 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1

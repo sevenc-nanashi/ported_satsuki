@@ -33,7 +33,7 @@ local nta = 0
 ---max=100
 local alpha_threshold = 50
 
---group
+--group:描画
 
 ---$tips:個別の図形等を回転させます。
 ---$track:回転

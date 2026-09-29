@@ -2,6 +2,7 @@
 ---:使用方法は「2次ベジェ曲線」と同様ですが、
 ---:こちらは制御点を2つ設定することができ、より複雑な曲線を描くことが出来ます。
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+--group:制御点
 ---$tips:始点の制御点と終点の制御点の座標を指定します。
 ---$track:始制X
 ---min=-500
@@ -35,6 +36,7 @@ local szb = 0
 --trackgroup@sxa,sya,sza:開始制御点
 --trackgroup@sxb,syb,szb:終了制御点
 
+--group:補助表示
 ---$tips:チェックすると補助線が表示されます。
 ---$check:補助線表示
 local se = 1

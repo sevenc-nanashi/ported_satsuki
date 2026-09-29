@@ -5,17 +5,17 @@
 ---step=0.1
 local x_zoom_rate = 100
 
----$track:中心X
----min=-1000
----max=1000
----step=0.1
-local center_x = 0
-
 ---$track:Y拡大率
 ---min=0
 ---max=1000
 ---step=0.1
 local y_zoom_rate = 100
+
+---$track:中心X
+---min=-1000
+---max=1000
+---step=0.1
+local center_x = 0
 
 ---$track:中心Y
 ---min=-1000

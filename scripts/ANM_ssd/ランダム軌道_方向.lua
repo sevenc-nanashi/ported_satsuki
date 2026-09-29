@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:軌道
 ---$track:振幅
 ---min=0
 ---max=500
@@ -17,6 +18,7 @@ local interval = 100
 ---step=1
 local count = 3
 
+--group:ランダム
 ---$track:ランダムサイズ[-%]
 ---min=0
 ---max=100
@@ -29,6 +31,7 @@ local random_zoom_reduction = 0
 ---step=0.1
 local random_alpha_reduction = 0
 
+--group:時間
 ---$track:差分
 ---min=-100
 ---max=100

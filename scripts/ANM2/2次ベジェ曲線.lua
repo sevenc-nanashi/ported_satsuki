@@ -4,6 +4,7 @@
 ---:　レイヤー上にフィルタ(水色のオブジェクト)を配置して使用して下さい。
 ---:　画像をの座標を移動させると、任意の区間(フィルタの範囲)の移動をベジェ曲線に沿った移動にします。
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+--group:制御点
 ---$tips:制御点の座標を指定します。
 ---:制御点の位置によって、ベジェ曲線の形が変わります。
 ---$track:制御X
@@ -23,6 +24,8 @@ local control_y = -100
 ---max=1000
 local control_z = 0
 --trackgroup@control_x,control_y,control_z:制御点
+
+--group:補助表示
 ---$tips:チェックすると補助線が表示されます。
 ---$check:補助線表示
 local hojo = 1

@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\パーティクル出力
 ---$script_tips:ランダムな色の図形をランダムに配置します。
+--group:配置
 ---$tips:配置する図形の数を指定します。
 ---$track:個数
 ---min=0
@@ -27,6 +28,8 @@ local width_y = 100
 ---max=5000
 ---step=1
 local width_z = 0
+
+--group:図形
 ---$tips:図形の種類を指定します。
 ---$figure:種類
 local figure_name = "円"
@@ -45,6 +48,7 @@ local figure_size = 100
 ---step=1
 local line_width = 4000
 
+--group:ランダム
 ---$tips:ランダムに回転する速さを指定します。
 ---$track:ランダムZ回転
 ---min=0

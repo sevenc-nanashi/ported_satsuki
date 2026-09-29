@@ -1,5 +1,21 @@
 ---$script_tips:画像が四角に分割されて登場(退場)します。
 --label:${ROOT_CATEGORY}\切り替え効果
+--group:基本
+---$tips:登場する時間(秒)を指定します。マイナスの値で退場します。
+---$track:時間[s]
+---min=-10
+---max=10
+---step=0.01
+local duration = 5
+
+---$tips:減速して滑らかに登場(加速して滑らかに退場)させるようにします。
+---:減速度=1のときは減速移動なしで、数値が大きいほど減速度合いが強くなります。
+---$track:加減速
+---min=1
+---max=5
+---step=1
+local easing_power = 2
+
 ---$tips:画像を分割する数を指定します。
 ---:値を大きくすると極端に重くなるため注意。
 ---$track:分割数
@@ -7,12 +23,8 @@
 ---max=500
 ---step=1
 local split_count = 5
----$tips:登場する時間(秒)を指定します。マイナスの値で退場します。
----$track:時間[s]
----min=-10
----max=10
----step=0.01
-local duration = 5
+
+--group:移動
 ---$tips:登場してくる方向を指定します。上方向がゼロ度。
 ---$track:方向
 ---min=-360
@@ -24,9 +36,6 @@ local direction = 0
 ---min=0
 ---max=360
 local spread = 0
----$tips:チェックするとフェードして登場します。
----$check:フェード
-local fade = false
 
 ---$tips:登場してくる距離を％で指定します。
 ---:画面サイズが基準となっています。
@@ -36,6 +45,18 @@ local fade = false
 ---step=0.1
 local distance = 100
 
+---$tips:Z軸方向から登場してくるように指定します。
+---$track:Z距離
+---min=-5000
+---max=5000
+---step=0.1
+local z_distance = 0
+
+--group:見た目
+---$tips:チェックするとフェードして登場します。
+---$check:フェード
+local fade = false
+
 ---$tips:登場してくる際の回転角度を指定します。
 ---:360度だと、1回転して渦を巻くようにして登場してきます。
 ---$track:渦角度[度]
@@ -44,27 +65,12 @@ local distance = 100
 ---step=0.1
 local swirl_angle = 0
 
----$tips:Z軸方向から登場してくるように指定します。
----$track:Z距離
----min=-5000
----max=5000
----step=0.1
-local z_distance = 0
-
 ---$tips:縦横比を変化した状態から登場してくるように指定します。誰得項目。
 ---$track:縦横比[%]
 ---min=-100
 ---max=100
 ---step=0.1
 local aspect = 0
-
----$tips:減速して滑らかに登場(加速して滑らかに退場)させるようにします。
----:減速度=1のときは減速移動なしで、数値が大きいほど減速度合いが強くなります。
----$track:加減速
----min=1
----max=5
----step=1
-local easing_power = 2
 
 obj.effect()
 local part_duration = duration / 2

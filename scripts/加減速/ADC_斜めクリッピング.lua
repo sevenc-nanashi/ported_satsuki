@@ -1,6 +1,5 @@
 --label:${ROOT_CATEGORY}\クリッピング
 ---$script_tips:「斜めクリッピング」フィルタを加減速移動します。
---trackgroup@base_center_x,base_center_y:中心座標1
 ---$tips:「斜めクリッピング」フィルタと同じ
 ---$track:中心X1
 ---min=-2000
@@ -13,6 +12,9 @@ local base_center_x = 0
 ---max=2000
 ---step=1
 local base_center_y = 0
+
+--trackgroup@base_center_x,base_center_y:中心座標1
+
 ---$tips:「斜めクリッピング」フィルタと同じ
 ---$track:角度1
 ---min=-720
@@ -52,7 +54,6 @@ local easing_power = 2
 ---S字=2
 local mode = 0
 
---trackgroup@center_x_delta,center_y_delta:中心座標2
 ---$tips:登場してくる中心座標を指定します。
 ---$track:中心X2
 ---min=-2000
@@ -65,6 +66,9 @@ local center_x_delta = 0
 ---max=2000
 ---step=1
 local center_y_delta = 0
+
+--trackgroup@center_x_delta,center_y_delta:中心座標2
+
 ---$tips:登場してくる角度を指定します。
 ---$track:角度2
 ---min=-720

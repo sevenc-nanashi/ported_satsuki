@@ -1,15 +1,10 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+--group:時間
 ---$track:間隔[s]
 ---min=-5
 ---max=5
 ---step=0.01
 local interval = 0.3
-
----$track:速度
----min=-1000
----max=1000
----step=0.1
-local rotation_speed = 270
 
 ---$track:待機[s]
 ---min=0
@@ -26,6 +21,13 @@ local wait_time = 0
 ---外側から=5
 local order_mode = 0
 
+--group:回転
+---$track:速度
+---min=-1000
+---max=1000
+---step=0.1
+local rotation_speed = 270
+
 ---$check:X軸回転
 local rotates_x = false
 
@@ -35,6 +37,7 @@ local rotates_y = false
 ---$check:Z軸回転
 local rotates_z = true
 
+--group:移動
 ---$track:移動距離
 ---min=0
 ---max=2000

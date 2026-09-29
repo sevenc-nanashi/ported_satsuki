@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
+--group:範囲
 ---$track:範囲中心X
 ---min=-2000
 ---max=2000
@@ -18,8 +19,16 @@ local area_y = 0
 ---step=0.1
 local range_size = 100
 
+---$track:幅
+---min=1
+---max=2000
+---step=0.1
+local width = 2000
+
 ---$check:範囲表示
 local shows_range = true
+
+--group:移動
 ---$select:自動移動
 ---なし=0
 ---離れる方向=1
@@ -38,12 +47,6 @@ local offset_x = 0
 ---step=0.1
 local offset_y = 0
 
----$track:Z回転
----min=-720
----max=720
----step=0.1
-local rotation_z = 0
-
 ---$track:Z移動
 ---min=-2000
 ---max=2000
@@ -52,6 +55,7 @@ local offset_z = 0
 
 --trackgroup@offset_x,offset_y,offset_z:移動
 
+--group:描画
 ---$track:拡大率
 ---min=0
 ---max=1000
@@ -64,6 +68,7 @@ local zoom_rate = 50
 ---step=0.1
 local alpha_rate = 0
 
+--group:回転
 ---$track:X回転
 ---min=-720
 ---max=720
@@ -76,19 +81,20 @@ local rotation_x = 0
 ---step=0.1
 local rotation_y = 0
 
+---$track:Z回転
+---min=-720
+---max=720
+---step=0.1
+local rotation_z = 0
+
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--separator:加減速
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
-
----$track:幅
----min=1
----max=2000
----step=0.1
-local width = 2000
 
 --hide@offset_x:auto_move_mode~=0
 --hide@offset_y:auto_move_mode~=0

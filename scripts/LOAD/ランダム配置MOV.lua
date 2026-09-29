@@ -7,6 +7,16 @@
 ---max=20
 ---step=1
 local n = 5
+
+---$tips:動画を配置する範囲を指定します。
+---:100%が画面サイズとなります。
+---$track:配置範囲
+---min=0
+---max=1000
+---step=1
+local placement_range = 100
+
+--separator:再生
 ---$tips:動画の再生速度を指定します。
 ---$track:再生速度
 ---min=0
@@ -19,13 +29,8 @@ local playback_speed = 100
 ---max=300
 ---step=0.01
 local playback_position = 0
----$tips:動画を配置する範囲を指定します。
----:100%が画面サイズとなります。
----$track:配置範囲
----min=0
----max=1000
----step=1
-local placement_range = 100
+
+--separator:ファイル
 ---$tips:動画ファイルを読み込みます。
 ---$file:動画ファイル
 local file = ""

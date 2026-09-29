@@ -1,5 +1,6 @@
 ---$script_tips:画像を「画像ループ2」のように配置し、それぞれの透明度をランダムに一定間隔で変化させます。
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:配置
 ---$tips:各軸方向の間隔を指定します。
 ---$track:X間隔
 ---min=-1000
@@ -13,8 +14,6 @@ local x_interval = 100
 ---max=1000
 ---step=0.1
 local y_interval = 100
-
---trackgroup@x_interval,y_interval:間隔
 
 ---$tips:各軸方向の画像の数を指定します。
 ---$track:X個数
@@ -30,6 +29,7 @@ local x_count = 5
 ---step=1
 local y_count = 3
 
+--group:透明度
 ---$tips:透明度を変化させる時間間隔を指定します。
 ---$track:間隔[s]
 ---min=0.01

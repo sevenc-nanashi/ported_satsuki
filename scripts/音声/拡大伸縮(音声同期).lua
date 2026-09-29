@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\変形
 ---$script_tips:音声に同期して拡大率や縦横比が変化します。
+--group:音声
 ---$tips:指定した音域の音量が、閾値を超えた時に拡大伸縮します。
 ---$track:閾値
 ---min=0
@@ -13,6 +14,15 @@ local siki = 1200
 ---max=50
 ---step=1
 local track1 = 1
+
+---$tips:音声データの分割数を指定します。
+---$track:分割数
+---min=1
+---max=50
+---step=1
+local div = 5
+
+--group:変形
 ---$tips:変化する拡大率を指定します。
 ---$track:拡大率
 ---min=100
@@ -36,13 +46,7 @@ local xs = 100
 ---max=1000
 local ys = 100
 
----$tips:音声データの分割数を指定します。
----$track:分割数
----min=1
----max=50
----step=1
-local div = 5
-
+--group:補助表示
 ---$tips:チェックすると、補助表示の音声波形が表示されます。
 ---:調整後は非表示にして使用して下さい。
 ---$check:補助線表示

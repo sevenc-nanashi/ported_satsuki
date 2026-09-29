@@ -1,6 +1,7 @@
 --label:${ROOT_CATEGORY}\図形\立体図形
 ---$script_tips:縁がついた立方体の図形を作ります。
 ---:カメラ制御下で使用して下さい。
+--group:図形
 ---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=1
@@ -13,6 +14,12 @@ local size = 100
 ---max=4000
 ---step=1
 local line_width = 10
+
+---$tips:縁部分または内側部分の色をしていします。
+---$color:縁色
+local edge_color = 0xffffff
+
+--group:内側
 ---$tips:内側部分の透明度を指定します。
 ---$track:透明度
 ---min=0
@@ -29,9 +36,6 @@ local use_blink = false
 ---max=5
 ---step=0.01
 local blink_interval = 1
----$tips:縁部分または内側部分の色をしていします。
----$color:縁色
-local edge_color = 0xffffff
 
 ---$tips:縁部分または内側部分の色をしていします。
 ---$color:内色

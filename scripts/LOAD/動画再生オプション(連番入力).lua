@@ -13,6 +13,12 @@ local file_count = 10
 ---max=8
 ---step=1
 local digit_count = 4
+
+---$tips:連番画像を読み込みます。
+---$file:ファイル
+local file = ""
+
+--separator:再生
 ---$tips:再生速度を指定します。
 ---$track:速度[%]
 ---min=0
@@ -24,9 +30,6 @@ local speed_percent = 100
 ---min=0
 ---max=100
 local acceleration = 0
----$tips:連番画像を読み込みます。
----$file:ファイル
-local file = ""
 
 local duration = file_count / obj.framerate
 local speed = speed_percent / 100 / obj.framerate

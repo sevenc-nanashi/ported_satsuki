@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\図形
+--group:光
 ---$track:分割数
 ---min=4
 ---max=50
@@ -12,20 +13,29 @@ local ratio = 50
 ---min=-720
 ---max=720
 local r = 0
+
+---$color:色1
+local col = 0xff0000
+
+--group:図形
+---$figure:図形
+local fig = "円"
+
 ---$track:サイズ
 ---min=0
 ---max=2000
 ---step=1
 local s = 200
----$color:色1
-local col = 0xff0000
 
----$color:色2
-local col2 = nil
+---$track:図形角度
+---min=-3600
+---max=3600
+---step=0.01
+---zero_label=
+---scale=0.05
+local figr = 0
 
----$figure:図形
-local fig = "円"
-
+--group:描画範囲
 ---$track:横サイズ
 ---min=0
 ---max=2000
@@ -38,14 +48,10 @@ local w = 800
 ---step=1
 local h = 450
 
----$track:図形角度
----min=-3600
----max=3600
----step=0.01
----zero_label=
----scale=0.05
-local figr = 0
+---$color:色2
+local col2 = nil
 
+--group:中心
 ---$track:中心X
 ---min=-4000
 ---max=4000

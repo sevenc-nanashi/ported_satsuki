@@ -2,6 +2,7 @@
 ---:縁取り等のフィルタ効果や「上のオブジェクトでクリッピング」が適用可能です。
 ---:※3D的に砕け散るように見えますが、平面上に描画されています。
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:時間
 ---$tips:時間経過を指定します。
 ---$track:経過時間
 ---min=0
@@ -9,6 +10,13 @@
 ---step=0.01
 local elapsed_time = 0
 
+---$track:再生速度
+---min=0
+---max=10
+---step=0.01
+local playback_speed = 1.0
+
+--group:中心
 ---$track:中心X
 ---min=-1000
 ---max=1000
@@ -29,12 +37,14 @@ local center_z = 0
 
 --trackgroup@center_x,center_y,center_z:中心
 
+--group:破片
 ---$track:破片サイズ
 ---min=10
 ---max=500
 ---step=0.1
 local fragment_size = 50
 
+--group:動き
 ---$track:速度
 ---min=0
 ---max=1000
@@ -59,6 +69,7 @@ local delay = 100
 ---step=0.1
 local distance_impact = 100
 
+--group:ランダム
 ---$track:ランダム回転
 ---min=0
 ---max=1000
@@ -71,12 +82,7 @@ local random_spin = 100
 ---step=0.1
 local random_direction = 100
 
----$track:再生速度
----min=0
----max=10
----step=0.01
-local playback_speed = 1.0
-
+--group:描画
 ---$tips:仮想バッファのサイズの範囲内で、画像が描画されます。
 ---:100%で画面サイズとなります。
 ---$track:仮想bufサイズ[%]

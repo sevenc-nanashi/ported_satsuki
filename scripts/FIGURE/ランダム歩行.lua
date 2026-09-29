@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\パーティクル出力
+--group:軌道
 ---$track:個数
 ---min=1
 ---max=50
@@ -9,16 +10,23 @@ local count = 5
 ---max=50
 ---step=0.1
 local speed = 5
----$track:残像[s]
----min=0.01
----max=10
----step=0.01
-local trail_time = 2
+
+---$check:初期位置ランダム
+local random_start = false
+
+---$track:平均数
+---min=0
+---max=20
+---step=1
+local average_count = 2
+
+--group:図形
 ---$track:サイズ
 ---min=0
 ---max=1000
 ---step=1
 local figure_size = 30
+
 ---$figure:図形
 local figure_name = "円"
 
@@ -28,6 +36,13 @@ local colorful = true
 ---$color:色
 local color = 0xffffff
 --hide@color:colorful==1
+
+--group:残像
+---$track:残像[s]
+---min=0.01
+---max=10
+---step=0.01
+local trail_time = 2
 
 ---$track:ランダムサイズ[-%]
 ---min=0
@@ -40,15 +55,6 @@ local shrink = false
 
 ---$check:フェードなし
 local no_fade = false
-
----$check:初期位置ランダム
-local random_start = false
-
----$track:平均数
----min=0
----max=20
----step=1
-local average_count = 2
 
 local trail_frames = trail_time * obj.framerate
 local last_index = count - 1

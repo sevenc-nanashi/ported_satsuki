@@ -7,6 +7,9 @@ local duration = 2
 ---min=0.1
 ---max=10
 local interval = 1
+
+--group:文字
+
 ---$track:サイズ
 ---min=0
 ---max=256

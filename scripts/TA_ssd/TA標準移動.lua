@@ -1,6 +1,7 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:一文字毎に文字が移動します。
 ---:TA標準登場と似ていて、登場前の文字も表示されます。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -32,6 +33,12 @@ local start_time = 0
 ---外側から=5
 local order_mode = 0
 
+---$tips:チェックすると、全体的に登場してくるようになります。
+---:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
+---$check:タイプ
+local overall_appearance = false
+
+--group:描画
 ---$tips:登場する拡大率を指定します。
 ---$track:拡大率
 ---min=0
@@ -39,6 +46,7 @@ local order_mode = 0
 ---step=0.1
 local zoom_rate = 100
 
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -62,6 +70,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--group:回転
 ---$tips:登場してくる回転角を指定します。
 ---$track:X軸回転
 ---min=-720
@@ -85,6 +94,7 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
@@ -98,11 +108,6 @@ local easing_power = 2
 ---加速=1
 ---S字=2
 local easing_mode = 0
-
----$tips:チェックすると、全体的に登場してくるようになります。
----:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
----$check:タイプ
-local overall_appearance = false
 
 local function get_random_order_index()
     local indexes = {}

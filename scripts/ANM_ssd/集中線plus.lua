@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\カスタムオブジェクト
+--group:集中線
 ---$track:線％
 ---min=0.1
 ---max=10
@@ -22,6 +23,7 @@ local rotation = 0
 ---$color:色
 local color = 0xffffff
 
+--group:描画範囲
 ---$track:横サイズ
 ---min=1
 ---max=4000
@@ -47,6 +49,7 @@ local center_y = 0
 
 --trackgroup@center_x,center_y:中心座標
 
+--group:ランダム
 ---$track:中心ランダム％
 ---min=0
 ---max=100

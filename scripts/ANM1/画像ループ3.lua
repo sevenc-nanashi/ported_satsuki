@@ -2,6 +2,7 @@
 ---:本家の「画像ループ」フィルタと異なり、トラックバーでスクロールを調整することが出来ます。
 ---:ただし、本家のように画像を複数描画することはできません。
 --label:${ROOT_CATEGORY}\配置
+--group:位置
 ---$tips:X,Y軸方向に、それぞれトラックバーでスクロールさせます。
 ---:直線移動させることで、スクロールをだんだん速くしたり、遅くすることが出来ます。
 ---$track:X軸[%]
@@ -19,6 +20,7 @@ local track1 = 0
 
 --trackgroup@track0,track1:軸
 
+--group:初速
 ---$tips:一定の速度で、X,Y軸方向にスクロールします。
 ---:数値は1秒間に進む距離です。
 ---$track:初速X
@@ -35,8 +37,7 @@ local vx = 0
 ---step=1
 local vy = 0
 
---trackgroup@vx,vy:初速
-
+--group:加速度
 ---$tips:加速度を設定することにより、加速又は減速することが出来ます。
 ---$track:加速度X
 ---min=-10000
@@ -50,8 +51,6 @@ local vxa = 0
 ---max=10000
 ---step=1
 local vya = 0
-
---trackgroup@vxa,vya:加速度
 
 obj.effect()
 

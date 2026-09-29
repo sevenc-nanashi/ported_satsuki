@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\図形
+--group:図形
 ---$track:ライン幅
 ---min=2
 ---max=100
@@ -25,6 +26,10 @@ local col = 0xffffff
 ---$value:座標
 local pos = { 0, -150, 130, 75, -130, 75 }
 
+---$check:簡易塗り潰し
+local fill = 0
+
+--group:繰り返し描画
 ---$track:繰り返し描画数
 ---min=1
 ---max=100
@@ -37,9 +42,7 @@ local r_num = 1
 ---step=1
 local r_frq = 1
 
----$check:簡易塗り潰し
-local fill = 0
-
+--group:震え
 ---$track:震える範囲
 ---min=0
 ---max=1000

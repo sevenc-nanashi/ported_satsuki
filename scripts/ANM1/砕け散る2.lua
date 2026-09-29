@@ -2,6 +2,7 @@
 ---:本家フィルタは砕け散る時間を設定しますが、
 ---:こちらはトラックバーの手動で砕け散る程度を設定します。
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:時間
 ---$tips:時間経過を指定します。
 ---:トラックバーを直線移動させることで、砕け散るアニメーションをすることができます。
 ---:手動で動かすので、途中で停止したり、逆再生することも調整しやすくなっています。
@@ -11,6 +12,13 @@
 ---step=0.01
 local elapsed_time = 0
 
+---$track:再生速度
+---min=0
+---max=10
+---step=0.01
+local playback_speed = 1.0
+
+--group:中心
 ---$track:中心X
 ---min=-1000
 ---max=1000
@@ -31,12 +39,14 @@ local center_z = 0
 
 --trackgroup@center_x,center_y,center_z:中心
 
+--group:破片
 ---$track:破片サイズ
 ---min=10
 ---max=500
 ---step=0.1
 local fragment_size = 50
 
+--group:動き
 ---$track:速度
 ---min=0
 ---max=1000
@@ -61,6 +71,7 @@ local delay = 100
 ---step=0.1
 local distance_impact = 100
 
+--group:ランダム
 ---$track:ランダム回転
 ---min=0
 ---max=1000
@@ -72,12 +83,6 @@ local random_spin = 100
 ---max=1000
 ---step=0.1
 local random_direction = 100
-
----$track:再生速度
----min=0
----max=10
----step=0.01
-local playback_speed = 1.0
 
 local px = {}
 local py = {}

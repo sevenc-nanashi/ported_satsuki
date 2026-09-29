@@ -1,6 +1,7 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:XYZ移動、拡大、XYZ回転して登場させます。
 ---:基本的な登場はこのスクリプトで可能となります。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -15,13 +16,6 @@ local duration = 0.3
 ---step=0.01
 local interval = 0.3
 
----$tips:登場する拡大率を指定します。
----$track:拡大率
----min=0
----max=1000
----step=0.1
-local zoom_rate = 100
-
 ---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
@@ -32,10 +26,24 @@ local zoom_rate = 100
 ---外側から=5
 local order_mode = 0
 
+---$tips:チェックすると、全体的に登場してくるようになります。
+---:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
+---$check:タイプ
+local uses_whole_timing = false
+
+--group:描画
+---$tips:登場する拡大率を指定します。
+---$track:拡大率
+---min=0
+---max=1000
+---step=0.1
+local zoom_rate = 100
+
 ---$tips:チェックすると登場時にフェードします。
 ---$check:フェード
 local fades = false
 
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -59,6 +67,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--group:回転
 ---$tips:登場してくる回転角を指定します。
 ---$track:X軸回転
 ---min=-720
@@ -82,17 +91,13 @@ local rotation_z = 0
 
 --trackgroup@rotation_x,rotation_y,rotation_z:回転
 
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
-
----$tips:チェックすると、全体的に登場してくるようになります。
----:「時間」と「間隔」の値をある程度大きくするとよいかもしれません。
----$check:タイプ
-local uses_whole_timing = false
 
 local function get_random_order_index()
     local indexes = {}

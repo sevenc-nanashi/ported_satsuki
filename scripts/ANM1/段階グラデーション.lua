@@ -7,6 +7,7 @@
 ---step=0.1
 local strength = 100
 
+--group:形状
 ---$tips:グラデーションの中心座標を指定します。
 ---$track:中心X
 ---min=-5000
@@ -20,6 +21,9 @@ local cx = 0
 ---max=5000
 ---step=0.1
 local cy = 0
+
+--trackgroup@cx,cy:中心
+
 ---$tips:グラデーション部分の幅を指定します。
 ---$track:幅
 ---min=0
@@ -32,14 +36,6 @@ local h = 200
 ---max=360
 local r = 0
 
----$tips:グラデーションにする任意の色2色を指定します。
----$color:開始色
-local col1 = 0xffff00
-
----$tips:グラデーションにする任意の色2色を指定します。
----$color:終了色
-local col2 = nil
-
 ---$tips:グラデーション部分を何段階にするか、分割数を指定します。
 ---$track:分割数
 ---min=1
@@ -47,7 +43,14 @@ local col2 = nil
 ---step=1
 local n_div = 4
 
---trackgroup@cx,cy:中心
+--group:色
+---$tips:グラデーションにする任意の色2色を指定します。
+---$color:開始色
+local col1 = 0xffff00
+
+---$tips:グラデーションにする任意の色2色を指定します。
+---$color:終了色
+local col2 = nil
 
 --[[pixelshader@quantized_gradation:
 ---$include "./shaders/quantized_gradation.hlsl"

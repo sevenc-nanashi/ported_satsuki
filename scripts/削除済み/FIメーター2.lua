@@ -11,6 +11,9 @@ local h = 10
 ---min=0
 ---max=1600
 local w = 400
+
+--group:縁
+
 ---$track:縁
 ---min=0
 ---max=20

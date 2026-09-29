@@ -1,5 +1,6 @@
 ---$script_tips:画像を「ランダム配置」のように配置し、それぞれの透明度をランダムに明滅させます。
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:配置
 ---$tips:配置する画像の数を指定します。
 ---$track:個数
 ---min=0
@@ -22,6 +23,42 @@ local range_rate = 100
 ---step=0.1
 local move_speed = 0
 
+---$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
+---:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
+---$track:X軸範囲[%]
+---min=0
+---max=1000
+---step=0.1
+local range_x = 100
+
+---$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
+---:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
+---$track:Y軸範囲[%]
+---min=0
+---max=1000
+---step=0.1
+local range_y = 100
+
+---$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
+---:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
+---$track:Z軸範囲[%]
+---min=0
+---max=1000
+---step=0.1
+local range_z = 0
+
+--trackgroup@range_x,range_y,range_z:範囲
+
+---$tips:画像の拡大率をランダムにします。
+---:数値は、最小の拡大率をマイナスで指定し、その範囲でランダムな拡大率になります。
+---:例えば、拡大最小=80(-%)と設定すると100-80=20%→20%〜100%の間でランダムな拡大率となります。
+---$track:拡大最小[-%]
+---min=0
+---max=100
+---step=0.1
+local min_zoom_reduction = 0
+
+--group:回転
 ---$tips:画像がランダムに回転する速度を指定します。
 ---$track:回転速度
 ---min=0
@@ -29,6 +66,19 @@ local move_speed = 0
 ---step=0.1
 local rotation_speed = 0
 
+---$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
+---$check:X回転
+local rotates_x = false
+
+---$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
+---$check:Y回転
+local rotates_y = false
+
+---$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
+---$check:Z回転
+local rotates_z = true
+
+--group:明滅
 ---$tips:明滅の間隔の最大値を設定します。
 ---:明滅最大〜明滅最小の範囲で、ランダムな間隔で明滅します。
 ---$track:明滅最大[秒]
@@ -59,53 +109,6 @@ local start_time = 3
 ---max=100
 ---step=0.1
 local threshold_rate = 0
-
----$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
----:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
----$track:X軸範囲[%]
----min=0
----max=1000
----step=0.1
-local range_x = 100
-
----$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
----:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
----$track:Y軸範囲[%]
----min=0
----max=1000
----step=0.1
-local range_y = 100
-
----$tips:X,Y,Z軸ごとに散らばる範囲の基準を指定します。
----:数値は％で画面サイズが基準となっています(100%=画面サイズ)。
----$track:Z軸範囲[%]
----min=0
----max=1000
----step=0.1
-local range_z = 0
-
---trackgroup@range_x,range_y,range_z:範囲
-
----$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
----$check:X回転
-local rotates_x = false
-
----$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
----$check:Y回転
-local rotates_y = false
-
----$tips:X,Y,Z軸ごとに、ランダムに回転させるか指定します。
----$check:Z回転
-local rotates_z = true
-
----$tips:画像の拡大率をランダムにします。
----:数値は、最小の拡大率をマイナスで指定し、その範囲でランダムな拡大率になります。
----:例えば、拡大最小=80(-%)と設定すると100-80=20%→20%〜100%の間でランダムな拡大率となります。
----$track:拡大最小[-%]
----min=0
----max=100
----step=0.1
-local min_zoom_reduction = 0
 
 obj.effect()
 local range_scale = range_rate / 100

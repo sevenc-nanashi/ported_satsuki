@@ -1,9 +1,16 @@
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:軌道
 ---$track:XY振幅
 ---min=0
 ---max=500
 ---step=0.1
 local amplitude_xy = 200
+
+---$track:Z軸振幅
+---min=0
+---max=500
+---step=0.1
+local amplitude_z = 0
 
 ---$track:間隔
 ---min=1
@@ -23,18 +30,13 @@ local count = 3
 ---step=0.1
 local range_rate = 100
 
----$track:Z軸振幅
----min=0
----max=500
----step=0.1
-local amplitude_z = 0
-
 ---$track:Z軸回転範囲
 ---min=0
 ---max=360
 ---step=0.1
 local rotation_z_range = 10
 
+--group:ランダム
 ---$track:ランダム角度
 ---min=0
 ---max=360
@@ -53,6 +55,7 @@ local random_zoom_reduction = 0
 ---step=0.1
 local random_alpha_reduction = 0
 
+--group:時間
 ---$track:差分
 ---min=-100
 ---max=100

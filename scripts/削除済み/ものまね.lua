@@ -8,6 +8,9 @@ local lay = 1
 ---min=-5000
 ---max=5000
 local delay_ms = 0
+
+--group:倍率
+
 ---$track:X倍率
 ---min=-1000
 ---max=1000

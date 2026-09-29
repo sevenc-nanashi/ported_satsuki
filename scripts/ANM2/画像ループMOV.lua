@@ -4,6 +4,7 @@
 ---:各動画はランダムな再生位置から再生が開始されます。
 ---:動画の最後になると、最初から再生をはじめループします。
 --label:${ROOT_CATEGORY}\動画ファイル
+--group:間隔
 ---$tips:各画像間の間隔を、XY方向にそれぞれ指定します。
 ---$track:X間隔
 ---min=-1000
@@ -17,8 +18,7 @@ local x_interval = 100
 ---step=1
 local y_interval = 100
 
---trackgroup@x_interval,y_interval:間隔
-
+--group:個数
 ---$tips:各軸方向にループする回数を指定します。
 ---$track:X個数
 ---min=1
@@ -32,10 +32,12 @@ local x_count = 3
 ---step=1
 local y_count = 3
 
+--group:配置
 ---$tips:XY軸平面上で段違いにループします。
 ---$check:XY軸段違い
 local stagger_xy = false
 
+--group:再生
 ---$tips:再生速度を指定します。
 ---$track:再生速度
 ---min=0
@@ -49,6 +51,8 @@ local playback_speed = 100
 ---step=0.01
 local playback_position = 0
 
+--group:
+--separator:ファイル
 ---$tips:動画ファイルを読み込みます。
 ---$file:動画
 local file = ""

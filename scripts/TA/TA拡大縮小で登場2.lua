@@ -1,6 +1,7 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:テキストが指定した回数だけ拡大→縮小して登場してきます。
 ---:ランダムな順で登場し、登場順の種類は変更できません。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-10
@@ -15,6 +16,7 @@ local duration = 2
 ---step=0.01
 local interval = 0.2
 
+--group:拡大縮小
 ---$tips:登場してくる拡大率を指定します。
 ---:数値は最も大きく拡大した時の拡大率です。
 ---$track:拡大率
@@ -30,6 +32,15 @@ local zoom_rate = 500
 ---step=1
 local count = 3
 
+---$tips:拡大縮小を重ねるごとに、拡大の幅が小さくなっていきますが、この減衰率を指定します。
+---:ゼロで減衰なしとなります。
+---$track:減衰
+---min=0
+---max=3
+---step=0.1
+local damping_power = 2
+
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -53,20 +64,13 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--separator:加減速
 ---$tips:登場の加減速度の程度を指定します。
 ---$track:加減速
 ---min=1
 ---max=5
 ---step=1
 local easing_power = 2
-
----$tips:拡大縮小を重ねるごとに、拡大の幅が小さくなっていきますが、この減衰率を指定します。
----:ゼロで減衰なしとなります。
----$track:減衰
----min=0
----max=3
----step=0.1
-local damping_power = 2
 
 local count_integer = math.floor(count)
 local zoom_scale = zoom_rate / 100 - 1

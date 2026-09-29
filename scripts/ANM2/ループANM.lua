@@ -1,6 +1,7 @@
 ---$script_tips:簡単なアニメーションをループします。
 ---:「アニメーション→待機」という動きを繰り返します。
 --label:${ROOT_CATEGORY}\配置
+--group:時間
 ---$tips:1回のループする時間を指定します。
 ---$track:ループ[s]
 ---min=0
@@ -27,6 +28,8 @@ local f = 0
 ---:「アニメーションの前半→待機→アニメーションの後半→待機」という動きを繰り返します。
 ---$check:待機2回
 local wait = 0
+
+--group:移動
 ---$tips:アニメーションする移動距離をX,Y,Z軸ごとに指定します。
 ---$track:X
 ---min=-1000
@@ -46,6 +49,7 @@ local y = 0
 local z = 0
 --trackgroup@x,y,z:移動
 
+--group:回転
 ---$tips:アニメーションする回転角度をX,Y,Z軸ごとに指定します。
 ---$track:X軸回転
 ---min=-3600
@@ -65,6 +69,8 @@ local ry = 0
 local rz = 0
 
 --trackgroup@rx,ry,rz:回転
+
+--group:変形
 ---$tips:アニメーションする拡大率を指定します。
 ---$track:拡大+%
 ---min=-100

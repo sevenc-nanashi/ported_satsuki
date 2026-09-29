@@ -7,7 +7,6 @@
 ---step=1
 local base_range = 0
 
---trackgroup@center_x,center_y:中心座標
 ---$tips:「放射ブラー」フィルタと同じ
 ---$track:X
 ---min=-2000
@@ -21,6 +20,8 @@ local center_x = 0
 ---max=2000
 ---step=1
 local center_y = 0
+
+--trackgroup@center_x,center_y:中心座標
 
 ---$tips:「放射ブラー」フィルタと同じ
 ---$check:サイズ固定

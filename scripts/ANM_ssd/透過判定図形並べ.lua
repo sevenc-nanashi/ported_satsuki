@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\配置
+--group:図形
 ---$track:サイズ
 ---min=5
 ---max=2000
@@ -28,6 +29,7 @@ local color = nil
 ---$check:反転
 local invert_alpha = false
 
+--group:配置
 ---$check:交互
 local alternate = true
 

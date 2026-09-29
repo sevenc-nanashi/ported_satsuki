@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\画面効果
 ---$script_tips:ランダムに一定間隔で図形が出現し、フェードアウトしていきます。
+--group:出現
 ---$tips:ひとつのオブジェクトが登場＆フェードしていく時間を指定します。
 ---$track:時間[s]
 ---min=0
@@ -12,6 +13,8 @@ local duration = 2
 ---max=10
 ---step=0.01
 local interval = 1
+
+--group:図形
 ---$tips:図形のサイズを指定します。
 ---$track:サイズ
 ---min=0
@@ -41,6 +44,7 @@ local color = 0xffffff
 ---$check:ランダム角度
 local rrz = 1
 
+--group:配置
 ---$tips:図形が表示される範囲を指定します。
 ---:100%が画面サイズとなります。
 ---$track:仮想bufサイズ[%]

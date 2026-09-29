@@ -1,4 +1,5 @@
 --label:${ROOT_CATEGORY}\アニメーション効果
+--group:座標
 ---$track:X
 ---min=-5000
 ---max=5000
@@ -19,6 +20,7 @@ local z = 0
 
 --trackgroup@x,y,z:座標
 
+--group:補間
 ---$track:頂点数
 ---min=1
 ---max=16

@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:テキストが縮小→拡大して登場してきます。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -14,13 +15,6 @@ local duration = 0.3
 ---step=0.01
 local interval = 0.3
 
----$tips:登場してくる拡大率を指定します。
----$track:拡大率
----min=0
----max=1000
----step=0.1
-local zoom_rate = 300
-
 ---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
@@ -31,10 +25,19 @@ local zoom_rate = 300
 ---外側から=5
 local order_mode = 0
 
+--group:描画
+---$tips:登場してくる拡大率を指定します。
+---$track:拡大率
+---min=0
+---max=1000
+---step=0.1
+local zoom_rate = 300
+
 ---$tips:チェックすると登場時にフェードします。
 ---$check:フェード
 local fades = false
 
+--group:移動
 ---$tips:登場してくる距離をXYZ軸ごとに指定します。
 ---$track:X距離
 ---min=-2000
@@ -58,6 +61,7 @@ local distance_z = 0
 
 --trackgroup@distance_x,distance_y,distance_z:距離
 
+--group:回転
 ---$tips:登場してくる回転角を指定します。
 ---$track:X軸回転
 ---min=-720

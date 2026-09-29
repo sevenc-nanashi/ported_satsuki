@@ -1,5 +1,6 @@
 --label:${ROOT_CATEGORY}\切り替え効果\@TA
 ---$script_tips:テキストが上下または左右分裂して登場してきます。
+--group:時間
 ---$tips:登場時間を指定します。マイナスで退場します。
 ---$track:時間[s]
 ---min=-5
@@ -14,13 +15,6 @@ local duration = 0.3
 ---step=0.01
 local interval = 0.3
 
----$tips:ぼかしの強さ(範囲)を指定します。
----$track:ぼかし
----min=0
----max=200
----step=0.1
-local blur = 20
-
 ---$tips:登場する順番を指定します。
 ---$select:登場順
 ---順番=0
@@ -30,6 +24,14 @@ local blur = 20
 ---内側から=4
 ---外側から=5
 local order_mode = 0
+
+--group:描画
+---$tips:ぼかしの強さ(範囲)を指定します。
+---$track:ぼかし
+---min=0
+---max=200
+---step=0.1
+local blur = 20
 
 ---$tips:チェックすると横方向からの登場になります。
 ---$check:横方向

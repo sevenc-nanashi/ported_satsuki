@@ -12,16 +12,18 @@ local amplitude = 100
 ---min=0
 ---max=180
 local angle = 120
----$tips:画像全体を上下に動かします。その移動距離を指定。
----$track:上下
----min=0
----max=200
-local vertical_amplitude = 30
 ---$tips:トラックバーで手動で羽ばたきを動かします。
 ---$track:羽(手動)
 ---min=-720
 ---max=720
 local phase_shift = 0
+
+--separator:移動
+---$tips:画像全体を上下に動かします。その移動距離を指定。
+---$track:上下
+---min=0
+---max=200
+local vertical_amplitude = 30
 obj.effect()
 local r = math.sin(math.pi * 2 * obj.time * amplitude / 100)
 local f = (angle * r + phase_shift) * math.pi / 180
